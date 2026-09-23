@@ -4,6 +4,7 @@ import { loadCatalog } from './catalog/load.ts';
 import { select } from './domain/select.ts';
 import { createRecommend } from './recommend/recommend.ts';
 import { createSelectEvidence, assertActive } from './ai/evidence/select.ts';
+import type { EvidenceTransport } from './ai/evidence/select.ts';
 import type { SelectEvidence } from './recommend/ports.ts';
 import type { Services } from './http/handlers.ts';
 import type { LoadCatalog } from './domain/types.ts';
@@ -16,11 +17,12 @@ export function createServices(path: string, load: LoadCatalog = loadCatalog, ev
     return { catalog, recommend: createRecommend(catalog.snapshot, select, await evidenceFactory()) };
   })();
 }
-async function configuredEvidence(): Promise<SelectEvidence> {
+// Internal factory seam keeps configuration checks isolated from real credentials.
+export async function configuredEvidence(createAdapter?: () => EvidenceTransport): Promise<SelectEvidence> {
   // Load the unchanged server transport at runtime so its .env URL is never a bundled asset.
   const moduleUrl = pathToFileURL(resolve(process.cwd(), 'back/ai/openai.mjs')).href;
   const { createOpenAIFromEnv } = await import(/* webpackIgnore: true */ moduleUrl);
-  try { return createSelectEvidence(createOpenAIFromEnv()); }
+  try { return createSelectEvidence((createAdapter ?? createOpenAIFromEnv)()); }
   catch (error) {
     if (!['CONFIG_REQUIRED', 'CONFIG_FILE_UNREADABLE'].includes((error as { code?: string }).code ?? '')) throw error;
     return async (_request, _profiles, signal) => { assertActive(signal); return { status: 'unavailable', reason: 'configuration' }; };
