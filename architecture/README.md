@@ -29,3 +29,5 @@ NVIDIA is an available contingency, not a second provider called on every reques
 - This update changes architecture documents and records the approved discussion outcome. It neither implements the application nor commits, publishes, changes the dataset, or inspects credentials.
 
 - P00 implementation and frozen contract decisions: [foundation-and-contracts](../openspec/changes/archive/2026-09-23-foundation-and-contracts/design.md). This is the fresh change requested for the approved P00 basis; downstream application work remains planned.
+
+- P02 catalogue acceptance and shared date-helper ownership: [catalog-module](../openspec/changes/archive/2026-09-23-catalog-module/design.md).
