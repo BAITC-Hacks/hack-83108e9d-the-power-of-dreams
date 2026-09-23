@@ -14,8 +14,8 @@ Checkboxes mean final integration/publication, not local implementation.
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implementing | Baseline 3/3; /root/domain_apply at 9421e6d | focused missing checks | none | apply worker |
-| 1.2 | planned | existing 21-check suite | registration/review/combined run | depends 1.1 | coordinator/review |
+| 1.1 | branch-pushed | Worker 1deb854f13aaff67435048f0625966228048a71c; focused 4/4; no production changes | main integration | P02 reservation | coordinator |
+| 1.2 | implemented | Candidate b0bf2c925da461f3a2168044c3730d5a2374a33e; npm test 25/25; baseline typecheck passed | read-only review/main integration | P02 reservation | /root/domain_review and coordinator |
 | 2.1 | planned | main starts f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 | clean candidate acceptance/publication | depends 1.2 and shared reservation | coordinator |
 | 2.2 | planned | new additive domain spec | sync/archive/validation/publication | depends 2.1 | coordinator |
 
@@ -48,3 +48,9 @@ P05 retains four real-date expectations, availability/displacement comparison, r
 Planning revision: 9421e6dc31377b3c4085a15302d5d44a3ac4dda2. Worker `/root/domain_apply` dispatched in role apply to the separate p03-domain-checks worktree/branch above at exactly this base. Actual harness hashes matched parent for AGENTS, config, apply/review roles, apply skill and OpenSpec config; worker status clean. All required skill files are committed. This verifies supplied inputs, not OS isolation.
 
 Coordinator installed pinned dependencies with `npm ci --no-audit --no-fund` successfully. Before dispatch, `node --test --test-name-pattern="optional eligibility|real catalogue -> HTTP|real no-match" scripts/slice/contracts.test.mjs` passed 3/3 at unchanged P01 executable content. This freshly establishes dense real CSV-to-HTTP, no-match/absent and optional/first-failure boundary behavior. No provider calls. Existing Node module-type and ESLint deprecation warnings did not fail execution.
+
+### Apply evidence
+
+Worker `/root/domain_apply` added only `back/domain/select.test.mjs` (106 lines). `node --test back/domain/select.test.mjs` passed 4/4 on committed 1deb854f13aaff67435048f0625966228048a71c; explicit feature push and remote SHA confirmed, worker clean. No selector repair was demonstrated or made. S1 exact/multi-category scope, S3 full sorted busy set including venue/overlap, S4 zero/short/limited results with ordinal reordered ties, and S5 deep input preservation/intervening calls are supported. S2 uses existing slice evidence. Inspection confirms selection never reads names/descriptions/quality flags and imports only the Select type.
+
+Coordinator integrated worker SHA into b0bf2c925da461f3a2168044c3730d5a2374a33e and registered the focused suite. `npm test` passed 25/25, zero skips. Read-only reviewer `/root/domain_review` assigned that frozen candidate for S1-S5 only; no main/publication authority. Clean combined main acceptance remains pending. P02 owner was notified of serialized integration and preservation of its package additions.
