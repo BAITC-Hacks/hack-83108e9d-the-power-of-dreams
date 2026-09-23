@@ -157,7 +157,9 @@ MCP checks were run with separate clients. They confirm that the servers work, b
 
 Sources: [OpenSpec](https://github.com/Fission-AI/OpenSpec), [Context7](https://github.com/upstash/context7), [CodeGraph](https://github.com/colbymchenry/codegraph), [Codex MCP](https://developers.openai.com/codex/mcp).
 
-## Brev GPU access verified 2026-09-23
+## Historical Brev GPU access verification — 2026-09-23
+
+This separate infrastructure experiment is outside the current application scope. Its credentials are no longer included in the application environment template. The observations below describe the earlier check, not current VM status or a required setup step.
 
 Installed local WSL Ubuntu 22.04.5 and official Brev CLI v0.6.335. The portal's
 `login --api-key` syntax is not advertised by this binary; BREV_API_KEY environment
@@ -173,11 +175,11 @@ reported no broken requirements. No model/inference endpoint has been deployed.
 
 The six disposable-copy checks covered CLI usage, missing credentials, live status,
 GPU identification, real CUDA computation, and propagation of a remote exit code.
-They passed with no secret in output. Repeatable commands are in README; detailed
-evidence and remaining product work are in
+They passed with no secret in output. Historical commands and detailed
+evidence are in
 [the task card](../openspec/changes/brev-gpu-access/tasks.md).
 The clean committed checkout and Linux-native route were not tested. No Git
-publication was performed. Existing VM remains running; no extra VM or public
+publication was performed. At that check the existing VM remained running; no extra VM or public
 endpoint was created. Jupyter browser automation reached login but was not needed
 after CLI access succeeded.
 
@@ -219,3 +221,9 @@ OpenSpec strict validation and doctor passed in the P00 workspace. Node reports 
 non-failing module-type inference warning for the typed fixtures. No product
 build, launch or live provider check is claimed. Exact clean-candidate and
 publication evidence belongs in the [P00 task card](../openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md).
+
+## Application environment cleanup — 2026-09-23
+
+At the user's request, the application template and setup documentation now contain only OpenAI settings and the optional Compose host port. Removed obsolete NVIDIA, database and Brev credentials from the local environment without displaying values. The former GPU experiment is historical; no remote infrastructure was changed. The NVIDIA proposal is withdrawn.
+
+Verification: inspection of server configuration and Compose found no application consumer of the removed settings; all four existing secret-loader/organizer-workflow tests passed after the CLI help text was updated. Historical OpenSpec and brainstorming records retain the original scope and evidence; they do not add current setup requirements. No application behavior changed, so build, browser and live-provider checks were not repeated.

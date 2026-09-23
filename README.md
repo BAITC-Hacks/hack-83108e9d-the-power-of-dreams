@@ -423,12 +423,8 @@ This creates one root `.env` from [.env.example](.env.example). An existing
 | --- | --- | --- |
 | `OPENAI_API_KEY` | OpenAI API credential | A server operation uses OpenAI |
 | `OPENAI_MODEL` | Optional model override; blank uses `gpt-4.1-mini-2025-04-14` | Only to override the default OpenAI model |
-| `NVIDIA_API_KEY` | Reserved NVIDIA API credential | Not used by the current application |
-| `BREV_API_KEY` | Brev organization credential | Only for the optional Brev operator scripts |
-| `DATABASE_URL` | Reserved database connection URI | Not used by the current application |
+| `APP_PORT` | Docker Compose host port; blank uses `3101` | Only to override the Compose port; ignored by `npm start` |
 
-The selected contractor-selection MVP does not use a database. The reserved
-`DATABASE_URL` setting is only for a future explicitly scoped integration.
 Quote values containing `#` or
 whitespace. Values are literal; references such as `${OTHER_VARIABLE}` are
 not expanded. Add future secrets to the same file and document their empty
@@ -533,64 +529,3 @@ does not guarantee cancellation of provider billing. Never import this Node-only
 module into browser components. This verifies transport access; application
 routes, contractor selection and UI integration are recorded separately in the P01 task card.
 See [adapter requirements and evidence](openspec/changes/openai-response-adapter/tasks.md).
-
-## Optional operator tooling: Brev GPU access
-
-This section is not part of application installation or launch. WSL, Brev and
-the GPU packages below are needed only when operating this separate environment.
-
-The existing `dreams-gpu` environment is infrastructure for a future specialized
-GPU workload. These commands verify access and CUDA computation; they do not
-provide a product inference API or an OpenAI adapter.
-
-On Windows, install Ubuntu if absent:
-
-```powershell
-wsl --install -d Ubuntu-22.04 --no-launch
-```
-
-Install the official Brev CLI in that distribution (observed version v0.6.335):
-
-```powershell
-wsl -d Ubuntu-22.04 -u root -- bash -lc 'curl -fsSL https://raw.githubusercontent.com/brevdev/brev-cli/main/bin/install-latest.sh -o /tmp/brev-install.sh && BREV_INSTALL_DIR=/usr/local/bin bash /tmp/brev-install.sh'
-```
-
-Create the local `.env` with the secrets setup command above and privately add
-`BREV_API_KEY`. This is a Brev organization key, distinct from NVIDIA hosted-model
-and NGC credentials. The operator wrapper passes it via process environment;
-it does not require putting the key in command history. In this Windows setup,
-Brev configuration belongs to root inside Ubuntu-22.04. On Linux, install Brev
-for the current user; the wrapper invokes it directly (Linux route not verified).
-
-From the repository root:
-
-```powershell
-node scripts/brev/run.mjs status
-node scripts/brev/run.mjs refresh
-node scripts/brev/run.mjs gpu
-node scripts/brev/run.mjs setup
-node scripts/brev/run.mjs smoke
-```
-
-Expected: the environment is `RUNNING`/`HEALTHY`, the GPU command reports L40S,
-and smoke returns JSON with `status: passed`, `mode: live`, and `result_value: 256`.
-Setup explicitly installs PyTorch 2.13.0 with CUDA 12.6 and NumPy 2.2.6 in
-`/data/dreams-gpu/.venv`; it records resolved packages in
-`/data/dreams-gpu/installed-requirements.txt`. It requires an Ubuntu GPU VM,
-noninteractive sudo and an existing `/data` disk. The VM was configured in the
-recorded verification; its current availability must be checked before use.
-Both SSH and outbound access to official package sources must be available.
-
-Use another existing environment with `--instance NAME` before the operation.
-Trusted operator commands can be run with
-`node scripts/brev/run.mjs exec "python3 --version"`.
-The wrapper exits nonzero on failures and times out after 120 seconds (setup:
-600 seconds); timeout does not guarantee cancellation on the remote machine.
-Never expose this operator command through the application or run commands that
-print credentials. First-time SSH access can require `brev login` if the account
-does not support the API-key/certificate flow verified here.
-
-The selected portal rate was $1.77/hour: $1.74 compute plus $0.03 storage.
-Use Stop in the Brev portal after use; storage continues billing while stopped.
-No instance is created, stopped, deleted, or publicly exposed by these scripts.
-See [verification and outstanding product work](openspec/changes/brev-gpu-access/tasks.md).
