@@ -46,7 +46,7 @@ npm test
 ```
 
 Expected: shared types and labelled synthetic examples compile; fixture,
-secrets/transport, P01 slice and P02 catalogue acceptance checks pass.
+secrets/transport, P01 slice, P02 catalogue and P04 evidence-boundary checks pass.
 The P02 checks cover complete CSV decoding, safe failure, global options,
 immutable snapshots and exact source identity. See the [catalogue task card](openspec/changes/archive/2026-09-23-catalog-module/tasks.md).
 No `.env`, provider account, browser installation or billable calls are needed
@@ -98,9 +98,11 @@ requires manual source/relevance/distinctiveness review. A fallback is not a liv
 quality pass. Domain checks, browser evidence and delivery status are recorded in
 [the P01 task card](openspec/changes/archive/2026-09-23-first-working-slice/tasks.md).
 
+P04 verifies the evidence adapter's selected-only data boundary and the rare
+florist live sample; see [P04 evidence](openspec/changes/archive/2026-09-23-validated-ai-evidence/tasks.md).
 Scope limits: no language/duration controls, date-change comparison narrative,
-booking, persistence or AI quality ranking. Rare/final live samples and the final
-three-request timing series belong to later stages. This is not a final submission
+booking, persistence or AI quality ranking. Final rendered-text acceptance and
+the three-request timing series remain P07 work. This is not a final submission
 readiness claim.
 
 P03's focused selection checks run as part of `npm test`, or separately with
