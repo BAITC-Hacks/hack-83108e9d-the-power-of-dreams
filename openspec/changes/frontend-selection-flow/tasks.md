@@ -14,14 +14,14 @@ Checkboxes measure integrated and published feature delivery, not implementation
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | planned | Approved outcome; base d2b61e2 | Implementation and browser | None | apply worker |
-| 1.2 | planned | Pinned contract verified | Comparison and result checks | None | apply worker |
-| 2.1 | planned | Existing dependencies installed | Browser/live/combined/review | None | coordinator + review |
+| 1.1 | branch-pushed | 47104a35c54096412d712664948361a19274166f; real/control browser pass | Frozen review and integration | None | coordinator |
+| 1.2 | branch-pushed | 47104a35c54096412d712664948361a19274166f; real dates + focused tests pass | Frozen review and integration | None | coordinator |
+| 2.1 | implemented | 48 tests/typecheck; real live/fallback/503; controlled races; mobile/desktop | Frozen review | None | coordinator + review |
 | 2.2 | planned | main equals base after fetch | Clean candidate/publication/archive | No shared reservation yet | coordinator |
 
 ## Assignment and readiness
 
-Task: frontend-selection-flow 1.1/1.2; implement the approved screen. Coordinator owner is current task 01a0cdfa-b577-7d53-ac21-4b039f3b2cfa. Apply worker ID will be recorded after dispatch. Design advice completed by /root/acceptance_scope (read-only; no edits/calls).
+Task: frontend-selection-flow 1.1/1.2; implement the approved screen. Coordinator owner is current task 01a0cdfa-b577-7d53-ac21-4b039f3b2cfa. Apply worker is /root/frontend_apply. Dispatch base is 180331552006007baabe8fc966791f65f80aea9b. Design advice completed by /root/acceptance_scope (read-only; no edits/calls).
 
 Scope: D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-06; branch codex/cs-06-front; original base d2b61e2abf07241318c6e1a1c93438de4496cfae; origin https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git; target main. Worker owns front/** only, including focused pure checks. Coordinator owns scripts/frontend/**, package registration, src/app wiring if needed, README/architecture/OpenSpec and Git integration. One frontend writer; preserve disjoint coordinator edits, never stage them.
 
@@ -45,3 +45,19 @@ Dependencies/checkpoint: OpenSpec required artifacts must be ready and validated
 ## Evidence
 
 2026-09-23: npm ci completed (497 packages, zero reported vulnerabilities; nonfatal Windows optional cleanup warning). Node v24.4.1. Canonical six-file package identity and backend/package ancestry verified; origin/main equals d2b61e2. Context7 official React /reactjs/react.dev documents controlled value updates and cleanup stale-response guards; no new fetching dependency adopted. Design-role advice: existing production runner provides safe isolated missing-CSV setup; use small test-only deferred fetch for races, pure comparison checks, and real browser scenarios.
+
+Baseline before dispatch: headless system Edge through installed Playwright, real browser http://127.0.0.1:3106 -> POST actual same-origin backend, explicit empty OPENAI_API_KEY. Observed catalog_fallback, eligibleCount 5, ordered HK-88430/HK-29829/HK-27222 and three rendered cards. Strict OpenSpec validation passed and apply reported ready 0/4 delivery tasks. Next dev generated an AGENTS appendix; its source was inspected, relevant local Next.js client/CSS guides read, and only that generated appendix removed to restore the exact committed harness before dispatch.
+
+### Accepted frontend evidence (47104a35c54096412d712664948361a19274166f)
+
+- Apply worker committed/pushed only front/**; remote head matched. Four focused Node tests and typecheck passed. One concrete defect found in browser: number input sanitized non-finite 1e309 to optional omission. Repaired by preserving raw duration text with decimal input mode, including comma decimal support; affected case rerun passed.
+- `node scripts/frontend/browser.mjs`: actual same-origin real catalogue fallback passes dense eligible count/IDs and omitted optionals; valid language/2.5h round-trip; zero/negative/non-finite duration, fractional budget and dynamic date validation; hidden duration reveal/focus; reset/city focus; explicit editing/no request and equivalent-draft notice removal; real rare/no_match/category_absent; both real date transitions; actual backend 400 through test-altered request with retained result and date focus. Public response evidence in ignored test-results/p06/browser.json. Rendered 375px and 1280px screenshots inspected: readable prices/explanations, correct column/stack layout, no horizontal overflow.
+- `node scripts/frontend/races.mjs`: controlled deferred public responses deliberately ignore abort. Duplicate blocking, supersession/aborted signal, old success/finalizer while newer pending, stale rejection after newer success, editable pending/stable focus, reset/late success, malformed/null/card shapes and 500 retained success/support ID, error→date retry baseline, controlled mixed/quality flags, options failure/keyboard retry and changed options/default bounds pass. Dev StrictMode made a one-shot options stub inadequate; harness corrected to persist until explicit retry, without product changes. Evidence test-results/p06/controlled.json.
+- `node scripts/frontend/unmount.mjs`: temporary development-only route mounted the actual screen then explicitly unmounted it during deferred fetch; signal aborted, late success did not remount. Route removed in finally and absent from production source/build. No persistent demo route or generic mocking infrastructure added.
+- Combined local `npm run typecheck` and `npm test`: 48 passed, zero failed/skipped. Production build produced BUILD_ID and served successful production checks below; full clean build exit will be recorded on integration candidate.
+- `node scripts/frontend/services.mjs`: production isolated copied runtime, real initial success then restart on same port with missing CSV, without reloading tab. Actual 503 CATALOG_UNAVAILABLE preserved three cards and October 10 conditions; support request ID visible. Reload showed real options error/retry. No canonical CSV mutation. Evidence test-results/p06-service-fWxOCV/evidence.json.
+- `P06_ENV_FILE=<primary private .env> node scripts/frontend/services.mjs --live`: one real production browser submission, actual openai_evidence and pinned IDs; every displayed explanation equals server response. Credential read only via existing server loader and passed privately in process environment. Evidence test-results/p06-live-X8oupQ/evidence.json and live.png. This proves P06 live UI connection/mode, not P07 final comparative quality or three-sample timing.
+
+### Review assignment
+
+Read-only review role receives fixed candidate after coordinator evidence/scripts/docs commit. Review only this change's required observable behavior and supplied evidence; no broad audit, style requests or added layers. Root performs clean candidate and publication separately. Reviewer must not edit, run paid requests, delegate or update stages. Report concrete failures/missing required evidence with location and smallest remedy; after repair recheck affected findings only.

@@ -18,6 +18,8 @@ NVIDIA is an available contingency, not a second provider called on every reques
 
 ## Status and authority
 
+- P06 explicit form lifecycle, retained results and date comparison: [frontend-selection-flow](../openspec/changes/frontend-selection-flow/design.md). Public v1 contracts and backend rules are unchanged; final P07 quality/timing remains separate.
+
 - P05 connected backend acceptance and immutable frontend handoff: [backend-composition-and-handoff](../openspec/changes/archive/2026-09-23-backend-composition-and-handoff/design.md). P06 UI and P07 final browser/live/timing obligations remain separate.
 
 - P04 evidence module boundaries, narrow projection repair and acceptance: [validated-ai-evidence](../openspec/changes/archive/2026-09-23-validated-ai-evidence/design.md). Frozen public ports, prompt, transport and selection remain unchanged.
