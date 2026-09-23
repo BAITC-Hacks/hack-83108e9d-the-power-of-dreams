@@ -1,0 +1,524 @@
+{
+  "provenance": "Real same-origin production responses on merged a4c82b6 executable source. Luna live baseline and interpretation; confirmed recommendations local. Synthetic supplied catalogue, no customer data.",
+  "responses": {
+    "baseline": {
+      "requestId": "f8d48cee-81d2-432d-b94b-00c555c8b4e1",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "category": "Ведущий",
+        "eventFormat": "корпоратив",
+        "date": "2026-10-10",
+        "budgetKzt": 1500000
+      },
+      "context": {
+        "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+        "selectionPolicyVersion": "selection-v1"
+      },
+      "outcome": "matched",
+      "summary": {
+        "candidateCount": 10,
+        "eligibleCount": 5,
+        "exclusions": {
+          "busy": 4,
+          "budget": 1,
+          "format": 0,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": [
+          "HK-35215",
+          "HK-42352",
+          "HK-44733",
+          "HK-44923"
+        ]
+      },
+      "cards": [
+        {
+          "id": "HK-88430",
+          "name": "Куррапика",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 500000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 500 000 ₸ укладывается в бюджет 1 500 000 ₸. Из описания: «Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        },
+        {
+          "id": "HK-29829",
+          "name": "Аня Форджер",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 700000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 700 000 ₸ укладывается в бюджет 1 500 000 ₸. Из описания: «Только развлечения и танцы».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        },
+        {
+          "id": "HK-27222",
+          "name": "Сон Гоку",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 1000000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸. Из описания: «Его стиль — европейская подача, тонкий юмор, уважение к традициям и умение создать атмосферу, в которой комфортно каждому гостю».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        }
+      ],
+      "explanationMode": "openai_evidence"
+    },
+    "interpretation": {
+      "requestId": "ba5ef3dc-0a15-4412-bced-14767b3767a6",
+      "brief": {
+        "vocabularyVersion": "brief-v1",
+        "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов",
+        "conditions": [
+          {
+            "trait": "discreet",
+            "intent": "prefer",
+            "text": "ненавязчивый ведущий"
+          },
+          {
+            "trait": null,
+            "intent": "avoid",
+            "text": "без принудительных конкурсов"
+          }
+        ]
+      }
+    },
+    "personalized": {
+      "requestId": "4f4cc360-984e-4595-b426-ec1f1a5f55be",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "category": "Ведущий",
+        "eventFormat": "корпоратив",
+        "date": "2026-10-10",
+        "budgetKzt": 1500000,
+        "brief": {
+          "vocabularyVersion": "brief-v1",
+          "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов",
+          "conditions": [
+            {
+              "trait": "discreet",
+              "intent": "prefer",
+              "text": "ненавязчивый ведущий"
+            },
+            {
+              "trait": null,
+              "intent": "avoid",
+              "text": "без принудительных конкурсов"
+            }
+          ]
+        }
+      },
+      "context": {
+        "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+        "selectionPolicyVersion": "brief-v1:catalog-brief-v1"
+      },
+      "outcome": "matched",
+      "summary": {
+        "candidateCount": 10,
+        "eligibleCount": 5,
+        "exclusions": {
+          "busy": 4,
+          "budget": 1,
+          "format": 0,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": [
+          "HK-35215",
+          "HK-42352",
+          "HK-44733",
+          "HK-44923"
+        ]
+      },
+      "cards": [
+        {
+          "id": "HK-77838",
+          "name": "Хаул",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 1000000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸. Из анкеты: «Профессиональный ведущий с интеллигентной, располагающей и ненавязчивой подачей».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [
+              {
+                "condition": {
+                  "trait": "discreet",
+                  "intent": "prefer",
+                  "text": "ненавязчивый ведущий"
+                },
+                "relation": "match",
+                "quote": "Профессиональный ведущий с интеллигентной, располагающей и ненавязчивой подачей."
+              }
+            ],
+            "unknownConditions": [
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        },
+        {
+          "id": "HK-88430",
+          "name": "Куррапика",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 500000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 500 000 ₸ укладывается в бюджет 1 500 000 ₸. Из анкеты: «Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности»; соответствие пожеланиям нужно уточнить.",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [],
+            "unknownConditions": [
+              {
+                "trait": "discreet",
+                "intent": "prefer",
+                "text": "ненавязчивый ведущий"
+              },
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        },
+        {
+          "id": "HK-29829",
+          "name": "Аня Форджер",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 700000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 700 000 ₸ укладывается в бюджет 1 500 000 ₸. Из анкеты: «Без долгих речей и наставлений на ивентах. Только развлечения и танцы»; соответствие пожеланиям нужно уточнить.",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [],
+            "unknownConditions": [
+              {
+                "trait": "discreet",
+                "intent": "prefer",
+                "text": "ненавязчивый ведущий"
+              },
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        }
+      ],
+      "explanationMode": "brief_evidence"
+    },
+    "dateChanged": {
+      "requestId": "fba926d4-82f6-4669-93d8-6f34fd3c2e77",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "category": "Ведущий",
+        "eventFormat": "корпоратив",
+        "date": "2026-10-11",
+        "budgetKzt": 1500000,
+        "brief": {
+          "vocabularyVersion": "brief-v1",
+          "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов",
+          "conditions": [
+            {
+              "trait": "discreet",
+              "intent": "prefer",
+              "text": "ненавязчивый ведущий"
+            },
+            {
+              "trait": null,
+              "intent": "avoid",
+              "text": "без принудительных конкурсов"
+            }
+          ]
+        }
+      },
+      "context": {
+        "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+        "selectionPolicyVersion": "brief-v1:catalog-brief-v1"
+      },
+      "outcome": "matched",
+      "summary": {
+        "candidateCount": 10,
+        "eligibleCount": 4,
+        "exclusions": {
+          "busy": 4,
+          "budget": 1,
+          "format": 1,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": [
+          "HK-29829",
+          "HK-35215",
+          "HK-75012",
+          "HK-88430"
+        ]
+      },
+      "cards": [
+        {
+          "id": "HK-44733",
+          "name": "Буллма",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 1000000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸. Из анкеты: «Стиль ведения интеллигентный, не напряжный, атмосферный».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [
+              {
+                "condition": {
+                  "trait": "discreet",
+                  "intent": "prefer",
+                  "text": "ненавязчивый ведущий"
+                },
+                "relation": "match",
+                "quote": "Стиль ведения интеллигентный, не напряжный, атмосферный."
+              }
+            ],
+            "unknownConditions": [
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        },
+        {
+          "id": "HK-77838",
+          "name": "Хаул",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 1000000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸. Из анкеты: «Профессиональный ведущий с интеллигентной, располагающей и ненавязчивой подачей».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [
+              {
+                "condition": {
+                  "trait": "discreet",
+                  "intent": "prefer",
+                  "text": "ненавязчивый ведущий"
+                },
+                "relation": "match",
+                "quote": "Профессиональный ведущий с интеллигентной, располагающей и ненавязчивой подачей."
+              }
+            ],
+            "unknownConditions": [
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        },
+        {
+          "id": "HK-44923",
+          "name": "Мицури Канроджи",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 650000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 650 000 ₸ укладывается в бюджет 1 500 000 ₸. Из анкеты: «Импровизация, живой интеллигентный юмор»; соответствие пожеланиям нужно уточнить.",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [],
+            "unknownConditions": [
+              {
+                "trait": "discreet",
+                "intent": "prefer",
+                "text": "ненавязчивый ведущий"
+              },
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        }
+      ],
+      "explanationMode": "brief_evidence"
+    },
+    "lowerBudget": {
+      "requestId": "0189b734-ef8a-4401-83f3-a1bab2a50f42",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "category": "Ведущий",
+        "eventFormat": "корпоратив",
+        "date": "2026-10-11",
+        "budgetKzt": 900000,
+        "brief": {
+          "vocabularyVersion": "brief-v1",
+          "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов",
+          "conditions": [
+            {
+              "trait": "discreet",
+              "intent": "prefer",
+              "text": "ненавязчивый ведущий"
+            },
+            {
+              "trait": null,
+              "intent": "avoid",
+              "text": "без принудительных конкурсов"
+            }
+          ]
+        }
+      },
+      "context": {
+        "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+        "selectionPolicyVersion": "brief-v1:catalog-brief-v1"
+      },
+      "outcome": "matched",
+      "summary": {
+        "candidateCount": 10,
+        "eligibleCount": 1,
+        "exclusions": {
+          "busy": 4,
+          "budget": 4,
+          "format": 1,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": [
+          "HK-29829",
+          "HK-35215",
+          "HK-75012",
+          "HK-88430"
+        ]
+      },
+      "cards": [
+        {
+          "id": "HK-44923",
+          "name": "Мицури Канроджи",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 650000,
+          "explanation": "Поддерживает формат «корпоратив»; стартовая цена 650 000 ₸ укладывается в бюджет 900 000 ₸. Из анкеты: «Импровизация, живой интеллигентный юмор»; соответствие пожеланиям нужно уточнить.",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": false
+          },
+          "briefAdvice": {
+            "evidence": [],
+            "unknownConditions": [
+              {
+                "trait": "discreet",
+                "intent": "prefer",
+                "text": "ненавязчивый ведущий"
+              },
+              {
+                "trait": null,
+                "intent": "avoid",
+                "text": "без принудительных конкурсов"
+              }
+            ],
+            "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+          }
+        }
+      ],
+      "explanationMode": "brief_evidence"
+    }
+  },
+  "rare": {
+    "status": 200,
+    "request": {
+      "city": "Алматы",
+      "date": "2026-10-10",
+      "eventFormat": "свадьба",
+      "category": "Флорист",
+      "budgetKzt": 500000
+    },
+    "response": {
+      "requestId": "ce7be57b-7208-4b9a-92be-a1965a5198d1",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "category": "Флорист",
+        "eventFormat": "свадьба",
+        "date": "2026-10-10",
+        "budgetKzt": 500000
+      },
+      "context": {
+        "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+        "selectionPolicyVersion": "selection-v1"
+      },
+      "outcome": "matched",
+      "summary": {
+        "candidateCount": 2,
+        "eligibleCount": 1,
+        "exclusions": {
+          "busy": 1,
+          "budget": 0,
+          "format": 0,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": [
+          "HK-90001"
+        ]
+      },
+      "cards": [
+        {
+          "id": "HK-39372",
+          "name": "Тони Тони Чоппер",
+          "category": "Флорист",
+          "city": "Алматы",
+          "priceFromKzt": 200000,
+          "explanation": "Поддерживает формат «свадьба»; стартовая цена 200 000 ₸ укладывается в бюджет 500 000 ₸. Из описания: «Мы специализируемся на авторском цветочном оформлении и флористике для мероприятий в Алматы».",
+          "qualityFlags": {
+            "synthetic": false,
+            "cityImputed": false,
+            "priceImputed": true
+          }
+        }
+      ],
+      "explanationMode": "openai_evidence"
+    }
+  }
+}
