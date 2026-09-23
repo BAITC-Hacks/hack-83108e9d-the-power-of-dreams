@@ -11,8 +11,9 @@ See [architecture](architecture/README.md) and the [module proposal sequence](.p
 Start with [P00: foundation and contracts](.proposals/00-foundation-and-contracts.md)
 in its assigned worktree, then P01's first working scenario. Only after its
 verified commit should P02/P03/P04 run independently from that same base.
-P00 must still create the product OpenSpec change and freeze the contracts;
-publishing this preparation snapshot does not complete P00 or the MVP.
+P00 contracts are in `contracts/`, with immutable domain types and evidence ports
+under `back/`. See the [foundation change](openspec/changes/foundation-and-contracts/tasks.md)
+for verification and delivery status. The product application remains P01 onward.
 
 ## Environment setup
 
@@ -38,8 +39,23 @@ Verify the installed dependencies:
 npm ls --depth=0
 ```
 
-The application, application check configurations, and build/run commands have not been
-created yet. The selected MVP needs no database, GPU service or external AI SDK.
+Foundation verification after `npm ci`:
+
+```powershell
+npm run typecheck
+npm test
+```
+
+Expected: shared types and labelled synthetic examples compile; three fixture
+consistency checks and ten existing controlled secrets/transport checks pass.
+No `.env`, provider account, browser installation or billable calls are needed
+for these foundation checks. `csv-parse` is pinned for the future catalogue loader.
+
+`npm run dev`, `npm run build`, and `npm start` are configured for the future
+Next.js application. Dev/start bind to `127.0.0.1:3000` (override with `-- --port 3001`).
+P00 contains no routes/screens, so product build/start/demo are not yet available
+or verified. Do not treat foundation checks as application acceptance.
+The selected MVP needs no database, GPU service or external AI SDK.
 The separate Brev tools below are optional infrastructure, not application prerequisites.
 
 ## Secrets setup for organizers

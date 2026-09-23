@@ -7,6 +7,7 @@
   },
   "packageManager": "npm@11.4.2",
   "dependencies": {
+    "csv-parse": "7.0.2",
     "next": "16.3.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -24,5 +25,12 @@
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
     "vitest": "5.0.1"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test scripts/secrets/secrets.test.mjs scripts/openai/contract.test.mjs scripts/contracts/fixtures.test.mjs"
   }
 }

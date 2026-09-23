@@ -200,3 +200,14 @@ hashes, checks and publication hold are recorded in the
 [OpenAI task card](../openspec/changes/openai-response-adapter/tasks.md).
 Sources: [Responses text generation](https://developers.openai.com/api/docs/guides/text),
 [GPT-4.1 mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini).
+
+## P00 foundation checks (2026-09-23)
+
+Foundation setup retains Node 24.4.1/npm 11.4.2 and the existing pins, adding only
+csv-parse 7.0.2. Context7 official Next.js CLI and TypeScript configuration docs
+were consulted; installed Next 16.3.6 accepted dev/build/start help commands.
+`npm ls --depth=0`, `npm run typecheck`, `npm test` (13/13 controlled checks),
+OpenSpec strict validation and doctor passed in the P00 workspace. Node reports a
+non-failing module-type inference warning for the typed fixtures. No product
+build, launch or live provider check is claimed. Exact clean-candidate and
+publication evidence belongs in the [P00 task card](../openspec/changes/foundation-and-contracts/tasks.md).

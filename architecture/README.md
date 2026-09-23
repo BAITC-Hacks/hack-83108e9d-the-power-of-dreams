@@ -23,3 +23,5 @@ NVIDIA is an available contingency, not a second provider called on every reques
 - Before product implementation, create a linked product change in [OpenSpec](../openspec/) using the approved outcome. Its specs, design, contracts and task stages become authoritative for implementation. Detailed policy proposals below must be captured there; do not restart discussion of the agreed provider strategy or maintain competing specifications here.
 - The existing [local-secrets change](../openspec/changes/unified-local-secrets/design.md) supplies the configuration boundary. Its [task card](../openspec/changes/unified-local-secrets/tasks.md) records local evidence and a publication hold; this architecture does not change that status.
 - This update changes architecture documents and records the approved discussion outcome. It neither implements the application nor commits, publishes, changes the dataset, or inspects credentials.
+
+- P00 implementation and frozen contract decisions: [foundation-and-contracts](../openspec/changes/foundation-and-contracts/design.md). This is the fresh change requested for the approved P00 basis; downstream application work remains planned.
