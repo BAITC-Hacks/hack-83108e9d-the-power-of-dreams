@@ -12,7 +12,7 @@ Start with [P00: foundation and contracts](.proposals/00-foundation-and-contract
 in its assigned worktree, then P01's first working scenario. Only after its
 verified commit should P02/P03/P04 run independently from that same base.
 P00 contracts are in `contracts/`, with immutable domain types and evidence ports
-under `back/`. See the [foundation change](openspec/changes/foundation-and-contracts/tasks.md)
+under `back/`. See the [foundation change](openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md)
 for verification and delivery status. The product application remains P01 onward.
 
 ## Environment setup

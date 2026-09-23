@@ -1,6 +1,6 @@
 ## Why
 
-P01 needs stable public and module contracts and a reproducible starting revision. Implement the approved [P00 design](../../../.brainstorming/2026-09-23-foundation-and-contracts-design.md), retaining the [product direction](../../../.brainstorming/2026-09-23-contractor-selection-architecture-design.md), with plain types and fixtures instead of extra infrastructure.
+P01 needs stable public and module contracts and a reproducible starting revision. Implement the approved [P00 design](../../../../.brainstorming/2026-09-23-foundation-and-contracts-design.md), retaining the [product direction](../../../../.brainstorming/2026-09-23-contractor-selection-architecture-design.md), with plain types and fixtures instead of extra infrastructure.
 
 ## What Changes
 

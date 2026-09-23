@@ -1,12 +1,12 @@
 ## 1. P00 contracts and base
 
-- [ ] 1.1 Freeze public/module types and material examples (F1/F2); verify typecheck and focused fixture consistency checks.
-- [ ] 1.2 Prepare minimal pinned dependencies and actual commands (F3); verify npm ci, npm ls, typecheck and existing tests from a clean committed candidate following README.
-- [ ] 1.3 Record downstream obligations and publish P00 (F4); strict-validate, review allowed diff, confirm feature/main SHAs and preserve evidence. Sync/archive follows completed delivery.
+- [x] 1.1 Freeze public/module types and material examples (F1/F2); verify typecheck and focused fixture consistency checks.
+- [x] 1.2 Prepare minimal pinned dependencies and actual commands (F3); verify npm ci, npm ls, typecheck and existing tests from a clean committed candidate following README.
+- [x] 1.3 Record downstream obligations and publish P00 (F4); strict-validate, review allowed diff, confirm feature/main SHAs and preserve evidence. Sync/archive follows completed delivery.
 
 ## Assignment and authorization
 
-Owner: coordinator Codex task 01a0cdae-6531-7562-88e0-38462fca5eed, sequential work; no workers dispatched. Active implementation change: foundation-and-contracts. Other changes and draft are not resumed.
+Owner: coordinator Codex task 01a0cdae-6531-7562-88e0-38462fca5eed, sequential work; no workers dispatched. Completed and archived change: foundation-and-contracts. Other changes and draft are not resumed.
 
 Worktree: D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-00. Branch: codex/cs-00-foundation. Initial base: fd432c682d46e2a46cb003ddbeb5d4537d19438c. Reconciled base before Git writes: 7880712621befeb8d7340f0dccde44574a0e0d8c (another task published only the approved brainstorming source; local branch and remote main both include it). Remote origin: https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git. Target: main.
 
@@ -20,9 +20,9 @@ Checks: strict OpenSpec validation; npm ci; npm ls --depth=0; npm run typecheck;
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implemented | typecheck + 3 fixture checks passed | clean candidate/publication | none | coordinator integrate |
-| 1.2 | implemented | npm ls, script help and 13 tests pass | clean npm ci/candidate | none | coordinator verify |
-| 1.3 | implementing | strict validation and doctor pass; downstream plan preserved | publication/archive | none | coordinator integrate |
+| 1.1 | integrated | 9327715f06f7729ae58d4f322a8cf044f5a35c7a; clean typecheck + 3 fixtures | none for P00 | none | P01 coordinator |
+| 1.2 | integrated | same SHA; clean npm ci/ls/typecheck and 13/13 tests | product build/live belongs to P01–P07 | none for P00 | P01 coordinator |
+| 1.3 | integrated | feature and remote main confirmed at same SHA | none for P00 | none | P01 coordinator |
 
 Checkboxes measure final delivery. Do not reimplement locally verified work merely because publication remains.
 
@@ -37,3 +37,12 @@ P01 owner: next coordinator, not dispatched. Pin the published P00 implementatio
 Harness diff against fd432c6 is empty; actual required root config and skill files are present. No delegated-runtime readiness claim. Existing draft remains untracked and excluded. Application build/start/browser, catalogue/selection/evidence implementation and live domain AI are not_run by P00 scope. No secrets read and no billable calls.
 
 Shared reservation acquired exclusively by 01a0cdae-6531-7562-88e0-38462fca5eed for sibling integration worktree and main. Marker: D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/integration-owner.json. No shared frontend package reserved or published.
+
+
+### Published clean candidate
+
+Implementation/handoff base: `9327715f06f7729ae58d4f322a8cf044f5a35c7a`, branch `codex/cs-00-foundation`; remote branch confirmed equal. Integration candidate at `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-integration`, branch `codex/p00-integration`, same exact SHA, clean tracked tree before/after verification, no .env. README foundation path: npm ci (497 packages, zero audit findings), npm ls --depth=0, npm run typecheck, npm test (13/13) and strict change validation all passed. No hidden source file or personal session was needed. Candidate executable content was frozen for checks.
+
+Main was clean at `7880712621befeb8d7340f0dccde44574a0e0d8c`, matched remote, fast-forwarded from its owning primary checkout and pushed normally. Remote main confirmed exactly `9327715f06f7729ae58d4f322a8cf044f5a35c7a`. Delivery: MERGED AND PUBLISHED. Report-only archive/link updates follow separately; unchanged executable checks are not repeated. Contracts/examples and existing harness are pinned in this base; no dependency work is running. P01 can use this committed base, subject to its timing reconciliation and real first-slice checks.
+
+Lifecycle: all 3/3 P00 tasks delivered; four requirements synced to openspec/specs/contractor-contract-foundation/spec.md and validated. Archived on 2026-09-23; local links adjusted. No incomplete P00 criteria were waived. The archive does not complete P01–P07 or establish live application acceptance.
