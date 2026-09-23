@@ -1,5 +1,9 @@
 # Architecture
 
+Optional self-contained local container launch and verification:
+[Docker Compose delivery](../openspec/changes/docker-compose-delivery/design.md).
+The application remains one Next.js process with the supplied CSV and optional OpenAI access.
+
 P03 selection-domain acceptance and unchanged shared boundaries: [selection-domain](../openspec/changes/archive/2026-09-23-selection-domain/design.md).
 
 Architecture for task #79-lite: explainable event-contractor selection from the supplied catalogue. The user agreed the **OpenAI-first MVP direction** on 2026-09-23, with a reported **four-hour implementation and demo budget** and available **OpenAI and NVIDIA API keys**. Key availability is user-reported; account/model access has not been tested.

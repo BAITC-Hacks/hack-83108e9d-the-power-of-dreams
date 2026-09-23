@@ -1,0 +1,30 @@
+# Only application build/test inputs enter the context.
+**
+!package.json
+!package-lock.json
+!tsconfig.json
+!.gitignore
+!back/
+!back/**
+!contracts/
+!contracts/**
+!front/
+!front/**
+!src/
+!src/**
+!scripts/
+!scripts/**
+!raw/
+!raw/dataset.csv
+
+# Keep personal configuration and generated files excluded even inside sources.
+**/.env
+**/.env.*
+**/node_modules
+**/.next
+**/.git
+**/test-results
+**/*.tsbuildinfo
+**/*.log
+# Empty template is required by the existing secrets setup test.
+!.env.example
