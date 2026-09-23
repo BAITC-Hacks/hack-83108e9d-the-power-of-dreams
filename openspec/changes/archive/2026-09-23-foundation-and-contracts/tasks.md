@@ -46,3 +46,10 @@ Implementation/handoff base: `9327715f06f7729ae58d4f322a8cf044f5a35c7a`, branch 
 Main was clean at `7880712621befeb8d7340f0dccde44574a0e0d8c`, matched remote, fast-forwarded from its owning primary checkout and pushed normally. Remote main confirmed exactly `9327715f06f7729ae58d4f322a8cf044f5a35c7a`. Delivery: MERGED AND PUBLISHED. Report-only archive/link updates follow separately; unchanged executable checks are not repeated. Contracts/examples and existing harness are pinned in this base; no dependency work is running. P01 can use this committed base, subject to its timing reconciliation and real first-slice checks.
 
 Lifecycle: all 3/3 P00 tasks delivered; four requirements synced to openspec/specs/contractor-contract-foundation/spec.md and validated. Archived on 2026-09-23; local links adjusted. No incomplete P00 criteria were waived. The archive does not complete P01–P07 or establish live application acceptance.
+
+
+### Archive publication handoff
+
+Archive/spec-sync commit `7c7acf0fbc4cee41ee65f6d455ecaff933801162` is confirmed on remote `codex/cs-00-foundation`; the clean integration worktree also contains it. Its four synced requirements passed strict validation and local Markdown links resolved. Product implementation remains MERGED AND PUBLISHED at `9327715f06f7729ae58d4f322a8cf044f5a35c7a` on remote main.
+
+The report-only main fast-forward was stopped before mutation because the primary checkout now contains another task's untracked `.brainstorming/2026-09-23-first-working-slice-design.md`. AGENTS.md requires preserving this work and reporting the blocker; it was not erased, stashed, staged or committed. Archive/report publication status: BRANCH PUBLISHED, INTEGRATION INCOMPLETE. Next owner: coordinator after the P01 document owner resolves their working-tree state; reacquire shared ownership, reconcile current main and fast-forward/publish the report commit normally. No executable recheck is required unless the base changes executable content. The reservation was released by its owner after shared writes stopped. P00's delivered implementation criteria stay checked; archive metadata publication is separately pending.
