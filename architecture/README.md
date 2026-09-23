@@ -22,7 +22,7 @@ NVIDIA is an available contingency, not a second provider called on every reques
 
 ## Status and authority
 
-- P07 final acceptance, reproducibility and publication evidence: [integration-and-delivery](../openspec/changes/integration-and-delivery/design.md). Existing module/API boundaries remain unchanged.
+- P07 final acceptance, reproducibility and publication evidence: [integration-and-delivery](../openspec/changes/archive/2026-09-23-integration-and-delivery/design.md). Existing module/API boundaries remain unchanged.
 
 - P06 explicit form lifecycle, retained results and date comparison: [frontend-selection-flow](../openspec/changes/archive/2026-09-23-frontend-selection-flow/design.md). Public v1 contracts and backend rules are unchanged; final P07 quality/timing remains separate.
 

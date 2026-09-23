@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md) and [architecture](../../../architecture/README.md). Base 878ed7898c34723f77965d78fe0d75c2eef8c13a includes accepted P06 015772144f5a8761d6569e9220ecfb699f1bbed2. The differences are documentation only. P05 backend pin is 4ade2fa4022d633e9d96b50188be4cee4fb99539; v1 package commit e424a13fec851d7f9f0f4e076f70649e716336f7 remains immutable. Another task currently owns the integration checkout for Docker delivery.
+See [proposal](proposal.md) and [architecture](../../../../architecture/README.md). Base 878ed7898c34723f77965d78fe0d75c2eef8c13a includes accepted P06 015772144f5a8761d6569e9220ecfb699f1bbed2. The differences are documentation only. P05 backend pin is 4ade2fa4022d633e9d96b50188be4cee4fb99539; v1 package commit e424a13fec851d7f9f0f4e076f70649e716336f7 remains immutable. Another task currently owns the integration checkout for Docker delivery.
 
 ## Goals / Non-Goals
 

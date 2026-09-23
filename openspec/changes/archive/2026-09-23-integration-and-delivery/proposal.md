@@ -1,10 +1,10 @@
 ## Why
 
-P05 and P06 are published, but final rendered explanation quality, three uncached browser timings and complete material provenance remain unverified. [Proposal 07](../../../.proposals/07-integration-and-delivery.md) requires one reproducible, accepted source revision and truthful publication/submission status.
+P05 and P06 are published, but final rendered explanation quality, three uncached browser timings and complete material provenance remain unverified. [Proposal 07](../../../../.proposals/07-integration-and-delivery.md) requires one reproducible, accepted source revision and truthful publication/submission status.
 
 ## What Changes
 
-- Finish the approved [bounded delivery outcome](../../../.brainstorming/2026-09-23-integration-and-delivery-design.md): documented run/demo, material provenance, real integrated acceptance and clean committed checkout verification.
+- Finish the approved [bounded delivery outcome](../../../../.brainstorming/2026-09-23-integration-and-delivery-design.md): documented run/demo, material provenance, real integrated acceptance and clean committed checkout verification.
 - Reuse unchanged P04/P05/P06 acceptance; add missing dense/rare/dense live browser measurements and per-card rendered-quality decisions.
 - Reconcile concurrent accepted main changes, publish under exclusive shared ownership, synchronize and archive with exact evidence.
 - Non-goals: new features, dependencies, UI redesign, provider changes, additional infrastructure, deployment or organizer submission.

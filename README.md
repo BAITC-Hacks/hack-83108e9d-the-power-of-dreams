@@ -366,7 +366,7 @@ quality pass.
 Recorded acceptance belongs to the linked revisions and scopes, not to every
 future checkout. Final live rendered-text decisions, three-request timings,
 clean-checkout evidence and exact publication status are in the
-[P07 delivery task card](openspec/changes/integration-and-delivery/tasks.md).
+[P07 delivery task card](openspec/changes/archive/2026-09-23-integration-and-delivery/tasks.md).
 Repository publication is separate from submission to the organizer; no
 organizer submission is performed by the run instructions.
 

@@ -1,12 +1,12 @@
 ## 1. Delivery preparation
 
-- [ ] 1.1 Reconcile accepted source/contract pins and document provenance and final run/demo instructions; verify manifest/source correspondence and documentation links.
-- [ ] 1.2 Implement only missing live browser timing collection and evaluate dense/rare source, relevance, final facts/length and dense distinctiveness using the three recorded requests.
+- [x] 1.1 Reconcile accepted source/contract pins and document provenance and final run/demo instructions; verify manifest/source correspondence and documentation links.
+- [x] 1.2 Implement only missing live browser timing collection and evaluate dense/rare source, relevance, final facts/length and dense distinctiveness using the three recorded requests.
 
 ## 2. Integrated acceptance and publication
 
-- [ ] 2.1 Verify frozen candidate against existing real/controlled evidence and final README in a clean committed checkout: install, private config, typecheck/tests/build, production start and primary scenario.
-- [ ] 2.2 Review scoped acceptance, integrate/publish accepted source under shared reservation, confirm remote main, save exact evidence, synchronize specs and archive with truthful organizer-submission status.
+- [x] 2.1 Verify frozen candidate against existing real/controlled evidence and final README in a clean committed checkout: install, private config, typecheck/tests/build, production start and primary scenario.
+- [x] 2.2 Review scoped acceptance, integrate/publish accepted source under shared reservation, confirm remote main, save exact evidence, synchronize specs and archive with truthful organizer-submission status.
 
 ## Stage table
 
@@ -14,10 +14,10 @@ Checkboxes measure final integrated/published delivery; archive is a distinct fo
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implemented | README/provenance at f8473dae814d7a1e904f08795ad76fb40338c5da | Main publication | None | Coordinator |
-| 1.2 | implemented | Three live samples and four-card quality pass at f8473da | Main publication | None | Coordinator |
-| 2.1 | implemented | Fresh committed checkout; install/typecheck/48 tests/build; live and final port-3000 demo pass | Main publication | None | Coordinator |
-| 2.2 | ready-to-merge | Read-only review supported f8473da, no findings | Promotion/push/sync/archive | None; own reservation acquired | Coordinator |
+| 1.1 | integrated | README/provenance at f8473da; remote main44f447c confirmed | None | None | Complete |
+| 1.2 | integrated | Three live samples and four-card quality pass at f8473da; main44f447c | None | None | Complete |
+| 2.1 | integrated | Fresh checkout install/typecheck/48 tests/build/live/demo; main44f447c | None | None | Complete |
+| 2.2 | integrated | Review supported; local fast-forward and remote main44f447c confirmed | None; synchronized and archived | None | Complete |
 
 ## Assignment and readiness
 
@@ -88,9 +88,17 @@ Overall live set: **pass** for all four required IDs and both dense samples; no 
 
 | Criterion | Evidence / observed result | Scope and status |
 | --- | --- | --- |
-| Real dense/rare/both empty/restart/busy venue/both date pairs | [P05 combined production acceptance](../archive/2026-09-23-backend-composition-and-handoff/tasks.md): 26 real HTTP requests, six starts, stable repeat/restart, busy HK-64395 excluded | pass, reused unchanged application/data; dense/rare also fresh live |
-| Optional filters, date narrative, errors, cancel/stale and mixed UI | [P06 accepted frontend and clean candidate](../archive/2026-09-23-frontend-selection-flow/tasks.md): real and explicitly controlled browser checks, mobile/desktop/keyboard | pass, reused unchanged frontend; primary and final live rendering freshly checked |
+| Real dense/rare/both empty/restart/busy venue/both date pairs | [P05 combined production acceptance](../2026-09-23-backend-composition-and-handoff/tasks.md): 26 real HTTP requests, six starts, stable repeat/restart, busy HK-64395 excluded | pass, reused unchanged application/data; dense/rare also fresh live |
+| Optional filters, date narrative, errors, cancel/stale and mixed UI | [P06 accepted frontend and clean candidate](../2026-09-23-frontend-selection-flow/tasks.md): real and explicitly controlled browser checks, mobile/desktop/keyboard | pass, reused unchanged frontend; primary and final live rendering freshly checked |
 | Controlled provider failure/mixed/local/config, empty/unavailable zero calls, stable error shapes | Fresh `npm test` 48/48 includes scripts/openai, scripts/slice, scripts/backend/configuration and evidence tests; real factory/HTTP seams and explicit counters | pass, controlled; never claimed as live latency/quality |
-| Container reproduction | [Docker accepted evidence](../docker-compose-delivery/tasks.md), runtime SHA16ade3e67f326af1ecc75ae4dd1fd2e0fe1f7b61 | pass, reused unchanged Docker/runtime/build inputs; optional route, no P07 Docker rebuild needed |
+| Container reproduction | [Docker accepted evidence](../../docker-compose-delivery/tasks.md), runtime SHA16ade3e67f326af1ecc75ae4dd1fd2e0fe1f7b61 | pass, reused unchanged Docker/runtime/build inputs; optional route, no P07 Docker rebuild needed |
 
 Read-only final review at frozen source: **supported**, no acceptance defect or incidental critical finding. Reviewer confirmed own-ID quote lengths/validator acceptance, two sentences, facts/flags, masked-name substantive differences, repeat identity and timings. Coordinator completed the remaining exact README port3000 check afterward. No mandatory P07 acceptance skip remains. Unknown dataset/starter redistribution terms are recorded as unknown in THIRD_PARTY.md; not invented as licensed. Organizer submission is **not performed**, and no external submission-format compliance is asserted without supplied instructions.
+
+### Publication
+
+Feature branch codex/cs-07-delivery published at 44f447c1406a6f604604d934d8c73c8891208b6f and remote verified. This adds only recorded task evidence to tested f8473dae814d7a1e904f08795ad76fb40338c5da. Under the verified own reservation, the clean integration checkout switched to newly created codex/contractor-selection-integration (the proposal's branch did not previously exist) from origin/main1705e22 and fast-forwarded exact candidate44f447c. Local and remote main were both1705e22 and primary tracked state clean before promotion. Primary main fast-forwarded44f447c; normal explicit origin main push succeeded and ls-remote confirmed44f447c. Immutable tracked v1 package diff against package commit e424a13 is empty; no untracked package backup/migration was necessary.
+
+Status: **MERGED AND PUBLISHED**. Runtime tested revision f8473da; source/evidence integration revision44f447c. Final sync/archive changes are report-only, so unchanged product cases need no rerun. Run/demo/provenance materials are prepared; organizer submission remains **not submitted**, with captain/user owning any separately requested external submission. Branches/worktrees and ignored evidence are retained.
+
+Archive: all four delivery checkboxes completed after confirmed main publication. The four delivery requirements were synchronized to openspec/specs/contractor-delivery/spec.md; all eight main specs passed strict validation. Change archived on 2026-09-23 with no acceptance skips. Historical paths above identify the original working task card; the current card is this archive. No other active change was archived.
