@@ -1,8 +1,18 @@
-# The Power of Dreams — event contractor selection
+# join city — подбор подрядчиков для мероприятий
 
-A local web application for hackathon task **#79-lite**. It helps an event
-organizer in Kazakhstan choose up to three contractors from the supplied
-catalogue and understand why they match the event conditions.
+## Описание проекта
+
+join city помогает организаторам мероприятий в Казахстане находить подходящих подрядчиков без долгого изучения каталога. Пользователь указывает город, дату, формат мероприятия и бюджет, а сервис предлагает до трёх подходящих вариантов с понятным объяснением каждого результата.
+
+Система учитывает занятость по календарю, стоимость, специализацию и дополнительные пожелания. Искусственный интеллект помогает дополнять объяснения фактами из описаний подрядчиков, а проверка по исходным данным защищает от выдуманных характеристик. Это помогает сравнить варианты и принять обоснованное решение.
+
+## Тематические теги
+
+Искусственный интеллект, Подбор подрядчиков, Организация мероприятий, Объяснимые рекомендации
+
+## Application overview
+
+A local web application for hackathon task **#79-lite**.
 
 The Russian-language form asks for **city, event date, event format, contractor
 category and budget in KZT**, with optional language and duration under
