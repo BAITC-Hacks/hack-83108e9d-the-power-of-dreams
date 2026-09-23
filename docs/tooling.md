@@ -227,3 +227,20 @@ publication evidence belongs in the [P00 task card](../openspec/changes/archive/
 At the user's request, the application template and setup documentation now contain only OpenAI settings and the optional Compose host port. Removed obsolete NVIDIA, database and Brev credentials from the local environment without displaying values. The former GPU experiment is historical; no remote infrastructure was changed. The NVIDIA proposal is withdrawn.
 
 Verification: inspection of server configuration and Compose found no application consumer of the removed settings; all four existing secret-loader/organizer-workflow tests passed after the CLI help text was updated. Historical OpenSpec and brainstorming records retain the original scope and evidence; they do not add current setup requirements. No application behavior changed, so build, browser and live-provider checks were not repeated.
+
+## Docker/README recheck — 2026-09-23
+
+Docker Desktop Engine 29.7.2 and Compose 5.4.0 on Linux/x86_64 passed a clean
+source-image build and runtime verification. A no-cache install fetched 497 npm
+packages; typecheck, 62 tests and the production build passed. Current source
+`96a8caa242d273a7b9384a2b5953e78762c57b33` additionally passed container HTTP,
+confirmed-wishes checks, Edge desktop/mobile scenarios and restart on an
+alternate port. Optional paid provider calls were not authorized by automatic
+approval review and were not executed. Exact revisions, the concurrent-update
+test mismatch, warnings and scope limits are recorded in the
+[Docker task card](../openspec/changes/docker-compose-delivery/tasks.md#deployment-and-readme-recheck--2026-09-23).
+
+Context7 resolved `/docker/compose` and verified the current documented project
+isolation and readiness options against the official
+[Compose reference](https://github.com/docker/compose/blob/main/docs/reference/compose.md)
+and [up reference](https://github.com/docker/compose/blob/main/docs/reference/compose_up.md).

@@ -70,3 +70,68 @@ Publication: acceptance report commit 4cdc501c2c0b22cf313f5c125d976a38b1c78dc1 d
 | Feature | Criteria met | Checks | Branch / SHA | main status | Blocker / next step |
 | --- | --- | --- | --- | --- | --- |
 | Docker Compose delivery | Self-contained launch, optional runtime AI, data readiness, judge instructions and clean reproduction | 48 tests, typecheck/build, seven HTTP cases, real browser, alternate port/restart, controlled unhealthy catalogue, separate live OpenAI | codex/deploy-docker; tested 16ade3e; acceptance report 4cdc501 | MERGED AND PUBLISHED at 4cdc501 | No Docker-scope blocker; P07 owns final quality/timing and demo |
+
+## Deployment and README recheck — 2026-09-23
+
+Owner: Codex task `01a0ce48-bd40-7e22-9a13-8852a652730c`. Scope: requested
+README/deployment audit and documentation corrections; no product changes,
+subagents, Git publication or shared integration writes. Historical task stages
+and publication evidence above remain unchanged.
+
+| Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
+| --- | --- | --- | --- | --- | --- |
+| Audit: README and Docker | implemented | Source `96a8caa242d273a7b9384a2b5953e78762c57b33`; image `sha256:a6440e7181282fd10e8992861b2e13957240a7cb0e8b8f4dda0e5ce71906b7dc`; documentation-only local diff | Optional live provider recheck | Paid external requests rejected by automatic approval review pending explicit user authorization | Coordinator reports local results; user decides on two paid API calls |
+
+- Docker Desktop was initially stopped. Started the installed per-user Desktop;
+  Docker Engine 29.7.2, Compose 5.4.0, Linux/x86_64 became available.
+- Used a clean `git archive` snapshot under ignored
+  `test-results/deploy-audit-1608dcba`, with no host `.env`, `node_modules` or
+  `.next`. This is an exported committed source snapshot, not a Git worktree.
+  Project name `join-city-audit-1608dcba` isolated all containers/network.
+- Initial source `1608dcba22856ce810464c86851881f4f47e5bac` passed
+  `docker compose build --no-cache`: `npm ci` installed 497 packages, typecheck,
+  all 62 tests and production build passed. No secret or personal runtime files
+  entered this build. The base-image digest remained the committed pin.
+- Main advanced concurrently with a visual refresh. An initial browser attempt
+  accidentally used the newer root test against the older container and failed
+  on `.selection-motif`; this was not a product failure or a passing check.
+  Refreshed the source snapshot to the exact `96a8caa` revision and ran the test
+  from that snapshot against its rebuilt image. Dependencies/lockfile did not
+  change, so the already verified dependency layers were reused; application
+  typecheck, all 62 tests and production build ran again and passed.
+- README launch `docker compose up --build --wait --wait-timeout 120` passed on
+  `127.0.0.1:3101`, with the isolated project name and blank provider settings.
+  Service became healthy. All seven `scripts/docker/smoke.mjs` cases passed;
+  modes were `catalog_fallback` and `not_needed`.
+- `npm ls --omit=dev --depth=0` inside the runtime reported the five expected
+  direct dependencies at their pinned versions, with exit 0. Runtime user is
+  `node`; there are zero host mounts. No database or other dependency service is
+  defined or needed.
+- The snapshot's full `scripts/frontend/browser.mjs` passed against real
+  container HTTP in Edge: primary results, date changes, optional filters,
+  rare/empty outcomes, validation, retained results, keyboard interactions and
+  375/390/1280-pixel layouts without overflow. Its altered-request HTTP 400 check
+  is controlled input, not an external provider failure. Evidence/screenshots:
+  ignored `test-results/deploy-audit-1608dcba/browser-current/`.
+- Additional public HTTP checks submitted the existing confirmed-brief fixture:
+  HK-77838 moved first, mode was `brief_evidence`, unknown wording was retained,
+  and budget 900000 excluded that contractor. Missing-key interpretation
+  returned 503 `BRIEF_UNAVAILABLE`; empty text returned 400 `INVALID_REQUEST`.
+  This verifies the bundled index and runtime routes, not live interpretation.
+- Stopped and removed the test project; created a non-secret test `.env` with
+  `APP_PORT=3111` and relaunched without rebuilding. Healthy startup, all seven
+  smoke cases and all additional wishes checks passed again at the new port.
+  Final cleanup removes only this task's containers/network; Docker Desktop
+  and cached images remain available.
+- README now explains installed/runtime components, local-only networking,
+  rebuild requirements and wishes architecture; removes stale Brev/extra-key
+  instructions; clarifies Compose versus direct-loader variable expansion.
+
+Limitations: runtime checks used catalogue fallback and public confirmed-input
+fixtures. A local provider key was confirmed present without displaying it, but
+automatic approval review rejected the proposed two paid OpenAI calls because
+the current request did not explicitly authorize paid external transfer. No
+live requests were made. Earlier live evidence above is historical only.
+macOS/native Linux hosts/ARM and a separate host Node installation were not
+retested. Non-failing npm ESLint 9 deprecation and Node module-type warnings
+remain; no dependency upgrade or security audit was part of this request.

@@ -133,6 +133,10 @@ context and image. Keep them private and out of Git. Avoid sharing expanded
 
 Container verification and its exact revisions/limitations are recorded in the
 [Docker delivery task card](openspec/changes/docker-compose-delivery/tasks.md).
+The 23 September 2026 recheck covers clean dependency installation, the current
+production image, HTTP/browser scenarios, confirmed-wishes evidence and an
+alternate-port restart. Live OpenAI calls were not repeated in that recheck;
+the task card separates earlier provider evidence from current local checks.
 
 ## Alternative quick start with Node.js
 
@@ -383,7 +387,8 @@ flowchart LR
 optional `brief` to the recommendation operation; its cards include `briefAdvice`
 and mode `brief_evidence`. This path uses bundled validated source assertions,
 not another provider call. See the public types in `contracts/brief.ts` and
-`contracts/contractor-selection.ts` and the immutable v2 handoff package.
+`contracts/contractor-selection.ts` and the
+[immutable v2 handoff package](.shared/specs/contractor-selection/versions/v2/README.md).
 
 ## Stack and repository layout
 
