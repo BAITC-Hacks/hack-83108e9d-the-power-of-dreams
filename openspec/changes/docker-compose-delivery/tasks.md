@@ -1,16 +1,16 @@
 ## 1. Container launch
 
-- [ ] 1.1 Package and run the production application with pinned dependencies, explicit runtime assets, optional runtime AI settings and healthcheck; verify image build, existing type/tests, default ready launch and absent-catalogue failure.
-- [ ] 1.2 Add a focused real-HTTP smoke command; verify primary IDs/counts, repeat, changed date, rare category, both empty outcomes and invalid input against the container.
+- [x] 1.1 Package and run the production application with pinned dependencies, explicit runtime assets, optional runtime AI settings and healthcheck; verify image build, existing type/tests, default ready launch and absent-catalogue failure.
+- [x] 1.2 Add a focused real-HTTP smoke command; verify primary IDs/counts, repeat, changed date, rare category, both empty outcomes and invalid input against the container.
 
 ## 2. Judge documentation and acceptance
 
-- [ ] 2.1 Update README Docker quick start, environment template and architecture index; verify instructions against a clean committed copy without host node_modules, build output or .env, including alternate port and restart.
-- [ ] 2.2 Exercise the container in a browser, including primary results, date/rare/empty outcomes and loading/error recovery; inspect runtime-only configuration and record live-provider evidence or the exact limitation separately.
+- [x] 2.1 Update README Docker quick start, environment template and architecture index; verify instructions against a clean committed copy without host node_modules, build output or .env, including alternate port and restart.
+- [x] 2.2 Exercise the container in a browser, including primary results, date/rare/empty outcomes and loading/error recovery; inspect runtime-only configuration and record live-provider evidence or the exact limitation separately.
 
 ## 3. Delivery
 
-- [ ] 3.1 Review scoped diff, validate OpenSpec, commit/push accepted feature content, verify the combined candidate under shared ownership, promote/publish main and record exact revisions and acceptance evidence.
+- [x] 3.1 Review scoped diff, validate OpenSpec, commit/push accepted feature content, verify the combined candidate under shared ownership, promote/publish main and record exact revisions and acceptance evidence.
 
 ## Task card
 
@@ -34,11 +34,11 @@ Checkboxes represent final integration/publication, not local implementation.
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | ready-to-merge | 16ade3e: clean Docker build, typecheck, 48 tests, healthy startup; initial health-failure evidence unchanged | main publication | None | Promote / coordinator |
-| 1.2 | ready-to-merge | 16ade3e: all seven real HTTP cases passed on default and alternate ports | main publication | None | Promote / coordinator |
-| 2.1 | ready-to-merge | 16ade3e: clean-copy README launch, optional template, port change, logs and down passed | main publication | None | Promote / coordinator |
-| 2.2 | ready-to-merge | 16ade3e: combined P06 browser scenarios passed; unchanged provider adapter has real live evidence below | main publication | None | Promote / coordinator |
-| 3.1 | ready-to-merge | Remote feature branch confirmed at 16ade3e; shared integration candidate has same SHA | Publish main, save delivery report, release reservation | None | Promote / coordinator |
+| 1.1 | integrated | 16ade3e checks; main published at 4cdc501 | None within scope | None | P07 handoff |
+| 1.2 | integrated | Seven real HTTP cases on both ports; main 4cdc501 | None within scope | None | P07 handoff |
+| 2.1 | integrated | Clean README reproduction; main 4cdc501 | None within scope | None | P07 handoff |
+| 2.2 | integrated | Combined browser acceptance and separate live evidence; main 4cdc501 | P07 quality/timing is separate | None | P07 owner |
+| 3.1 | integrated | Local main fast-forward and normal remote push confirmed at 4cdc501 | Publish this report-only update and release reservation | None | Coordinator finalization |
 
 ## Evidence and limitations
 
@@ -63,4 +63,10 @@ Combined-candidate finding: 25d5671 clean Docker build failed because front/comp
 - Seven-case smoke passed against real HTTP on default port 3101 and again after recreating the service with APP_PORT=3111 in a copy of the empty template. docker compose ps showed healthy and the expected loopback mapping. Logs showed normal production startup. docker compose down removed the service/network; the synthetic verification .env was removed afterwards. No verification containers remain.
 - In-app browser on the combined candidate: primary three cards; changed date with P06 busy/displacement explanation; rare single florist; distinct no-match/category-absent messages; reset and resubmit; loading text; network error when the old port stopped serving retained previous cards; successful primary submission at the new port. API responses were real, with no browser mocks. This is separate from P06's broader browser race/keyboard evidence.
 - Live OpenAI evidence above belongs to the initial image/feature content, before the P06 merge. The provider adapter, secret reader, backend and lockfile did not change in the merge, so that unaffected integration check was not repeated. P07 retains final rendered explanation-quality and timing-series work.
-- OpenSpec strict validation and git diff --check passed. All accepted runtime content is frozen; report-only updates do not invalidate these checks. Pending only main publication and its report.
+- OpenSpec strict validation and git diff --check passed. All accepted runtime content is frozen; report-only updates do not invalidate these checks.
+
+Publication: acceptance report commit 4cdc501c2c0b22cf313f5c125d976a38b1c78dc1 differs from tested 16ade3e only in this task card. Feature branch remote head was verified at 4cdc501. Under the verified reservation, the clean integration checkout and the primary main checkout fast-forwarded to 4cdc501; a normal push published main and git ls-remote confirmed 4cdc501 exactly. Therefore all five delivery tasks are integrated. This final report is a separate documentation-only update. No product executable changes occurred after acceptance. All task-owned Compose containers/networks and verification ports were stopped/removed before handoff; Docker Desktop itself remains running.
+
+| Feature | Criteria met | Checks | Branch / SHA | main status | Blocker / next step |
+| --- | --- | --- | --- | --- | --- |
+| Docker Compose delivery | Self-contained launch, optional runtime AI, data readiness, judge instructions and clean reproduction | 48 tests, typecheck/build, seven HTTP cases, real browser, alternate port/restart, controlled unhealthy catalogue, separate live OpenAI | codex/deploy-docker; tested 16ade3e; acceptance report 4cdc501 | MERGED AND PUBLISHED at 4cdc501 | No Docker-scope blocker; P07 owns final quality/timing and demo |
