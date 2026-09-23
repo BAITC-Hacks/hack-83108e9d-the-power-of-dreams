@@ -27,6 +27,8 @@ The manifest also retains the following packages. Their presence does not establ
 
 The execution environment uses Node.js (`^24.4.1`) and npm (`11.4.2`), as declared in [package.json](package.json). Their full distribution notices are not included in this repository; bundled-component terms were not audited here.
 
+The optional [Dockerfile](Dockerfile) uses the official [Node image](https://hub.docker.com/_/node), `node:24.4.1-bookworm-slim`, pinned to digest `sha256:36ae19f59c91f3303c7a648f07493fe14c4bd91320ac8d898416327bacf1bbfa`. It includes Debian Bookworm components and installs Git for build-time checks. These components have their own distribution licenses; a complete image-component license inventory was not audited here. Docker Engine/Compose or Docker Desktop is operator-installed tooling, not bundled project code; its applicable distribution/account terms remain the operator's responsibility.
+
 ## Supplied data and starter materials
 
 | Material | Source / provenance | Terms and role |
