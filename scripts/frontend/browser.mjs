@@ -52,14 +52,14 @@ try {
     await fields({ date: '2026-10-11' });
     await expect(page.getByText('Условия изменены — выполните подбор', { exact: true })).toBeVisible();
     assert.equal(requests.length, beforeEdit);
-    await expect(page.locator('.results')).toContainText('2026-10-10');
+    await expect(page.locator('.results')).toContainText('10 октября 2026');
     await fields({ date: '2026-10-10' });
     await expect(page.getByText('Условия изменены — выполните подбор', { exact: true })).toHaveCount(0);
     await fields({ date: '2026-10-11' });
     const next = await submit();
     assert.deepEqual(ids(next), ['HK-44923', 'HK-27222', 'HK-44733']);
-    await expect(page.locator('.results')).toContainText('2026-10-10');
-    await expect(page.locator('.results')).toContainText('2026-10-11');
+    await expect(page.locator('.results')).toContainText('10 октября 2026');
+    await expect(page.locator('.results')).toContainText('11 октября 2026');
     observations.october11 = next.data;
     await fields({ date: '2026-10-01' });
     const first = await submit();
@@ -74,8 +74,8 @@ try {
     await reset();
     await expect(page.locator('#city')).toBeFocused();
     await expect(page.locator('.contractor')).toHaveCount(0);
-    await expect(page.locator('details')).not.toHaveAttribute('open', '');
-    const disclosure = page.locator('summary');
+    await expect(page.locator('.optional-conditions')).not.toHaveAttribute('open', '');
+    const disclosure = page.locator('.optional-conditions > summary');
     await disclosure.focus(); await page.keyboard.press('Enter');
     await expect(page.locator('#durationHours')).toBeVisible();
     const languages = await page.locator('#language option').evaluateAll(nodes => nodes.map(n => n.value).filter(Boolean));
@@ -85,6 +85,12 @@ try {
     assert.equal(requests.at(-1).language, languages[0]);
     assert.equal(optional.data.normalizedRequest.durationHours, 2.5);
     observations.optional = optional.data;
+    const optionalRequestCount = requests.length;
+    await disclosure.click();
+    await expect(disclosure).toContainText(languages[0]);
+    await expect(disclosure).toContainText('2,5 ч');
+    assert.equal(requests.length, optionalRequestCount);
+    await disclosure.click();
     for (const value of ['0', '-1', '1e309']) {
       const count = requests.length;
       await fields({ durationHours: value }); await click();
@@ -100,17 +106,28 @@ try {
     await fields({ budgetKzt: '1.5' }); await click();
     await expect(page.locator('#budgetKzt')).toBeFocused();
     assert.equal(requests.length, invalidCount);
-    await reset(); await fields({ date: '2027-01-01' }); await click();
-    await expect(page.locator('#date')).toHaveAttribute('aria-invalid', 'true');
+    for (const date of ['2027-01-01', '10000-01-01']) {
+      await reset(); await fields({ date }); await click();
+      await expect(page.locator('#date')).toHaveAttribute('aria-invalid', 'true');
+      await expect(page.locator('#date')).toBeFocused();
+    }
     observations.checks.push('real optional language/fractional hours; local positive/finite/safe integer/date validation; keyboard disclosure and hidden error focus');
 
     await reset(); await fields({ category: 'Флорист', eventFormat: 'свадьба', budgetKzt: 500000 });
     const rare = await submit(); assert.deepEqual(ids(rare), ['HK-39372']); observations.rare = rare.data;
+    await expect(page.getByText(/Почему меньше трёх:/)).toBeVisible();
+    await expect(page.locator('.outcome-reason').last()).toContainText('занятость на дату — 1');
+    await expect(page.locator('.outcome-reason').last()).toBeVisible();
+    await expect(page.locator('.selection-details')).not.toHaveAttribute('open', '');
     await fields({ city: 'Зарубежье' });
     const absent = await submit(); assert.equal(absent.data.outcome, 'category_absent');
     await expect(page.locator('.results')).toContainText(/город|категор/i);
+    await expect(page.getByRole('heading', { name: 'В этом городе нет такой категории' })).toBeVisible();
     await reset(); await fields({ budgetKzt: 1 });
     const empty = await submit(); assert.equal(empty.data.outcome, 'no_match');
+    await expect(page.getByRole('heading', { name: 'По этим условиям вариантов нет' })).toBeVisible();
+    await expect(page.locator('.outcome-reason')).toBeVisible();
+    await expect(page.locator('.outcome-reason')).toContainText('бюджет — 6');
     observations.checks.push('real rare florist, category_absent and no_match replace prior cards');
     await reset(); await submit();
 
@@ -127,15 +144,39 @@ try {
     observations.checks.push('real HTTP 400 field mapping and retained success (test-altered outgoing input)');
 
     await reset(); await submit();
-    for (const width of [1280, 375]) {
+    for (const width of [1280, 375, 390]) {
       await page.setViewportSize({ width, height: 900 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
       const form = await page.locator('.form-panel').boundingBox();
       const results = await page.locator('.results').boundingBox();
-      assert.ok(width === 375 ? results.y > form.y + form.height : results.x > form.x + form.width);
+      assert.ok(width < 760 ? results.y > form.y + form.height : results.x > form.x + form.width);
+      if (width === 1280) {
+        await page.evaluate(() => window.scrollTo(0, 0));
+        for (const selector of ['.card-heading', '.explanation']) {
+          const box = await page.locator(selector).first().boundingBox();
+          assert.ok(box.y >= 0 && box.y + box.height <= 900, `${selector} fully visible in initial desktop viewport`);
+        }
+        const cards = await page.locator('.contractor-list').boundingBox();
+        const details = await page.locator('.selection-details').boundingBox();
+        assert.ok(details.y >= cards.y + cards.height);
+      } else {
+        const beforeNavigation = requests.length;
+        const budget = await page.locator('#budgetKzt').inputValue();
+        await page.getByRole('button', { name: 'К результатам', exact: true }).focus();
+        await page.keyboard.press('Enter');
+        await expect(page.locator('#results-heading')).toBeFocused();
+        await expect(page.locator('.form-panel')).not.toHaveAttribute('open', '');
+        const firstCard = await page.locator('.contractor').first().boundingBox();
+        assert.ok(firstCard.y < 600);
+        await page.screenshot({ path: `${output}/results-${width}.png`, fullPage: true });
+        await page.getByRole('button', { name: 'Условия', exact: true }).click();
+        await expect(page.locator('#city')).toBeFocused();
+        await expect(page.locator('#budgetKzt')).toHaveValue(budget);
+        assert.equal(requests.length, beforeNavigation);
+      }
       await page.screenshot({ path: `${output}/width-${width}.png`, fullPage: true });
     }
-    observations.checks.push('375px/1280px layout, no horizontal overflow, screenshots');
+    observations.checks.push('375px/390px/1280px layout, no overflow, complete desktop explanation visible, mobile keyboard navigation/collapse retains values without requests, screenshots');
   }
   await writeFile(`${output}/${live ? 'live' : primaryOnly ? 'primary' : 'browser'}.json`, JSON.stringify(observations, null, 2));
   console.log(JSON.stringify({ passed: observations.checks, mode: observations.mode }));

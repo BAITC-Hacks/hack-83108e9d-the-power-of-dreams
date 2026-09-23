@@ -241,6 +241,17 @@ Blank optional values do not filter results; supplied duration accepts positive
 fractional hours. All categories remain selectable in every city, including
 combinations that correctly produce an empty catalogue outcome.
 
+The compact conditions panel can be collapsed without losing entered values.
+On mobile, **К результатам** moves to the result heading and collapses conditions;
+**Условия** reopens the form. Requests finishing in the background never move
+keyboard focus or scroll the page. Selected language and duration remain visible
+in the closed **Дополнительные условия** summary.
+
+Contractor explanations, reasons for fewer than three results, both empty
+outcomes and date changes stay visible. **Как получился этот список** below the
+cards expands the price-order rule and detailed exclusion counts. A pending
+request is distinguished from further edits that have not been submitted.
+
 ## How it works
 
 The app is one Next.js process serving both the browser interface and HTTP API.

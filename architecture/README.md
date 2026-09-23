@@ -1,5 +1,9 @@
 # Architecture
 
+Explanation-first visual hierarchy and explicit mobile results access:
+[contractor UI upgrade](../openspec/changes/contractor-ui-upgrade/design.md).
+The public v1 contract and backend selection/explanation rules remain unchanged.
+
 Optional self-contained local container launch and verification:
 [Docker Compose delivery](../openspec/changes/docker-compose-delivery/design.md).
 The application remains one Next.js process with the supplied CSV and optional OpenAI access.
