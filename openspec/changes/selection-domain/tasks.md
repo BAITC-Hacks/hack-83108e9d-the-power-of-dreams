@@ -15,7 +15,7 @@ Checkboxes mean final integration/publication, not local implementation.
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
 | 1.1 | branch-pushed | Worker 1deb854f13aaff67435048f0625966228048a71c; focused 4/4; no production changes | main integration | P02 reservation | coordinator |
-| 1.2 | implemented | Candidate b0bf2c925da461f3a2168044c3730d5a2374a33e; npm test 25/25; baseline typecheck passed | read-only review/main integration | P02 reservation | /root/domain_review and coordinator |
+| 1.2 | implemented | Candidate b0bf2c925da461f3a2168044c3730d5a2374a33e; npm test 25/25; typecheck passed; review supported S1-S5 | main integration | P02 reservation | coordinator |
 | 2.1 | planned | main starts f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 | clean candidate acceptance/publication | depends 1.2 and shared reservation | coordinator |
 | 2.2 | planned | new additive domain spec | sync/archive/validation/publication | depends 2.1 | coordinator |
 
@@ -54,3 +54,9 @@ Coordinator installed pinned dependencies with `npm ci --no-audit --no-fund` suc
 Worker `/root/domain_apply` added only `back/domain/select.test.mjs` (106 lines). `node --test back/domain/select.test.mjs` passed 4/4 on committed 1deb854f13aaff67435048f0625966228048a71c; explicit feature push and remote SHA confirmed, worker clean. No selector repair was demonstrated or made. S1 exact/multi-category scope, S3 full sorted busy set including venue/overlap, S4 zero/short/limited results with ordinal reordered ties, and S5 deep input preservation/intervening calls are supported. S2 uses existing slice evidence. Inspection confirms selection never reads names/descriptions/quality flags and imports only the Select type.
 
 Coordinator integrated worker SHA into b0bf2c925da461f3a2168044c3730d5a2374a33e and registered the focused suite. `npm test` passed 25/25, zero skips. Read-only reviewer `/root/domain_review` assigned that frozen candidate for S1-S5 only; no main/publication authority. Clean combined main acceptance remains pending. P02 owner was notified of serialized integration and preservation of its package additions.
+
+### Review and specification synchronization
+
+Read-only `/root/domain_review` returned supported for S1-S5 at b0bf2c925da461f3a2168044c3730d5a2374a33e, using scoped inspection and supplied 25/25 evidence without redundant reruns. No acceptance failure or critical incidental defect found. Existing slice optional test supplies S2 and busy-person evidence; focused suite supplies the remaining cases. Review does not establish main integration.
+
+Fetched current specs instructions, synchronized all five additive requirements into `openspec/specs/contractor-selection-domain/spec.md` with Purpose and Requirements headings, preserving existing specs. Strict validation passed all three current specifications. Archive and final report await confirmed combined main publication.
