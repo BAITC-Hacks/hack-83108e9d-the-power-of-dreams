@@ -19,12 +19,12 @@ Coordinator: Codex task `01a0ce1a-086f-7772-9104-a72718f35156`. Selected impleme
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 |---|---|---|---|---|---|
-| 1.1 | implementing | Luna/Terra short live probes passed, source base d07a7c2 | contracts, strict validation, commit | none | coordinator |
-| 1.2 | planned | design reviewed read-only by /root/brief_design | implementation + index review + focused checks | committed contracts before dispatch | coordinator assigns worker |
-| 1.3 | planned | none | endpoint and integrated scenario | 1.1/1.2 | coordinator |
-| 2.1 | planned | UI task preserves parent exports and agreed insertion points | implementation/browser cases | verified backend | coordinator |
-| 2.2 | planned | two access probes, reserve USD 0.01 | fixed comparison + report | implemented interpreter | coordinator |
-| 3.1 | planned | clean starting worktree | regressions/build/clean launch/package/integration/publication | shared ownership required only before shared writes | coordinator |
+| 1.1 | committed | e81e0cd contracts/examples + strict validation; live probes; typecheck | final integration | none | coordinator |
+| 1.2 | implemented | worker 665e458 published, cherry-picked bfd640d; 5/5 checks and independent all-48-assertion review | final combined candidate | coordinator subsequently adds source excerpt to keep explanations distinctive | coordinator |
+| 1.3 | implemented | five integrated HTTP/filter/restart cases passed; actual browser used live interpretation and real recommendation | final merged-source check | none | coordinator |
+| 2.1 | implemented | live browser + controlled edit/reset/failure races; 375/1280px screenshots inspected | merge published UI d3fb904, repeat affected checks | none | coordinator |
+| 2.2 | implemented | 120-call initial comparison + 44-call focused repair, model-comparison.json | preserve measured source/prompt hashes | see initial failures and limited repair scope below | coordinator |
+| 3.1 | implementing | 62 checks, typecheck/build; pending delivery | docs/clean launch/package/integration/publication | shared ownership required only before shared writes | coordinator |
 
 ## Assignment and authorization
 
@@ -36,6 +36,16 @@ Coordinator: Codex task `01a0ce1a-086f-7772-9104-a72718f35156`. Selected impleme
 - Worker scope will be pinned here after the contract commit and before dispatch. No frontend consumer is delegated before backend contract publication.
 - No shared reservation has been acquired. NVIDIA task `01a0ce18-6152-7361-a625-2021b82b1b9f` reports its provider probe HTTP 410 and no modifications to shared source; resume requires renewed contract coordination. UI task `01a0ce17-fcfe-7e13-9aa8-238a516ab0a0` owns its broader JSX/style redesign and keeps parent exports/class hooks. Brief controls go after optional conditions, advice after explanation. Neither task's checks establish this feature's acceptance.
 
+## Worker 1.2 — index and pure matching
+
+- Owner: apply worker `/root/brief_index`, under coordinator task above. Scope: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-brief-index`, branch `codex/brief-index`, exact base/contracts `e81e0cdd1f5338355ddc97b3802f14b1f28ac078`; same origin/target main as coordinator.
+- Allowed writes only: `back/catalog/brief-index.json`, `back/catalog/brief-index.ts`, `back/brief/match.ts`, `back/brief/match.test.mjs`. No other files, contracts, shared stage state, Git main or coordinator wiring. This assignment is read from the coordinator's absolute task-card path; the worker's committed copy contains the initial stage only.
+- Interface pin: contracts/brief.ts and contracts/examples/brief.json at exact base above. `loadBriefIndex(profiles)` validates all descriptions/IDs and returns `BriefIndex` or throws `BriefIndexError`; `matchBrief(eligibleProfiles, confirmedBrief, index): readonly BriefMatch[]` returns ALL supplied profiles in sorted order. Root truncates and applies hard filters. Loader can accept optional raw index for focused invalid-source checks; owned JSON must be statically imported or loaded in a bundle-safe way.
+- Context: design sections Canonical wishes and evidence / Modules; B2/B3 and S4. Preserve existing catalogue, do not invent evidence, review semantic polarity. Include every profile ID even with no assertions. Quote limit 240 Unicode code points. `null` trait and absent assertion always unknown; a narrower avoidance such as compulsory contests is unknown rather than equating it with every contest.
+- Readiness checked: path/branch/base/remote verified; required harness files are identical to coordinator using SHA256; authoritative Git harness revision e81e0cd (unchanged from d07a7c2). apply role exists and is callable. Runtime sandbox may require scoped escalation for writes in this sibling worktree; report any denied action, not isolation claims. Dependencies installed separately by coordinator; no server ports, inference calls or shared resources.
+- Authorization: implement, focused local checks, scoped commit and ordinary push to origin/codex/brief-index; no paid calls, installs, delegation or direct user questions. You are not alone; preserve others' edits. Stop on incompatible contracts or missing authorization. Use actual assigned cwd for every command.
+- Checks: Node test of this module using real CSV via existing loader, plus typecheck; HK-77838 has explicit discreet evidence; fewer conflicts/more matches, price/ID ties, source mismatch/hash rejection, unknown avoidances, all supplied profiles retained and input immutability. Use worker-local temp output only. Root covers integrated hard filters/restarts/browser. Return actual stage, criteria/checks/skips, SHA, confirmed branch remote and next owner in Russian, <=250 words.
+
 ## Planned verification and resources
 
 - Checks: existing `npm test`, `npm run typecheck`, `npm run build`; focused Node checks for interpretation/public contracts/matching; real browser on a dedicated local port 3127 (check free before launch), plus restart and API requests. Worker checks use their own temp/build directories and no server/paid calls unless explicitly assigned.
@@ -43,3 +53,12 @@ Coordinator: Codex task `01a0ce1a-086f-7772-9104-a72718f35156`. Selected impleme
 - Baseline/empty/rare/date scenarios remain required; confirm old shape/behavior without brief. New semantic order must not reuse price-only displacement claims.
 - Clean checkout: follow README Node installation/configuration/build/start, with no private files for catalogue-only mode; use private environment injection only for explicitly labelled live acceptance. Record exact SHA, observed results and all skips.
 - Budget: two short probes succeeded (35 input/12 output each), conservatively reserve USD 0.01. Subsequent calls need pre-call reservation, max output and total ledger below USD 5. Never log secrets or free customer text; fixed synthetic eval corpus is versioned source, reports contain case IDs and metrics.
+
+## Observed implementation evidence
+
+- Worker index `665e4584fe9cbd792fcbbbec465d7ab57673464b` was confirmed on origin/codex/brief-index; root cherry-pick `bfd640dff03f17b91eece0c46531950ada9cd425`. All 66 description hashes/IDs and 48 source assertions validate. Independent read-only reviewer `/root/evidence_review` checked semantic meaning of every assertion and found no material failure. Coordinator's later profileExcerpt projection reuses these same validated excerpts; affected matcher/integration cases passed again.
+- Real default scenario with confirmed discreet style yields HK-77838/HK-88430/HK-29829 versus baseline HK-88430/HK-29829/HK-27222. Literal evidence, unknown compulsory contests and question are visible. Budget 900000 and the profile's busy date exclude HK-77838. Parallel requests and a fresh Node process return identical IDs. Changed source descriptions give BRIEF_INDEX_UNAVAILABLE only for brief selection; baseline remains available.
+- First model comparison: Luna 54/60 correct, p50 1173ms/p95 1546ms; Terra 58/60, p50 1398ms/p95 2058ms. Failures included inverted negation, overly broad avoidance, dropped unknown, and safely rejected contradictory traits. The prompt was repaired; 11 affected/new cases x2 repeats x2 models passed 44/44. Repair p50/p95: Luna 1210/1655ms, Terra 1535/2898ms. Keep Luna for the measured extraction role. This is not a blind customer preference evaluation and does not establish perfect arbitrary-text interpretation.
+- Model experiment conservative total including USD 0.01 reserved for initial probes: USD 0.19786235. An additional USD 1 was reserved before browser/application acceptance, with at most 40 Luna calls, each bounded to <=15000 conservative input and <=1800 output tokens (no tools). Current ledger envelope USD 1.19786235 is below USD 5. Browser run made two provider calls; all confirmed recommendation/date/budget calls are local. No account balance was queried.
+- Browser `scripts/brief/browser.mjs` passed real live baseline/interpreter/promotion, explicit keyboard confirmation, source/unknown/question rendering, 375px/1280px no overflow, date/budget changes, edit invalidation/reset. Controlled ignored-abort late success/failure and provider-unavailable cases passed separately. No page errors. Screenshots under ignored test-results/brief-browser were visually inspected. These first screenshots precede the separate UI redesign merge; final merged check remains required.
+- Actual OpenAI docs/Context7 lookup verified strict Responses JSON and reasoning none; no new dependency or service. CodeGraph reported this worktree unindexed, so direct file navigation was used; no graph validity claim.

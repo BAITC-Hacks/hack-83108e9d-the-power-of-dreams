@@ -1,4 +1,5 @@
 /** Public JSON contract v1. Runtime validation belongs to the HTTP boundary. */
+import type { BriefAdvice, ConfirmedBrief } from './brief.ts';
 export type RecommendationRequest = {
   readonly city: string;
   readonly date: string;
@@ -7,6 +8,7 @@ export type RecommendationRequest = {
   readonly budgetKzt: number;
   readonly language?: string;
   readonly durationHours?: number;
+  readonly brief?: ConfirmedBrief;
 };
 
 export type NormalizedRequest = RecommendationRequest;
@@ -39,6 +41,7 @@ export type RecommendationCard = {
   readonly priceFromKzt: number;
   readonly explanation: string;
   readonly qualityFlags: QualityFlags;
+  readonly briefAdvice?: BriefAdvice;
 };
 export type SelectionSummary = {
   readonly candidateCount: number;
@@ -53,7 +56,7 @@ export type SelectionSummary = {
   readonly busyProfileIds: readonly string[];
 };
 export type Outcome = 'matched' | 'category_absent' | 'no_match';
-export type ExplanationMode = 'openai_evidence' | 'mixed' | 'catalog_fallback' | 'not_needed';
+export type ExplanationMode = 'openai_evidence' | 'mixed' | 'catalog_fallback' | 'not_needed' | 'brief_evidence';
 export type RecommendationResponse = {
   readonly requestId: string;
   readonly normalizedRequest: NormalizedRequest;
@@ -64,7 +67,7 @@ export type RecommendationResponse = {
   readonly explanationMode: ExplanationMode;
 };
 export type RequestField = keyof RecommendationRequest;
-export type ErrorCode = 'INVALID_REQUEST' | 'DATE_OUT_OF_RANGE' | 'CATALOG_UNAVAILABLE' | 'INTERNAL_ERROR';
+export type ErrorCode = 'INVALID_REQUEST' | 'DATE_OUT_OF_RANGE' | 'CATALOG_UNAVAILABLE' | 'INTERNAL_ERROR' | 'BRIEF_UNAVAILABLE' | 'BRIEF_INDEX_UNAVAILABLE';
 export type ErrorResponse = {
   readonly error: {
     readonly code: ErrorCode;

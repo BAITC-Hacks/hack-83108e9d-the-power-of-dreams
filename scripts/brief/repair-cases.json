@@ -1,0 +1,83 @@
+[
+  {
+    "id": "restrained",
+    "text": "Без навязчивой подачи",
+    "expected": [
+      "discreet:prefer"
+    ]
+  },
+  {
+    "id": "not_classical",
+    "text": "Нужна спокойная музыка",
+    "expected": [
+      "unknown:prefer"
+    ]
+  },
+  {
+    "id": "qualified_tradition",
+    "text": "Без навязанных традиций",
+    "expected": [
+      "unknown:avoid"
+    ]
+  },
+  {
+    "id": "contradiction",
+    "text": "Хочу танцы, но без танцев",
+    "expected": [
+      "unknown:prefer",
+      "unknown:avoid"
+    ]
+  },
+  {
+    "id": "holdout_gentle",
+    "text": "Не хочу, чтобы ведущий был навязчивым",
+    "expected": [
+      "discreet:prefer"
+    ]
+  },
+  {
+    "id": "holdout_compulsory",
+    "text": "Не нужны обязательные национальные ритуалы",
+    "expected": [
+      "unknown:avoid"
+    ]
+  },
+  {
+    "id": "holdout_humor",
+    "text": "Юмор нужен, но пошлые шутки не нужны",
+    "expected": [
+      "humor:prefer",
+      "unknown:avoid"
+    ]
+  },
+  {
+    "id": "holdout_music",
+    "text": "Предпочитаю тихую фоновую музыку",
+    "expected": [
+      "unknown:prefer"
+    ]
+  },
+  {
+    "id": "holdout_conflict",
+    "text": "Нужна постановочная съёмка, и не хочу постановочную съёмку",
+    "expected": [
+      "unknown:prefer",
+      "unknown:avoid"
+    ]
+  },
+  {
+    "id": "known_negative",
+    "text": "Не хочу конкурсов",
+    "expected": [
+      "contests:avoid"
+    ]
+  },
+  {
+    "id": "qualified_avoid",
+    "text": "Ненавязчивый ведущий, без принудительных конкурсов",
+    "expected": [
+      "discreet:prefer",
+      "unknown:avoid"
+    ]
+  }
+]

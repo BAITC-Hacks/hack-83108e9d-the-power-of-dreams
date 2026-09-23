@@ -1,0 +1,93 @@
+// Real browser + same-origin service; controlled timing cases are explicitly separate.
+import assert from 'node:assert/strict';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { chromium, expect } from '@playwright/test';
+const url = process.env.BRIEF_URL ?? 'http://127.0.0.1:3127';
+const out = process.env.BRIEF_OUTPUT ?? 'test-results/brief-browser';
+await mkdir(out, { recursive: true });
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+const errors = []; page.on('pageerror', e => errors.push(e.message));
+const checks = []; const payloads = []; const responses = {};
+page.on('request', r => { if (r.url().endsWith('/api/recommendations')) payloads.push(r.postDataJSON()); });
+async function submit() {
+  const done = page.waitForResponse(r => r.url().endsWith('/api/recommendations'));
+  await page.getByRole('button', { name: 'Подобрать', exact: true }).click();
+  const r = await done; const body = await r.json();
+  assert.equal(r.status(), 200); await expect(page.locator('.contractor')).toHaveCount(body.cards.length);
+  return body;
+}
+try {
+  await page.goto(url); await expect(page.locator('#city')).toBeVisible();
+  responses.baseline = await submit();
+  assert.deepEqual(responses.baseline.cards.map(c => c.id), ['HK-88430', 'HK-29829', 'HK-27222']);
+  assert.equal(responses.baseline.explanationMode, 'openai_evidence');
+  const text = 'Нужен ненавязчивый ведущий, без принудительных конкурсов';
+  await page.locator('#brief-text').fill(text);
+  const before = payloads.length;
+  await page.getByRole('button', { name: 'Подобрать', exact: true }).click();
+  await expect(page.locator('#brief-text')).toBeFocused(); assert.equal(payloads.length, before);
+  const interpreted = page.waitForResponse(r => r.url().endsWith('/api/brief'));
+  await page.getByRole('button', { name: 'Разобрать пожелания', exact: true }).focus(); await page.keyboard.press('Enter');
+  const answer = await interpreted; assert.equal(answer.status(), 200); responses.interpretation = await answer.json();
+  await expect(page.locator('.brief-conditions li')).toHaveCount(2);
+  responses.personalized = await submit();
+  assert.equal(payloads.at(-1).brief.text, text);
+  assert.deepEqual(responses.personalized.cards.map(c => c.id), ['HK-77838', 'HK-88430', 'HK-29829']);
+  await expect(page.locator('.contractor').first()).toContainText('Подтверждено анкетой');
+  await expect(page.locator('.contractor').first()).toContainText('Нужно уточнить');
+  await expect(page.locator('.contractor').first()).toContainText('без принудительных конкурсов');
+  await page.screenshot({ path: `${out}/desktop.png`, fullPage: true });
+  checks.push('real live interpretation, explicit keyboard review/submit, candidate promotion and source/unknown/question presentation');
+  await page.setViewportSize({ width: 375, height: 812 });
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth));
+  await page.screenshot({ path: `${out}/mobile.png`, fullPage: true });
+  checks.push('375px mobile and 1280px desktop without horizontal overflow');
+  await page.locator('#date').fill('2026-10-11'); responses.dateChanged = await submit();
+  const narrative = await page.locator('.date-comparison').innerText();
+  assert.ok(!narrative.includes('дешевле')); assert.match(narrative, /занятост/);
+  await page.locator('#budgetKzt').fill('900000'); responses.lowerBudget = await submit();
+  assert.ok(!responses.lowerBudget.cards.some(c => c.id === 'HK-77838'));
+  await expect(page.locator('.date-comparison')).toHaveCount(0);
+  checks.push('real date comparison uses availability and brief order; hard budget excludes strong match');
+  await page.locator('#brief-text').fill('Хочу танцы');
+  await expect(page.locator('.brief-conditions li')).toHaveCount(0);
+  const edited = payloads.length; await page.getByRole('button', { name: 'Подобрать', exact: true }).click();
+  assert.equal(payloads.length, edited); await expect(page.locator('.contractor')).toHaveCount(responses.lowerBudget.cards.length);
+  await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
+  await expect(page.locator('#brief-text')).toHaveValue(''); await expect(page.locator('.contractor')).toHaveCount(0);
+  checks.push('editing invalidates confirmation without erasing successful cards; reset clears brief and results');
+
+  const controlled = await browser.newPage();
+  await controlled.addInitScript(() => {
+    const original = window.fetch.bind(window); window.pendingBrief = [];
+    window.fetch = (input, init) => String(input).endsWith('/api/brief') ? new Promise((resolve, reject) => {
+      window.pendingBrief.push({ input: JSON.parse(init.body), signal: init.signal, resolve, reject });
+    }) : original(input, init);
+  });
+  await controlled.goto(url); await expect(controlled.locator('#city')).toBeVisible();
+  await controlled.locator('#brief-text').fill(text);
+  await controlled.getByRole('button', { name: 'Разобрать пожелания', exact: true }).click();
+  await expect.poll(() => controlled.evaluate(() => window.pendingBrief.length)).toBe(1);
+  await controlled.locator('#brief-text').fill('Хочу танцы');
+  assert.equal(await controlled.evaluate(() => window.pendingBrief[0].signal.aborted), true);
+  await controlled.evaluate(body => window.pendingBrief[0].resolve(Response.json(body)), responses.interpretation);
+  await expect(controlled.locator('.brief-conditions li')).toHaveCount(0);
+  await controlled.getByRole('button', { name: 'Разобрать пожелания', exact: true }).click();
+  await expect.poll(() => controlled.evaluate(() => window.pendingBrief.length)).toBe(2);
+  await controlled.getByRole('button', { name: 'Сбросить', exact: true }).click();
+  assert.equal(await controlled.evaluate(() => window.pendingBrief[1].signal.aborted), true);
+  await controlled.evaluate(() => window.pendingBrief[1].reject(new Error('controlled late failure')));
+  await expect(controlled.locator('#brief-text')).toHaveValue('');
+  await expect(controlled.locator('.brief-editor [role=alert]')).toHaveCount(0);
+  await controlled.locator('#brief-text').fill(text);
+  await controlled.getByRole('button', { name: 'Разобрать пожелания', exact: true }).click();
+  await expect.poll(() => controlled.evaluate(() => window.pendingBrief.length)).toBe(3);
+  await controlled.evaluate(() => window.pendingBrief[2].resolve(Response.json({ error: { code: 'BRIEF_UNAVAILABLE', requestId: 'controlled' } }, { status: 503 })));
+  await expect(controlled.locator('.brief-editor [role=alert]')).toContainText('Повторите');
+  await expect(controlled.locator('#brief-text')).toHaveValue(text);
+  checks.push('controlled ignored-abort late success/error cannot restore stale interpretation; explicit provider failure retains input');
+  assert.deepEqual(errors, []);
+  await writeFile(`${out}/observations.json`, JSON.stringify({ checks, responses, browserErrors: errors }, null, 2));
+  console.log(JSON.stringify({ operation: 'brief-browser', checks, liveProviderCalls: 2, browserErrors: errors }));
+} finally { await browser.close(); }

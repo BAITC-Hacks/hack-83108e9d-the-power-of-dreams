@@ -13,7 +13,8 @@ export function matchBrief(profiles: readonly Profile[], brief: ConfirmedBrief, 
     }
     evidence.sort((a, b) => Number(a.relation === 'match') - Number(b.relation === 'match'));
     const ask = unknownConditions.find(c => c.intent === 'avoid') ?? unknownConditions[0] ?? evidence.find(e => e.relation === 'conflict')?.condition;
-    return { id: profile.id, price: profile.priceFromKzt,
+    const profileExcerpt = evidence.find(e => e.relation === 'match')?.quote ?? index.byId[profile.id]?.[0]?.quote;
+    return { id: profile.id, price: profile.priceFromKzt, ...(profileExcerpt ? { profileExcerpt } : {}),
       conflicts: evidence.filter(e => e.relation === 'conflict').length,
       matches: evidence.filter(e => e.relation === 'match').length,
       advice: { evidence, unknownConditions, question: ask

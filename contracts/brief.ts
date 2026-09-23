@@ -42,7 +42,7 @@ export type BriefAdvice = {
 export type TraitAssertion = { readonly trait: TraitId; readonly value: boolean; readonly quote: string };
 /** Plain validated data passed to the pure matcher, never an adapter instance. */
 export type BriefIndex = { readonly version: string; readonly byId: Readonly<Record<string, readonly TraitAssertion[]>> };
-export type BriefMatch = { readonly id: string; readonly conflicts: number; readonly matches: number; readonly advice: BriefAdvice };
+export type BriefMatch = { readonly id: string; readonly conflicts: number; readonly matches: number; readonly advice: BriefAdvice; readonly profileExcerpt?: string };
 
 export const normalizeBriefText = (text: string) => text.replace(/\s+/gu, ' ').trim();
 const object = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value);
