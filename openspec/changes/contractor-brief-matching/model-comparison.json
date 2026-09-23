@@ -1,0 +1,2401 @@
+{
+  "date": "2026-09-23",
+  "mode": "live",
+  "models": [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra"
+  ],
+  "reasoning": "none",
+  "selectedModel": "gpt-5.6-luna",
+  "initial": {
+    "corpusSha256": "1ac0af1cb67a461b8c62d41dac0de214770d446405e7693a553a474796e8982a",
+    "promptSha256": "79e7fd06ac0d0c404d912d940325b5af2bb737772956f25d96e8833c4e789db6",
+    "chargedOrReservedUsd": 0.14005844999999992,
+    "results": [
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "discreet",
+        "repeat": 1,
+        "durationMs": 1118,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_avoid",
+        "repeat": 1,
+        "durationMs": 1274,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "no_contests",
+        "repeat": 1,
+        "durationMs": 1365,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "party",
+        "repeat": 1,
+        "durationMs": 1174,
+        "status": "validated",
+        "expected": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "actual": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "traditions",
+        "repeat": 1,
+        "durationMs": 1285,
+        "status": "validated",
+        "expected": [
+          "traditional:prefer"
+        ],
+        "actual": [
+          "traditional:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "business",
+        "repeat": 1,
+        "durationMs": 1546,
+        "status": "validated",
+        "expected": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "actual": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "interactive",
+        "repeat": 1,
+        "durationMs": 1295,
+        "status": "validated",
+        "expected": [
+          "interactive:prefer"
+        ],
+        "actual": [
+          "interactive:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "live_music",
+        "repeat": 1,
+        "durationMs": 1522,
+        "status": "validated",
+        "expected": [
+          "live_music:prefer"
+        ],
+        "actual": [
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "classical",
+        "repeat": 1,
+        "durationMs": 1692,
+        "status": "validated",
+        "expected": [
+          "classical:prefer"
+        ],
+        "actual": [
+          "classical:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "reportage",
+        "repeat": 1,
+        "durationMs": 1264,
+        "status": "validated",
+        "expected": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "actual": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "posed",
+        "repeat": 1,
+        "durationMs": 1133,
+        "status": "validated",
+        "expected": [
+          "posed:prefer"
+        ],
+        "actual": [
+          "posed:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "cinematic",
+        "repeat": 1,
+        "durationMs": 1168,
+        "status": "validated",
+        "expected": [
+          "cinematic:prefer"
+        ],
+        "actual": [
+          "cinematic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "outdoors",
+        "repeat": 1,
+        "durationMs": 1248,
+        "status": "validated",
+        "expected": [
+          "outdoors:prefer"
+        ],
+        "actual": [
+          "outdoors:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "minimalist",
+        "repeat": 1,
+        "durationMs": 1158,
+        "status": "validated",
+        "expected": [
+          "minimalist:prefer"
+        ],
+        "actual": [
+          "minimalist:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "floral",
+        "repeat": 1,
+        "durationMs": 1258,
+        "status": "validated",
+        "expected": [
+          "floral:prefer"
+        ],
+        "actual": [
+          "floral:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "children",
+        "repeat": 1,
+        "durationMs": 1105,
+        "status": "validated",
+        "expected": [
+          "children:prefer"
+        ],
+        "actual": [
+          "children:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "equipment",
+        "repeat": 1,
+        "durationMs": 1246,
+        "status": "validated",
+        "expected": [
+          "equipment:prefer"
+        ],
+        "actual": [
+          "equipment:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "silence",
+        "repeat": 1,
+        "durationMs": 1194,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "capacity",
+        "repeat": 1,
+        "durationMs": 1323,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "budget_context",
+        "repeat": 1,
+        "durationMs": 1466,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "language_context",
+        "repeat": 1,
+        "durationMs": 1156,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "restrained",
+        "repeat": 1,
+        "durationMs": 1150,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:avoid"
+        ],
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "no_humor",
+        "repeat": 1,
+        "durationMs": 1133,
+        "status": "validated",
+        "expected": [
+          "humor:avoid"
+        ],
+        "actual": [
+          "humor:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "not_classical",
+        "repeat": 1,
+        "durationMs": 1075,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [],
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "not_minimalist",
+        "repeat": 1,
+        "durationMs": 1421,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_tradition",
+        "repeat": 1,
+        "durationMs": 2293,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "specific_camera",
+        "repeat": 1,
+        "durationMs": 1167,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "injection",
+        "repeat": 1,
+        "durationMs": 871,
+        "status": "validated",
+        "expected": [],
+        "actual": [],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "contradiction",
+        "repeat": 1,
+        "durationMs": 1227,
+        "status": "failed",
+        "code": "BRIEF_UNAVAILABLE",
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "combined",
+        "repeat": 1,
+        "durationMs": 1449,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "discreet",
+        "repeat": 2,
+        "durationMs": 1882,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_avoid",
+        "repeat": 2,
+        "durationMs": 1221,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "no_contests",
+        "repeat": 2,
+        "durationMs": 1040,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "party",
+        "repeat": 2,
+        "durationMs": 985,
+        "status": "validated",
+        "expected": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "actual": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "traditions",
+        "repeat": 2,
+        "durationMs": 1267,
+        "status": "validated",
+        "expected": [
+          "traditional:prefer"
+        ],
+        "actual": [
+          "traditional:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "business",
+        "repeat": 2,
+        "durationMs": 1173,
+        "status": "validated",
+        "expected": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "actual": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "interactive",
+        "repeat": 2,
+        "durationMs": 1191,
+        "status": "validated",
+        "expected": [
+          "interactive:prefer"
+        ],
+        "actual": [
+          "interactive:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "live_music",
+        "repeat": 2,
+        "durationMs": 940,
+        "status": "validated",
+        "expected": [
+          "live_music:prefer"
+        ],
+        "actual": [
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "classical",
+        "repeat": 2,
+        "durationMs": 946,
+        "status": "validated",
+        "expected": [
+          "classical:prefer"
+        ],
+        "actual": [
+          "classical:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "reportage",
+        "repeat": 2,
+        "durationMs": 1191,
+        "status": "validated",
+        "expected": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "actual": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "posed",
+        "repeat": 2,
+        "durationMs": 904,
+        "status": "validated",
+        "expected": [
+          "posed:prefer"
+        ],
+        "actual": [
+          "posed:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "cinematic",
+        "repeat": 2,
+        "durationMs": 1129,
+        "status": "validated",
+        "expected": [
+          "cinematic:prefer"
+        ],
+        "actual": [
+          "cinematic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "outdoors",
+        "repeat": 2,
+        "durationMs": 982,
+        "status": "validated",
+        "expected": [
+          "outdoors:prefer"
+        ],
+        "actual": [
+          "outdoors:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "minimalist",
+        "repeat": 2,
+        "durationMs": 1278,
+        "status": "validated",
+        "expected": [
+          "minimalist:prefer"
+        ],
+        "actual": [
+          "minimalist:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "floral",
+        "repeat": 2,
+        "durationMs": 991,
+        "status": "validated",
+        "expected": [
+          "floral:prefer"
+        ],
+        "actual": [
+          "floral:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "children",
+        "repeat": 2,
+        "durationMs": 1018,
+        "status": "validated",
+        "expected": [
+          "children:prefer"
+        ],
+        "actual": [
+          "children:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "equipment",
+        "repeat": 2,
+        "durationMs": 1137,
+        "status": "validated",
+        "expected": [
+          "equipment:prefer"
+        ],
+        "actual": [
+          "equipment:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "silence",
+        "repeat": 2,
+        "durationMs": 1106,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "capacity",
+        "repeat": 2,
+        "durationMs": 1210,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "budget_context",
+        "repeat": 2,
+        "durationMs": 1209,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "language_context",
+        "repeat": 2,
+        "durationMs": 947,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "restrained",
+        "repeat": 2,
+        "durationMs": 1064,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:avoid"
+        ],
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "no_humor",
+        "repeat": 2,
+        "durationMs": 1372,
+        "status": "validated",
+        "expected": [
+          "humor:avoid"
+        ],
+        "actual": [
+          "humor:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "not_classical",
+        "repeat": 2,
+        "durationMs": 1120,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "not_minimalist",
+        "repeat": 2,
+        "durationMs": 1364,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_tradition",
+        "repeat": 2,
+        "durationMs": 1308,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "traditional:avoid"
+        ],
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "specific_camera",
+        "repeat": 2,
+        "durationMs": 1110,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "injection",
+        "repeat": 2,
+        "durationMs": 889,
+        "status": "validated",
+        "expected": [],
+        "actual": [],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "contradiction",
+        "repeat": 2,
+        "durationMs": 1000,
+        "status": "failed",
+        "code": "BRIEF_UNAVAILABLE",
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "combined",
+        "repeat": 2,
+        "durationMs": 1145,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "discreet",
+        "repeat": 1,
+        "durationMs": 1235,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_avoid",
+        "repeat": 1,
+        "durationMs": 2085,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "no_contests",
+        "repeat": 1,
+        "durationMs": 1267,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "party",
+        "repeat": 1,
+        "durationMs": 1742,
+        "status": "validated",
+        "expected": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "actual": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "traditions",
+        "repeat": 1,
+        "durationMs": 1520,
+        "status": "validated",
+        "expected": [
+          "traditional:prefer"
+        ],
+        "actual": [
+          "traditional:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "business",
+        "repeat": 1,
+        "durationMs": 1587,
+        "status": "validated",
+        "expected": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "actual": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "interactive",
+        "repeat": 1,
+        "durationMs": 1396,
+        "status": "validated",
+        "expected": [
+          "interactive:prefer"
+        ],
+        "actual": [
+          "interactive:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "live_music",
+        "repeat": 1,
+        "durationMs": 1538,
+        "status": "validated",
+        "expected": [
+          "live_music:prefer"
+        ],
+        "actual": [
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "classical",
+        "repeat": 1,
+        "durationMs": 1472,
+        "status": "validated",
+        "expected": [
+          "classical:prefer"
+        ],
+        "actual": [
+          "classical:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "reportage",
+        "repeat": 1,
+        "durationMs": 1569,
+        "status": "validated",
+        "expected": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "actual": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "posed",
+        "repeat": 1,
+        "durationMs": 1179,
+        "status": "validated",
+        "expected": [
+          "posed:prefer"
+        ],
+        "actual": [
+          "posed:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "cinematic",
+        "repeat": 1,
+        "durationMs": 1473,
+        "status": "validated",
+        "expected": [
+          "cinematic:prefer"
+        ],
+        "actual": [
+          "cinematic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "outdoors",
+        "repeat": 1,
+        "durationMs": 1533,
+        "status": "validated",
+        "expected": [
+          "outdoors:prefer"
+        ],
+        "actual": [
+          "outdoors:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "minimalist",
+        "repeat": 1,
+        "durationMs": 1284,
+        "status": "validated",
+        "expected": [
+          "minimalist:prefer"
+        ],
+        "actual": [
+          "minimalist:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "floral",
+        "repeat": 1,
+        "durationMs": 1223,
+        "status": "validated",
+        "expected": [
+          "floral:prefer"
+        ],
+        "actual": [
+          "floral:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "children",
+        "repeat": 1,
+        "durationMs": 1334,
+        "status": "validated",
+        "expected": [
+          "children:prefer"
+        ],
+        "actual": [
+          "children:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "equipment",
+        "repeat": 1,
+        "durationMs": 1286,
+        "status": "validated",
+        "expected": [
+          "equipment:prefer"
+        ],
+        "actual": [
+          "equipment:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "silence",
+        "repeat": 1,
+        "durationMs": 1338,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "capacity",
+        "repeat": 1,
+        "durationMs": 1237,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "budget_context",
+        "repeat": 1,
+        "durationMs": 1318,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "language_context",
+        "repeat": 1,
+        "durationMs": 1142,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "restrained",
+        "repeat": 1,
+        "durationMs": 1489,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "no_humor",
+        "repeat": 1,
+        "durationMs": 1066,
+        "status": "validated",
+        "expected": [
+          "humor:avoid"
+        ],
+        "actual": [
+          "humor:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "not_classical",
+        "repeat": 1,
+        "durationMs": 1834,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "not_minimalist",
+        "repeat": 1,
+        "durationMs": 1452,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_tradition",
+        "repeat": 1,
+        "durationMs": 1257,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "traditional:avoid"
+        ],
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "specific_camera",
+        "repeat": 1,
+        "durationMs": 1308,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "injection",
+        "repeat": 1,
+        "durationMs": 1144,
+        "status": "validated",
+        "expected": [],
+        "actual": [],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "contradiction",
+        "repeat": 1,
+        "durationMs": 1444,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "combined",
+        "repeat": 1,
+        "durationMs": 2148,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "discreet",
+        "repeat": 2,
+        "durationMs": 1450,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_avoid",
+        "repeat": 2,
+        "durationMs": 1420,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "no_contests",
+        "repeat": 2,
+        "durationMs": 2058,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "humor:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "party",
+        "repeat": 2,
+        "durationMs": 1383,
+        "status": "validated",
+        "expected": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "actual": [
+          "dancing:prefer",
+          "energetic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "traditions",
+        "repeat": 2,
+        "durationMs": 1448,
+        "status": "validated",
+        "expected": [
+          "traditional:prefer"
+        ],
+        "actual": [
+          "traditional:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "business",
+        "repeat": 2,
+        "durationMs": 2013,
+        "status": "validated",
+        "expected": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "actual": [
+          "business:prefer",
+          "dancing:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "interactive",
+        "repeat": 2,
+        "durationMs": 1494,
+        "status": "validated",
+        "expected": [
+          "interactive:prefer"
+        ],
+        "actual": [
+          "interactive:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "live_music",
+        "repeat": 2,
+        "durationMs": 1457,
+        "status": "validated",
+        "expected": [
+          "live_music:prefer"
+        ],
+        "actual": [
+          "live_music:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "classical",
+        "repeat": 2,
+        "durationMs": 1503,
+        "status": "validated",
+        "expected": [
+          "classical:prefer"
+        ],
+        "actual": [
+          "classical:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "reportage",
+        "repeat": 2,
+        "durationMs": 1545,
+        "status": "validated",
+        "expected": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "actual": [
+          "posed:avoid",
+          "reportage:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "posed",
+        "repeat": 2,
+        "durationMs": 1142,
+        "status": "validated",
+        "expected": [
+          "posed:prefer"
+        ],
+        "actual": [
+          "posed:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "cinematic",
+        "repeat": 2,
+        "durationMs": 1398,
+        "status": "validated",
+        "expected": [
+          "cinematic:prefer"
+        ],
+        "actual": [
+          "cinematic:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "outdoors",
+        "repeat": 2,
+        "durationMs": 1196,
+        "status": "validated",
+        "expected": [
+          "outdoors:prefer"
+        ],
+        "actual": [
+          "outdoors:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "minimalist",
+        "repeat": 2,
+        "durationMs": 1483,
+        "status": "validated",
+        "expected": [
+          "minimalist:prefer"
+        ],
+        "actual": [
+          "minimalist:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "floral",
+        "repeat": 2,
+        "durationMs": 1356,
+        "status": "validated",
+        "expected": [
+          "floral:prefer"
+        ],
+        "actual": [
+          "floral:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "children",
+        "repeat": 2,
+        "durationMs": 1108,
+        "status": "validated",
+        "expected": [
+          "children:prefer"
+        ],
+        "actual": [
+          "children:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "equipment",
+        "repeat": 2,
+        "durationMs": 1404,
+        "status": "validated",
+        "expected": [
+          "equipment:prefer"
+        ],
+        "actual": [
+          "equipment:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "silence",
+        "repeat": 2,
+        "durationMs": 1341,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "capacity",
+        "repeat": 2,
+        "durationMs": 1106,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "budget_context",
+        "repeat": 2,
+        "durationMs": 1346,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "language_context",
+        "repeat": 2,
+        "durationMs": 1796,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "restrained",
+        "repeat": 2,
+        "durationMs": 1243,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "no_humor",
+        "repeat": 2,
+        "durationMs": 1088,
+        "status": "validated",
+        "expected": [
+          "humor:avoid"
+        ],
+        "actual": [
+          "humor:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "not_classical",
+        "repeat": 2,
+        "durationMs": 1438,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "not_minimalist",
+        "repeat": 2,
+        "durationMs": 1308,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_tradition",
+        "repeat": 2,
+        "durationMs": 1372,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "traditional:avoid"
+        ],
+        "correct": false
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "specific_camera",
+        "repeat": 2,
+        "durationMs": 1355,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "injection",
+        "repeat": 2,
+        "durationMs": 5594,
+        "status": "validated",
+        "expected": [],
+        "actual": [],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "contradiction",
+        "repeat": 2,
+        "durationMs": 1864,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "combined",
+        "repeat": 2,
+        "durationMs": 1713,
+        "status": "validated",
+        "expected": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "actual": [
+          "contests:avoid",
+          "discreet:prefer",
+          "humor:prefer",
+          "live_music:prefer"
+        ],
+        "correct": true
+      }
+    ]
+  },
+  "repair": {
+    "corpusSha256": "2ab40976b50b1f176879929c174ce3578f1f73519f07c84f2e75fe080da970cb",
+    "promptSha256": "82a13b659d9a4b3ae0d5a202af31a35bc15d4ed682eeedd0d92261553135eaa9",
+    "chargedOrReservedUsd": 0.1978623499999998,
+    "results": [
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "restrained",
+        "repeat": 1,
+        "durationMs": 1513,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "not_classical",
+        "repeat": 1,
+        "durationMs": 1284,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_tradition",
+        "repeat": 1,
+        "durationMs": 1105,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "contradiction",
+        "repeat": 1,
+        "durationMs": 995,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_gentle",
+        "repeat": 1,
+        "durationMs": 1256,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_compulsory",
+        "repeat": 1,
+        "durationMs": 1264,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_humor",
+        "repeat": 1,
+        "durationMs": 1570,
+        "status": "validated",
+        "expected": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_music",
+        "repeat": 1,
+        "durationMs": 1424,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_conflict",
+        "repeat": 1,
+        "durationMs": 1655,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "known_negative",
+        "repeat": 1,
+        "durationMs": 1168,
+        "status": "validated",
+        "expected": [
+          "contests:avoid"
+        ],
+        "actual": [
+          "contests:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_avoid",
+        "repeat": 1,
+        "durationMs": 1045,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "restrained",
+        "repeat": 2,
+        "durationMs": 1566,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "not_classical",
+        "repeat": 2,
+        "durationMs": 2184,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_tradition",
+        "repeat": 2,
+        "durationMs": 1191,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "contradiction",
+        "repeat": 2,
+        "durationMs": 1121,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_gentle",
+        "repeat": 2,
+        "durationMs": 1064,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_compulsory",
+        "repeat": 2,
+        "durationMs": 1454,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_humor",
+        "repeat": 2,
+        "durationMs": 1188,
+        "status": "validated",
+        "expected": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_music",
+        "repeat": 2,
+        "durationMs": 960,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "holdout_conflict",
+        "repeat": 2,
+        "durationMs": 1154,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "known_negative",
+        "repeat": 2,
+        "durationMs": 1210,
+        "status": "validated",
+        "expected": [
+          "contests:avoid"
+        ],
+        "actual": [
+          "contests:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "caseId": "qualified_avoid",
+        "repeat": 2,
+        "durationMs": 1546,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "restrained",
+        "repeat": 1,
+        "durationMs": 1601,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "not_classical",
+        "repeat": 1,
+        "durationMs": 1521,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_tradition",
+        "repeat": 1,
+        "durationMs": 1755,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "contradiction",
+        "repeat": 1,
+        "durationMs": 1598,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_gentle",
+        "repeat": 1,
+        "durationMs": 1685,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_compulsory",
+        "repeat": 1,
+        "durationMs": 1387,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_humor",
+        "repeat": 1,
+        "durationMs": 1436,
+        "status": "validated",
+        "expected": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_music",
+        "repeat": 1,
+        "durationMs": 1358,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_conflict",
+        "repeat": 1,
+        "durationMs": 1613,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "known_negative",
+        "repeat": 1,
+        "durationMs": 1429,
+        "status": "validated",
+        "expected": [
+          "contests:avoid"
+        ],
+        "actual": [
+          "contests:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_avoid",
+        "repeat": 1,
+        "durationMs": 2114,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "restrained",
+        "repeat": 2,
+        "durationMs": 1714,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "not_classical",
+        "repeat": 2,
+        "durationMs": 1514,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_tradition",
+        "repeat": 2,
+        "durationMs": 1330,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "contradiction",
+        "repeat": 2,
+        "durationMs": 1469,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_gentle",
+        "repeat": 2,
+        "durationMs": 1858,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer"
+        ],
+        "actual": [
+          "discreet:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_compulsory",
+        "repeat": 2,
+        "durationMs": 3356,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid"
+        ],
+        "actual": [
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_humor",
+        "repeat": 2,
+        "durationMs": 1535,
+        "status": "validated",
+        "expected": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "humor:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_music",
+        "repeat": 2,
+        "durationMs": 1294,
+        "status": "validated",
+        "expected": [
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "holdout_conflict",
+        "repeat": 2,
+        "durationMs": 1485,
+        "status": "validated",
+        "expected": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "actual": [
+          "unknown:avoid",
+          "unknown:prefer"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "known_negative",
+        "repeat": 2,
+        "durationMs": 2898,
+        "status": "validated",
+        "expected": [
+          "contests:avoid"
+        ],
+        "actual": [
+          "contests:avoid"
+        ],
+        "correct": true
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "caseId": "qualified_avoid",
+        "repeat": 2,
+        "durationMs": 2254,
+        "status": "validated",
+        "expected": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "actual": [
+          "discreet:prefer",
+          "unknown:avoid"
+        ],
+        "correct": true
+      }
+    ]
+  },
+  "modelExperimentCostUpperUsd": 0.19786235,
+  "applicationAcceptanceReservedUsd": 1,
+  "ceilingUsd": 5,
+  "limitations": [
+    "Fixed synthetic corpus, not a customer study or a blind preference study",
+    "Initial prompt failed 8/120 interpretations; repaired prompt checked only on reproduced failures, affected cases and five novel related phrasings (44 calls)",
+    "Cost is a conservative usage-based upper estimate, not an account billing receipt",
+    "User reviews interpreted conditions; arbitrary free-text correctness is not guaranteed"
+  ]
+}

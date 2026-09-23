@@ -1,4 +1,9 @@
 import type { NormalizedRequest, RecommendationResponse } from '../../contracts/contractor-selection.ts';
+import type { BriefMatch } from '../../contracts/brief.ts';
+import type { SelectionResult } from '../domain/types.ts';
+export type SelectBrief = (request: NormalizedRequest) => {
+  readonly selection: SelectionResult; readonly matches: readonly BriefMatch[]; readonly policyVersion: string;
+};
 
 /** The evidence adapter gets only selected profiles; no complete calendars. */
 export type EvidenceProfile = {

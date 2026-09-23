@@ -5,10 +5,13 @@ import type { CatalogOptions, RecommendationRequest, RecommendationResponse } fr
 import { compareRecommendations, requestKey } from './compareRecommendations';
 import { isOptionsResponse, isRecommendationResponse, publicError } from './publicResponses';
 import RecommendationResults, { conditions } from './RecommendationResults';
+import BriefEditor from './BriefEditor';
+import type { BriefDraft } from './BriefEditor';
+import { normalizeBriefText } from '../contracts/brief';
 import { displayDate, money, optionalConditions } from './display';
 import './flow.css';
 
-type Draft = Record<keyof RecommendationRequest, string>;
+type Draft = Record<Exclude<keyof RecommendationRequest, 'brief'>, string>;
 const fieldOrder: (keyof Draft)[] = ['city', 'date', 'eventFormat', 'category', 'budgetKzt', 'language', 'durationHours'];
 const blank: Draft = { city: '', date: '', eventFormat: '', category: '', budgetKzt: '', language: '', durationHours: '' };
 function defaults(options: CatalogOptions): Draft {
@@ -26,6 +29,8 @@ export default function ContractorForm() {
   const [options, setOptions] = useState<CatalogOptions>();
   const [optionsError, setOptionsError] = useState('');
   const [draft, setDraft] = useState<Draft>(blank);
+  const [wishes, setWishes] = useState<BriefDraft>({ text: '' });
+  const [briefReset, setBriefReset] = useState(0);
   const [success, setSuccess] = useState<{ result: RecommendationResponse; narrative: string[] }>();
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -58,7 +63,11 @@ export default function ContractorForm() {
   const dateError = options ? `Выберите дату с ${options.dateWindow.min} по ${options.dateWindow.max} включительно.` : '';
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (!options) return;
-    const request = requestFrom(draft);
+    if (wishes.text.trim() && (!wishes.brief || wishes.brief.text !== normalizeBriefText(wishes.text))) {
+      setError('Сначала разберите пожелания и проверьте трактовку либо очистите необязательное поле.');
+      (form.current?.elements.namedItem('brief') as HTMLElement | null)?.focus(); return;
+    }
+    const request = { ...requestFrom(draft), ...(wishes.brief?.conditions.length ? { brief: wishes.brief } : {}) };
     const errors: Record<string, string> = {};
     for (const [field, choices] of [['city', options.cities], ['category', options.categories], ['eventFormat', options.eventFormats]] as const) {
       if (!choices.includes(draft[field])) errors[field] = 'Выберите значение из списка.';
@@ -81,7 +90,7 @@ export default function ContractorForm() {
       if (!current()) return;
       const failure = publicError(data);
       if (failure) {
-        const message = failure.code === 'CATALOG_UNAVAILABLE' ? 'Каталог временно недоступен. Попробуйте позже.' :
+        const message = failure.code === 'BRIEF_INDEX_UNAVAILABLE' ? 'Сопоставление пожеланий с каталогом временно недоступно. Повторите попытку позже.' : failure.code === 'CATALOG_UNAVAILABLE' ? 'Каталог временно недоступен. Попробуйте позже.' :
           ['INVALID_REQUEST', 'DATE_OUT_OF_RANGE'].includes(failure.code) ? 'Проверьте заполнение полей и повторите подбор.' : 'Не удалось выполнить подбор. Попробуйте ещё раз.';
         setError(message + (failure.requestId ? ` Код обращения: ${failure.requestId}` : ''));
         showFields(Object.fromEntries(failure.fields.filter(field => fieldOrder.includes(field as keyof Draft)).map(field => [field, field === 'date' ? dateError : 'Проверьте значение этого поля.'])));
@@ -94,6 +103,7 @@ export default function ContractorForm() {
   function reset() {
     active.current?.controller.abort(); active.current = null;
     setPending(undefined); setSuccess(undefined); setError(''); setFieldErrors({});
+    setWishes({ text: '' }); setBriefReset(value => value + 1);
     if (options) setDraft(defaults(options));
     if (disclosure.current) disclosure.current.open = false;
     if (conditionsPanel.current) conditionsPanel.current.open = true;
@@ -107,8 +117,10 @@ export default function ContractorForm() {
     <label htmlFor={field}>{label}</label><select {...attributes(field)} onChange={event => edit(field, event.target.value)} required={!optional}>
       {optional && <option value="">Без ограничения</option>}{values.map(value => <option key={value}>{value}</option>)}
     </select>{fieldError(field)}</div>;
-  const changed = !!success && requestKey(requestFrom(draft)) !== requestKey(success.result.normalizedRequest);
-  const unsent = !!pending && requestKey(requestFrom(draft)) !== requestKey(pending);
+  const currentKey = requestKey({ ...requestFrom(draft), ...(wishes.brief?.conditions.length ? { brief: wishes.brief } : {}) });
+  const unparsed = !!wishes.text.trim() && !wishes.brief;
+  const changed = !!success && (unparsed || currentKey !== requestKey(success.result.normalizedRequest));
+  const unsent = !!pending && (unparsed || currentKey !== requestKey(pending));
   function showResults() {
     if (window.matchMedia('(max-width: 760px)').matches && conditionsPanel.current) conditionsPanel.current.open = false;
     resultsHeading.current?.focus({ preventScroll: true });
@@ -137,6 +149,7 @@ export default function ContractorForm() {
             {selectField('language', 'Язык', options.languages, true)}
             <div className="field"><label htmlFor="durationHours">Длительность, часов</label><input {...attributes('durationHours')} type="text" inputMode="decimal" onChange={event => edit('durationHours', event.target.value)}/>{fieldError('durationHours')}</div>
           </details>
+          <BriefEditor key={briefReset} value={wishes} onChange={next => { setWishes(next); setError(''); }}/>
           <div className="form-actions"><button type="submit"><span>Подобрать</span><svg viewBox="0 0 20 20" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg></button><button className="reset-button" type="button" onClick={reset}>Сбросить</button></div>
           {pending && <p className="action-status">{unsent ? 'Подбор идёт. Новые правки ещё не отправлены.' : 'Подбираем по отправленным условиям…'}</p>}
         </form>}

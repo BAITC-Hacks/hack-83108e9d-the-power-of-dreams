@@ -2,7 +2,7 @@
 import { randomUUID } from 'node:crypto';
 import { loadSecrets } from '../config/secrets.mjs';
 
-export const DEFAULT_MODEL = 'gpt-4.1-mini-2025-04-14';
+export const DEFAULT_MODEL = 'gpt-5.6-luna';
 
 export class OpenAIError extends Error {
   constructor(code, message, requestId = randomUUID()) {
@@ -43,6 +43,8 @@ export function createOpenAIAdapter({ apiKey, model = DEFAULT_MODEL, timeoutMs =
         throw fail('OPENAI_INPUT', 'Invalid OpenAI request input.');
       }
       const body = { model, input, store: false, max_output_tokens: maxOutputTokens };
+      // Preserve the previous extraction workload's non-reasoning latency class.
+      if (['gpt-5.6-luna', 'gpt-5.6-terra'].includes(model)) body.reasoning = { effort: 'none' };
       if (instructions !== undefined) body.instructions = instructions;
       if (format) body.text = { format: { type: 'json_schema', name: format.name, schema: format.schema, strict: true } };
       let serialized;

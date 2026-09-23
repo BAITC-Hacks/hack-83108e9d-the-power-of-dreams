@@ -2,7 +2,7 @@ import type { RecommendationRequest, RecommendationResponse } from '../contracts
 
 export function requestKey(request: RecommendationRequest, includeDate = true): string {
   return JSON.stringify([request.city, includeDate ? request.date : '', request.eventFormat,
-    request.category, request.budgetKzt, request.language ?? null, request.durationHours ?? null]);
+    request.category, request.budgetKzt, request.language ?? null, request.durationHours ?? null, request.brief ?? null]);
 }
 
 /** Explain only identities and ordering evidenced by two comparable public responses. */
@@ -22,6 +22,13 @@ export function compareRecommendations(previous: RecommendationResponse | undefi
   const newlyAvailable = entered.filter(card => oldBusy.has(card.id) && !newBusy.has(card.id));
   const newlyBusy = departed.filter(card => newBusy.has(card.id));
   const facts = [`Изменение даты: ${dates}.`];
+  if (current.normalizedRequest.brief?.conditions.length) {
+    for (const card of newlyBusy) facts.push(`${card.name} (${card.id}): появилась отметка занятости на ${current.normalizedRequest.date}.`);
+    for (const card of newlyAvailable) facts.push(`${card.name} (${card.id}): на новой дате нет прежней отметки занятости; подрядчик вошёл в список с учётом пожеланий.`);
+    for (const card of departed.filter(c => !newBusy.has(c.id))) facts.push(`${card.name} (${card.id}): отметки занятости нет; из-за изменения доступных вариантов подрядчик оказался вне тройки по совпадению с пожеланиями, цене и ID.`);
+    for (const card of entered.filter(c => !oldBusy.has(c.id))) facts.push(`${card.name} (${card.id}): отметки занятости не было и на предыдущую дату; теперь входит в тройку по совпадению с пожеланиями, цене и ID.`);
+    return facts;
+  }
   for (const card of newlyBusy) facts.push(`${card.name} (${card.id}): появилась отметка занятости на ${current.normalizedRequest.date}.`);
   for (const card of newlyAvailable) facts.push(`${card.name} (${card.id}): на новой дате нет прежней отметки занятости; подрядчик вошёл в список по порядку стартовой цены и ID.`);
   for (const card of departed.filter(card => !newBusy.has(card.id))) {

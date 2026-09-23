@@ -1,0 +1,23 @@
+{
+  "city": "Алматы",
+  "category": "Ведущий",
+  "eventFormat": "корпоратив",
+  "date": "2026-10-10",
+  "budgetKzt": 1500000,
+  "brief": {
+    "vocabularyVersion": "brief-v1",
+    "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов",
+    "conditions": [
+      {
+        "trait": "discreet",
+        "intent": "prefer",
+        "text": "ненавязчивый ведущий"
+      },
+      {
+        "trait": null,
+        "intent": "avoid",
+        "text": "без принудительных конкурсов"
+      }
+    ]
+  }
+}

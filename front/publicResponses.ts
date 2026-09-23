@@ -1,4 +1,5 @@
 import type { CatalogOptionsResponse, RecommendationResponse } from '../contracts/contractor-selection';
+import { isBriefAdvice, isConfirmedBrief } from '../contracts/brief.ts';
 
 const object = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null && !Array.isArray(value);
 const text = (value: unknown): value is string => typeof value === 'string' && value.length > 0;
@@ -19,14 +20,20 @@ export function isRecommendationResponse(value: unknown): value is Recommendatio
   if (!object(value) || !text(value.requestId) || !context(value.context) || !object(value.normalizedRequest) || !object(value.summary) || !Array.isArray(value.cards)) return false;
   const request = value.normalizedRequest;
   if (![request.city, request.eventFormat, request.category].every(text) || !date(request.date) || !positive(request.budgetKzt) || !Number.isSafeInteger(request.budgetKzt) ||
-    (request.language !== undefined && !text(request.language)) || (request.durationHours !== undefined && !positive(request.durationHours))) return false;
+    (request.language !== undefined && !text(request.language)) || (request.durationHours !== undefined && !positive(request.durationHours)) ||
+    (request.brief !== undefined && !isConfirmedBrief(request.brief))) return false;
   const summary = value.summary;
   if (!count(summary.candidateCount) || !count(summary.eligibleCount) || summary.eligibleCount > summary.candidateCount ||
     !strings(summary.busyProfileIds) || !object(summary.exclusions) || !['busy', 'budget', 'format', 'language', 'duration'].every(key => count((summary.exclusions as Record<string, unknown>)[key]))) return false;
-  if (!['matched', 'category_absent', 'no_match'].includes(String(value.outcome)) || !['openai_evidence', 'mixed', 'catalog_fallback', 'not_needed'].includes(String(value.explanationMode))) return false;
+  if (!['matched', 'category_absent', 'no_match'].includes(String(value.outcome)) || !['openai_evidence', 'mixed', 'catalog_fallback', 'not_needed', 'brief_evidence'].includes(String(value.explanationMode))) return false;
+  if (value.explanationMode === 'brief_evidence' && (!isConfirmedBrief(request.brief) || !request.brief.conditions.length)) return false;
+  if (value.outcome === 'matched' && isConfirmedBrief(request.brief) && request.brief.conditions.length && value.explanationMode !== 'brief_evidence') return false;
   if (value.outcome === 'matched' ? value.cards.length < 1 || value.cards.length > 3 || value.cards.length > summary.eligibleCount || value.explanationMode === 'not_needed' : value.cards.length !== 0 || summary.eligibleCount !== 0 || value.explanationMode !== 'not_needed') return false;
   return value.cards.every(card => object(card) && [card.id, card.name, card.category, card.city, card.explanation].every(text) && positive(card.priceFromKzt) &&
-    object(card.qualityFlags) && ['synthetic', 'cityImputed', 'priceImputed'].every(key => typeof (card.qualityFlags as Record<string, unknown>)[key] === 'boolean'));
+    object(card.qualityFlags) && ['synthetic', 'cityImputed', 'priceImputed'].every(key => typeof (card.qualityFlags as Record<string, unknown>)[key] === 'boolean') &&
+    (value.explanationMode === 'brief_evidence' ? isBriefAdvice(card.briefAdvice) && isConfirmedBrief(request.brief) &&
+      JSON.stringify([...card.briefAdvice.evidence.map(e => e.condition), ...card.briefAdvice.unknownConditions].map(c => JSON.stringify(c)).sort()) ===
+      JSON.stringify(request.brief.conditions.map(c => JSON.stringify(c)).sort()) : card.briefAdvice === undefined));
 }
 
 export function publicError(value: unknown): { code: string; requestId: string; fields: string[] } | undefined {

@@ -21,7 +21,7 @@ test('Responses contract, schema forwarding and all output text parts', async ()
     assert.equal(options.method, 'POST');
     assert.equal(options.headers.Authorization, 'Bearer synthetic-secret');
     assert.deepEqual(JSON.parse(options.body), { model: DEFAULT_MODEL, input: 'test', instructions: 'brief',
-      store: false, max_output_tokens: 450, text: { format: { type: 'json_schema', ...format, strict: true } } });
+      store: false, max_output_tokens: 450, reasoning: { effort: 'none' }, text: { format: { type: 'json_schema', ...format, strict: true } } });
     return Response.json(success());
   }).generate({ input: 'test', instructions: 'brief', format });
   assert.equal(calls, 1);
@@ -37,6 +37,7 @@ test('environment factory requires key and supports default / override', async (
     await createOpenAIFromEnv({ env: { OPENAI_API_KEY: 'synthetic-secret', OPENAI_MODEL: configured }, envFile,
       fetchImpl: async (_, options) => {
         assert.equal(JSON.parse(options.body).model, configured || DEFAULT_MODEL);
+        assert.deepEqual(JSON.parse(options.body).reasoning, configured ? undefined : { effort: 'none' });
         return Response.json(success());
       },
     }).generate({ input: 'test' });

@@ -3,6 +3,17 @@
 Compact Join City identity, separate contractor cards and passive condition labels:
 [Join City visual refresh](../openspec/changes/join-city-visual-refresh/design.md).
 
+Current extension: [confirmed AI wishes](../openspec/changes/contractor-brief-matching/design.md)
+adds a bounded interpretation operation and a source-checked evidence index.
+Pure matching considers every hard-eligible profile, then orders by conflicts,
+supported matches, price and ID. The index is bundled with the application;
+there is no new service, database, vector search or account. Default OpenAI model
+is Luna, selected by the recorded [comparison](../openspec/changes/contractor-brief-matching/tasks.md).
+Baseline requests keep their original behavior; optional brief/advice and the
+new explanation mode are described by the current public contracts. The older
+architecture documents below preserve the original MVP design; this extension's
+OpenSpec artifacts govern wishes-specific behavior.
+
 Explanation-first visual hierarchy and explicit mobile results access:
 [contractor UI upgrade](../openspec/changes/contractor-ui-upgrade/design.md).
 The public v1 contract and backend selection/explanation rules remain unchanged.
