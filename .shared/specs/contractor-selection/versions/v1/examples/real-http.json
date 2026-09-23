@@ -1,0 +1,502 @@
+{
+  "options": {
+    "requestId": "5f082cae-53ad-4ae5-9ef4-0a0c4ab22e6b",
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "options": {
+      "cities": [
+        "Алматы",
+        "Астана",
+        "Зарубежье"
+      ],
+      "categories": [
+        "Банкетный зал",
+        "Ведущий",
+        "Ведущий церемонии",
+        "Видеограф",
+        "Декоратор",
+        "Загородная площадка",
+        "Инструменталист",
+        "Лайв-бэнд",
+        "Национальный ансамбль",
+        "Отель",
+        "Подарки и сувениры",
+        "Ресторан",
+        "Танцевальный коллектив",
+        "Флорист",
+        "Фото и видеобудки",
+        "Фотограф",
+        "Шоу-программа"
+      ],
+      "eventFormats": [
+        "день рождения",
+        "конференция",
+        "корпоратив",
+        "свадьба",
+        "той",
+        "юбилей"
+      ],
+      "languages": [
+        "английский",
+        "казахский",
+        "русский"
+      ],
+      "dateWindow": {
+        "min": "2026-09-23",
+        "max": "2026-12-31"
+      }
+    }
+  },
+  "dense": {
+    "requestId": "7f6d924c-0ed4-4608-9ba1-f3765c89dea5",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Ведущий",
+      "eventFormat": "корпоратив",
+      "date": "2026-10-10",
+      "budgetKzt": 1500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "matched",
+    "summary": {
+      "candidateCount": 10,
+      "eligibleCount": 5,
+      "exclusions": {
+        "busy": 4,
+        "budget": 1,
+        "format": 0,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-35215",
+        "HK-42352",
+        "HK-44733",
+        "HK-44923"
+      ]
+    },
+    "cards": [
+      {
+        "id": "HK-88430",
+        "name": "Куррапика",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 500000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 500 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-29829",
+        "name": "Аня Форджер",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 700000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 700 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-27222",
+        "name": "Сон Гоку",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 1000000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      }
+    ],
+    "explanationMode": "catalog_fallback"
+  },
+  "october11": {
+    "requestId": "e2db60ad-d0d8-42cd-9807-e5670b798369",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Ведущий",
+      "eventFormat": "корпоратив",
+      "date": "2026-10-11",
+      "budgetKzt": 1500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "matched",
+    "summary": {
+      "candidateCount": 10,
+      "eligibleCount": 4,
+      "exclusions": {
+        "busy": 4,
+        "budget": 1,
+        "format": 1,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-29829",
+        "HK-35215",
+        "HK-75012",
+        "HK-88430"
+      ]
+    },
+    "cards": [
+      {
+        "id": "HK-44923",
+        "name": "Мицури Канроджи",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 650000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 650 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-27222",
+        "name": "Сон Гоку",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 1000000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-44733",
+        "name": "Буллма",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 1000000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 000 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      }
+    ],
+    "explanationMode": "catalog_fallback"
+  },
+  "october1": {
+    "requestId": "0f4b8072-246b-478f-97ed-d240dd69bfb8",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Ведущий",
+      "eventFormat": "корпоратив",
+      "date": "2026-10-01",
+      "budgetKzt": 1500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "matched",
+    "summary": {
+      "candidateCount": 10,
+      "eligibleCount": 3,
+      "exclusions": {
+        "busy": 6,
+        "budget": 0,
+        "format": 1,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-27222",
+        "HK-29829",
+        "HK-35215",
+        "HK-44733",
+        "HK-72938",
+        "HK-77838"
+      ]
+    },
+    "cards": [
+      {
+        "id": "HK-88430",
+        "name": "Куррапика",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 500000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 500 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-44923",
+        "name": "Мицури Канроджи",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 650000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 650 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-75012",
+        "name": "Джинбей",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 1300000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 1 300 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      }
+    ],
+    "explanationMode": "catalog_fallback"
+  },
+  "october6": {
+    "requestId": "0177a9ab-44b2-40e8-a7e2-6147f2e5a28a",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Ведущий",
+      "eventFormat": "корпоратив",
+      "date": "2026-10-06",
+      "budgetKzt": 1500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "matched",
+    "summary": {
+      "candidateCount": 10,
+      "eligibleCount": 7,
+      "exclusions": {
+        "busy": 1,
+        "budget": 1,
+        "format": 1,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-77838"
+      ]
+    },
+    "cards": [
+      {
+        "id": "HK-88430",
+        "name": "Куррапика",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 500000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 500 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-44923",
+        "name": "Мицури Канроджи",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 650000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 650 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      },
+      {
+        "id": "HK-29829",
+        "name": "Аня Форджер",
+        "category": "Ведущий",
+        "city": "Алматы",
+        "priceFromKzt": 700000,
+        "explanation": "Поддерживает формат «корпоратив»; стартовая цена 700 000 ₸ укладывается в бюджет 1 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": false
+        }
+      }
+    ],
+    "explanationMode": "catalog_fallback"
+  },
+  "rare": {
+    "requestId": "d03224f4-f704-416c-8b21-a5a0df74dde0",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Флорист",
+      "eventFormat": "свадьба",
+      "date": "2026-10-10",
+      "budgetKzt": 500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "matched",
+    "summary": {
+      "candidateCount": 2,
+      "eligibleCount": 1,
+      "exclusions": {
+        "busy": 1,
+        "budget": 0,
+        "format": 0,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-90001"
+      ]
+    },
+    "cards": [
+      {
+        "id": "HK-39372",
+        "name": "Тони Тони Чоппер",
+        "category": "Флорист",
+        "city": "Алматы",
+        "priceFromKzt": 200000,
+        "explanation": "Поддерживает формат «свадьба»; стартовая цена 200 000 ₸ укладывается в бюджет 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": false,
+          "priceImputed": true
+        }
+      }
+    ],
+    "explanationMode": "catalog_fallback"
+  },
+  "no_match": {
+    "requestId": "031025fe-df05-46ed-a7ee-61790fa99e8f",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Ведущий",
+      "eventFormat": "корпоратив",
+      "date": "2026-10-10",
+      "budgetKzt": 1
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "no_match",
+    "summary": {
+      "candidateCount": 10,
+      "eligibleCount": 0,
+      "exclusions": {
+        "busy": 4,
+        "budget": 6,
+        "format": 0,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-35215",
+        "HK-42352",
+        "HK-44733",
+        "HK-44923"
+      ]
+    },
+    "cards": [],
+    "explanationMode": "not_needed"
+  },
+  "category_absent": {
+    "requestId": "83457d50-8054-4edc-9ac3-be69b7a90206",
+    "normalizedRequest": {
+      "city": "Зарубежье",
+      "category": "Флорист",
+      "eventFormat": "свадьба",
+      "date": "2026-10-10",
+      "budgetKzt": 500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "category_absent",
+    "summary": {
+      "candidateCount": 0,
+      "eligibleCount": 0,
+      "exclusions": {
+        "busy": 0,
+        "budget": 0,
+        "format": 0,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": []
+    },
+    "cards": [],
+    "explanationMode": "not_needed"
+  },
+  "busy_venue": {
+    "requestId": "afe08b57-7ab1-4862-b170-0ccc4cc5f58d",
+    "normalizedRequest": {
+      "city": "Алматы",
+      "category": "Банкетный зал",
+      "eventFormat": "свадьба",
+      "date": "2026-09-23",
+      "budgetKzt": 2500000
+    },
+    "context": {
+      "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+      "selectionPolicyVersion": "selection-v1"
+    },
+    "outcome": "matched",
+    "summary": {
+      "candidateCount": 7,
+      "eligibleCount": 1,
+      "exclusions": {
+        "busy": 3,
+        "budget": 3,
+        "format": 0,
+        "language": 0,
+        "duration": 0
+      },
+      "busyProfileIds": [
+        "HK-64395",
+        "HK-72785",
+        "HK-90011"
+      ]
+    },
+    "cards": [
+      {
+        "id": "HK-50695",
+        "name": "Хината Хьюга",
+        "category": "Банкетный зал",
+        "city": "Алматы",
+        "priceFromKzt": 2000000,
+        "explanation": "Поддерживает формат «свадьба»; стартовая цена 2 000 000 ₸ укладывается в бюджет 2 500 000 ₸.",
+        "qualityFlags": {
+          "synthetic": false,
+          "cityImputed": true,
+          "priceImputed": true
+        }
+      }
+    ],
+    "explanationMode": "catalog_fallback"
+  }
+}

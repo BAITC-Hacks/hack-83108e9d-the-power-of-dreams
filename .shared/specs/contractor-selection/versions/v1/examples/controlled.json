@@ -1,0 +1,197 @@
+{
+  "notice": "Controlled synthetic development fixtures, not real catalogue results or observed AI output. FX IDs and zero digest are examples only.",
+  "recommendations": [
+    {
+      "requestId": "fixture-openai_evidence",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "date": "2026-10-10",
+        "eventFormat": "корпоратив",
+        "category": "Ведущий",
+        "budgetKzt": 1500000
+      },
+      "context": {
+        "catalogVersion": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "selectionPolicyVersion": "selection-v1"
+      },
+      "outcome": "matched",
+      "cards": [
+        {
+          "id": "FX-001",
+          "name": "Пример А",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 100000,
+          "explanation": "Поддерживает корпоратив; стартовая цена 100000 ₸ укладывается в бюджет 1500000 ₸. В описании указано: «Проводит командные игры».",
+          "qualityFlags": {
+            "synthetic": true,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        },
+        {
+          "id": "FX-002",
+          "name": "Пример Б",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 200000,
+          "explanation": "Поддерживает корпоратив; стартовая цена 200000 ₸ укладывается в бюджет 1500000 ₸. В описании указано: «Ведёт танцевальную программу».",
+          "qualityFlags": {
+            "synthetic": true,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        },
+        {
+          "id": "FX-003",
+          "name": "Пример В",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 300000,
+          "explanation": "Поддерживает корпоратив; стартовая цена 300000 ₸ укладывается в бюджет 1500000 ₸. В описании указано: «Специализируется на музыкальных конкурсах».",
+          "qualityFlags": {
+            "synthetic": true,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        }
+      ],
+      "summary": {
+        "candidateCount": 3,
+        "eligibleCount": 3,
+        "exclusions": {
+          "busy": 0,
+          "budget": 0,
+          "format": 0,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": []
+      },
+      "explanationMode": "openai_evidence"
+    },
+    {
+      "requestId": "fixture-mixed",
+      "normalizedRequest": {
+        "city": "Алматы",
+        "date": "2026-10-10",
+        "eventFormat": "корпоратив",
+        "category": "Ведущий",
+        "budgetKzt": 1500000
+      },
+      "context": {
+        "catalogVersion": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "selectionPolicyVersion": "selection-v1"
+      },
+      "outcome": "matched",
+      "cards": [
+        {
+          "id": "FX-001",
+          "name": "Пример А",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 100000,
+          "explanation": "Поддерживает корпоратив; стартовая цена 100000 ₸ укладывается в бюджет 1500000 ₸. В описании указано: «Проводит командные игры».",
+          "qualityFlags": {
+            "synthetic": true,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        },
+        {
+          "id": "FX-002",
+          "name": "Пример Б",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 200000,
+          "explanation": "Поддерживает корпоратив; стартовая цена 200000 ₸ укладывается в бюджет 1500000 ₸. В описании указано: «Ведёт танцевальную программу».",
+          "qualityFlags": {
+            "synthetic": true,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        },
+        {
+          "id": "FX-003",
+          "name": "Пример В",
+          "category": "Ведущий",
+          "city": "Алматы",
+          "priceFromKzt": 300000,
+          "explanation": "Поддерживает корпоратив; стартовая цена 300000 ₸ укладывается в бюджет 1500000 ₸.",
+          "qualityFlags": {
+            "synthetic": true,
+            "cityImputed": false,
+            "priceImputed": false
+          }
+        }
+      ],
+      "summary": {
+        "candidateCount": 3,
+        "eligibleCount": 3,
+        "exclusions": {
+          "busy": 0,
+          "budget": 0,
+          "format": 0,
+          "language": 0,
+          "duration": 0
+        },
+        "busyProfileIds": []
+      },
+      "explanationMode": "mixed"
+    }
+  ],
+  "errors": [
+    {
+      "status": 400,
+      "body": {
+        "error": {
+          "code": "INVALID_REQUEST",
+          "message": "Бюджет должен быть положительным целым числом.",
+          "requestId": "fixture-invalid",
+          "fields": [
+            {
+              "field": "budgetKzt",
+              "message": "Введите положительное целое число."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": 400,
+      "body": {
+        "error": {
+          "code": "DATE_OUT_OF_RANGE",
+          "message": "Дата вне календарного окна набора.",
+          "requestId": "fixture-date",
+          "fields": [
+            {
+              "field": "date",
+              "message": "Выберите дату с 2026-09-23 по 2026-12-31."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": 503,
+      "body": {
+        "error": {
+          "code": "CATALOG_UNAVAILABLE",
+          "message": "Каталог временно недоступен.",
+          "requestId": "fixture-unavailable"
+        }
+      }
+    },
+    {
+      "status": 500,
+      "body": {
+        "error": {
+          "code": "INTERNAL_ERROR",
+          "message": "Не удалось выполнить запрос.",
+          "requestId": "fixture-internal"
+        }
+      }
+    }
+  ]
+}
