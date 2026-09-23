@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md) and the [approved P06 outcome](../../../.brainstorming/2026-09-23-frontend-flow-design.md). Base is d2b61e2abf07241318c6e1a1c93438de4496cfae on codex/cs-06-front. Backend 4ade2fa4022d633e9d96b50188be4cee4fb99539 and contract package commit e424a13fec851d7f9f0f4e076f70649e716336f7 are ancestors. Canonical package is D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/specs/contractor-selection/versions/v1; all six paths/blobs verified against that commit before implementation. Read version-local examples, distinguishing real historical responses from controlled examples. Existing runtime/backend stays unchanged.
+See [proposal](proposal.md) and the [approved P06 outcome](../../../../.brainstorming/2026-09-23-frontend-flow-design.md). Base is d2b61e2abf07241318c6e1a1c93438de4496cfae on codex/cs-06-front. Backend 4ade2fa4022d633e9d96b50188be4cee4fb99539 and contract package commit e424a13fec851d7f9f0f4e076f70649e716336f7 are ancestors. Canonical package is D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/specs/contractor-selection/versions/v1; all six paths/blobs verified against that commit before implementation. Read version-local examples, distinguishing real historical responses from controlled examples. Existing runtime/backend stays unchanged.
 
 ## Goals / Non-Goals
 

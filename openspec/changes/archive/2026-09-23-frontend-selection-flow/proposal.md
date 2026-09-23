@@ -1,6 +1,6 @@
 ## Why
 
-The existing contractor screen loses prior results and does not expose optional conditions or explain date-only changes. Complete the approved [P06 frontend flow](../../../.brainstorming/2026-09-23-frontend-flow-design.md) so organizers can edit deliberately and understand truthful results.
+The existing contractor screen loses prior results and does not expose optional conditions or explain date-only changes. Complete the approved [P06 frontend flow](../../../../.brainstorming/2026-09-23-frontend-flow-design.md) so organizers can edit deliberately and understand truthful results.
 
 ## What Changes
 

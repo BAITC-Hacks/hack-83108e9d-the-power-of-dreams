@@ -275,7 +275,7 @@ series remain P07 work; this README is not a final submission-readiness claim.
 | Selection rules | [P03 task card](openspec/changes/archive/2026-09-23-selection-domain/tasks.md) |
 | Validated AI evidence | [P04 task card](openspec/changes/archive/2026-09-23-validated-ai-evidence/tasks.md) |
 | Connected backend and frontend handoff | [P05 task card](openspec/changes/archive/2026-09-23-backend-composition-and-handoff/tasks.md) |
-| Complete frontend flow and date comparison | [P06 task card](openspec/changes/frontend-selection-flow/tasks.md) |
+| Complete frontend flow and date comparison | [P06 task card](openspec/changes/archive/2026-09-23-frontend-selection-flow/tasks.md) |
 
 For product context, start with [domain documentation](domain/README.md).
 See [architecture](architecture/README.md) for design and

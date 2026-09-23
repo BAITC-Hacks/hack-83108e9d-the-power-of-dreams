@@ -1,12 +1,12 @@
 ## 1. Frontend completion
 
-- [ ] 1.1 Implement canonical controls, optional validation/defaults/reset and resilient explicit submission; verify real requests and focused delayed-response browser cases.
-- [ ] 1.2 Implement truthful result states and pure date comparison; verify real dense/rare/empty/date pairs and controlled comparison boundaries/modes.
+- [x] 1.1 Implement canonical controls, optional validation/defaults/reset and resilient explicit submission; verify real requests and focused delayed-response browser cases.
+- [x] 1.2 Implement truthful result states and pure date comparison; verify real dense/rare/empty/date pairs and controlled comparison boundaries/modes.
 
 ## 2. Acceptance and delivery
 
-- [ ] 2.1 Verify desktop/mobile keyboard/focus, real live/fallback/validation/catalogue errors, controlled races/malformed responses and existing typecheck/tests/build; review the frozen candidate against scoped criteria.
-- [ ] 2.2 Verify clean-checkout README install/configure/build/start and primary real fallback, publish accepted feature and main under shared ownership, record P07 handoff, synchronize specs and archive with actual evidence.
+- [x] 2.1 Verify desktop/mobile keyboard/focus, real live/fallback/validation/catalogue errors, controlled races/malformed responses and existing typecheck/tests/build; review the frozen candidate against scoped criteria.
+- [x] 2.2 Verify clean-checkout README install/configure/build/start and primary real fallback, publish accepted feature and main under shared ownership, record P07 handoff, synchronize specs and archive with actual evidence.
 
 ## Stage table
 
@@ -14,10 +14,10 @@ Checkboxes measure integrated and published feature delivery, not implementation
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | branch-pushed | 47104a35c54096412d712664948361a19274166f; real/control browser pass | Frozen review and integration | None | coordinator |
-| 1.2 | branch-pushed | 47104a35c54096412d712664948361a19274166f; real dates + focused tests pass | Frozen review and integration | None | coordinator |
-| 2.1 | implemented | 48 tests/typecheck; real live/fallback/503; controlled races; mobile/desktop | Frozen review | None | coordinator + review |
-| 2.2 | planned | main equals base after fetch | Clean candidate/publication/archive | No shared reservation yet | coordinator |
+| 1.1 | integrated | Frontend 47104a3; main candidate 0157721 published | None within P06 | None | P07 handoff |
+| 1.2 | integrated | Frontend 47104a3; main candidate 0157721 published | None within P06 | None | P07 handoff |
+| 2.1 | integrated | 48 tests/typecheck/build; real/control/live/browser; review supported | None within P06 | None | P07 handoff |
+| 2.2 | integrated | Clean candidate 0157721; local main fast-forward and remote push confirmed | None within P06 | None | P07 handoff |
 
 ## Assignment and readiness
 
@@ -61,3 +61,21 @@ Baseline before dispatch: headless system Edge through installed Playwright, rea
 ### Review assignment
 
 Read-only review role receives fixed candidate after coordinator evidence/scripts/docs commit. Review only this change's required observable behavior and supplied evidence; no broad audit, style requests or added layers. Root performs clean candidate and publication separately. Reviewer must not edit, run paid requests, delegate or update stages. Report concrete failures/missing required evidence with location and smallest remedy; after repair recheck affected findings only.
+
+Review assigned to /root/frontend_review at fixed candidate 015772144f5a8761d6569e9220ecfb699f1bbed2. Feature remote head confirmed at this SHA. Shared integration reservation acquired with exclusive CreateNew at D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/integration-owner.json by owner 01a0cdfa-b577-7d53-ac21-4b039f3b2cfa for integration worktree and main publication. Both primary main and existing integration worktrees were clean. Created codex/p06-integration in the existing sibling integration checkout from current origin/main d2b61e2 and fast-forwarded exact candidate 0157721. No other task marker was present or replaced.
+
+Review verdict: supported at 015772144f5a8761d6569e9220ecfb699f1bbed2, no reproducible acceptance failures or critical incidental findings. Reviewer inspected affected frontend/guards/comparison/focus styles and reused recorded real/control/live/service evidence; no redundant suites or paid calls. Only coordinator clean-candidate/final keyboard/publication remained.
+
+Clean combined candidate 0157721 at D:/Alem/hack-83108e9d-the-power-of-dreams-wt-integration: tracked tree clean and .env absent; npm ci succeeded (497 packages), npm run typecheck succeeded, npm test 48/48 with no skips, npm run build exited 0. Production routes are only /, /_not-found and the two original API routes; no temporary test route. Build ID dVGhqsMIHjLyXsTOdHNue. README npm start -- --port 3116 started successfully with explicit empty OpenAI key and no personal session. Same stack/lockfile and supplied CSV, no backend/API changes.
+
+Production candidate final browser: `P06_URL=http://127.0.0.1:3116 node scripts/frontend/browser.mjs` and `node scripts/frontend/races.mjs` passed all real and controlled cases. Submit and reset use focused Enter key activation in this committed runner; disclosure and retry are keyboard-tested. Evidence under integration checkout test-results/p06. No P06 acceptance skips. Server stopped before shared publication. Primary main and origin/main were both d2b61e2 with clean tracked tree immediately before fast-forward. Local main merged exact verified 015772144f5a8761d6569e9220ecfb699f1bbed2; normal push succeeded and ls-remote confirmed the same SHA. Status: MERGED AND PUBLISHED. Subsequent sync/archive/report commits change documentation only; product checks are not rerun for them.
+
+## P07 handoff
+
+Accepted frontend implementation: 47104a35c54096412d712664948361a19274166f on codex/cs-06-front. Reviewed, clean-built and integrated/published application candidate: 015772144f5a8761d6569e9220ecfb699f1bbed2. Backend pin remains 4ade2fa4022d633e9d96b50188be4cee4fb99539 and immutable v1 package remains e424a13fec851d7f9f0f4e076f70649e716336f7 at D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/specs/contractor-selection/versions/v1. Public API, supplied CSV, selection/order and provider configuration are unchanged.
+
+P06 browser evidence above includes real live openai_evidence, real fallback/400/503, optional controls, retained conditions, date changes, controlled mixed/races/malformed boundaries and keyboard/mobile/desktop. Reproduce using committed scripts/frontend runners and documented npm start; services.mjs requires production build, isolates CSV and consumes one live request only with --live. unmount.mjs requires a development server and creates/removes a narrowly scoped temporary route. Browser tooling uses installed system Edge; organizer application use only requires a modern browser. Artifacts are ignored local evidence, not runtime dependencies.
+
+Remaining P07 scope: final rendered live relevance/distinctiveness review, three uncached submission-to-visible-result timing measurements including first use, and final submission checks. These were not claimed complete by P06. No booking, saved searches, persistence, new ranking rules, providers or dependencies were added.
+
+Archive finalization: synchronized five frontend-flow requirements and all scenarios into openspec/specs/contractor-frontend-flow/spec.md; all seven main specs pass strict validation. Apply reported all_done with 4/4 tasks before archive. Change moved to openspec/changes/archive/2026-09-23-frontend-selection-flow after spec equivalence check; relative approved-design and README/architecture links repaired. Immutable package contents/index pins remain unchanged.
