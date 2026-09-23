@@ -14,23 +14,6 @@ Use the existing Node.js / Next.js / React / TypeScript stack as one local appli
 
 This is an engineering judgement, not a measured performance comparison. The selected baseline optimizes time to the required demo; it does not claim that price ordering measures contractor quality.
 
-## NVIDIA API key assessment
-
-The user additionally confirmed an NVIDIA API key on 2026-09-23. For a key authorized for NVIDIA API Catalog, the [hosted API](https://docs.api.nvidia.com/nim/docs/api-quickstart) runs on NVIDIA infrastructure: no local GPU or NIM container is required. Actual key scope, available models, limits and response times remain untested.
-
-| Possible use | Practical benefit | Recommendation for this MVP |
-| --- | --- | --- |
-| Replace the OpenAI explanation adapter | Another hosted language model; potentially lower prototype API spend | A contingency if the OpenAI probe fails or a measured comparison favours NVIDIA; not an automatic quality/speed improvement |
-| Call a second provider after failure | Could recover some provider failures | Defer automatic cross-provider fallback: another call competes with the ten-second target and adds failure cases; keep local catalogue fallback |
-| Rerank filtered profiles by description | Could prefer profiles whose described specialization suits the event, rather than just cheaper profiles | Optional after required MVP checks pass and delivery time is protected; retain every hard filter and verify relevance, repeatability and total latency before adoption |
-| Embedding search | Useful for richer semantic queries or a much larger catalogue | No demonstrated need in the current structured-input, 66-profile task |
-
-For a possible reranking experiment, [llama-nemotron-rerank-1b-v2](https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-rerank-1b-v2) accepts query/passage text pairs and returns relevance scores; NVIDIA reports evaluation including Russian. Engineering inference: our already-filtered shortlist could be passed directly as passages, without building an embedding index or vector database. Its retrieval benchmarks do not establish contractor-selection quality, repeatable ranking or sub-ten-second application latency.
-
-The hosted [LLM API reference](https://docs.api.nvidia.com/nim/re/reference/llm-apis) documents Chat Completions. Do not assume replacing a base URL makes the proposed OpenAI Responses/strict-schema request portable: verify the selected hosted model's format support and implement only the needed adapter. Self-hosted NIM documentation is not proof of a hosted endpoint's capabilities.
-
-NVIDIA's [official FAQ](https://forums.developer.nvidia.com/t/nvidia-nim-faq/300317) describes free prototype access, model/load-dependent limits and possible waits under load. Confirm the actual account entitlement rather than assuming unlimited free use. The user accepted OpenAI first and an optional NVIDIA experiment after the working MVP. Retain one active explanation provider; do not add automatic cross-provider calls or a provider-routing framework. Any later provider/ranking adoption is recorded in OpenSpec with the affected acceptance evidence. No NVIDIA integration has been implemented or tested.
-
 ## Components and flow
 
 ```mermaid
@@ -92,7 +75,7 @@ Busy IDs are diagnostic data, not recommendation cards. No endpoint exposes all 
 - Add and pin only a CSV parser (`csv-parse`) for correct quoted-field parsing. Use the existing validation tools and native server HTTP for the small OpenAI adapter. An AI orchestration SDK, Python environment and database driver are unnecessary for this design.
 - Run from the repository root, using one Node.js process and port 3000 bound to `127.0.0.1`. Proposed future scripts map to Next.js development, build and production start. They do not exist in the current `package.json`; actual commands belong in README when implemented.
 - Resolve absolute paths to root `raw/dataset.csv` and `.env` in composition; pass the root environment path explicitly to the existing loader. Do not assume source-relative paths survive bundling. Load CSV once per process and restart after source changes; no hot reload/import pipeline is needed.
-- Reuse `loadSecrets({required: ['OPENAI_API_KEY'], ...})` for the baseline inside the narrow AI-configuration error boundary below. Only server composition passes the returned value to the AI adapter; it does not rely on mutation of `process.env`. NVIDIA is not a startup requirement; request `NVIDIA_API_KEY` through the same server reader only if its contingency/experiment is actually undertaken. Database credentials are unnecessary.
+- Reuse `loadSecrets({required: ['OPENAI_API_KEY'], ...})` for the baseline inside the narrow AI-configuration error boundary below. Only server composition passes the returned value to the AI adapter; it does not rely on mutation of `process.env`. The application requests only OpenAI settings; catalogue data comes from the supplied CSV.
 - Organizer prerequisites: Node.js 24 compatible with the declared engine, npm, dependencies installed from the lockfile, repository data, and a funded OpenAI API project/key with model access. Package installation and live AI need network access. No GPU, Docker, Redis, hosted database or deployment account is required.
 - Missing key or an environment file reported unreadable by the loader allows explicit catalogue explanations under the policy below, but cannot pass the live-AI acceptance check. A rejected nonblank API key is a provider error handled by the same local explanation fallback. Missing/corrupt CSV prevents meaningful selection and produces the catalogue error.
 - Keep server configuration/AI/file modules behind server-only imports. Log only request ID, operation, duration, mode, error category and available token usage; no key, prompt, profile text or raw provider response.
@@ -110,7 +93,7 @@ Keep the existing secret loader's contract unchanged. In composition, wrap only 
 | `CONFIG_FILE_UNREADABLE` | Inject the same unavailable adapter and record the safe configuration error category; do not crash the catalogue path or bypass the loader by trying alternative files |
 | `CONFIG_INVALID_REQUEST` or unexpected exception | Propagate as an application/configuration fault; do not disguise a wiring/programming error as ordinary AI unavailability |
 
-The unavailable adapter immediately returns a typed unavailable result without network work, retries or NVIDIA failover. Nonempty results then use local explanations with `catalog_fallback`; empty outcomes use `not_needed`. Log the safe error code/category and request/diagnostic ID, not the environment file's content, raw exception or key. The UI shows the normal non-AI explanation label without filesystem details.
+The unavailable adapter immediately returns a typed unavailable result without network work, retries or a second provider call. Nonempty results then use local explanations with `catalog_fallback`; empty outcomes use `not_needed`. Log the safe error code/category and request/diagnostic ID, not the environment file's content, raw exception or key. The UI shows the normal non-AI explanation label without filesystem details.
 
 The current loader reads the requested environment file before applying process-environment precedence. Consequently, an unreadable `.env` disables AI under this policy even if a process variable is populated; do not claim an environment-only recovery that the loader does not implement. A missing file (`ENOENT`) is permitted by the loader, so a valid process variable still works without a file. Repair configuration and restart to rebuild the adapter; catalogue operation remains independent throughout.
 

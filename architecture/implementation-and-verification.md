@@ -20,16 +20,6 @@ Build sequentially until the first live scenario works. A separate backend servi
 
 If the first OpenAI probe fails, diagnose key access/model access/network/quota once and repeat only after a concrete correction. After two meaningful failures, report the evidence and continue the local-rule path as explicitly degraded work. Do not silently switch models, claim live AI passed, or consume the whole timebox on provider troubleshooting. A model change needs a recorded reason and a repeat of the affected check.
 
-## Optional NVIDIA checkpoint
-
-The agreed priority is the working OpenAI MVP. A NVIDIA reranking comparison is optional, has no reserved slot in the four-hour baseline, and does not block its acceptance. Start only after required MVP checks pass and sufficient time remains for reproducible delivery and demo preparation; limit the initial comparison to 15 minutes. If those conditions are not met, record it as deferred.
-
-Compare the same eligible candidate sets under baseline price/ID ordering and NVIDIA semantic scores, using existing request fields and catalogue descriptions. Keep city/category/date/budget/format/language/duration filters unchanged. Examine profile-to-event relevance on the dense example and check rare/empty outcomes, repeated ordering and total response time. No embedding index, new user-input feature or generic multi-provider layer is part of this experiment.
-
-Adopt semantic ranking only with observed benefit and passing affected checks, including repeatability across restarts and provider unavailability. Preserve the baseline if evidence is inconclusive or the experiment exceeds its timebox. A live score/fallback combination must not silently change the same request's ordering. Record the chosen policy, model, contracts and evidence in OpenSpec before any adoption; update ranking expectations only then.
-
-Separately, if OpenAI access is blocked, the NVIDIA explanation adapter remains a manual implementation-time contingency. Check its actual model access, output format, Russian evidence quality and deadline before selecting it as the single provider. Record any provider change and update public mode labels; never label NVIDIA output as `openai_evidence`. Neither contingency has been executed by this documentation update.
-
 ## Smallest sufficient checks
 
 Use existing Vitest/Playwright capabilities where they directly verify a requirement. Do not create a generic evaluation framework, test every private helper, or add separate test layers that prove the same thing.
@@ -77,7 +67,9 @@ No bookings, accounts, notifications, payments, new synthetic profiles, free-tex
 
 If time becomes tight, remove decorative polish and optional operational optimizations. Preserve eligibility, stable order, both empty outcomes, clear prices/calendar limits, the AI disclosure and required demonstration checks. Incomplete live quality or clean-checkout checks stay reported as incomplete.
 
-## Evidence at architecture delivery
+## Historical evidence at architecture delivery
+
+This records the original architecture discussion, not current provider scope. The later decision to keep only OpenAI and CSV is recorded in the [architecture index](README.md).
 
 Observed: domain/brief review; current package/configuration declarations; existing secret-reader boundary; official OpenAI/NVIDIA/framework documentation; selective profile inspection; data-derived ordering for the October 10/11 and October 1/6 pairs. The optional research role performed documentation research only. The user agreed the OpenAI-first direction and conditional NVIDIA experiment, then requested four review clarifications covering date changes, AI validation scope, optional configuration and mixed labels. Documentation now records those boundaries and corresponding future checks; link/consistency checks do not establish runtime behaviour.
 

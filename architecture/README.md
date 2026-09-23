@@ -6,11 +6,11 @@ The application remains one Next.js process with the supplied CSV and optional O
 
 P03 selection-domain acceptance and unchanged shared boundaries: [selection-domain](../openspec/changes/archive/2026-09-23-selection-domain/design.md).
 
-Architecture for task #79-lite: explainable event-contractor selection from the supplied catalogue. The user agreed the **OpenAI-first MVP direction** on 2026-09-23, with a reported **four-hour implementation and demo budget** and available **OpenAI and NVIDIA API keys**. Key availability is user-reported; account/model access has not been tested.
+Architecture for task #79-lite: explainable event-contractor selection from the supplied catalogue. The user agreed the **OpenAI-first MVP direction** on 2026-09-23, with a reported **four-hour implementation and demo budget** and an available **OpenAI API key**. The later access verification is linked below.
 
 **MVP baseline:** one local Next.js application; CSV loaded into memory; deterministic eligibility and price ordering; one bounded OpenAI call to select profile-specific evidence for up to three explanations. No database, vector index, additional backend service, or additional cloud account.
 
-NVIDIA is an available contingency, not a second provider called on every request. A semantic-ranking experiment is optional only after the required MVP works and sufficient time remains for delivery. See [NVIDIA's role](system.md#nvidia-api-key-assessment) and the [experiment checkpoint](implementation-and-verification.md#optional-nvidia-checkpoint).
+Current scope confirmed on 2026-09-23: OpenAI is the only AI provider; the catalogue is read from CSV. Earlier NVIDIA/Brev experiments and database configuration are excluded from application setup and further implementation. Historical brainstorming and tooling evidence preserve the earlier decisions only.
 
 ## Read in order
 
@@ -32,9 +32,9 @@ NVIDIA is an available contingency, not a second provider called on every reques
 
 - Accepted P01 implementation: [first-working-slice](../openspec/changes/archive/2026-09-23-first-working-slice/design.md). On 2026-09-23 the user took control of the schedule and removed agent-enforced deadline reconciliation, four-hour limit and 60-minute reserve; historical estimates below and in linked documents are not implementation gates. Required acceptance checks remain.
 
-- OpenAI transport access was verified on 2026-09-23 with the pinned model. The server adapter and its scope, live evidence and publication hold are recorded in [openai-response-adapter](../openspec/changes/openai-response-adapter/tasks.md). This updates the earlier untested-access statement above; domain/application integration remains separate.
+- OpenAI transport access was verified on 2026-09-23 with the pinned model. The server adapter and its scope, live evidence and publication hold are recorded in [openai-response-adapter](../openspec/changes/openai-response-adapter/tasks.md). Domain/application integration evidence is recorded separately in the linked product changes.
 
-- The accepted direction and provider sequence are preserved in the [approved brainstorming outcome](../.brainstorming/2026-09-23-contractor-selection-architecture-design.md). Architecture agreement is not evidence of a working application, live integration or completed implementation planning.
+- The original direction and earlier provider options are preserved in the [approved brainstorming outcome](../.brainstorming/2026-09-23-contractor-selection-architecture-design.md). Architecture agreement is not evidence of a working application, live integration or completed implementation planning.
 - Source requirements and data facts remain in [domain/README.md](../domain/README.md). Policy choices that were absent from the brief are explicitly identified in [the proposed selection policy](selection-and-explanations.md#proposed-policy-decisions).
 - Before product implementation, create a linked product change in [OpenSpec](../openspec/) using the approved outcome. Its specs, design, contracts and task stages become authoritative for implementation. Detailed policy proposals below must be captured there; do not restart discussion of the agreed provider strategy or maintain competing specifications here.
 - The existing [local-secrets change](../openspec/changes/unified-local-secrets/design.md) supplies the configuration boundary. Its [task card](../openspec/changes/unified-local-secrets/tasks.md) records local evidence and a publication hold; this architecture does not change that status.

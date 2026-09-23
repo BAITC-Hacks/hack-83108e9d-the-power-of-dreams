@@ -51,7 +51,7 @@ The CSV-derived regression case is Алматы / Ведущий / корпор�
 
 Use one server-side Responses API call for all selected profiles, with the pinned initial candidate model `gpt-4.1-mini-2025-04-14`. The model selects a useful, concrete excerpt from each profile's description in the context of the request. Local code writes the factual first sentence and renders the excerpt as a quoted, attributed second sentence.
 
-NVIDIA is outside this baseline request path. OpenAI failures use the catalogue fallback below, without a second provider call. A later NVIDIA comparison follows the [optional checkpoint](implementation-and-verification.md#optional-nvidia-checkpoint); it does not silently change the ranking policy or the meaning of `openai_evidence`.
+OpenAI is the only AI provider. OpenAI failures use the catalogue fallback below, without a second provider call or a change to ranking.
 
 This extraction approach keeps the AI contribution semantic while avoiding free-form claims about price, availability or quality. It does not require embeddings, tools, agent loops, training or uploading the whole catalogue.
 
