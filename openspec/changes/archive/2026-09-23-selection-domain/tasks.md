@@ -6,7 +6,7 @@
 ## 2. Integration and completion
 
 - [x] 2.1 Verify the clean combined candidate using README installation, typecheck, tests, build, launch and real dense/empty HTTP scenarios; publish feature and main normally and confirm remote SHA.
-- [ ] 2.2 Synchronize domain specifications, archive the accepted change, update current architecture links and publish the report; verify strict OpenSpec validation and recorded delivery evidence.
+- [x] 2.2 Synchronize domain specifications, archive the accepted change, update current architecture links and publish the report; verify strict OpenSpec validation and recorded delivery evidence.
 
 ## Stage table
 
@@ -17,7 +17,7 @@ Checkboxes mean final integration/publication, not local implementation.
 | 1.1 | integrated | Worker 1deb854; candidate/main a8cefb9; focused 4/4, combined 36/36 | none | none | complete |
 | 1.2 | integrated | Review supported S1-S5; candidate/main a8cefb9 typecheck/36 tests/build/HTTP pass | none | none | complete |
 | 2.1 | integrated | Exact main/remote a8cefb933bdededdf013fe8a196df956ac2ae352 confirmed | none | none | complete |
-| 2.2 | planned | new additive domain spec | sync/archive/validation/publication | depends 2.1 | coordinator |
+| 2.2 | integrated | Archive/spec report 23e073b5aa26496ded55322de7682f6ac0329dd5 confirmed on remote main; all five current specs valid | none | none | complete |
 
 ## Coordinator and authorization
 
@@ -74,3 +74,13 @@ Candidate a8cefb933bdededdf013fe8a196df956ac2ae352 includes published P02 and P0
 README clean-checkout flow: `npm ci --no-audit --no-fund` installed 497 pinned packages (unchanged lockfile); `npm run typecheck` passed; `npm test` passed 36/36 with zero skips; `npm run build` passed. `npm start -- --port 3103` started successfully with no .env and an explicitly blank process OPENAI_API_KEY, proving no hidden file/personal session requirement. HTTP home and options returned 200; real dense request returned 10 candidates, 5 eligible, HK-88430/HK-29829/HK-27222 in order and catalog_fallback; budget 1 returned no_match, no cards and not_needed. Server stopped after checks. No P03 billable/provider calls or new live/browser acceptance is claimed; P04's historical live evidence remains in its own archive.
 
 Publication: feature branch and primary main fast-forwarded normally to verified candidate a8cefb933bdededdf013fe8a196df956ac2ae352; independent remote lookup confirmed the same main SHA. Delivery status MERGED AND PUBLISHED. Archive/report task 2.2 remains unchecked until its own publication; no product acceptance is outstanding for P03.
+
+### Completion record
+
+All four delivery tasks are integrated. The product candidate a8cefb933bdededdf013fe8a196df956ac2ae352 and archive/spec report 23e073b5aa26496ded55322de7682f6ac0329dd5 were each confirmed on remote main after normal fast-forward/push. The archive was moved only after all product acceptance passed; its report task remained visibly unchecked until archive publication was confirmed. This final status-only update changes no executable content and needs no repeat product checks.
+
+Five synchronized main specs pass strict validation, including the exact five selection requirements. Current README/architecture links point here; approved brainstorming links were repaired for archive depth. The fixture suite and real-data smoke are distinguished above. P05 final real-date/rare-case integration, UI narratives and final live/submission obligations remain outside this P03 completion.
+
+Feature | Criteria met | Checks | Branch / SHA | main status | Blocker / next step
+--- | --- | --- | --- | --- | ---
+P03 deterministic selection | S1-S5 | focused 4/4; combined 36/36; typecheck/build; clean real HTTP dense/empty; strict specs | codex/cs-03-domain / a8cefb933bdededdf013fe8a196df956ac2ae352; archive 23e073b5aa26496ded55322de7682f6ac0329dd5 | MERGED AND PUBLISHED | none for P03; P05 retains its own acceptance
