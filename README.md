@@ -1,118 +1,277 @@
-# hack-83108e9d-the-power-of-dreams
-Hackathon team repository for «The Power of Dreams»
+# The Power of Dreams — event contractor selection
 
-## Development starting point
+A local web application for hackathon task **#79-lite**. It helps an event
+organizer in Kazakhstan choose up to three contractors from the supplied
+catalogue and understand why they match the event conditions.
 
-The selected task is explainable event-contractor selection from the supplied
-catalogue (#79-lite). The agreed MVP is one local Next.js application with
-in-memory CSV data, deterministic selection and an OpenAI evidence adapter.
-See [architecture](architecture/README.md) and the [module proposal sequence](.proposals/README.md).
+The Russian-language form asks for **city, event date, event format, contractor
+category and budget in KZT**. Results show each contractor's name, category,
+city, starting price, explanation and data-provenance labels. The catalogue
+contains anonymized and synthetic profiles; this is a demonstration of selection,
+not a booking service or a source of confirmed contractor availability.
 
-Start with [P00: foundation and contracts](.proposals/00-foundation-and-contracts.md)
-in its assigned worktree, then P01's first working scenario. Only after its
-verified commit should P02/P03/P04 run independently from that same base.
-P00 contracts are in `contracts/`, with immutable domain types and evidence ports
-under `back/`. See the [foundation change](openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md)
-for verification and delivery status. P01 now implements the first working browser slice; see the active OpenSpec evidence below.
+## Quick start
 
-## Environment setup
+### 1. Install the prerequisites
 
-Install the prepared web-stack dependencies from the repository root.
-The current environment uses Node.js 24.4.1 and npm 11.4.2.
-Exact package versions are pinned in `package.json` and `package-lock.json`.
+- Install **Node.js 24.4.1 or a newer 24.x release** from the
+  [official Node.js download page](https://nodejs.org/en/download). On Windows,
+  use the installer for your architecture with npm included, then reopen your
+  terminal. The recorded project environment is Node.js **24.4.1** with npm
+  **11.4.2**; these are the baseline versions in [package.json](package.json).
+- Install [Git](https://git-scm.com/downloads/) if you will clone the repository.
+  You can also download and extract the repository ZIP and open its root folder.
+- Use a modern browser. Internet access is needed to download dependencies and,
+  when enabled, to call OpenAI.
+
+Check that the tools are available:
 
 ```powershell
+node --version
+npm --version
+```
+
+No database, Docker, Python, WSL, GPU, NVIDIA account or separate backend service
+is required to run the application. OpenAI access is optional for catalogue-only
+operation. The Brev instructions at the end are separate operator tooling.
+
+### 2. Get the project and install dependencies
+
+If you already have the repository, open a terminal in its root (the directory
+containing `package.json`) and skip the first two commands:
+
+```powershell
+git clone https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git
+cd hack-83108e9d-the-power-of-dreams
 npm ci
 ```
 
-The stack includes Next.js, React, TypeScript, Tailwind CSS with PostCSS, Zod,
-ESLint with the Next.js configuration, Vitest, and Playwright.
+`npm ci` installs the runtime and development dependencies pinned in
+[package-lock.json](package-lock.json). Do not install Next.js, React or
+`csv-parse` individually or globally. Keep development dependencies installed
+for the build and checks. No separate dataset download is needed:
+`raw/dataset.csv` is included in the repository.
 
-ESLint is pinned to major version 9 because the plugins bundled with
-`eslint-config-next` still require it. npm reports that this version is no
-longer supported; moving to ESLint 10 requires compatible plugin versions.
+### 3. Choose the explanation mode
 
-Verify the installed dependencies:
+**Without OpenAI:** skip configuration on a fresh checkout. The app still reads
+the supplied CSV, selects contractors and explains matching format and budget.
+It labels these explanations as generated from catalogue fields without AI.
+
+**With OpenAI:** before starting the server, create the local configuration:
 
 ```powershell
-npm ls --depth=0
+node scripts/secrets/setup.mjs
 ```
 
-Foundation verification after `npm ci`:
+Open the root `.env` locally and fill `OPENAI_API_KEY`. Leave the other service
+keys blank; they are not used by this application. `OPENAI_MODEL` is optional;
+absent or blank uses `gpt-4.1-mini-2025-04-14`. The setup command preserves an
+existing `.env`. Verify that the key is present without displaying it:
 
 ```powershell
-npm run typecheck
-npm test
+node scripts/secrets/check.mjs OPENAI_API_KEY
 ```
 
-Expected: shared types and labelled synthetic examples compile; fixture,
-secrets/transport, P01 slice, P02 catalogue and P04 evidence-boundary checks pass.
-The P02 checks cover complete CSV decoding, safe failure, global options,
-immutable snapshots and exact source identity. See the [catalogue task card](openspec/changes/archive/2026-09-23-catalog-module/tasks.md).
-No `.env`, provider account, browser installation or billable calls are needed
-for these foundation checks. `csv-parse` loads the real catalogue.
+This checks configuration presence only. Live use requires a funded OpenAI
+project, access to the configured model and outbound network access. Each
+submission with selected contractors can make one billable request. Existing
+environment variables take precedence over `.env`; an already configured key
+enables live calls. See [configuration details](#configuration-details) for
+precedence, safe handling and optional settings.
 
-## Run the first working slice
+### 4. Build and start
 
-The app reads `raw/dataset.csv` once per process and exposes a five-field Russian
-form at `/`. Selection uses city/category, calendar, budget and format, ordered
-by starting price then catalogue ID. One bounded OpenAI request selects source
-excerpts; local code verifies them and renders the explanation.
+Run from the repository root:
 
 ```powershell
-npm ci
-npm run typecheck
-npm test
 npm run build
 npm start -- --port 3101
 ```
 
-Open http://127.0.0.1:3101. The general dev/start default is port 3000; P01 uses
-3101. Run from the repository root and retain `raw/` and `back/`: the unchanged
-server transport is loaded at runtime to keep the private `.env` out of bundled
-assets. No database, GPU, external font, account session or extra service is needed.
-`npx playwright install` is optional browser-test tooling, not an app prerequisite.
+Keep the terminal running and open [the application](http://127.0.0.1:3101).
+Stop the server with `Ctrl+C`. Both start scripts bind to `127.0.0.1` for local
+access. Retain `raw/` and `back/` alongside the application: the server loads
+the CSV and the existing OpenAI transport from these directories at runtime.
+Copying only the build output is insufficient.
 
-Primary scenario: Алматы / Ведущий / корпоратив / 2026-10-10 / 1500000 KZT.
-Expected: 10 candidates, 5 eligible, and Куррапика (HK-88430), Аня Форджер
-(HK-29829), Сон Гоку (HK-27222), in that order. Budget 1 gives a normal empty
-result. Changing form fields does not call AI until Подобрать is pressed.
-Prices are starting prices; absence of a busy mark is not a confirmed booking.
-The interface labels synthetic/anonymized profiles and imputed city/price values.
+### Development mode
 
-For live excerpts, configure `OPENAI_API_KEY` through the existing setup below;
-`OPENAI_MODEL` defaults to `gpt-4.1-mini-2025-04-14`. A funded project, model access
-and outbound network are needed; each submission can incur a small API charge.
-Without configuration, or on AI failure, selection still uses the real CSV and
-shows the truthful catalogue-only or mixed explanation label. This is real-data
-fallback, not a fixture mode. Restart after changing configuration or correcting
-an unavailable catalogue: loading failures are retained until restart.
+After installation and any optional configuration, use this instead of the
+build/start pair while editing the app:
+
+```powershell
+npm run dev
+```
+
+Open [the development server](http://127.0.0.1:3000). To choose a free port,
+use `npm run dev -- --port 3102`; for a production build use
+`npm start -- --port 3102`. These commands follow the
+[Next.js CLI options](https://github.com/vercel/next.js/blob/canary/docs/01-app/03-api-reference/06-cli/next.mdx).
+
+## Try the primary scenario
+
+Enter the following values and press **Подобрать**:
+
+| Field | Value |
+| --- | --- |
+| City | Алматы |
+| Date | 2026-10-10 |
+| Event format | корпоратив |
+| Category | Ведущий |
+| Budget | 1500000 KZT |
+
+Expected with the supplied catalogue: **10 candidates, 5 eligible**, with these
+three cards in order: **Куррапика (HK-88430)**, **Аня Форджер (HK-29829)**,
+**Сон Гоку (HK-27222)**. Selection and order are the same with or without OpenAI;
+the explanations depend on whether validated source quotes are available.
+
+Change the budget to **1** and submit again: the app should display a normal
+empty result. Changing fields alone does not make an AI request. To check a
+different date, change the date and press **Подобрать** again.
+
+## How it works
+
+The app is one Next.js process serving both the browser interface and HTTP API.
+The catalogue is loaded into memory on first use and retained for the process.
+
+```mermaid
+flowchart LR
+    Form["Browser form"] --> API["Server: validate request"]
+    CSV["CSV catalogue in memory"] --> Rules["Eligibility rules and price ordering"]
+    API --> Rules
+    Rules --> Selected["Up to three contractors"]
+    Selected --> Evidence["Optional OpenAI source quotes"]
+    Selected --> Result["Local explanation assembly"]
+    Evidence --> Check["Validate quotes against source descriptions"]
+    Check --> Result
+    Result --> Cards["Cards and explanation-mode label"]
+```
+
+1. The form loads available options from `GET /api/catalog/options` and sends
+   conditions to `POST /api/recommendations` only on submission.
+2. The server validates the fields and supported date range. Selection first
+   narrows the catalogue by city and category, then excludes busy contractors,
+   prices above the budget and unsupported event formats. The backend also
+   supports optional language and duration filters; the current form does not
+   expose them.
+3. Eligible profiles are sorted by ascending starting price, then catalogue ID
+   to break ties. The first three become the result. **AI does not rank profiles
+   or decide which contractors pass the filters.**
+4. If configured, one bounded OpenAI request receives the conditions and evidence
+   fields for only the selected profiles. It selects short quotes from their
+   descriptions. Local code checks the response structure, profile IDs, quote
+   length and literal correspondence with the source before using a quote.
+5. Local code assembles explanations from catalogue facts and accepted quotes.
+   Missing configuration, provider failure or rejected quotes lead to
+   catalogue-only or mixed explanations with a visible label. The underlying
+   selection continues to use the supplied CSV. This is not a synthetic test
+   fixture substituted for the catalogue.
+
+## Stack and repository layout
+
+All package versions are pinned in [package.json](package.json) and the lockfile.
+
+| Dependency / tool | Role |
+| --- | --- |
+| Next.js 16.3.6 | Web application and server routes in one process |
+| React / React DOM 19.3.0 | Browser form and result cards |
+| TypeScript 6.0.3 | Typed contracts and application code |
+| csv-parse 7.0.2 | Decode the supplied CSV catalogue |
+| Tailwind CSS 4.3.3 / PostCSS 8.5.28 | Installed styling toolchain |
+| Zod 4.6.5 | Available validation dependency; current request rules are implemented in server code |
+| Node.js test runner | Runs the checks wired to `npm test` |
+| Playwright 1.63.0 | Browser verification tooling |
+| ESLint 9.39.5 / Vitest 5.0.1 | Installed development tooling; no lint script is currently defined, and `npm test` uses Node's runner |
+
+OpenAI is called through the existing server HTTP adapter; no OpenAI SDK or
+additional package installation is required. ESLint remains pinned to major 9
+for compatibility with the current Next.js lint configuration.
+
+| Path | Responsibility |
+| --- | --- |
+| `src/app/` | Page entry point, layout, styles and API routes |
+| `front/` | Interactive form, loading/error/empty states and result cards |
+| `contracts/` | Public request/response types and labelled examples |
+| `back/catalog/`, `back/domain/` | CSV loading, calendar and deterministic selection rules |
+| `back/recommend/`, `back/ai/` | Explanation assembly, quote validation and OpenAI transport |
+| `back/http/`, `back/composition.ts` | Request validation, HTTP responses and module wiring |
+| `back/config/` | Server-only secrets reader |
+| `raw/dataset.csv` | Supplied runtime catalogue |
+| `scripts/` | Verification and optional operator utilities |
+| `domain/`, `architecture/`, `openspec/` | Source requirements, architecture and implementation evidence |
+
+## Checks and troubleshooting
+
+After `npm ci`, run these from the root:
+
+```powershell
+npm ls --depth=0
+npm run typecheck
+npm test
+```
+
+Expected: required dependency versions are installed, type checking succeeds,
+and secrets, transport, contract, slice, catalogue, selection, evidence and
+backend-configuration checks pass. These tests use controlled credentials and
+transport where needed; no `.env`, provider account, billable call or Playwright
+browser installation is required. They do not replace the browser scenario or
+live explanation-quality review. `npx playwright install` is optional for
+browser-test tooling, not an application prerequisite.
+
+| Symptom | Action |
+| --- | --- |
+| `node` or `npm` is not recognized | Install Node.js with npm, reopen the terminal and check the versions. |
+| Missing `csv-parse`, `UNMET DEPENDENCY`, or stale/extra packages | Stop this checkout's server and run `npm ci` in the root, then repeat the dependency check. Keep the committed lockfile. |
+| Start reports a missing production build | Run `npm run build` successfully before `npm start`. |
+| Port is already in use | Choose another port with `-- --port 3102` and open the corresponding URL. |
+| Date is rejected | Use a date between **2026-09-23 and 2026-12-31**, inclusive. |
+| Catalogue is unavailable | Ensure `raw/dataset.csv` exists and is intact, run from the root, then restart the server after repair. Failed catalogue loads are retained until restart. |
+| Explanations say they were generated without AI | This is a supported result. For live quotes, check the OpenAI setting, account/model access and network. Rejected quotes also fall back to catalogue facts. Restart after configuration changes. |
+
+Optional live domain check, after configuring OpenAI:
 
 ```powershell
 node scripts/slice/live.mjs
 ```
 
-This optional command makes one billable dense-domain request and prints only
-public output and sanitized evidence metadata. Full acceptance additionally
-requires manual source/relevance/distinctiveness review. A fallback is not a live
-quality pass. Domain checks, browser evidence and delivery status are recorded in
-[the P01 task card](openspec/changes/archive/2026-09-23-first-working-slice/tasks.md).
+This makes one billable dense-domain request and prints public output and
+sanitized evidence metadata. Full live acceptance also needs manual review of
+source correctness, relevance and distinctiveness. A fallback is not a live
+quality pass.
 
-P04 verifies the evidence adapter's selected-only data boundary and the rare
-florist live sample; see [P04 evidence](openspec/changes/archive/2026-09-23-validated-ai-evidence/tasks.md).
-Scope limits: no language/duration controls, date-change comparison narrative,
-booking, persistence or AI quality ranking. Final rendered-text acceptance and
-the three-request timing series remain P07 work. This is not a final submission
-readiness claim.
+## Limitations and verification status
 
-P03's focused selection checks run as part of `npm test`, or separately with
-`node --test back/domain/select.test.mjs`. They cover candidate/busy scope,
-stable result limits and input preservation using labelled controlled profiles;
-the existing slice checks exercise the real catalogue and HTTP boundary.
-See the [selection task card](openspec/changes/archive/2026-09-23-selection-domain/tasks.md) for
-the current acceptance and publication status.
+- The supplied calendar covers **23 September–31 December 2026** only.
+- Prices are starting prices. A date without a busy mark is not a confirmed
+  booking; availability and final conditions must be checked with the contractor.
+- Synthetic/anonymized profiles and imputed city/price values are labelled.
+- There are no booking, messaging or saved-search features, no persistent user
+  data, and no AI quality ranking.
+- The current browser form has no language/duration controls or narrative
+  comparing results between dates. A new submission recalculates the result.
+- Catalogue/configuration changes require a server restart.
 
-## Secrets setup for organizers
+Recorded acceptance belongs to the linked revisions and scopes, not to every
+future checkout. Final rendered-text acceptance and the three-request timing
+series remain P07 work; this README is not a final submission-readiness claim.
+
+| Area | Requirements and recorded evidence |
+| --- | --- |
+| Foundation and public contracts | [P00 task card](openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md) |
+| First working browser scenario and clean build/start | [P01 task card](openspec/changes/archive/2026-09-23-first-working-slice/tasks.md) |
+| Catalogue loading | [P02 task card](openspec/changes/archive/2026-09-23-catalog-module/tasks.md) |
+| Selection rules | [P03 task card](openspec/changes/archive/2026-09-23-selection-domain/tasks.md) |
+| Validated AI evidence | [P04 task card](openspec/changes/archive/2026-09-23-validated-ai-evidence/tasks.md) |
+| Connected backend and frontend handoff | [P05 task card](openspec/changes/archive/2026-09-23-backend-composition-and-handoff/tasks.md) |
+
+For product context, start with [domain documentation](domain/README.md).
+See [architecture](architecture/README.md) for design and
+[OpenSpec](openspec/) for requirements and current task evidence. The
+[module proposal sequence](.proposals/README.md) preserves the original planning
+order; it is not an instruction to reimplement completed modules.
+
+## Configuration details
 
 Requires Node.js 24.4.1 or compatible Node.js 24. These commands need no
 additional packages. Run from the repository root:
@@ -127,8 +286,10 @@ This creates one root `.env` from [.env.example](.env.example). An existing
 | Setting | Purpose | Required when |
 | --- | --- | --- |
 | `OPENAI_API_KEY` | OpenAI API credential | A server operation uses OpenAI |
-| `NVIDIA_API_KEY` | NVIDIA API credential | A server operation uses NVIDIA |
-| `DATABASE_URL` | Database connection URI, including credentials if needed | A server operation uses a database |
+| `OPENAI_MODEL` | Optional model override; blank uses `gpt-4.1-mini-2025-04-14` | Only to override the default OpenAI model |
+| `NVIDIA_API_KEY` | Reserved NVIDIA API credential | Not used by the current application |
+| `BREV_API_KEY` | Brev organization credential | Only for the optional Brev operator scripts |
+| `DATABASE_URL` | Reserved database connection URI | Not used by the current application |
 
 The selected contractor-selection MVP does not use a database. The reserved
 `DATABASE_URL` setting is only for a future explicitly scoped integration.
@@ -137,13 +298,13 @@ whitespace. Values are literal; references such as `${OTHER_VARIABLE}` are
 not expanded. Add future secrets to the same file and document their empty
 entries in the template.
 
-Check the settings needed for your scenario. For example, to check all three:
+For this application, check only the OpenAI key if using live quotes:
 
 ```powershell
-node scripts/secrets/check.mjs OPENAI_API_KEY NVIDIA_API_KEY DATABASE_URL
+node scripts/secrets/check.mjs OPENAI_API_KEY
 ```
 
-For OpenAI alone, pass only `OPENAI_API_KEY`. A successful check exits with
+A successful check exits with
 code 0 and says required settings are present. Missing or blank values exit
 with code 1 and name the missing settings without printing their values.
 Running without names shows usage and fails. This checks presence only;
@@ -161,7 +322,7 @@ credentials. If team credentials are provided, transfer the file separately
 through an agreed private channel; never put them in a repository or public link.
 Only the empty template belongs in the repository.
 
-### Server integration
+### Server integration reference for developers
 
 The server composition calls
 the reader before external operations and passes only the required values to
@@ -189,7 +350,7 @@ node --test scripts/secrets/secrets.test.mjs
 Current requirements and verification status:
 [OpenSpec tasks](openspec/changes/unified-local-secrets/tasks.md).
 
-## OpenAI server adapter
+## OpenAI server adapter reference for developers
 
 Requires Node.js 24 and a funded OpenAI API project with model access. No SDK,
 GPU or additional npm installation is required for this module. Run the secrets
@@ -237,7 +398,10 @@ module into browser components. This verifies transport access; application
 routes, contractor selection and UI integration are recorded separately in the P01 task card.
 See [adapter requirements and evidence](openspec/changes/openai-response-adapter/tasks.md).
 
-## Brev GPU access
+## Optional operator tooling: Brev GPU access
+
+This section is not part of application installation or launch. WSL, Brev and
+the GPU packages below are needed only when operating this separate environment.
 
 The existing `dreams-gpu` environment is infrastructure for a future specialized
 GPU workload. These commands verify access and CUDA computation; they do not
@@ -277,7 +441,8 @@ and smoke returns JSON with `status: passed`, `mode: live`, and `result_value: 2
 Setup explicitly installs PyTorch 2.13.0 with CUDA 12.6 and NumPy 2.2.6 in
 `/data/dreams-gpu/.venv`; it records resolved packages in
 `/data/dreams-gpu/installed-requirements.txt`. It requires an Ubuntu GPU VM,
-noninteractive sudo and an existing `/data` disk. The active VM is already set up.
+noninteractive sudo and an existing `/data` disk. The VM was configured in the
+recorded verification; its current availability must be checked before use.
 Both SSH and outbound access to official package sources must be available.
 
 Use another existing environment with `--instance NAME` before the operation.
