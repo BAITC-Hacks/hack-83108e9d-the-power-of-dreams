@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md), the [approved outcome](../../../.brainstorming/2026-09-23-backend-composition-and-handoff-design.md), and [architecture verification](../../../architecture/implementation-and-verification.md). Starting main and this clean feature worktree are e5cffc7683885764eaa1648ba9fac2f77d4efc6d; accepted modules are already ancestors. The occupied integration worktree is preserved until ownership/processes are reconciled.
+See [proposal](proposal.md), the [approved outcome](../../../../.brainstorming/2026-09-23-backend-composition-and-handoff-design.md), and [architecture verification](../../../../architecture/implementation-and-verification.md). Starting main and this clean feature worktree are e5cffc7683885764eaa1648ba9fac2f77d4efc6d; accepted modules are already ancestors. The occupied integration worktree is preserved until ownership/processes are reconciled.
 
 ## Goals / Non-Goals
 

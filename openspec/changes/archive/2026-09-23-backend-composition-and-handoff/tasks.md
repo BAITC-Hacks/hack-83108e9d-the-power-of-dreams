@@ -1,15 +1,15 @@
 ## 1. Backend acceptance
 
-- [ ] 1.1 Reconcile exact baseline and historical evidence; verify the dense connected real-data scenario before delegated implementation.
-- [ ] 1.2 Verify real configuration-to-composition missing/blank/unreadable/environment-only cases and safe invalid/unexpected faults with focused checks.
-- [ ] 1.3 Verify production HTTP date/rare/absent/empty/busy-venue cases, three repeats, actual restart, and missing/damaged CSV repair retention.
-- [ ] 1.4 Verify combined candidate through README locked install, typecheck, tests, build, launch and primary scenario; record live-evidence equivalence and limitations.
+- [x] 1.1 Reconcile exact baseline and historical evidence; verify the dense connected real-data scenario before delegated implementation.
+- [x] 1.2 Verify real configuration-to-composition missing/blank/unreadable/environment-only cases and safe invalid/unexpected faults with focused checks.
+- [x] 1.3 Verify production HTTP date/rare/absent/empty/busy-venue cases, three repeats, actual restart, and missing/damaged CSV repair retention.
+- [x] 1.4 Verify combined candidate through README locked install, typecheck, tests, build, launch and primary scenario; record live-evidence equivalence and limitations.
 
 ## 2. Contract and delivery
 
-- [ ] 2.1 Commit immutable consumer package separately and verify public DTO/examples/instructions with a read-only reviewer.
-- [ ] 2.2 Materialize exact committed package under shared reservation with ownership/checksum manifest and P06 pin; verify complete path/content equality.
-- [ ] 2.3 Integrate accepted candidate, normally publish main and verify remote ancestry; synchronize specs and archive with evidence and downstream obligations preserved.
+- [x] 2.1 Commit immutable consumer package separately and verify public DTO/examples/instructions with a read-only reviewer.
+- [x] 2.2 Materialize exact committed package under shared reservation with ownership/checksum manifest and P06 pin; verify complete path/content equality.
+- [x] 2.3 Integrate accepted candidate, normally publish main and verify remote ancestry; synchronize specs and archive with evidence and downstream obligations preserved.
 
 ## Stage table
 
@@ -17,13 +17,13 @@ Checkboxes mean integrated and published, not merely locally implemented.
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | branch-pushed | dense passed; reviewer supported exact live chain; e424a13 | publication | none | coordinator |
-| 1.2 | branch-pushed | e6cf0ae; 8/8 focused, 44/44 combined | publication | none | coordinator |
-| 1.3 | branch-pushed | 4ade2fa; 26 HTTP requests / six starts | publication | none | coordinator |
-| 1.4 | branch-pushed | clean integration 4ade2fa: npm ci/typecheck/test/build/start + primary pass | publication | none | coordinator |
-| 2.1 | branch-pushed | package e424a13; DTO/JSON verified | read-only package verdict | none | review/coordinator |
-| 2.2 | implementing | absent-path manifest recorded | materialize and compare | package review | coordinator |
-| 2.3 | planned | clean main e5cffc7, shared reservation held | promotion, sync/archive | preceding tasks | coordinator |
+| 1.1 | integrated | dense pass + independent historical live reuse review; main c0ec7fd | none in P05 | none | P06/P07 owners |
+| 1.2 | integrated | e6cf0ae; 8/8 focused, 44/44 combined; main c0ec7fd | none | none | complete |
+| 1.3 | integrated | 4ade2fa; 26 HTTP requests / six starts; main c0ec7fd | none | none | complete |
+| 1.4 | integrated | clean integration 4ade2fa: install/typecheck/test/build/start + primary pass | final submission checks belong to P07 | none | P07 owner |
+| 2.1 | integrated | e424a13 package; reviewer supported; main c0ec7fd | none | none | P06 pin check on resume |
+| 2.2 | integrated | seven canonical paths materialized, byte verified, now tracked | none | none | P06 owner |
+| 2.3 | integrated | remote main c0ec7fd contains accepted backend/package; specs synced | none; archived with synced specs | none | complete |
 
 ## Ownership and authorization
 
@@ -53,7 +53,7 @@ Package commit: `e424a13fec851d7f9f0f4e076f70649e716336f7` (confirmed remote fea
 Backend branch/SHA: `codex/cs-05-backend` / `4ade2fa4022d633e9d96b50188be4cee4fb99539`.
 Consumer candidate base: `e424a13fec851d7f9f0f4e076f70649e716336f7`, contains backend and package.
 Ownership/path/checksum manifest: [materialization.json](materialization.json); coordinator task ID above owns all seven recorded previously absent paths, including the index.
-Read-only reviewer checks package content before canonical publication. P06 is not started; do not assign/resume it until full immutable directory path/byte equality against package commit is verified. Missing/extra/changed content blocks work; mutable index cannot repin. No P06 implementation is assigned by this change.
+Read-only reviewer supported package e424a13; full canonical path/byte equality against package commit was verified before and after main promotion. P06 is ready to start against these pins but is not assigned or running. Missing/extra/changed content blocks work; mutable index cannot repin. No P06 implementation is assigned by this change.
 
 ## Dispatch checkpoint
 
@@ -82,3 +82,16 @@ Using project-delivery for scoped README run reproducibility, not final submissi
 Additionally the exact README `npm start -- --port 3105` command was launched from this checkout. Real POST of package request returned matched/catalog_fallback, eligibleCount 5, ordered HK-88430/HK-29829/HK-27222. Owned listener PID 44888 was stopped after verification. No backend process remains from this check. This fulfills affected run reproducibility, not final browser/submission quality.
 
 Feature/package remote head confirmed e424a13fec851d7f9f0f4e076f70649e716336f7. Package files alone change after tested backend SHA. Materialization is pending review and the recorded full-path manifest; no unknown future SHA is embedded in immutable version content.
+
+
+## Final acceptance and publication
+
+**MERGED AND PUBLISHED.** Primary main fast-forwarded from e5cffc7683885764eaa1648ba9fac2f77d4efc6d to integration candidate c0ec7fdfa020384ce0b615bdbecc91395b654145; normal origin main push succeeded and remote equality was observed. Both backend 4ade2fa4022d633e9d96b50188be4cee4fb99539 and immutable package e424a13fec851d7f9f0f4e076f70649e716336f7 are verified ancestors. All seven delivered tasks are checked; report/archive changes are published separately from executable content.
+
+Reviewer /root/evidence_review supported package e424a13 against accepted backend: operations, input/errors, examples, consumer states, same-origin instructions, provenance and exact-revision destinations were consistent. No unresolved acceptance or incidental critical findings. Only production source change is the optional internal configuration factory seam; no eligibility, prompt, data, public contract or UI behavior changed.
+
+Canonical materialization created exactly the seven previously absent paths recorded in materialization.json using exclusive writes. Complete path set and SHA-256 bytes matched the package commit. Before main promotion, all consumers were stopped (P06 never started; reviewer finished). Only those seven owned, untracked, unchanged files were moved into checked backup `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-05/test-results/p05-package-transition-e424a13`; no foreign paths were moved. Main then supplied tracked incoming files; complete path/byte equality was verified again. Backup is retained. The manifest preserves the initial mutable-index bytes; only that index's current evidence link changes after archive. Immutable v1 remains byte-identical.
+
+Spec synchronization creates backend-acceptance-and-handoff with all five requirements and seven scenarios; the full delta requirement body matches the new main spec. Archive relocates this card and adjusts mutable links, preserving historical revision URLs in v1.
+
+Scope limitations: no new paid OpenAI request (sufficient prior dense/rare live chain reused); controlled responses do not claim fresh live provider quality. No new P06 frontend implementation or final P07 rendered-quality/timing/submission run. No new dependencies/services/accounts/database. All P05 checks passed with zero skips. Shared reservation is released by its owning coordinator after final publication and package verification.

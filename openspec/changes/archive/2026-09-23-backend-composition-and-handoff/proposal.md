@@ -1,6 +1,6 @@
 ## Why
 
-P02–P04 already provide the backend; P06 still needs verified process/configuration behavior and a committed, pinned consumer contract. Execute the [approved P05 outcome](../../../.brainstorming/2026-09-23-backend-composition-and-handoff-design.md) by closing only demonstrated evidence gaps.
+P02–P04 already provide the backend; P06 still needs verified process/configuration behavior and a committed, pinned consumer contract. Execute the [approved P05 outcome](../../../../.brainstorming/2026-09-23-backend-composition-and-handoff-design.md) by closing only demonstrated evidence gaps.
 
 ## What Changes
 
