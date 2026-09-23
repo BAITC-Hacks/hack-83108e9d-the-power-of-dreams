@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md), [approved P01](../../../.brainstorming/2026-09-23-first-working-slice-design.md), [P00](../archive/2026-09-23-foundation-and-contracts/design.md), [system](../../../architecture/system.md) and [selection](../../../architecture/selection-and-explanations.md). Accepted base 9327715f06f7729ae58d4f322a8cf044f5a35c7a is in HEAD 8ecba1901a434cb4c0c0f6a710d804bdc6ab825c with unchanged back/contracts. Other listed tooling changes are not selected for implementation; their files and reference drafts remain untouched. On 2026-09-23 the user explicitly removed agent-enforced time limits/deadline questions/reserves and retains schedule control; this supersedes historical timing text in linked sources.
+See [proposal](proposal.md), [approved P01](../../../../.brainstorming/2026-09-23-first-working-slice-design.md), [P00](../2026-09-23-foundation-and-contracts/design.md), [system](../../../../architecture/system.md) and [selection](../../../../architecture/selection-and-explanations.md). Accepted base 9327715f06f7729ae58d4f322a8cf044f5a35c7a is in HEAD 8ecba1901a434cb4c0c0f6a710d804bdc6ab825c with unchanged back/contracts. Other listed tooling changes are not selected for implementation; their files and reference drafts remain untouched. On 2026-09-23 the user explicitly removed agent-enforced time limits/deadline questions/reserves and retains schedule control; this supersedes historical timing text in linked sources.
 
 ## Goals / Non-Goals
 

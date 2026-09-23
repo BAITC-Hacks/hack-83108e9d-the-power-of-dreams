@@ -94,7 +94,7 @@ This optional command makes one billable dense-domain request and prints only
 public output and sanitized evidence metadata. Full acceptance additionally
 requires manual source/relevance/distinctiveness review. A fallback is not a live
 quality pass. Domain checks, browser evidence and delivery status are recorded in
-[the P01 task card](openspec/changes/first-working-slice/tasks.md).
+[the P01 task card](openspec/changes/archive/2026-09-23-first-working-slice/tasks.md).
 
 Scope limits: no language/duration controls, date-change comparison narrative,
 booking, persistence or AI quality ranking. Rare/final live samples and the final

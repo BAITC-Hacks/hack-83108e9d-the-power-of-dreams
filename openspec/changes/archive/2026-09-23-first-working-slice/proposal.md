@@ -1,6 +1,6 @@
 ## Why
 
-P00 froze the public interfaces but does not yet run the organizer's primary scenario. Implement the approved [P01 outcome](../../../.brainstorming/2026-09-23-first-working-slice-design.md) as one retained MVP slice, from the supplied CSV through real evidence extraction to a usable browser screen.
+P00 froze the public interfaces but does not yet run the organizer's primary scenario. Implement the approved [P01 outcome](../../../../.brainstorming/2026-09-23-first-working-slice-design.md) as one retained MVP slice, from the supplied CSV through real evidence extraction to a usable browser screen.
 
 ## What Changes
 
