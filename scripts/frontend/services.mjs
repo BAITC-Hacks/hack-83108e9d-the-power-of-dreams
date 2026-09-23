@@ -65,7 +65,7 @@ try {
     assert.equal(body.error.code, 'CATALOG_UNAVAILABLE');
     await expect(page.locator('.error')).toContainText(body.error.requestId);
     await expect(page.locator('.contractor')).toHaveCount(3);
-    await expect(page.locator('.successful-conditions')).toContainText('2026-10-10');
+    await expect(page.locator('.successful-conditions')).toContainText('10 октября 2026');
     await page.screenshot({ path: join(output, 'retained-503.png'), fullPage: true });
     await page.reload();
     await expect(page.getByRole('button', { name: 'Загрузить снова', exact: true })).toBeVisible();

@@ -8,6 +8,7 @@ import RecommendationResults, { conditions } from './RecommendationResults';
 import BriefEditor from './BriefEditor';
 import type { BriefDraft } from './BriefEditor';
 import { normalizeBriefText } from '../contracts/brief';
+import { displayDate, money, optionalConditions } from './display';
 import './flow.css';
 
 type Draft = Record<Exclude<keyof RecommendationRequest, 'brief'>, string>;
@@ -38,6 +39,8 @@ export default function ContractorForm() {
   const active = useRef<{ controller: AbortController; key: string } | null>(null);
   const form = useRef<HTMLFormElement>(null);
   const disclosure = useRef<HTMLDetailsElement>(null);
+  const conditionsPanel = useRef<HTMLDetailsElement>(null);
+  const resultsHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     const controller = new AbortController(); setOptionsError('');
     fetch('/api/catalog/options', { signal: controller.signal }).then(async response => {
@@ -53,6 +56,7 @@ export default function ContractorForm() {
     setFieldErrors(errors);
     const first = fieldOrder.find(field => errors[field]);
     if (!first) return;
+    if (conditionsPanel.current) conditionsPanel.current.open = true;
     if ((errors.language || errors.durationHours) && disclosure.current) disclosure.current.open = true;
     (form.current?.elements.namedItem(first) as HTMLElement | null)?.focus();
   }
@@ -102,6 +106,7 @@ export default function ContractorForm() {
     setWishes({ text: '' }); setBriefReset(value => value + 1);
     if (options) setDraft(defaults(options));
     if (disclosure.current) disclosure.current.open = false;
+    if (conditionsPanel.current) conditionsPanel.current.open = true;
     (form.current?.elements.namedItem('city') as HTMLElement | null)?.focus();
   }
   const edit = (field: keyof Draft, value: string) => { setDraft(previous => ({ ...previous, [field]: value })); setFieldErrors(previous => { const next = { ...previous }; delete next[field]; return next; }); };
@@ -112,32 +117,53 @@ export default function ContractorForm() {
     <label htmlFor={field}>{label}</label><select {...attributes(field)} onChange={event => edit(field, event.target.value)} required={!optional}>
       {optional && <option value="">Без ограничения</option>}{values.map(value => <option key={value}>{value}</option>)}
     </select>{fieldError(field)}</div>;
-  const changed = !!success && (!!wishes.text.trim() && !wishes.brief || requestKey({ ...requestFrom(draft),
-    ...(wishes.brief?.conditions.length ? { brief: wishes.brief } : {}) }) !== requestKey(success.result.normalizedRequest));
-  return <main><header><h1>Подбор подрядчиков</h1><p>Укажите условия мероприятия — найдём подходящие варианты в каталоге.</p></header>
-    <div className="workspace"><section className="form-panel" aria-labelledby="conditions"><h2 id="conditions">Ваше мероприятие</h2>
+  const currentKey = requestKey({ ...requestFrom(draft), ...(wishes.brief?.conditions.length ? { brief: wishes.brief } : {}) });
+  const unparsed = !!wishes.text.trim() && !wishes.brief;
+  const changed = !!success && (unparsed || currentKey !== requestKey(success.result.normalizedRequest));
+  const unsent = !!pending && (unparsed || currentKey !== requestKey(pending));
+  function showResults() {
+    if (window.matchMedia('(max-width: 760px)').matches && conditionsPanel.current) conditionsPanel.current.open = false;
+    resultsHeading.current?.focus({ preventScroll: true });
+    resultsHeading.current?.scrollIntoView({ block: 'start' });
+  }
+  function showConditions() {
+    if (conditionsPanel.current) conditionsPanel.current.open = true;
+    (form.current?.elements.namedItem('city') as HTMLElement | null)?.focus({ preventScroll: true });
+    conditionsPanel.current?.scrollIntoView({ block: 'start' });
+  }
+  const optionalSummary = optionalConditions(draft.language, draft.durationHours);
+  return <main><header className="page-header"><div className="brand"><span className="brand-mark" aria-hidden="true"><i/><i/><i/></span>The Power of Dreams</div><div className="page-intro"><h1>Подрядчики для вашего события</h1><p>До трёх вариантов из каталога.<br/>{' '}С понятной причиной выбрать каждого.</p></div></header>
+    <div className="workspace"><details ref={conditionsPanel} className="form-panel" open aria-labelledby="conditions"><summary className="conditions-toggle"><span><h2 id="conditions">Ваше мероприятие</h2><span className="collapsed-conditions">{draft.city}{draft.date && `, ${displayDate(draft.date)}`}</span></span><span className="toggle-chevron" aria-hidden="true"/></summary>
+      <div className="conditions-content">
       {!options ? <><p role="status">{optionsError || 'Загружаем каталог…'}</p>{optionsError && <button onClick={() => setReload(value => value + 1)}>Загрузить снова</button>}</> :
         <form ref={form} onSubmit={submit} noValidate>
+          <div className="form-fields">
           {selectField('city', 'Город', options.cities)}
-          <div className="field"><label htmlFor="date">Дата мероприятия</label><input {...attributes('date')} type="date" required min={options.dateWindow.min} max={options.dateWindow.max} onChange={event => edit('date', event.target.value)}/><small id="date-help">Календарь: {options.dateWindow.min} — {options.dateWindow.max}, включительно</small>{fieldError('date')}</div>
+          <div className="field"><label htmlFor="date">Дата мероприятия</label><input {...attributes('date')} type="date" required min={options.dateWindow.min} max={options.dateWindow.max} onChange={event => edit('date', event.target.value)}/>{fieldError('date')}</div>
+          <small className="date-help" id="date-help">Календарь с {displayDate(options.dateWindow.min)} по {displayDate(options.dateWindow.max)}</small>
           {selectField('eventFormat', 'Формат мероприятия', options.eventFormats)}
           {selectField('category', 'Категория подрядчика', options.categories)}
-          <div className="field"><label htmlFor="budgetKzt">Бюджет, ₸</label><input {...attributes('budgetKzt')} type="number" min="1" max="9007199254740991" step="1" required onChange={event => edit('budgetKzt', event.target.value)}/>{fieldError('budgetKzt')}</div>
-          <details ref={disclosure} className="optional-conditions"><summary>Дополнительные условия</summary>
+          <div className="field budget-field"><label htmlFor="budgetKzt">Бюджет, ₸</label><input {...attributes('budgetKzt')} type="number" min="1" max="9007199254740991" step="1" required onChange={event => edit('budgetKzt', event.target.value)}/><small>{Number.isSafeInteger(Number(draft.budgetKzt)) && Number(draft.budgetKzt) > 0 ? `${money(Number(draft.budgetKzt))} ₸ за мероприятие` : 'Общий бюджет на одного подрядчика'}</small>{fieldError('budgetKzt')}</div>
+          </div>
+          <details ref={disclosure} className="optional-conditions"><summary><span>Дополнительные условия</span>{optionalSummary && <span className="optional-summary">{optionalSummary}</span>}</summary>
             {selectField('language', 'Язык', options.languages, true)}
             <div className="field"><label htmlFor="durationHours">Длительность, часов</label><input {...attributes('durationHours')} type="text" inputMode="decimal" onChange={event => edit('durationHours', event.target.value)}/>{fieldError('durationHours')}</div>
           </details>
           <BriefEditor key={briefReset} value={wishes} onChange={next => { setWishes(next); setError(''); }}/>
-          <div className="form-actions"><button type="submit">Подобрать</button><button className="reset-button" type="button" onClick={reset}>Сбросить</button></div>
+          <div className="form-actions"><button type="submit"><span>Подобрать</span><svg viewBox="0 0 20 20" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg></button><button className="reset-button" type="button" onClick={reset}>Сбросить</button></div>
+          {pending && <p className="action-status">{unsent ? 'Подбор идёт. Новые правки ещё не отправлены.' : 'Подбираем по отправленным условиям…'}</p>}
         </form>}
-      <p className="fine-print">Цены указаны за мероприятие, начиная с суммы в каталоге. Итоговые условия уточняются у подрядчика.</p></section>
-      <section className="results" aria-labelledby="results-heading" aria-busy={!!pending}><h2 id="results-heading">Подходящие варианты</h2>
+      <p className="fine-print">Стартовые цены из каталога. Итоговые условия уточняются у подрядчика.</p></div></details>
+      <section className="results" aria-labelledby="results-heading" aria-busy={!!pending}><div className="results-heading"><h2 ref={resultsHeading} tabIndex={-1} id="results-heading">Подходящие варианты</h2>{success && <span className="result-total" aria-label={`Показано карточек: ${success.result.cards.length}`}>{success.result.cards.length}</span>}</div>
         <div role="status" aria-live="polite" aria-atomic="true">
-          {pending ? <p>Подбираем… {conditions(pending)}</p> : success && <p className="secondary">Подбор завершён. Показано: {success.result.cards.length}.</p>}
-          {changed && <p>Условия изменены — выполните подбор</p>}
+          {pending ? <p className="pending-message">Подбираем… {conditions(pending)}</p> : success && <p className="sr-only">Подбор завершён. Показано: {success.result.cards.length}.</p>}
+          {pending ? unsent && <p className="changed-message">Есть новые неотправленные изменения. Текущий подбор использует отправленные условия.</p> : changed && <p className="changed-message">Условия изменены — выполните подбор</p>}
         </div>
         {error && <p role="alert" className="error">{error}</p>}
-        {!success && !pending && !error && <p className="placeholder">Здесь появятся до трёх подрядчиков и причины, по которым они подходят.</p>}
+        {!success && !pending && !error && <div className="placeholder"><div className="preview-list" aria-hidden="true"><span/><span/><span/></div><h3>Хорошее событие начинается<br/>с подходящих людей</h3><p>Укажите, кого ищете и когда.<br/>Сравним условия с каталогом и объясним каждый вариант.</p><p className="placeholder-note">Учитываем бюджет, формат и отметки занятости.</p></div>}
         {success && <RecommendationResults result={success.result} narrative={success.narrative} previous={!!pending}/>}
-      </section></div></main>;
+      </section></div>
+      {success && <nav className="mobile-results-nav" aria-label="Переход между условиями и результатом"><button className="reset-button" type="button" onClick={showConditions}>Условия</button><button type="button" onClick={showResults}>К результатам <span aria-hidden="true">{success.result.cards.length}</span></button></nav>}
+      <footer className="page-footer">Подбор по каталогу, не бронирование. Решение остаётся за вами.</footer>
+    </main>;
 }
