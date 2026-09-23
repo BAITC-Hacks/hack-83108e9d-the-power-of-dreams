@@ -1,21 +1,21 @@
 ## 1. Presentation
 
-- [ ] 1.1 Implement compact identity and separate explanation-led cards; verify real primary and rare results, complete explanations and first desktop viewport.
-- [ ] 1.2 Implement passive complete snapshot labels and consistent initial/mobile states; verify both empty outcomes, date changes, pending/draft/errors, focus and 375/390/1280 px layouts.
+- [x] 1.1 Implement compact identity and separate explanation-led cards; verify real primary and rare results, complete explanations and first desktop viewport.
+- [x] 1.2 Implement passive complete snapshot labels and consistent initial/mobile states; verify both empty outcomes, date changes, pending/draft/errors, focus and 375/390/1280 px layouts.
 
 ## 2. Acceptance and publication
 
-- [ ] 2.1 Run typecheck, existing tests, production build and real/controlled browser checks; verify clean README installation/build/start/primary and record actual evidence/limitations with project-delivery.
-- [ ] 2.2 Review scoped diff, publish feature, acquire integration ownership, verify combined candidate, publish main and record exact revisions; preserve other work.
+- [x] 2.1 Run typecheck, existing tests, production build and real/controlled browser checks; verify clean README installation/build/start/primary and record actual evidence/limitations with project-delivery.
+- [x] 2.2 Review scoped diff, publish feature, acquire integration ownership, verify combined candidate, publish main and record exact revisions; preserve other work.
 
 ## Stage table
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | ready-to-merge | Source5bad2b3; combined93e10be primary/rare/live/brief passed | Main publication | None | Coordinator publish |
-| 1.2 | ready-to-merge | Combined93e10be real/control mobile/state/focus checks passed | Main publication | None | Coordinator publish |
-| 2.1 | ready-to-merge | Clean93e10be npm ci/typecheck/62 tests/build/start/browser/live brief passed | None | None | Coordinator publish |
-| 2.2 | ready-to-merge | Own shared reservation; accepted candidate93e10be | Feature/main push and SHA confirmation | None | Coordinator publish |
+| 1.1 | integrated | Source5bad2b3; tested93e10be; remote main96a8caa | None | None | Complete |
+| 1.2 | integrated | Tested93e10be real/control mobile/state/focus; remote main96a8caa | None | None | Complete |
+| 2.1 | integrated | Clean93e10be npm ci/typecheck/62 tests/build/start/browser/live brief passed | None | None | Complete |
+| 2.2 | integrated | Feature/main96a8caa confirmed; clean primary/integration fast-forward | None; archive is separate | None | Complete |
 
 ## Assignment and readiness
 
@@ -56,3 +56,9 @@ Exact93e10be clean checkout: tracked clean with .env/node_modules/.next absent i
 Separate production3138 with the existing private loader passed scripts/brief/browser.mjs: two live provider calls (baseline evidence and wishes interpretation), explicit review/confirm, expected promoted IDs HK-77838/HK-88430/HK-29829, source/unknown/question presentation, date comparison, hard-budget filtering, edit invalidation and reset. Controlled interpreter cancellation/late success/error and safe503 passed separately. Browser errors empty,375/1280 overflow checks passed; screenshots in test-results/join-city-combined-brief reviewed. This verifies that merge preserved the already delivered AI feature. No application behavior changed after candidate verification. Docker rebuild was not rerun for this presentation change; clean reproducibility used the documented Node route. No mandatory acceptance case skipped, no organizer submission performed.
 
 Final diff review against accepted main includes only the agreed presentation, focused verification and related artifacts/provenance; unrelated .gitignore remains unstaged. Reporting updates do not invalidate executable checks. Feature and main publication remain pending until remote confirmation below.
+
+### Publication
+
+Status: **MERGED AND PUBLISHED**. Feature source5bad2b3, tested combined candidate93e10be180ba4b80ec09f1826c841f0e0e9cc0b2, published feature and main96a8caa242d273a7b9384a2b5953e78762c57b33. Under the recorded own reservation, both clean integration and primary main fast-forwarded from1608dcb; ordinary origin main push succeeded and ls-remote confirmed96a8caa. Executable paths are identical between tested93e10be and published96a8caa. No forced push or discarded/stashed work. This final task-card-only report is published separately; no unchanged acceptance cases need repetition. Release own reservation after report publication. Retain worktrees/evidence and the no-key3135 user preview; stop temporary3134/3138 services. Archive and organizer submission were not requested.
+
+Report-only follow-up e46df84 was published to codex/ui-upgrade. Before promoting that documentation commit, primary acquired an unrelated unstaged README.md edit; the coordinator preserved it and did not advance primary/main further. Product code and acceptance report96a8caa are already published in main, so feature delivery remains complete. Final checkbox/publication notes remain on the feature branch for the next coordinator to merge when primary is available. This is a documentation promotion hold only; no feature acceptance or publication remains unmet. Own reservation is released after these branch-only notes are saved.
