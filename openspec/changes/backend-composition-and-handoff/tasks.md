@@ -49,3 +49,11 @@ Execution pending. P06 owns UI completion/date-change narrative. P07 owns final 
 ## P06 handoff card
 
 Blocked pending accepted backend and package. Required pins: public version, absolute immutable path, package commit, backend branch/SHA, candidate base, full path/checksum materialization manifest, and exact snapshot comparison before every start/resume. No P06 implementation is assigned by this change.
+
+## Dispatch checkpoint
+
+Task 1.1 dense real-catalogue HTTP check passed (1/1) at planning commit 01eaaef; npm ci installed 497 locked packages. Narrow internal factory seam 268fbad753dde536bcf8bb48eb696922825e0ac9 passes typecheck; default production configuration behavior is unchanged.
+
+Apply assignment: owner role apply, task path /root/configuration_checks; worktree D:/Alem/hack-83108e9d-the-power-of-dreams-wt-p05-config, branch codex/p05-config, committed executable base 268fbad753dde536bcf8bb48eb696922825e0ac9 plus this dispatch card; same origin and target main. Allowed scripts/backend/configuration.test.mjs only. Harness files compared to coordinator Git revision; role available via spawn API. Coordinator installs locked dependencies. Check node --test scripts/backend/configuration.test.mjs. Expected zero live network, synthetic temporary config only, full matrix and sanitized distinct error requestIds. No contract package exists yet; uses unchanged contracts/ at base. No shared resource reservation required for this worktree.
+
+Review owner /root/evidence_review, role review, fixed candidate 01eaaef; read-only evidence reuse underway. No publication authority delegated to reviewer.
