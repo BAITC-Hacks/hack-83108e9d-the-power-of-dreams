@@ -5,7 +5,8 @@ organizer in Kazakhstan choose up to three contractors from the supplied
 catalogue and understand why they match the event conditions.
 
 The Russian-language form asks for **city, event date, event format, contractor
-category and budget in KZT**. Results show each contractor's name, category,
+category and budget in KZT**, with optional language and duration under
+**Дополнительные условия**. Results show each contractor's name, category,
 city, starting price, explanation and data-provenance labels. The catalogue
 contains anonymized and synthetic profiles; this is a demonstration of selection,
 not a booking service or a source of confirmed contractor availability.
@@ -216,6 +217,16 @@ Change the budget to **1** and submit again: the app should display a normal
 empty result. Changing fields alone does not make an AI request. To check a
 different date, change the date and press **Подобрать** again.
 
+Previous results keep their original conditions while you edit or wait for a
+new selection, and survive a failed request. Date-only submissions explain
+changes using catalogue busy marks and price/ID order. For example, changing
+October 1 to October 6 replaces HK-75012 with HK-29829 because of starting-price
+order; HK-75012 still has no busy mark. **Сбросить** restores supported initial
+defaults, clears results and optional conditions, and cancels pending work.
+Blank optional values do not filter results; supplied duration accepts positive
+fractional hours. All categories remain selectable in every city, including
+combinations that correctly produce an empty catalogue outcome.
+
 ## How it works
 
 The app is one Next.js process serving both the browser interface and HTTP API.
@@ -239,8 +250,7 @@ flowchart LR
 2. The server validates the fields and supported date range. Selection first
    narrows the catalogue by city and category, then excludes busy contractors,
    prices above the budget and unsupported event formats. The backend also
-   supports optional language and duration filters; the current form does not
-   expose them.
+   supports the form's optional language and duration filters.
 3. Eligible profiles are sorted by ascending starting price, then catalogue ID
    to break ties. The first three become the result. **AI does not rank profiles
    or decide which contractors pass the filters.**
@@ -298,8 +308,8 @@ npm test
 ```
 
 Expected: required dependency versions are installed, type checking succeeds,
-and secrets, transport, contract, slice, catalogue, selection, evidence and
-backend-configuration checks pass. These tests use controlled credentials and
+and secrets, transport, contract, slice, catalogue, selection, evidence,
+backend-configuration and frontend-comparison checks pass. These tests use controlled credentials and
 transport where needed; no `.env`, provider account, billable call or Playwright
 browser installation is required. They do not replace the browser scenario or
 live explanation-quality review. `npx playwright install` is optional for
@@ -334,8 +344,9 @@ quality pass.
 - Synthetic/anonymized profiles and imputed city/price values are labelled.
 - There are no booking, messaging or saved-search features, no persistent user
   data, and no AI quality ranking.
-- The current browser form has no language/duration controls or narrative
-  comparing results between dates. A new submission recalculates the result.
+- Date comparisons apply only when the date changes and all other normalized
+  conditions, catalogue version and selection policy are unchanged. Only the
+  latest successful result is kept in memory; reset or reload clears it.
 - Catalogue/configuration changes require a server restart.
 
 Recorded acceptance belongs to the linked revisions and scopes, not to every
@@ -350,6 +361,7 @@ series remain P07 work; this README is not a final submission-readiness claim.
 | Selection rules | [P03 task card](openspec/changes/archive/2026-09-23-selection-domain/tasks.md) |
 | Validated AI evidence | [P04 task card](openspec/changes/archive/2026-09-23-validated-ai-evidence/tasks.md) |
 | Connected backend and frontend handoff | [P05 task card](openspec/changes/archive/2026-09-23-backend-composition-and-handoff/tasks.md) |
+| Complete frontend flow and date comparison | [P06 task card](openspec/changes/archive/2026-09-23-frontend-selection-flow/tasks.md) |
 
 For product context, start with [domain documentation](domain/README.md).
 See [architecture](architecture/README.md) for design and
