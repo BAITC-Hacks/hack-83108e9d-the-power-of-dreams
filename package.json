@@ -31,6 +31,6 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "test": "node --test scripts/secrets/secrets.test.mjs scripts/openai/contract.test.mjs scripts/contracts/fixtures.test.mjs scripts/slice/contracts.test.mjs"
+    "test": "node --test scripts/secrets/secrets.test.mjs scripts/openai/contract.test.mjs scripts/contracts/fixtures.test.mjs scripts/slice/contracts.test.mjs back/catalog/catalog.test.mjs"
   }
 }

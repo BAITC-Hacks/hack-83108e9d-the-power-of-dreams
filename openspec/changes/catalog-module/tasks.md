@@ -13,13 +13,13 @@
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
 | 1.1 | implemented | Base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766; npm ci passed; existing slice 8/8 passed including dense real catalogue/HTTP | Integration publication | None | Coordinator |
-| 1.2 | planned | Existing loader; no demonstrated runtime defect | Focused checks/typecheck | Await committed planning base | Apply role |
+| 1.2 | branch-pushed | b66dfff9c4bb423461805d36029ed55d1b0e7df1; 7/7 focused tests and typecheck passed; origin feature SHA confirmed | Combined acceptance/publication | None | Coordinator |
 | 2.1 | planned | Public contract v1 unchanged | Combined candidate/build/launch/main | Shared reservation required | Coordinator |
 | 2.2 | planned | Fresh catalog-module change | Sync/archive/strict validation/publication | Depends on acceptance | Coordinator |
 
 ## Assignment: P02 apply
 
-- Task: catalog-module 1.2; owner apply role /root/catalog_apply (assignment name; actual returned ID recorded before dispatch).
+- Task: catalog-module 1.2; owner apply role /root/catalog_apply (runtime returned ID).
 - Scope: D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-02; codex/cs-02-catalog; base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 plus coordinator planning commit supplied at dispatch; origin https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git; target main.
 - Allowed writes: back/catalog/ only, including catalog.test.mjs. Coordinator owns package scripts, architecture, task state and integration. Do not edit date.ts, contracts, raw data or other modules.
 - Context: proposal, design and contractor-catalog delta here; approved P02 outcome; existing load.ts and scripts/slice/contracts.test.mjs. Public backend contracts/types and examples pinned at f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766; no frontend package dependency.
@@ -32,5 +32,8 @@
 
 ## Integration ownership and limitations
 
-No shared reservation acquired yet. Coordinator task/thread ID is recorded when reserving shared resources. Directory unreadability is not permission-denial evidence. Historical P01 live browser/AI evidence is retained for unchanged runtime; P02 does not claim new live AI or final P07 acceptance.
+Shared reservation acquired through exclusive creation at 2026-09-23T10:39:32.9803371Z by coordinator task 01a0cdd6-ca4a-70e2-bdb2-59f05144f2dd for integration worktree and main promotion. Directory unreadability is not permission-denial evidence. Historical P01 live browser/AI evidence is retained for unchanged runtime; P02 does not claim new live AI or final P07 acceptance.
 
+## Focused acceptance evidence
+
+Apply /root/catalog_apply added only back/catalog/catalog.test.mjs. All seven checks passed: real 66 unique profiles/nine null durations with selected complete mapping; quoted/BOM/list/flag/hour decoding; invalid later records/duplicates/damaged CSV give exact safe failure; fixed global options/window; observable nested mutation protection; unchanged and formatting-only changed byte digests; unexpected invalid-call rejection. Single-read/no-retry confirmed by loader inspection. No runtime source changes. Design /root/catalog_boundary resolved shared-helper ownership; review /root/catalog_review found no planning blockers. Directory unreadability comes from the freshly passed existing 8-check slice suite; no ACL denial or OS restart was tested.
