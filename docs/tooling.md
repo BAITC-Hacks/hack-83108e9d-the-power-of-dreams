@@ -235,8 +235,10 @@ source-image build and runtime verification. A no-cache install fetched 497 npm
 packages; typecheck, 62 tests and the production build passed. Current source
 `96a8caa242d273a7b9384a2b5953e78762c57b33` additionally passed container HTTP,
 confirmed-wishes checks, Edge desktop/mobile scenarios and restart on an
-alternate port. Optional paid provider calls were not authorized by automatic
-approval review and were not executed. Exact revisions, the concurrent-update
+alternate port. After explicit user authorization, two paid provider requests
+passed from the same Docker image: explanations in 3097 ms and wishes
+interpretation in 1597 ms, followed by local confirmed-wishes selection in 8 ms.
+The earlier automatic-approval hold is resolved. Exact revisions, the concurrent-update
 test mismatch, warnings and scope limits are recorded in the
 [Docker task card](../openspec/changes/docker-compose-delivery/tasks.md#deployment-and-readme-recheck--2026-09-23).
 

@@ -135,8 +135,10 @@ Container verification and its exact revisions/limitations are recorded in the
 [Docker delivery task card](openspec/changes/docker-compose-delivery/tasks.md).
 The 23 September 2026 recheck covers clean dependency installation, the current
 production image, HTTP/browser scenarios, confirmed-wishes evidence and an
-alternate-port restart. Live OpenAI calls were not repeated in that recheck;
-the task card separates earlier provider evidence from current local checks.
+alternate-port restart. With explicit authorization, two live OpenAI requests
+also passed: source-based explanations and wishes interpretation, followed by
+local selection using the interpreted conditions. Exact evidence and limits
+are recorded in the task card.
 
 ## Alternative quick start with Node.js
 

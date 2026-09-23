@@ -80,7 +80,7 @@ and publication evidence above remain unchanged.
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| Audit: README and Docker | implemented | Source `96a8caa242d273a7b9384a2b5953e78762c57b33`; image `sha256:a6440e7181282fd10e8992861b2e13957240a7cb0e8b8f4dda0e5ce71906b7dc`; documentation-only local diff | Optional live provider recheck | Paid external requests rejected by automatic approval review pending explicit user authorization | Coordinator reports local results; user decides on two paid API calls |
+| Audit: README and Docker | implemented | Source `96a8caa242d273a7b9384a2b5953e78762c57b33`; image `sha256:a6440e7181282fd10e8992861b2e13957240a7cb0e8b8f4dda0e5ce71906b7dc`; local and authorized live checks below | None within audit scope | None; user explicitly authorized two paid API calls | Coordinator reports results; follow-up evidence is documentation-only |
 
 - Docker Desktop was initially stopped. Started the installed per-user Desktop;
   Docker Engine 29.7.2, Compose 5.4.0, Linux/x86_64 became available.
@@ -127,11 +127,36 @@ and publication evidence above remain unchanged.
   rebuild requirements and wishes architecture; removes stale Brev/extra-key
   instructions; clarifies Compose versus direct-loader variable expansion.
 
-Limitations: runtime checks used catalogue fallback and public confirmed-input
-fixtures. A local provider key was confirmed present without displaying it, but
-automatic approval review rejected the proposed two paid OpenAI calls because
-the current request did not explicitly authorize paid external transfer. No
-live requests were made. Earlier live evidence above is historical only.
+Initial limitation: the first runtime checks used catalogue fallback and public
+confirmed-input fixtures. Automatic approval review initially rejected two paid
+OpenAI calls without explicit authorization; none were made in that first pass.
+The user subsequently authorized both calls, and the live follow-up below
+resolved this hold. Earlier live evidence in previous sections remains historical.
 macOS/native Linux hosts/ARM and a separate host Node installation were not
 retested. Non-failing npm ESLint 9 deprecation and Node module-type warnings
 remain; no dependency upgrade or security audit was part of this request.
+
+### Authorized live follow-up — 2026-09-23
+
+User explicitly authorized two paid OpenAI requests. Reused the verified image
+above on `127.0.0.1:3111` with project `join-city-audit-1608dcba`; supplied the
+existing root `.env` through Compose at runtime without copying credentials
+into the image or printing values. Health readiness passed without a provider
+call. Current HEAD `d08005c544ffef1e1265339389da33e9418ba60f` differs from tested
+source `96a8caa` only in documentation/task records, so no rebuild was needed.
+
+- `POST /api/recommendations`: HTTP 200, `openai_evidence`, 3097 ms. Exact
+  primary IDs remained HK-88430, HK-29829, HK-27222.
+- `POST /api/brief`: HTTP 200, 1597 ms, using the documented Russian wishes
+  example. Live interpretation included `discreet` with intent `prefer`.
+- `POST /api/recommendations` with that actual interpretation: HTTP 200,
+  `brief_evidence`, 8 ms. Exact IDs were HK-77838, HK-88430, HK-29829.
+  This third HTTP operation is local matching, not another provider request.
+
+All assertions in ignored `test-results/deploy-audit-1608dcba/check-live.mjs`
+passed; sanitized timing/status output is in sibling `live-result.log`. Exactly
+two provider requests were made, with no retries. This proves current
+container-to-provider integration for the documented example, not exhaustive
+semantic quality, an uptime guarantee or a measured dollar cost. Only this
+task's test container/network is removed after the check; cached image and
+Docker Desktop are retained. Follow-up changes update evidence only.
