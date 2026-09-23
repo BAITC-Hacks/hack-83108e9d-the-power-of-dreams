@@ -14,7 +14,7 @@ Checkboxes mean final integration/publication, not local implementation.
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | planned | P01 selector unchanged at f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 | focused missing checks | none | apply worker after readiness |
+| 1.1 | implementing | Baseline 3/3; /root/domain_apply at 9421e6d | focused missing checks | none | apply worker |
 | 1.2 | planned | existing 21-check suite | registration/review/combined run | depends 1.1 | coordinator/review |
 | 2.1 | planned | main starts f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 | clean candidate acceptance/publication | depends 1.2 and shared reservation | coordinator |
 | 2.2 | planned | new additive domain spec | sync/archive/validation/publication | depends 2.1 | coordinator |
@@ -24,7 +24,7 @@ Checkboxes mean final integration/publication, not local implementation.
 - Owner: Codex task 01a0cdd7-6e36-7290-a940-38b8c8b2e9c1, role coordinator. Task card: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-03/openspec/changes/selection-domain/tasks.md`.
 - Scope: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-03`, branch `codex/cs-03-domain`, base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766, origin `https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git`, target main.
 - User authorizes all OpenSpec stages, role subagents, minimal implementation and normal publication. No no-commit/no-push hold. Other contributors' work is preserved. No paid/live calls are required or planned for P03.
-- Shared reservation: not acquired; no shared writes permitted until exclusive acquisition is recorded here.
+- Shared reservation: acquisition with FileMode.CreateNew correctly refused because catalog-module owner 01a0cdd6-ca4a-70e2-bdb2-59f05144f2dd holds the canonical marker. No P03 shared writes performed; coordinator will inspect owner progress and wait while independent feature work continues.
 - Existing unrelated changes are not selected; their historic stages/holds remain intact. This session has no workers on those changes.
 
 ## Apply assignment 1.1
@@ -42,3 +42,9 @@ Checkboxes mean final integration/publication, not local implementation.
 Historical: P01 accepted 8aaad189393be78a21f1793afd2014c55794f7cd with 21 checks, clean launch and dense live/browser evidence. Current baseline domain/contracts/slice content matches that revision. New execution evidence is recorded below as it becomes available.
 
 P05 retains four real-date expectations, availability/displacement comparison, rare florist and real busy-venue rehearsal through actual loader. Controlled P03 profiles establish domain behavior only; no final MVP, browser narrative, live quality or organizer submission acceptance is inferred.
+
+### Dispatch readiness and first execution
+
+Planning revision: 9421e6dc31377b3c4085a15302d5d44a3ac4dda2. Worker `/root/domain_apply` dispatched in role apply to the separate p03-domain-checks worktree/branch above at exactly this base. Actual harness hashes matched parent for AGENTS, config, apply/review roles, apply skill and OpenSpec config; worker status clean. All required skill files are committed. This verifies supplied inputs, not OS isolation.
+
+Coordinator installed pinned dependencies with `npm ci --no-audit --no-fund` successfully. Before dispatch, `node --test --test-name-pattern="optional eligibility|real catalogue -> HTTP|real no-match" scripts/slice/contracts.test.mjs` passed 3/3 at unchanged P01 executable content. This freshly establishes dense real CSV-to-HTTP, no-match/absent and optional/first-failure boundary behavior. No provider calls. Existing Node module-type and ESLint deprecation warnings did not fail execution.
