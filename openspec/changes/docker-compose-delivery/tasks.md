@@ -22,11 +22,11 @@ Allowed files: Dockerfile, compose.yaml, .dockerignore, scripts/docker/, README.
 
 Context: approved brainstorming outcome, proposal/spec/design in this change; domain/problem-and-scope.md and domain/acceptance-scenarios.md; current architecture. AGENTS.md, .codex/config.toml, required workflow skills and openspec/config.yaml are present at the committed base above. No changed contract package or delegated role is needed.
 
-Authorization: user approved implementation and verification on 2026-09-23. Existing project authorization covers scoped feature commits, branch push and coordinator integration/publication. No new publication hold. Other OpenSpec changes are not selected or modified. Exclusive creation of the shared integration reservation failed because another owner had acquired it; this task does not own shared resources and has made no shared Git writes. The initial shell printed a success line despite the exception; that line is not evidence of ownership. Inspect/contact the recorded owner before integration.
+Authorization: user approved implementation and verification on 2026-09-23. Existing project authorization covers scoped feature commits, branch push and coordinator integration/publication. No new publication hold. Other OpenSpec changes are not selected or modified. Initial exclusive reservation failed while P06 owned integration; no shared writes were made then. P06 owner confirmed all shared writers stopped and released its marker after publishing 878ed7898c34723f77965d78fe0d75c2eef8c13a. This task subsequently acquired and verified its own reservation for integration/main with ownerTaskId 01a0cdfc-2125-7b53-8376-63811a66bc61.
 
 Checks: spec scenarios map directly to tasks above. Baseline mode is real catalogue with OPENAI_API_KEY/OPENAI_MODEL blank; live provider check is separate. Default host port 3101; alternate 3111 if free. Compose projects docker-delivery and docker-delivery-acceptance separate candidate processes; no database/test storage. No source bind mounts. Linux/amd64 on Docker Desktop is the local verification platform.
 
-Dependencies: Engine was initially unavailable and was started successfully; server reports 29.7.2, Compose 5.4.0. Build/download feasibility still needs verification. Before Git writes reconcile branch, allowed paths and remote. Before integration acquire the primary .shared/integration-owner.json exclusively; preserve occupied reservations and all unrelated changes.
+Dependencies: Engine started successfully; server reports 29.7.2, Compose 5.4.0; initial build/downloads passed. Feature commit afa8ed2a8bf0fe63672910da15713a8a21df4d72 merged published P06 main 878ed7898c34723f77965d78fe0d75c2eef8c13a into candidate 25d5671c88310ec9e0b79fd6d12493b8d941192b. README/index merged cleanly. Clean verification worktree: D:\Alem\hack-83108e9d-the-power-of-dreams-wt-docker-checks, branch codex/docker-checks, initially at 25d5671; expected harness present and no .env, node_modules or .next. Shared integration worktree: codex/docker-integration, same candidate. All subsequent candidate changes require fast-forwarding both and checking affected behavior before publication.
 
 ## Stage table
 
@@ -34,11 +34,11 @@ Checkboxes represent final integration/publication, not local implementation.
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implemented | Local candidate image c167e92059c4; typecheck, 44 tests, production build, healthy start and missing-catalogue rejection passed | Clean committed candidate | None | Commit and verify / coordinator |
+| 1.1 | implementing | Initial image passed; combined candidate 25d5671 exposed missing P06 test example files | Clean committed build with public examples included | Build context repair in progress | Commit and verify / coordinator |
 | 1.2 | implemented | Seven real HTTP smoke cases passed, including after restart | Combined committed candidate | None | Verify / coordinator |
 | 2.1 | implementing | Docker quick start and environment comments added | Clean-copy instructions, alternate port | None | Verify / coordinator |
-| 2.2 | implemented | Real browser primary/date/rare/empty/loading/error states; one live request returned openai_evidence | Recovery observation and committed candidate | None | Verify / coordinator |
-| 3.1 | implementing | Reservation attempt failed; origin/main advanced to 0157721 | Staged review, commit, branch push, candidate/main | Another task owns shared integration | Coordinate and continue independent checks / coordinator |
+| 2.2 | implemented | Real browser primary/date/rare/empty/loading/error/recovery states; one live request returned openai_evidence | Combined P06 candidate browser | None | Verify / coordinator |
+| 3.1 | implementing | Own reservation acquired after P06 handoff; candidate contains main 878ed78 | Candidate acceptance, branch push, main | None | Integrate / coordinator |
 
 ## Evidence and limitations
 
@@ -52,3 +52,5 @@ Checkboxes represent final integration/publication, not local implementation.
 - One real provider request from a separate container on port 3112, using existing local project credentials passed only in the child process environment, returned HTTP 200, openai_evidence and the unchanged primary IDs. No secrets were printed or copied into the image; temporary live service/network removed. This verifies container-to-provider integration, not the separate P07 full explanation-quality/timing series.
 
 Pending: clean committed candidate acceptance, alternate-port instructions and final Git publication. macOS, native Linux host and ARM hardware have not been exercised. Existing module-type/deprecated-tool warnings did not fail checks; dependency changes are outside this scope.
+
+Combined-candidate finding: 25d5671 clean Docker build failed because front/comparison.test.mjs needs versioned real-http.json and controlled.json from the committed public contract package. The application code and contracts need no change; .dockerignore now includes exactly those two build/test inputs. This failure is not counted as passing acceptance. Browser recovery on the initial image was subsequently observed: retry restored the original three cards.

@@ -14,6 +14,8 @@ See [proposal](proposal.md) and [existing architecture](../../../architecture/RE
 
 Use a pinned official Node.js 24 Debian slim image with separate dependency/build/runtime stages. Install by npm ci using the committed lockfile. The build stage runs existing type and test checks plus the production build; the final stage carries production dependencies, .next, package metadata, CSV and the two dynamically loaded .mjs files. Avoid Next.js standalone tracing changes because this application deliberately loads files dynamically. Run as the image's non-root node user. Do not install Docker, curl or browser packages in the app image.
 
+The integrated P06 frontend tests also read the two immutable v1 public examples under .shared/specs/contractor-selection/versions/v1/examples/. Allow only real-http.json and controlled.json into the build context; the shared coordination marker and other shared files remain excluded, and no .shared files enter the runtime image.
+
 Start Next.js directly with hostname 0.0.0.0 and internal port 3000, leaving host scripts unchanged. Compose publishes 127.0.0.1:${APP_PORT:-3101}:3000 and uses no fixed container name, bind mount, database or persistent volume. One service is enough for the existing architecture; a separate web proxy adds no accepted capability.
 
 ### Runtime configuration and build context

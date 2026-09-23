@@ -17,6 +17,16 @@
 !raw/
 !raw/dataset.csv
 
+# Immutable public examples used by the frontend tests, build stage only.
+!.shared/
+!.shared/specs/
+!.shared/specs/contractor-selection/
+!.shared/specs/contractor-selection/versions/
+!.shared/specs/contractor-selection/versions/v1/
+!.shared/specs/contractor-selection/versions/v1/examples/
+!.shared/specs/contractor-selection/versions/v1/examples/real-http.json
+!.shared/specs/contractor-selection/versions/v1/examples/controlled.json
+
 # Keep personal configuration and generated files excluded even inside sources.
 **/.env
 **/.env.*
