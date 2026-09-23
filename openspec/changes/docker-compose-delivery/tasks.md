@@ -34,11 +34,11 @@ Checkboxes represent final integration/publication, not local implementation.
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implementing | Initial image passed; combined candidate 25d5671 exposed missing P06 test example files | Clean committed build with public examples included | Build context repair in progress | Commit and verify / coordinator |
-| 1.2 | implemented | Seven real HTTP smoke cases passed, including after restart | Combined committed candidate | None | Verify / coordinator |
-| 2.1 | implementing | Docker quick start and environment comments added | Clean-copy instructions, alternate port | None | Verify / coordinator |
-| 2.2 | implemented | Real browser primary/date/rare/empty/loading/error/recovery states; one live request returned openai_evidence | Combined P06 candidate browser | None | Verify / coordinator |
-| 3.1 | implementing | Own reservation acquired after P06 handoff; candidate contains main 878ed78 | Candidate acceptance, branch push, main | None | Integrate / coordinator |
+| 1.1 | ready-to-merge | 16ade3e: clean Docker build, typecheck, 48 tests, healthy startup; initial health-failure evidence unchanged | main publication | None | Promote / coordinator |
+| 1.2 | ready-to-merge | 16ade3e: all seven real HTTP cases passed on default and alternate ports | main publication | None | Promote / coordinator |
+| 2.1 | ready-to-merge | 16ade3e: clean-copy README launch, optional template, port change, logs and down passed | main publication | None | Promote / coordinator |
+| 2.2 | ready-to-merge | 16ade3e: combined P06 browser scenarios passed; unchanged provider adapter has real live evidence below | main publication | None | Promote / coordinator |
+| 3.1 | ready-to-merge | Remote feature branch confirmed at 16ade3e; shared integration candidate has same SHA | Publish main, save delivery report, release reservation | None | Promote / coordinator |
 
 ## Evidence and limitations
 
@@ -51,6 +51,16 @@ Checkboxes represent final integration/publication, not local implementation.
 - Controlled failure: a disposable derivative image omitting only /app/raw/dataset.csv made healthcheck.mjs exit 1. Compose up with the documented 120-second deadline exited 1 and reported unhealthy; original catalogue remained intact. An initial shortened 20-second experiment returned 0 while health was still starting: Compose inherited the image's 20-second start grace despite a zero override. That experiment is not counted as a pass; the documented deadline exceeds the normal grace/retry schedule. Temporary broken service/network removed.
 - One real provider request from a separate container on port 3112, using existing local project credentials passed only in the child process environment, returned HTTP 200, openai_evidence and the unchanged primary IDs. No secrets were printed or copied into the image; temporary live service/network removed. This verifies container-to-provider integration, not the separate P07 full explanation-quality/timing series.
 
-Pending: clean committed candidate acceptance, alternate-port instructions and final Git publication. macOS, native Linux host and ARM hardware have not been exercised. Existing module-type/deprecated-tool warnings did not fail checks; dependency changes are outside this scope.
+Platform limits: macOS, native Linux host and ARM hardware have not been exercised. Existing module-type/deprecated-tool warnings did not fail checks; dependency changes are outside this scope.
 
 Combined-candidate finding: 25d5671 clean Docker build failed because front/comparison.test.mjs needs versioned real-http.json and controlled.json from the committed public contract package. The application code and contracts need no change; .dockerignore now includes exactly those two build/test inputs. This failure is not counted as passing acceptance. Browser recovery on the initial image was subsequently observed: retry restored the original three cards.
+
+## Combined candidate acceptance and delivery
+
+- Tested/committed candidate: 16ade3e67f326af1ecc75ae4dd1fd2e0fe1f7b61, including published P06 main 878ed7898c34723f77965d78fe0d75c2eef8c13a. Feature branch codex/deploy-docker pushed normally; git ls-remote confirmed the exact candidate SHA. Shared integration branch codex/docker-integration was fast-forwarded to that same SHA under this task's reservation.
+- Clean reproduction used sibling worktree D:\Alem\hack-83108e9d-the-power-of-dreams-wt-docker-checks, branch codex/docker-checks at the exact candidate. Git status was clean; .env, node_modules and .next were absent before and after the default Docker build/start. Harness inputs were present from the committed revision. No host npm installation or private file was used.
+- README command docker compose up --build --wait --wait-timeout 120 passed with only COMPOSE_PROJECT_NAME=docker-delivery-acceptance set for isolation. Repaired build passed typecheck, all 48 existing tests and Next.js production build. Image: sha256:0fec867e9b8b4e7657bf8cbe83087518119249990ce3761f28bde1036713bd1d. Final runtime settings/assets are unchanged from the initial accepted image; .shared examples exist only in the build stage.
+- Seven-case smoke passed against real HTTP on default port 3101 and again after recreating the service with APP_PORT=3111 in a copy of the empty template. docker compose ps showed healthy and the expected loopback mapping. Logs showed normal production startup. docker compose down removed the service/network; the synthetic verification .env was removed afterwards. No verification containers remain.
+- In-app browser on the combined candidate: primary three cards; changed date with P06 busy/displacement explanation; rare single florist; distinct no-match/category-absent messages; reset and resubmit; loading text; network error when the old port stopped serving retained previous cards; successful primary submission at the new port. API responses were real, with no browser mocks. This is separate from P06's broader browser race/keyboard evidence.
+- Live OpenAI evidence above belongs to the initial image/feature content, before the P06 merge. The provider adapter, secret reader, backend and lockfile did not change in the merge, so that unaffected integration check was not repeated. P07 retains final rendered explanation-quality and timing-series work.
+- OpenSpec strict validation and git diff --check passed. All accepted runtime content is frozen; report-only updates do not invalidate these checks. Pending only main publication and its report.
