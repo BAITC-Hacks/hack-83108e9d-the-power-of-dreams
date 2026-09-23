@@ -3,7 +3,7 @@ schema: spec-driven
 context: |
   Write artifact prose in English; preserve structural headings and SHALL/MUST keywords.
   Communicate with the user and return subagent handoffs in the user's language.
-  Project: The Power of Dreams, an offline hackathon project.
+  Project: join city — event contractor selection in Kazakhstan, an offline hackathon project.
   Do not invent a product track or requirements; use explicit user decisions and approved artifacts.
   Read AGENTS.md for authoritative development, delegation, verification, and publication agreements.
   Take competition constraints from the task brief and organizer instructions provided by the user.

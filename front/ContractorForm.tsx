@@ -120,7 +120,7 @@ export default function ContractorForm() {
     conditionsPanel.current?.scrollIntoView({ block: 'start' });
   }
   const optionalSummary = optionalConditions(draft.language, draft.durationHours);
-  return <main><header className="page-header"><div className="brand"><span className="brand-mark" aria-hidden="true"><i/><i/><i/></span>The Power of Dreams</div><div className="page-intro"><h1>Подрядчики для вашего события</h1><p>До трёх вариантов из каталога.<br/>{' '}С понятной причиной выбрать каждого.</p></div></header>
+  return <main><header className="page-header"><div className="brand"><span className="brand-mark" aria-hidden="true"><i/><i/><i/></span>join city</div><div className="page-intro"><h1>Подбор подрядчиков для мероприятий</h1><p>До трёх вариантов из каталога.<br/>{' '}С понятной причиной выбрать каждого.</p></div></header>
     <div className="workspace"><details ref={conditionsPanel} className="form-panel" open aria-labelledby="conditions"><summary className="conditions-toggle"><span><h2 id="conditions">Ваше мероприятие</h2><span className="collapsed-conditions">{draft.city}{draft.date && `, ${displayDate(draft.date)}`}</span></span><span className="toggle-chevron" aria-hidden="true"/></summary>
       <div className="conditions-content">
       {!options ? <><p role="status">{optionsError || 'Загружаем каталог…'}</p>{optionsError && <button onClick={() => setReload(value => value + 1)}>Загрузить снова</button>}</> :

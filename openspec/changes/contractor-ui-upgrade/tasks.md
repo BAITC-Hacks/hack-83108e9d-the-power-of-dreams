@@ -56,3 +56,15 @@ Feature branch normally pushed, remote codex/ui-upgrade confirmed d1309b7. Coord
 After clean acceptance/review, remote main and clean primary main were rechecked at0ace550. Under the recorded own reservation the integration checkout fast-forwarded to exact verified d1309b7237cd5b91a384d92f6a348b29dc4fe057. The clean primary main then fast-forwarded to that candidate; normal origin main push succeeded and ls-remote confirmed d1309b7. No force push, discarded edits, new contract package or remote configuration change. No mandatory acceptance skips.
 
 Status: **MERGED AND PUBLISHED**. Feature implementation056fa67, tested integrated source and confirmed published main d1309b7. This subsequent task-card-only report does not change executable behavior or require repeat product tests. The report is published under the same reservation, then the coordinator releases its own marker after shared operations stop. User preview may run only in the separate UI worktree. Worktrees and evidence retained. OpenSpec has4/4 delivered tasks and synchronized main specs; archive and organizer submission are separate and not performed.
+
+### User-supplied branding copy follow-up
+
+On 2026-09-23 the user supplied and authorized the exact name "join city — подбор подрядчиков для мероприятий", two Russian description paragraphs and four thematic tags. This bounded copy update changes no product behavior or acceptance requirements. Owner and worktree remain the coordinator above, branch codex/ui-upgrade, base d3fb90437de288671caec80351de7354ca900e4b. Allowed files: README.md, front/ContractorForm.tsx, src/app/layout.tsx, package.json, package-lock.json, openspec/config.yaml and this task card. Existing unrelated .gitignore modification is preserved and excluded.
+
+The full supplied description and tags are retained verbatim in README; UI branding and page title use join city, description metadata uses the supplied first paragraph and keywords contain all four tags. Private package identity is join-city in both manifests; dependency versions, repository addresses and historical evidence are unchanged. OpenSpec current project context is aligned. Read-only explorer found no additional user-facing branding surfaces or brand-dependent checks.
+
+| Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
+| --- | --- | --- | --- | --- | --- |
+| Copy follow-up | implemented | npm run typecheck, npm run build, git diff --check passed; production3124 browser confirmed visible brand/heading, exact title/description/keywords and no horizontal overflow | Normal publication and remote SHA confirmation | None | Coordinator |
+
+Verification is scoped to text and metadata; unchanged selection, API and paid-provider scenarios were not rerun. No new dependencies, tests, services or secrets were introduced. Existing broad acceptance evidence above remains historical evidence for unchanged behavior.
