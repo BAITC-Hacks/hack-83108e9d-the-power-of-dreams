@@ -36,3 +36,5 @@ Run: existing README npm ci, typecheck/test/build, npm start -- --port 3134; rea
 ## Migration Plan
 
 No data migration. Verify local scenarios, commit only scoped files, then integrate with current main under exclusive ownership and verify clean candidate. Publish normally. Reverting these presentation files restores baseline without schema changes.
+
+Integration update: published main1608dcb introduced backward-compatible contract v2 and the confirmed-wishes editor/advice. Retain those accepted modules unchanged, show confirmed wishes next to passive canonical labels and render advice immediately after explanation. The existing lifecycle and v2 behavior remain owned by contractor-brief-matching; this refresh changes neither. Candidate93e10be combines both changes. Verify baseline real/control scenarios plus the existing live brief browser flow after merge; current model configuration follows accepted main.

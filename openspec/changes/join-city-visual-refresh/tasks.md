@@ -12,10 +12,10 @@
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implemented | Real primary/rare and live renderer passed; screenshots reviewed | Integrated candidate | None | Coordinator integrate |
-| 1.2 | implemented | Real and controlled browser checks at 375/390/1280 passed | Integrated candidate | None | Coordinator integrate |
-| 2.1 | implementing | Typecheck/build/48 tests, real/control/service/live passed | Clean candidate installation/launch | None | Coordinator verify |
-| 2.2 | planned | Scoped source review; synchronized specs valid | Commit / candidate / publication | Other task owns integration | Coordinator wait for release |
+| 1.1 | ready-to-merge | Source5bad2b3; combined93e10be primary/rare/live/brief passed | Main publication | None | Coordinator publish |
+| 1.2 | ready-to-merge | Combined93e10be real/control mobile/state/focus checks passed | Main publication | None | Coordinator publish |
+| 2.1 | ready-to-merge | Clean93e10be npm ci/typecheck/62 tests/build/start/browser/live brief passed | None | None | Coordinator publish |
+| 2.2 | ready-to-merge | Own shared reservation; accepted candidate93e10be | Feature/main push and SHA confirmation | None | Coordinator publish |
 
 ## Assignment and readiness
 
@@ -44,3 +44,15 @@ Contrast computed from actual colors: white/blue button 4.59:1, field boundary/w
 Real isolated catalogue failure/retained-results/retry checks passed on port3136 (test-results/p06-service-6pIOyk). One live production submission on3137 passed openai_evidence and expected IDs, full rendered explanations matched public response (test-results/p06-live-sS40Xw); screenshot reviewed. Existing secret loader read primary private .env without logging credentials. Isolated services stopped themselves. Historical backend quality/timing evidence is not claimed as rerun.
 
 Coordination: task01a0ce1a-086f-7772-9104-a72718f35156 owns shared integration/main/v2 marker for contractor-brief-matching. It reported accepted sourcea4c82b6 and packagev2ce79615 and will supply published main. This coordinator acknowledged and leaves shared resources untouched. On reconciliation preserve BriefEditor after optional fields, BriefAdvice after explanation, explicit review/confirm and exports. Integrate accepted new main into this feature before final combined checks; never overwrite another owner's staged README.
+
+Integration readiness: previous owner confirmed published main1608dcba22856ce810464c86851881f4f47e5bac and released marker. Source5bad2b3 merged with that main into candidate93e10be180ba4b80ec09f1826c841f0e0e9cc0b2; two overlaps resolved by retaining both architecture links and confirmed-wishes paragraph alongside passive labels. BriefEditor, BriefAdvice, review/confirmation lifecycle and published backend preserved. Effective contract is now v2 at the canonical root, packagece796157e84f66ab8eebd47e1aec0559418feeee / backend a4c82b68f7b1d82bae8d51b3e26406ef70cb4d91. All seven files match their pinned Git blobs after repository text filters; initial raw-hash difference was Windows CRLF checkout conversion, not package content drift. No shared package was modified.
+
+Coordinator01a0ce40-6c41-7a51-a4c4-58418001f027 acquired integration/main via exclusive CreateNew at2026-09-23T12:41:03.9326691Z. Clean candidate worktree D:/Alem/hack-83108e9d-the-power-of-dreams-wt-join-city-checks, branch codex/join-city-checks, exact93e10be; installation/build checks in progress, port3135 reserved for own candidate process. No workers or concurrent writers. Accepted changes from main are integration input, not new product scope.
+
+### Clean combined acceptance
+
+Exact93e10be clean checkout: tracked clean with .env/node_modules/.next absent initially. README Node route npm ci installed497 packages (zero audit vulnerabilities); typecheck,62/62 tests (zero failures/skips) and production build passed. Explicit blank OPENAI_API_KEY, no .env, npm start -- --port3135 ready in229ms. Real browser suite plus controlled races passed all baseline scenarios, independent optional labels, complete explanations,375/390/1280 layouts and keyboard/focus/mobile bar clearance. Outputs: wt-join-city-checks/test-results/join-city-combined. Tracked candidate remained clean.
+
+Separate production3138 with the existing private loader passed scripts/brief/browser.mjs: two live provider calls (baseline evidence and wishes interpretation), explicit review/confirm, expected promoted IDs HK-77838/HK-88430/HK-29829, source/unknown/question presentation, date comparison, hard-budget filtering, edit invalidation and reset. Controlled interpreter cancellation/late success/error and safe503 passed separately. Browser errors empty,375/1280 overflow checks passed; screenshots in test-results/join-city-combined-brief reviewed. This verifies that merge preserved the already delivered AI feature. No application behavior changed after candidate verification. Docker rebuild was not rerun for this presentation change; clean reproducibility used the documented Node route. No mandatory acceptance case skipped, no organizer submission performed.
+
+Final diff review against accepted main includes only the agreed presentation, focused verification and related artifacts/provenance; unrelated .gitignore remains unstaged. Reporting updates do not invalidate executable checks. Feature and main publication remain pending until remote confirmation below.
