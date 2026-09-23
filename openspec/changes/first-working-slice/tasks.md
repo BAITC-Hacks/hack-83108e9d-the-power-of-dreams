@@ -12,9 +12,9 @@
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | planned | P00 accepted; scope review supported | dense live + controlled checks | none | coordinator implement |
-| 1.2 | planned | public v1 frozen | HTTP/retention | depends 1.1 | coordinator |
-| 2.1 | planned | approved visual direction | browser states | depends 1.2 | coordinator |
+| 1.1 | implementing | real 10/5 + correct IDs; dense live passed on working tree | controlled checks | none | coordinator + bounded apply checks |
+| 1.2 | implementing | production options and recommendation connected | HTTP/retention negative cases | none | coordinator |
+| 2.1 | implementing | production live browser result, 3208 ms | responsive and remaining states | none | coordinator |
 | 2.2 | planned | no product execution claimed | clean candidate + publication | depends above | coordinator |
 
 Checkboxes measure final integration/publication, not local implementation. Current CLI 0/4 is expected.
@@ -36,4 +36,8 @@ Role review, task /root/scope_review, existing P01 checkout, base above. Allowed
 
 ## Evidence
 
-Pending execution. Dense/rare/final checks are not implied by planning validation. Later P04/P07 rare/final live quality and three uncached timing requests remain outside P01.
+2026-09-23 preliminary working-tree evidence (product files not yet committed at observation): npm ci succeeded, typecheck/build succeeded after runtime-only import of unchanged transport, existing 13 checks passed. Real catalogue hash sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856; 10 candidates, 5 eligible, exclusions busy=4/budget=1, IDs HK-88430/HK-29829/HK-27222. Transport tracked content unchanged from P00; current CRLF file hash differs from historical LF hash, so existing controlled checks were rerun.
+
+Initial three live probes were mixed due to nonliteral or multiple-sentence output; no failed quote was accepted. Narrow prompt repair supplies literal sentence choices derived from the same descriptions without changing validation or provider schema. Fourth live probe passed in 2206 ms, pinned gpt-4.1-mini-2025-04-14, 1236 input/103 output tokens. Per-card source/relevance/1–2-sentence verdicts: HK-88430 pass (intelligent humour and organization); HK-29829 pass (entertainment and dancing); HK-27222 pass (European presentation and respect for traditions). Names-hidden texts substantively distinct. No access/model/network/quota failures; no retry within requests. These observations precede the committed candidate and do not establish final acceptance by themselves.
+
+Production browser on 127.0.0.1:3101 passed real form→HTTP→CSV→selection→OpenAI→cards in 3208 ms measured by browser automation including observation overhead. All three accepted explanations visible in openai_evidence; pending disabled controls observed. Later P04/P07 rare/final live quality and three uncached timing requests remain outside P01.
