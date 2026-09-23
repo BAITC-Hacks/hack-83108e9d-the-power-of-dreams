@@ -59,7 +59,7 @@ These are future paths, not existing application files. One coordinator can impl
 | --- | --- | --- | --- |
 | `contracts/`, coordinator | Public request/result/error types; string IDs and date-only ISO values; no secrets or catalogue internals | Plain TypeScript only | Contract examples consumed by both HTTP and UI |
 | `back/catalog/`, backend owner | `loadCatalog(path)` returns immutable profiles and form options; owns CSV decoding, validation and snapshot | Filesystem, `csv-parse`, Zod, plain domain types | Supplied snapshot, quoted commas, pipe lists, flags, null hours, invalid records |
-| `back/domain/`, backend owner | `select(profiles, request)` returns ordered eligible IDs and exclusions; owns eligibility and ranking rules | Plain domain/public types only | Dataset scenarios, stable tie, boundaries and busy venue |
+| `back/domain/`, backend owner (excluding coordinator-owned `date.ts` and shared types) | `select(profiles, request)` returns ordered eligible IDs and exclusions; owns eligibility and ranking rules | Plain domain/public types only | Dataset scenarios, stable tie, boundaries and busy venue |
 | `back/recommend/`, backend owner | `recommend(request, signal)` obtains selection, requests evidence and renders public cards; owns orchestration | Domain functions and injected catalogue/explanation functions | Real catalogue through HTTP, controlled upstream failure |
 | `back/ai/`, backend owner | `selectEvidence(request, profiles, signal)` returns a complete ID mapping of accepted quote/per-card fallback, or a typed whole-batch unavailable result; owns provider schema and validation | Native server `fetch`, Zod, plain port types | Whole-batch structural/ID failures versus per-card quote failures, including source mismatch |
 | `back/http/`, coordinator | Decode/validate input, invoke use case, format JSON/errors | Public types, Zod, composition root | Status codes, safe errors, no business rules in handlers |
@@ -122,3 +122,7 @@ Consulted on 2026-09-23. Context7 resolved official Next.js and Node CSV reposit
 - [Server and client components](https://nextjs.org/docs/app/getting-started/server-and-client-components): server-only boundaries and client composition.
 - [Next.js CLI](https://nextjs.org/docs/app/api-reference/cli/next): production build/start and explicit hostname.
 - [Node CSV synchronous parser](https://csv.js.org/parse/api/sync/): appropriate API for a small, fully loaded CSV file.
+
+## Shared calendar boundary
+
+P02 publishes the existing pure isCalendarDate operation in back/domain/date.ts as coordinator-owned shared backend code, pinned at f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766. Catalogue and request validation may consume it; P02/P03 owners may not independently edit it. See [catalogue design](../openspec/changes/archive/2026-09-23-catalog-module/design.md) for its contract and verification.
