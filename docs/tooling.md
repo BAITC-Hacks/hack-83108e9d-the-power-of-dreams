@@ -238,3 +238,13 @@ Pinned dependency installation, probe syntax, strict OpenSpec validation and
 four existing domain checks passed. Semantic implementation, generation,
 clean application launch and live quality checks remain blocked by model access;
 the accepted application's price policy is unchanged.
+
+After the user's explicit replacement approval, the documented
+[llama-nemotron-rerank-1b-v2 endpoint](https://docs.api.nvidia.com/nim/reference/nvidia-llama-nemotron-rerank-1b-v2-infer)
+also returned HTTP 410 (629ms, one request) from probe source
+`c26ca91ed8c3a3232b8d46a1353d828b8366c03d`. Two inference failures reached the
+agreed stop limit. Model listing is not proof of hosted availability. Separately,
+the design role verified the published tokenizer/template and all 272 catalogue
+pairs: conservative maximum 2329 tokens, below 8192; hosted configuration remains
+unverified. Exact sources, limitations and both immutable results are in the same
+task card. No new package, GPU, service or product behavior was introduced.

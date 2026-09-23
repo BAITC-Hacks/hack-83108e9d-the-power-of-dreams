@@ -1,0 +1,82 @@
+{
+  "startedAt": "2026-09-23T12:01:57.040Z",
+  "model": "nvidia/llama-nemotron-rerank-1b-v2",
+  "endpoint": "https://ai.api.nvidia.com/v1/retrieval/nvidia/llama-nemotron-rerank-1b-v2/reranking",
+  "templateVersion": "category-format-ru-v1",
+  "request": {
+    "city": "Алматы",
+    "category": "Ведущий",
+    "eventFormat": "корпоратив",
+    "date": "2026-10-10",
+    "budgetKzt": 1500000
+  },
+  "mode": "live-feasibility-only",
+  "automaticRetries": 0,
+  "deadlineMs": 10000,
+  "cost": "unknown",
+  "usage": "not reported",
+  "decision": "deferred",
+  "inputLimitStatus": "Full generation blocked until exact token/input-fit verification; character counts are not tokens.",
+  "catalogVersion": "sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856",
+  "rubric": {
+    "HK-88430": 2,
+    "HK-29829": 0,
+    "HK-27222": 1,
+    "HK-77838": 1,
+    "HK-75012": 1
+  },
+  "query": "Подрядчик категории «Ведущий» для мероприятия формата «корпоратив».",
+  "fullGenerationEstimate": {
+    "requests": 82,
+    "scoredPairs": 272,
+    "cost": "unknown"
+  },
+  "eligible": [
+    {
+      "id": "HK-27222",
+      "priceFromKzt": 1000000,
+      "relevance": 1,
+      "descriptionSha256": "499d74a2c7274cd9393a6e64578e5b896274133a1cc3f26174d1b0a3fb9aa5f4",
+      "pairUtf8Bytes": 1379
+    },
+    {
+      "id": "HK-29829",
+      "priceFromKzt": 700000,
+      "relevance": 0,
+      "descriptionSha256": "3467e971c3bbdc5d6286bbb843cc3ffccc110a7d25f79bfd1e7775b39b672409",
+      "pairUtf8Bytes": 531
+    },
+    {
+      "id": "HK-75012",
+      "priceFromKzt": 1300000,
+      "relevance": 1,
+      "descriptionSha256": "72240b2284ca95e228e6a7231e920078436e0199d1ba47fb25ddc32a2a608cf3",
+      "pairUtf8Bytes": 1231
+    },
+    {
+      "id": "HK-77838",
+      "priceFromKzt": 1000000,
+      "relevance": 1,
+      "descriptionSha256": "8a24fa6dbd4f02cb7cb84dc7b4b700592701e74f5de63df044682977c8ca1b6e",
+      "pairUtf8Bytes": 1332
+    },
+    {
+      "id": "HK-88430",
+      "priceFromKzt": 500000,
+      "relevance": 2,
+      "descriptionSha256": "fdcb0efdebfbc8b295f2e055d8d5dffced16fd8e7a4998ff6f5cb6a6925aec5f",
+      "pairUtf8Bytes": 1165
+    }
+  ],
+  "baselineIds": [
+    "HK-88430",
+    "HK-29829",
+    "HK-27222"
+  ],
+  "httpStatus": 410,
+  "status": "failed",
+  "failure": "HTTP_410",
+  "attemptedRequests": 1,
+  "durationMs": 629,
+  "finishedAt": "2026-09-23T12:01:57.670Z"
+}

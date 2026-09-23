@@ -30,7 +30,7 @@
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 |---|---|---|---|---|---|
-| 1.1 | branch-pushed | Probe cb0edb44de66b40b9824a1050201975476493c32; reviewed evidence published at 06a3f554b3dbe02594d69332e5b748e8652e3562; HTTP 410 in 606ms | live usefulness and exact input fit not established | fixed endpoint unavailable; adoption deferred | user decision on model revision, then coordinator |
+| 1.1 | branch-pushed | Revised probe c26ca91ed8c3a3232b8d46a1353d828b8366c03d also returned HTTP 410 in 629ms; original failure preserved | successful hosted access and real usefulness absent | two inference failures; adoption deferred | working hosted endpoint/access resolution required before coordinator resumes |
 | 2.1 | planned | design/specs only | all implementation checks | requires positive 1.1 | coordinator contracts then bounded apply worker |
 | 2.2 | planned | accepted baseline remains unchanged | semantic checks | requires 1.1 and 2.1 | coordinator |
 | 2.3 | planned | existing price UI unchanged | browser/comparison checks | requires backend contract | coordinator |
@@ -58,3 +58,17 @@ Feature checkboxes measure integrated delivery, not local progress. On a failed 
 The user answered yes to selecting a current hosted NVIDIA model, updating the decision and continuing. This resolves the previous pending question and model-selection hold only; usefulness and input-fit gates remain. Current choice: nvidia/llama-nemotron-rerank-1b-v2 at its documented model-specific reranking endpoint. Request shape and 10s/zero-retry policy are unchanged; maximum batch is 1000 and truncate=NONE is explicit. No other product scope changed, and generic specifications remain coherent. A fresh bounded checkpoint follows this explicit revision; old HTTP 410 evidence is immutable.
 
 Read-only design assignment /root/nemotron_input_fit investigates full-input fit and public tokenizer evidence; no writes or inference. Coordinator owns artifact/probe revision and the one dense live request. Dependent apply work still waits for a positive gate. Return to the first unmet step, not the already completed baseline checks.
+
+### Revised checkpoint result
+
+- Tested source: c26ca91ed8c3a3232b8d46a1353d828b8366c03d; [new immutable record](evidence/probe-2026-09-23T12-01-57-040Z.json). The explicitly approved replacement endpoint returned HTTP 410 in 629ms at 12:01:57 UTC. Same five profiles, same rubric and query, no scores, no usage/cost information. An unauthenticated GET later returned 405 with an empty body; that diagnostic is not inference or an availability success.
+- Two meaningful inference failures now exist across the original and revised candidates. Stop inference under the agreed failure limit; no further model switching, retry, bulk generation or dependent product implementation. DEFERRED remains the acceptance decision. Documentation listing the model does not prove hosted access. Do not diagnose the key/account or universal NVIDIA unavailability from these statuses alone.
+- Model revision itself is complete and explicitly authorized. The former pending permission question is resolved; the remaining external prerequisite is a functioning hosted ranking endpoint. A GPU deployment, alternative provider or different ranking mechanism would materially change the agreed scope and is not introduced here.
+- Strict OpenSpec validation, probe syntax and whitespace checks passed after revision. Existing four baseline domain checks remain valid because no runtime/domain code changed. Browser/build/semantic checks remain skipped for the same gate; no semantic activation, main integration, spec sync or archive occurred.
+- Delta-only review /root/ranking_gate_review confirmed DEFERRED for c26ca91ed8c3a3232b8d46a1353d828b8366c03d and the new record; no further tests/provider calls were needed. Normal feature push and ls-remote confirmed this source SHA on origin/codex/cs-90-nvidia. This later evidence/report commit records the tested source, not its own as-yet-unknown SHA. No shared reservation or main writes occurred.
+
+### Input-fit evidence from design role
+
+Read-only /root/nemotron_input_fit inspected NVIDIA's published [input template](https://huggingface.co/nvidia/llama-nemotron-rerank-1b-v2#usage) and [tokenizer.json at 828765652b05bd439c9789d2a6d093db1caa1443](https://huggingface.co/nvidia/llama-nemotron-rerank-1b-v2/blob/828765652b05bd439c9789d2a6d093db1caa1443/tokenizer.json): no normalizer, ByteLevel without added prefix space, all 256 byte symbols, BPE merges and at most two BOS tokens. The conservative bound is UTF-8 bytes of `question:` + query + ` \n \n passage:` + description, plus two tokens; BPE merges cannot increase this byte-symbol count. This is an upper bound, not a character-based token estimate.
+
+The agent used existing loadCatalog on the same CSV hash and checked all 66 profiles / 272 category-format pairs. Maximum templated input is 2327 bytes, hence at most 2329 tokens, for HK-58385 / Ведущий / день рождения: below 8192. No inference, writes or installs were performed. This supports input fit for the published tokenizer/template only; the inaccessible hosted NIM configuration was not independently verified. A future generator must retain truncate=NONE and check every pair. No full snapshot has been generated.
