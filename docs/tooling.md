@@ -219,3 +219,22 @@ OpenSpec strict validation and doctor passed in the P00 workspace. Node reports 
 non-failing module-type inference warning for the typed fixtures. No product
 build, launch or live provider check is claimed. Exact clean-candidate and
 publication evidence belongs in the [P00 task card](../openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md).
+
+## NVIDIA ranking feasibility — 2026-09-23
+
+Context7 resolved NVIDIA NIM; its API index returned no exact-model match and
+the main index returned generic reranking material. The official
+[model card](https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2)
+and [hosted endpoint reference](https://docs.api.nvidia.com/nim/reference/nvidia-llama-3_2-nv-rerankqa-1b-v2-infer)
+were then checked directly. Documentation availability did not prove service access:
+one real fixed-endpoint request returned HTTP 410 in 606ms, without scores.
+No provider substitution or automatic retry was performed.
+
+The dependency-free probe uses the existing catalogue, selection and secrets
+boundaries. Its exact revision, input digest, pre-output relevance rubric,
+82-request full-generation estimate, unknown cost and unmet acceptance are in
+the [NVIDIA task card](../openspec/changes/nvidia-semantic-ranking/tasks.md).
+Pinned dependency installation, probe syntax, strict OpenSpec validation and
+four existing domain checks passed. Semantic implementation, generation,
+clean application launch and live quality checks remain blocked by model access;
+the accepted application's price policy is unchanged.
