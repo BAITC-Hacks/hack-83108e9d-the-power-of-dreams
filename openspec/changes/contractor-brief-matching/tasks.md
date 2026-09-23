@@ -19,12 +19,12 @@ Coordinator: Codex task `01a0ce1a-086f-7772-9104-a72718f35156`. Selected impleme
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 |---|---|---|---|---|---|
-| 1.1 | committed | e81e0cd contracts/examples + strict validation; live probes; typecheck | final integration | none | coordinator |
-| 1.2 | implemented | worker 665e458 published, cherry-picked bfd640d; 5/5 checks and independent all-48-assertion review | final combined candidate | coordinator subsequently adds source excerpt to keep explanations distinctive | coordinator |
-| 1.3 | implemented | five integrated HTTP/filter/restart cases passed; actual browser used live interpretation and real recommendation | final merged-source check | none | coordinator |
-| 2.1 | implemented | live browser + controlled edit/reset/failure races; 375/1280px screenshots inspected | merge published UI d3fb904, repeat affected checks | none | coordinator |
-| 2.2 | implemented | 120-call initial comparison + 44-call focused repair, model-comparison.json | preserve measured source/prompt hashes | see initial failures and limited repair scope below | coordinator |
-| 3.1 | implementing | 62 checks, typecheck/build; pending delivery | docs/clean launch/package/integration/publication | shared ownership required only before shared writes | coordinator |
+| 1.1 | ready-to-merge | e81e0cd contracts/probes; strict validation; final 62/62/typecheck | remote main publication | none | coordinator |
+| 1.2 | ready-to-merge | worker 665e458; full assertion review; a4c82b6 hard-filter/restart/source checks | remote main publication | none | coordinator |
+| 1.3 | ready-to-merge | a4c82b6 live interpretation, HTTP validation/failures, no-key/restart | remote main publication | none | coordinator |
+| 2.1 | ready-to-merge | a4c82b6 merged live browser; clean baseline/races/services; inspected 375/1280px | remote main publication | none | coordinator |
+| 2.2 | ready-to-merge | 120-call comparison + 44-call targeted repair; source/prompt hashes retained | remote main publication | limited synthetic sample recorded | coordinator |
+| 3.1 | ready-to-merge | a4c82b6 clean README launch; ce79615 v2 package/feature published | canonical package/main publication | own shared reservation acquired | coordinator |
 
 ## Assignment and authorization
 
@@ -77,3 +77,10 @@ Owner `/root/brief_clean_check`, bounded execution role, no source edits/commits
 - Independent read-only reviewer `/root/brief_final_review` found no material implementation defect in B1/B2/merged UI. It identified ambiguous reset wording in the new scenario; coordinator split edit/reset cases to preserve the existing approved reset behavior. No acceptance requirement was added or removed. Strict OpenSpec validation passed.
 - Luna live baseline dense and rare cases returned openai_evidence with literal distinct source quotes. Rare HK-39372 source quote describes event floristry in Almaty. Final runtime was restarted after an instrument session ended; no source change was needed. Two browser passes made four known application calls plus one observed rare call; one interrupted tool invocation has uncertain execution, conservatively covered by the retained USD 1 application reservation (at most six potential calls so far, below 40).
 - Immutable v2 package is authored under the reservation, pinned to backend a4c82b6; package commit and canonical publication will be recorded after creation. Clean-checkout evidence remains pending.
+
+## Clean-checkout and package acceptance
+
+- `/root/brief_clean_check` verified exact committed `a4c82b68f7b1d82bae8d51b3e26406ef70cb4d91` in separate worktree/branch codex/brief-checks: Node 24.4.1/npm 11.4.2, npm ci, typecheck, 62/62 tests, production build/start. No .env, OPENAI_API_KEY explicitly empty; no paid calls. Source tree remained clean; own processes on 3128/3129 stopped.
+- Existing frontend browser checks passed real dense/rare/empty/date/optional/400 cases, keyboard and 375/390/1280px widths. Controlled stale/duplicate/abort/error races passed separately. Service checks exercised real missing catalogue/options 503 and retained cards. Confirmed-brief HTTP returned HK-77838/HK-88430/HK-29829, literal discreet evidence and unknown compulsory contests question; no-key interpreter returned safe 503. Actual process restart preserved IDs. Evidence remains under worker-local ignored test-results.
+- Backend contract version v2 package commit `ce796157e84f66ab8eebd47e1aec0559418feeee`, pinned backend `a4c82b68f7b1d82bae8d51b3e26406ef70cb4d91`, canonical destination `D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/specs/contractor-selection/versions/v2`. Package DTO snapshots and every captured public response passed consumer validation. Origin/codex/ai-upgrade confirmed ce79615. No separate frontend consumer assignment.
+- a4c82b6 to ce79615 changes only package/task documentation; executable source is unchanged. Docker rebuild was not repeated for this feature; final clean-launch evidence is the documented Node route. No organizer submission or public internet deployment was performed.
