@@ -1,5 +1,8 @@
 # Architecture
 
+Compact Join City identity, separate contractor cards and passive condition labels:
+[Join City visual refresh](../openspec/changes/join-city-visual-refresh/design.md).
+
 Explanation-first visual hierarchy and explicit mobile results access:
 [contractor UI upgrade](../openspec/changes/contractor-ui-upgrade/design.md).
 The public v1 contract and backend selection/explanation rules remain unchanged.

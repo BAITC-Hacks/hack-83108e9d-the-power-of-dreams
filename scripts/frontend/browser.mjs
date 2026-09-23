@@ -35,6 +35,9 @@ const ids = response => response.data.cards.map(c => c.id);
 try {
   await page.goto(url);
   await expect(page.locator('#city')).toBeVisible();
+  await expect(page.locator('.brand')).toContainText('join city');
+  await expect(page.locator('.selection-motif')).toBeVisible();
+  await page.screenshot({ path: `${output}/initial.png`, fullPage: true });
   const dense = await submit();
   assert.equal(dense.status, 200);
   assert.equal(dense.data.summary.eligibleCount, 5);
@@ -44,6 +47,13 @@ try {
   else assert.equal(dense.data.explanationMode, 'catalog_fallback');
   await expect(page.locator('.results')).toContainText(live ? 'ИИ' : 'Объяснения сформированы по полям каталога без ИИ');
   observations.dense = dense.data;
+  await expect(page.locator('.condition-labels li')).toHaveCount(7);
+  await expect(page.locator('.condition-labels')).toContainText('Без ограничения по языку');
+  await expect(page.locator('.condition-labels')).toContainText('Без ограничения по длительности');
+  assert.equal(await page.locator('.condition-labels button, .condition-labels a, .condition-labels input').count(), 0);
+  for (const card of dense.data.cards) {
+    assert.equal(await page.locator(`[data-profile-id="${card.id}"] .explanation`).innerText(), card.explanation);
+  }
   observations.checks.push('real dense POST, omitted optionals, IDs/count/rendered mode');
   if (primaryOnly || live) {
     await page.screenshot({ path: `${output}/${live ? 'live' : 'primary'}.png`, fullPage: true });
@@ -84,6 +94,8 @@ try {
     assert.equal(requests.at(-1).durationHours, 2.5);
     assert.equal(requests.at(-1).language, languages[0]);
     assert.equal(optional.data.normalizedRequest.durationHours, 2.5);
+    await expect(page.locator('.condition-labels')).toContainText(`Язык: ${languages[0]}`);
+    await expect(page.locator('.condition-labels')).toContainText('Длительность: 2,5 ч');
     observations.optional = optional.data;
     const optionalRequestCount = requests.length;
     await disclosure.click();
@@ -157,6 +169,9 @@ try {
           assert.ok(box.y >= 0 && box.y + box.height <= 900, `${selector} fully visible in initial desktop viewport`);
         }
         const cards = await page.locator('.contractor-list').boundingBox();
+        const first = await page.locator('.contractor').nth(0).boundingBox();
+        const second = await page.locator('.contractor').nth(1).boundingBox();
+        assert.ok(second.y - first.y - first.height >= 12, 'distinct recommendation surfaces');
         const details = await page.locator('.selection-details').boundingBox();
         assert.ok(details.y >= cards.y + cards.height);
       } else {

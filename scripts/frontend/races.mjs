@@ -46,6 +46,8 @@ try {
   await expect(page.locator('.changed-message')).toHaveCount(0);
   await page.locator('#date').fill('2026-10-12');
   await expect(page.locator('.changed-message')).toContainText('неотправленные');
+  await expect(page.locator('.condition-labels')).toContainText('10 октября 2026');
+  await expect(page.locator('.condition-labels')).not.toContainText('12 октября 2026');
   await page.locator('#date').fill('2026-10-11');
   await expect(page.locator('.changed-message')).toHaveCount(0);
   await page.getByRole('button', { name: 'Подобрать', exact: true }).click();
@@ -106,6 +108,45 @@ try {
   await expect(result()).toContainText('Часть объяснений сформирована без ИИ');
   await expect(result()).toContainText(/синтет|аноним/i);
   checks.push('controlled mixed and source quality labels');
+
+  // Presentation edge cases are controlled public responses, not catalogue claims.
+  const long = structuredClone(dense);
+  long.normalizedRequest.language = 'русский';
+  long.cards[0].category = 'Организация и техническое сопровождение праздничных мероприятий';
+  long.cards[0].name = 'Команда праздничных мероприятий с длинным названием';
+  long.cards[0].priceFromKzt = 9007199254740991;
+  i = await submit(); await finish(i, long);
+  await expect(page.locator('.condition-labels')).toContainText('Язык: русский');
+  await expect(page.locator('.condition-labels')).toContainText('Без ограничения по длительности');
+  const unknownPath = await page.locator('.category-icon path').first().getAttribute('d');
+  assert.ok(unknownPath.includes('M4 4h6'), 'unknown category neutral icon');
+  for (const width of [375, 390, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    assert.equal(await page.locator('.explanation').first().innerText(), long.cards[0].explanation);
+    await page.screenshot({ path: `${output}/long-${width}.png`, fullPage: true });
+  }
+  delete long.normalizedRequest.language;
+  long.normalizedRequest.durationHours = 2.5;
+  await page.getByRole('button', { name: 'Условия', exact: true }).isVisible().then(async visible => {
+    if (visible) await page.getByRole('button', { name: 'Условия', exact: true }).click();
+  });
+  i = await submit(); await finish(i, long);
+  await expect(page.locator('.condition-labels')).toContainText('Без ограничения по языку');
+  await expect(page.locator('.condition-labels')).toContainText('Длительность: 2,5 ч');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.locator('#budgetKzt').focus();
+  assert.equal(await page.locator('#budgetKzt').evaluate(el => getComputedStyle(el).outlineStyle), 'solid');
+  assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).scrollBehavior), 'auto');
+  await page.setViewportSize({ width: 375, height: 900 });
+  await page.locator('.optional-conditions > summary').click();
+  await page.locator('#durationHours').focus();
+  const focused = await page.locator('#durationHours').boundingBox();
+  const actionBar = await page.locator('.mobile-results-nav').boundingBox();
+  assert.ok(focused.y >= 0 && focused.y + focused.height + 4 < actionBar.y, 'mobile focused field clears fixed action bar');
+  await page.screenshot({ path: `${output}/mobile-focus.png`, fullPage: false });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  checks.push('passive snapshot unaffected by pending/draft; partial optionals explicit; unknown/long category and large price wrap at 375/390/1280; full text, focus and reduced motion');
 
   await page.route('**/api/catalog/options', route => route.fulfill({ status: 503, json: { error: { code: 'CATALOG_UNAVAILABLE', requestId: 'controlled-options' } } }));
   await page.reload();

@@ -41,6 +41,8 @@ Dataset SHA-256: `A197E65AE503F807E9592313B0DD47D56C038B4E2D0497AF9A201E3C501DC8
 
 The current UI uses project CSS and system fonts. No bundled third-party photographs, illustrations, icon packs or font files were found in the application source. System fonts are supplied by the user's operating system and are not redistributed here.
 
+The Join City visual refresh follows the user-supplied local `.temp/join_city` reference for the three-chevron identity and palette. Its upstream source and license were not supplied and remain unknown. No legacy CSS, script, SVG file, font or image is bundled from that directory. The small chevrons, category outlines and selection motif in the frontend are original inline vector geometry created with Codex for the [approved design](.brainstorming/2026-09-23-join-city-visual-refresh-design.md); the runtime has no dependency on the reference directory.
+
 ## Models and AI-assisted development
 
 | Material / source | Role and provenance | License / terms status |
