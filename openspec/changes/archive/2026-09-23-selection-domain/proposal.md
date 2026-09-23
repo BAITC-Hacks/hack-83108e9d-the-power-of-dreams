@@ -1,6 +1,6 @@
 ## Why
 
-P03 needs explicit acceptance of the pure selector and its factual diagnostics so downstream explanations can trust complete, deterministic results. The user authorized all stages on 2026-09-23 using the [approved selection design](../../../.brainstorming/2026-09-23-selection-domain-design.md).
+P03 needs explicit acceptance of the pure selector and its factual diagnostics so downstream explanations can trust complete, deterministic results. The user authorized all stages on 2026-09-23 using the [approved selection design](../../../../.brainstorming/2026-09-23-selection-domain-design.md).
 
 ## What Changes
 

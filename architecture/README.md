@@ -1,6 +1,6 @@
 # Architecture
 
-P03 selection-domain acceptance and unchanged shared boundaries: [selection-domain](../openspec/changes/selection-domain/design.md).
+P03 selection-domain acceptance and unchanged shared boundaries: [selection-domain](../openspec/changes/archive/2026-09-23-selection-domain/design.md).
 
 Architecture for task #79-lite: explainable event-contractor selection from the supplied catalogue. The user agreed the **OpenAI-first MVP direction** on 2026-09-23, with a reported **four-hour implementation and demo budget** and available **OpenAI and NVIDIA API keys**. Key availability is user-reported; account/model access has not been tested.
 

@@ -109,7 +109,7 @@ P03's focused selection checks run as part of `npm test`, or separately with
 `node --test back/domain/select.test.mjs`. They cover candidate/busy scope,
 stable result limits and input preservation using labelled controlled profiles;
 the existing slice checks exercise the real catalogue and HTTP boundary.
-See the [selection task card](openspec/changes/selection-domain/tasks.md) for
+See the [selection task card](openspec/changes/archive/2026-09-23-selection-domain/tasks.md) for
 the current acceptance and publication status.
 
 ## Secrets setup for organizers

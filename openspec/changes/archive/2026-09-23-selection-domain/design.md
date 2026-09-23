@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md) and [approved outcome](../../../.brainstorming/2026-09-23-selection-domain-design.md). Baseline f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 includes accepted P01 8aaad189393be78a21f1793afd2014c55794f7cd. Direct comparison finds unchanged domain, contracts and slice checks. This newer committed baseline is explicitly selected for P03. Other active changes retain their existing owners/holds; this session selects only selection-domain.
+See [proposal](proposal.md) and [approved outcome](../../../../.brainstorming/2026-09-23-selection-domain-design.md). Baseline f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 includes accepted P01 8aaad189393be78a21f1793afd2014c55794f7cd. Direct comparison finds unchanged domain, contracts and slice checks. This newer committed baseline is explicitly selected for P03. Other active changes retain their existing owners/holds; this session selects only selection-domain.
 
 ## Goals / Non-Goals
 

@@ -1,11 +1,11 @@
 ## 1. Domain acceptance
 
-- [ ] 1.1 Verify S1-S5 with focused pure-domain checks and reused slice evidence; repair only demonstrated gaps, run `node --test back/domain/select.test.mjs` and relevant existing slice checks.
-- [ ] 1.2 Register the suite in `npm test`, review S1-S5 acceptance and preserve frozen public contracts/date helper; verify typecheck and combined tests.
+- [x] 1.1 Verify S1-S5 with focused pure-domain checks and reused slice evidence; repair only demonstrated gaps, run `node --test back/domain/select.test.mjs` and relevant existing slice checks.
+- [x] 1.2 Register the suite in `npm test`, review S1-S5 acceptance and preserve frozen public contracts/date helper; verify typecheck and combined tests.
 
 ## 2. Integration and completion
 
-- [ ] 2.1 Verify the clean combined candidate using README installation, typecheck, tests, build, launch and real dense/empty HTTP scenarios; publish feature and main normally and confirm remote SHA.
+- [x] 2.1 Verify the clean combined candidate using README installation, typecheck, tests, build, launch and real dense/empty HTTP scenarios; publish feature and main normally and confirm remote SHA.
 - [ ] 2.2 Synchronize domain specifications, archive the accepted change, update current architecture links and publish the report; verify strict OpenSpec validation and recorded delivery evidence.
 
 ## Stage table
@@ -14,9 +14,9 @@ Checkboxes mean final integration/publication, not local implementation.
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | branch-pushed | Worker 1deb854f13aaff67435048f0625966228048a71c; focused 4/4; no production changes | main integration | P02 reservation | coordinator |
-| 1.2 | implemented | Candidate b0bf2c925da461f3a2168044c3730d5a2374a33e; npm test 25/25; typecheck passed; review supported S1-S5 | main integration | P02 reservation | coordinator |
-| 2.1 | planned | main starts f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 | clean candidate acceptance/publication | depends 1.2 and shared reservation | coordinator |
+| 1.1 | integrated | Worker 1deb854; candidate/main a8cefb9; focused 4/4, combined 36/36 | none | none | complete |
+| 1.2 | integrated | Review supported S1-S5; candidate/main a8cefb9 typecheck/36 tests/build/HTTP pass | none | none | complete |
+| 2.1 | integrated | Exact main/remote a8cefb933bdededdf013fe8a196df956ac2ae352 confirmed | none | none | complete |
 | 2.2 | planned | new additive domain spec | sync/archive/validation/publication | depends 2.1 | coordinator |
 
 ## Coordinator and authorization
@@ -24,7 +24,7 @@ Checkboxes mean final integration/publication, not local implementation.
 - Owner: Codex task 01a0cdd7-6e36-7290-a940-38b8c8b2e9c1, role coordinator. Task card: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-03/openspec/changes/selection-domain/tasks.md`.
 - Scope: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-03`, branch `codex/cs-03-domain`, base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766, origin `https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git`, target main.
 - User authorizes all OpenSpec stages, role subagents, minimal implementation and normal publication. No no-commit/no-push hold. Other contributors' work is preserved. No paid/live calls are required or planned for P03.
-- Shared reservation: initial acquisition refused while P02 held it. P02 released after publishing 400101ef1b210c2c45a871c4952f5580ba76faa7; the next exclusive attempt refused because P04 owner 01a0cdd8-848b-7f13-a5e8-a675d62eaadf acquired it first. Both owners were contacted; no P03 shared writes performed. Continue independent verification preparation, then acquire exclusively after P04 releases.
+- Shared reservation: initial attempts correctly refused while P02/P04 held it. After their publication and explicit release, P03 acquired the canonical marker with FileMode.CreateNew at 2026-09-23T10:48:00.9021511Z, owner 01a0cdd7-6e36-7290-a940-38b8c8b2e9c1, reserving main promotion and the p03-verification candidate. Prior owners' work/processes are preserved.
 - Existing unrelated changes are not selected; their historic stages/holds remain intact. This session has no workers on those changes.
 
 ## Apply assignment 1.1
@@ -66,3 +66,11 @@ Fetched current specs instructions, synchronized all five additive requirements 
 Published P02 main 400101ef1b210c2c45a871c4952f5580ba76faa7 was merged into the independent P03 branch as b1892d74f0be5df8bb105dd24b1c65b7e8f33ddd. The sole conflict was npm test registration; resolved by retaining both catalogue and domain suites. P02 runtime and shared date helper are unchanged. No writes to primary main or another owner's integration worktree occurred.
 
 Created independent sibling `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-p03-verification`, branch `codex/p03-verification`, at b1892d74f0be5df8bb105dd24b1c65b7e8f33ddd for clean-checkout installation, with its own node_modules/build output and planned port 3103. This is not the shared integration worktree. Final candidate will include published P04 before acceptance; P04 owns evidence-module changes and its own acceptance. No hidden local configuration is copied.
+
+### Combined acceptance
+
+Candidate a8cefb933bdededdf013fe8a196df956ac2ae352 includes published P02 and P04 main 6f593535f6387303ae952c3f514337c6d6f47e1e. Only npm test registration conflicted; all three module suites are retained. P03 selector/types/date/contracts remain unchanged. The reserved p03-verification worktree is clean at the exact candidate.
+
+README clean-checkout flow: `npm ci --no-audit --no-fund` installed 497 pinned packages (unchanged lockfile); `npm run typecheck` passed; `npm test` passed 36/36 with zero skips; `npm run build` passed. `npm start -- --port 3103` started successfully with no .env and an explicitly blank process OPENAI_API_KEY, proving no hidden file/personal session requirement. HTTP home and options returned 200; real dense request returned 10 candidates, 5 eligible, HK-88430/HK-29829/HK-27222 in order and catalog_fallback; budget 1 returned no_match, no cards and not_needed. Server stopped after checks. No P03 billable/provider calls or new live/browser acceptance is claimed; P04's historical live evidence remains in its own archive.
+
+Publication: feature branch and primary main fast-forwarded normally to verified candidate a8cefb933bdededdf013fe8a196df956ac2ae352; independent remote lookup confirmed the same main SHA. Delivery status MERGED AND PUBLISHED. Archive/report task 2.2 remains unchecked until its own publication; no product acceptance is outstanding for P03.
