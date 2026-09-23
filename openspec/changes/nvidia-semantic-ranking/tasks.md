@@ -30,12 +30,12 @@
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 |---|---|---|---|---|---|
-| 1.1 | implemented | Probe cb0edb44de66b40b9824a1050201975476493c32 returned HTTP 410 in 606ms; one request, no scores | live usefulness and exact input fit not established | fixed endpoint unavailable; adoption deferred | user decision on model revision, then coordinator |
+| 1.1 | branch-pushed | Probe cb0edb44de66b40b9824a1050201975476493c32; reviewed evidence published at 06a3f554b3dbe02594d69332e5b748e8652e3562; HTTP 410 in 606ms | live usefulness and exact input fit not established | fixed endpoint unavailable; adoption deferred | user decision on model revision, then coordinator |
 | 2.1 | planned | design/specs only | all implementation checks | requires positive 1.1 | coordinator contracts then bounded apply worker |
 | 2.2 | planned | accepted baseline remains unchanged | semantic checks | requires 1.1 and 2.1 | coordinator |
 | 2.3 | planned | existing price UI unchanged | browser/comparison checks | requires backend contract | coordinator |
 | 3.1 | planned | historical P07 not reused as NVIDIA evidence | all new acceptance | requires implementation | coordinator + review role |
-| 3.2 | planned | no new publication | exact candidate and remote main | requires acceptance/reservation | coordinator |
+| 3.2 | planned | Planning/probe/evidence branch published; no product integration | accepted product candidate and remote main | requires positive gate, acceptance/reservation | coordinator |
 
 Feature checkboxes measure integrated delivery, not local progress. On a failed checkpoint, preserve this incomplete change and report deferred; do not sync unimplemented requirements or imply archive/completion.
 
@@ -51,3 +51,4 @@ Feature checkboxes measure integrated delivery, not local progress. On a failed 
 - Required but skipped due to gate: extended case evaluation, score generation, semantic implementation, semantic tests, new browser timing/quality, application restart and clean application build/launch. No main merge, spec synchronization or archive is justified by the available evidence.
 - A user question is pending about deliberately selecting a current hosted NVIDIA model and revising the decision. That is a material model change, not an automatic fallback. Existing authorization to implement all stages remains, subject to resolving this external dependency.
 - Read-only review /root/ranking_gate_review returned supported for DEFERRED against cb0edb44de66b40b9824a1050201975476493c32 plus the recorded evidence: all five eligible profiles included, one request, safe failure, no snapshot replacement, no semantic acceptance claim and no critical finding. No provider call was repeated for review.
+- Publication: ordinary push to origin refs/heads/codex/cs-90-nvidia succeeded; ls-remote confirmed 06a3f554b3dbe02594d69332e5b748e8652e3562. This is planning/probe/evidence publication only. Main remains unchanged by this task; no shared reservation was acquired. This subsequent report-only update does not claim its own commit SHA.
