@@ -6,7 +6,7 @@
 ## 2. Integration and completion
 
 - [x] 2.1 Register the checks, verify the combined committed candidate using npm test, typecheck, build and README production launch/dense request; publish verified main and confirm the remote SHA.
-- [ ] 2.2 Synchronize contractor-catalog specs, archive this change, validate the result and publish the final evidence record.
+- [x] 2.2 Synchronize contractor-catalog specs, archive this change, validate the result and publish the final evidence record.
 
 ## Stage table
 
@@ -15,7 +15,7 @@
 | 1.1 | integrated | Base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766; npm ci passed; existing slice 8/8 passed including dense real catalogue/HTTP | None | None | Complete |
 | 1.2 | integrated | b66dfff9c4bb423461805d36029ed55d1b0e7df1; 7/7 focused tests and typecheck passed; origin feature SHA confirmed | None | None | Complete |
 | 2.1 | integrated | d827a24bc7a11fdaec1d17cdfc7af22346c72356 published and confirmed on main | None | None | Complete |
-| 2.2 | implementing | Five requirements synchronized; strict spec validation passed | Archive and publish report | No acceptance blocker; administrative closure in progress | Coordinator |
+| 2.2 | integrated | d2186d5cb7d04af88fd99bd4cba9d70e447647ac archived/synchronized and published on main; 3/3 specs valid | None | None | Complete |
 
 ## Assignment: P02 apply
 
@@ -43,3 +43,7 @@ Apply /root/catalog_apply added only back/catalog/catalog.test.mjs. All seven ch
 Candidate d827a24bc7a11fdaec1d17cdfc7af22346c72356 in the clean integration checkout passed npm ci (497 packages), npm test (28/28), npm run typecheck and npm run build. Lockfile and all runtime sources are unchanged from accepted P01. README launch npm start -- --port 3102 passed with no .env, a blank child-process OPENAI_API_KEY, no personal session and no provider calls. HTTP GET / and /api/catalog/options returned 200; real POST /api/recommendations returned 200, 10 candidates, 5 eligible, IDs HK-88430/HK-29829/HK-27222 in order, catalog_fallback and matching catalogue identity. Initial smoke assertion incorrectly expected the hydrated button in static HTML; corrected to the page title, then API checks passed. This is a production HTTP smoke, not a new browser/visual or live-AI run. Server stopped after smoke. No ACL permission-denial or OS failure-recovery restart test was run; these are not P02 requirements.
 
 Review /root/catalog_review accepted focused checks at b66dfff9c4bb423461805d36029ed55d1b0e7df1 without blockers. Main fast-forwarded from f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 to d827a24bc7a11fdaec1d17cdfc7af22346c72356; normal origin/main push succeeded and remote exact SHA was confirmed. P02 public contract v1 remains unchanged; no frontend handoff/package was created. P03 may consume the pinned shared date helper but must preserve coordinator ownership.
+
+## Final closure
+
+All 4/4 delivery tasks complete. Archive/spec publication d2186d5cb7d04af88fd99bd4cba9d70e447647ac was confirmed on origin/main. The archive command reported 3/4 during its own administrative task; all acceptance tasks were already integrated and the final archive/publication task is now complete. Five catalogue requirements were synchronized inline before archiving; --skip-specs avoided a duplicate merge. All three current specifications passed strict validation. Runtime evidence remains tied to d827a24bc7a11fdaec1d17cdfc7af22346c72356; later changes are reports/specs/links only. Status: MERGED AND PUBLISHED. No outstanding P02 acceptance or publication blocker. Shared reservation is released after this final report publication and confirmation that the owned server has stopped; retained worktrees/branches preserve evidence.
