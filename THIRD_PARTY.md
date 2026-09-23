@@ -45,10 +45,17 @@ The current UI uses project CSS and system fonts. No bundled third-party photogr
 
 | Material / source | Role and provenance | License / terms status |
 | --- | --- | --- |
-| OpenAI Responses API; default model `gpt-4.1-mini-2025-04-14` | [Server adapter](back/ai/openai.mjs) uses native `fetch`; `OPENAI_MODEL` can override the default. Selects short evidence quotes from up to three already-selected profiles; local code validates quotes and renders explanations. Model weights and an OpenAI SDK are not bundled. | Hosted proprietary service under the API account's applicable OpenAI agreement; exact account-specific terms are not recorded here. No open-source model license is asserted. |
+| OpenAI Responses API; default model `gpt-5.6-luna`, compared with `gpt-5.6-terra` | [Server adapter](back/ai/openai.mjs) uses native `fetch`; `OPENAI_MODEL` can override the default. Interprets wishes for user review, or selects short evidence quotes for ordinary selection. Confirmed wishes are matched locally against source-checked assertions. [Model comparison](openspec/changes/contractor-brief-matching/model-comparison.json) records synthetic cases, usage and limitations. Model weights and an OpenAI SDK are not bundled. | Hosted proprietary service under the API account's applicable OpenAI agreement; exact account-specific terms are not recorded here. No open-source model license is asserted. |
 | OpenAI Codex | AI-assisted planning, implementation, review, checks and documentation in this repository; workflow recorded in [AGENTS.md](AGENTS.md) and [tooling notes](docs/tooling.md) | Hosted/development service; exact account-specific terms and a complete per-edit development-model history are not recorded here. |
 | [OpenSpec](https://github.com/Fission-AI/OpenSpec) 1.11.0 | Specification workflow and generated local `.agents/skills/openspec-*` instructions | License text is not recorded in the inspected project materials; **unknown here**. |
 | [Context7](https://github.com/upstash/context7) and [CodeGraph](https://github.com/colbymchenry/codegraph) | Documentation retrieval and code navigation; installed versions and actual verification are in [tooling notes](docs/tooling.md) | Tool/service terms are not recorded in the inspected project materials; **unknown here**. Not product runtime dependencies. |
 | [Anthropic frontend-design skill](https://github.com/anthropics/skills/tree/34040c9c568585f6929bedeaad110ad08f079624/skills/frontend-design) | External design instructions pinned to revision `34040c9c568585f6929bedeaad110ad08f079624`; local installation provenance is recorded in [tooling notes](docs/tooling.md). No template assets are bundled by that record. | The installation record notes an upstream `LICENSE.txt`; its contents are not reproduced in this repository, so terms are **unknown here**. This does not establish use of Claude or an Anthropic API. |
 
 The application uses OpenAI as its only AI provider and the supplied CSV as its catalogue. This inventory does not claim training on the catalogue or ownership of supplied profile text.
+
+The versioned [brief evidence index](back/catalog/brief-index.json) was prepared
+with AI-assisted development and independently reviewed against the supplied
+descriptions: 48 literal assertions, with identity/description hashes for all
+66 profiles. It is derived catalogue material, not an external dataset or model
+training. Unasserted traits remain unknown. The source dataset's unknown license
+status continues to apply to its quoted text.

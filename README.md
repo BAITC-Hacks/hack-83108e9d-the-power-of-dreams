@@ -81,7 +81,8 @@ only `OPENAI_API_KEY`; `OPENAI_MODEL` is optional. Preserve an existing `.env`.
 Run `docker compose up --wait --wait-timeout 120` to recreate the service with the
 new settings. No image rebuild is needed. A funded OpenAI project, model access
 and outbound internet are required; each non-empty selection can make one
-billable request. Missing/failed/rejected AI evidence retains the existing
+billable request for a submission without wishes. Parsing wishes makes one
+separate billable request; confirmed wishes use local matching. Missing/failed/rejected AI evidence retains the existing
 labelled catalogue or mixed explanations.
 
 Compose reads `.env` for substitution and forwards only `OPENAI_API_KEY` and
@@ -163,7 +164,7 @@ node scripts/secrets/setup.mjs
 
 Open the root `.env` locally and fill `OPENAI_API_KEY`. Leave the other service
 keys blank; they are not used by this application. `OPENAI_MODEL` is optional;
-absent or blank uses `gpt-4.1-mini-2025-04-14`. The setup command preserves an
+absent or blank uses `gpt-5.6-luna`. The setup command preserves an
 existing `.env`. Verify that the key is present without displaying it:
 
 ```powershell
@@ -172,7 +173,8 @@ node scripts/secrets/check.mjs OPENAI_API_KEY
 
 This checks configuration presence only. Live use requires a funded OpenAI
 project, access to the configured model and outbound network access. Each
-submission with selected contractors can make one billable request. Existing
+submission without wishes and with selected contractors can make one billable request.
+Parsing wishes makes one separate request; selecting with confirmed wishes is local. Existing
 environment variables take precedence over `.env`; an already configured key
 enables live calls. See [configuration details](#configuration-details) for
 precedence, safe handling and optional settings.
@@ -236,10 +238,57 @@ For a short demonstration, continue with these inputs (leave optional fields bla
 | Busy-date change | Primary inputs, date 2026-10-11 | HK-44923, HK-27222, HK-44733; date comparison explains busy marks |
 | Price-order date change | Primary inputs, submit October 1 then October 6 | HK-75012 is replaced by HK-29829 through starting-price order, not a new busy mark |
 
-Reset restores the primary defaults. Explain that filtering and price/ID order
-select the cards; optional AI supplies source quotes only. Starting prices and
+Reset restores the primary defaults. Without wishes, filtering and price/ID order
+select the cards; optional AI supplies source quotes. Starting prices and
 calendar marks never guarantee booking. Dataset and software provenance is in
 [THIRD_PARTY.md](THIRD_PARTY.md).
+
+### Try AI wishes
+
+With a funded OpenAI key configured, restore the primary inputs and enter
+**Нужен ненавязчивый ведущий, без принудительных конкурсов** in **Пожелания к подрядчику**.
+Press **Разобрать пожелания**, review the displayed interpretation, remove any
+incorrect condition or edit the text and parse again, then press **Подобрать**.
+Interpretation alone does not submit a recommendation.
+
+Expected: **Хаул (HK-77838)** moves into first place, followed by HK-88430 and
+HK-29829. His profile explicitly states a discreet style. Compulsory contests
+remain **Нужно уточнить**: avoiding compulsory contests does not mean rejecting
+all contests. Cards show literal profile evidence, contradictions when present,
+unknown wishes, and a question to ask the contractor. These are catalogue claims,
+not independently verified promises. Budget 900000 still excludes Хаул.
+
+Every hard-eligible profile is considered. Confirmed wishes order by fewer
+conflicts, more supported matches, starting price, then ID; they never override
+city/category, date, format, budget, language or duration. Up to three cards are
+shown. Identical confirmed conditions, catalogue and policy give identical order
+after restart. Parsing the same free text again can produce a different
+interpretation, so review it before selection. Date comparisons reflect this
+wishes-based order instead of attributing every replacement to price.
+
+The current vocabulary covers 18 styles/features, with 48 verified literal
+assertions across the 66-profile catalogue. Other wishes and absent claims stay
+unknown; absence is not evidence of unsuitability. Text is limited to 1000 Unicode
+characters and six interpreted conditions. Changing text invalidates its
+interpretation. Reset cancels pending work and clears wishes. If interpretation
+is unavailable, the text and previous result remain; retry explicitly or clear
+the optional field to use ordinary selection. No key is required for ordinary
+selection. An outdated evidence index fails wishes-based selection explicitly
+rather than silently replacing it with price order.
+
+The [implementation and measured model comparison](openspec/changes/contractor-brief-matching/tasks.md)
+record Luna/Terra quality, prompt repairs, latency and conservative API cost.
+The bounded experiment selected Luna; this is not a guarantee of perfect
+interpretation for arbitrary customer text.
+
+For developers, `node scripts/brief/compare.mjs --live` runs the 30 synthetic
+cases twice on each of Luna and Terra. It requires a funded key and incurs
+charges. `--smoke` selects two cases once per model; `--repair` selects the
+11-case targeted regression set twice. A persistent local ledger under
+`test-results/brief-live-budget.json` reserves a conservative cost before each
+call and stops at USD 5. Preserve it across runs. This is an experiment limit,
+not an account-wide or application-traffic spending control. Recorded evidence
+distinguishes the original full comparison from the targeted prompt repair.
 
 Previous results keep their original conditions while you edit or wait for a
 new selection, and survive a failed request. Date-only submissions explain
@@ -286,10 +335,11 @@ flowchart LR
    narrows the catalogue by city and category, then excludes busy contractors,
    prices above the budget and unsupported event formats. The backend also
    supports the form's optional language and duration filters.
-3. Eligible profiles are sorted by ascending starting price, then catalogue ID
-   to break ties. The first three become the result. **AI does not rank profiles
-   or decide which contractors pass the filters.**
-4. If configured, one bounded OpenAI request receives the conditions and evidence
+3. Without wishes, eligible profiles are sorted by starting price and catalogue
+   ID. Confirmed wishes instead use the versioned source-evidence rule described
+   above across all eligible profiles before choosing three. AI interpretation
+   is reviewed by the user; hard eligibility and final ordering remain local.
+4. Without wishes, if configured, one bounded OpenAI request receives the conditions and evidence
    fields for only the selected profiles. It selects short quotes from their
    descriptions. Local code checks the response structure, profile IDs, quote
    length and literal correspondence with the source before using a quote.
@@ -298,6 +348,12 @@ flowchart LR
    catalogue-only or mixed explanations with a visible label. The underlying
    selection continues to use the supplied CSV. This is not a synthetic test
    fixture substituted for the catalogue.
+
+`POST /api/brief` interprets text separately. The reviewed result is submitted as
+optional `brief` to the recommendation operation; its cards include `briefAdvice`
+and mode `brief_evidence`. This path uses bundled validated source assertions,
+not another provider call. See the public types in `contracts/brief.ts` and
+`contracts/contractor-selection.ts` and the immutable v2 handoff package.
 
 ## Stack and repository layout
 
@@ -432,7 +488,7 @@ This creates one root `.env` from [.env.example](.env.example). An existing
 | Setting | Purpose | Required when |
 | --- | --- | --- |
 | `OPENAI_API_KEY` | OpenAI API credential | A server operation uses OpenAI |
-| `OPENAI_MODEL` | Optional model override; blank uses `gpt-4.1-mini-2025-04-14` | Only to override the default OpenAI model |
+| `OPENAI_MODEL` | Optional model override; blank uses `gpt-5.6-luna` | Only to override the default OpenAI model |
 | `APP_PORT` | Docker Compose host port; blank uses `3101` | Only to override the Compose port; ignored by `npm start` |
 
 Quote values containing `#` or
@@ -497,7 +553,8 @@ Current requirements and verification status:
 Requires Node.js 24 and a funded OpenAI API project with model access. No SDK,
 GPU or additional npm installation is required for this module. Run the secrets
 setup above and fill `OPENAI_API_KEY` privately. `OPENAI_MODEL` is optional;
-absent or blank selects `gpt-4.1-mini-2025-04-14`.
+absent or blank selects `gpt-5.6-luna`. Luna and Terra use `reasoning.effort: none`
+for this extraction task. Both were tested with the current strict schema.
 
 ```powershell
 node scripts/openai/check.mjs

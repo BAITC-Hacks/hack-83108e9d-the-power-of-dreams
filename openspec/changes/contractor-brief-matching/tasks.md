@@ -48,6 +48,10 @@ Coordinator: Codex task `01a0ce1a-086f-7772-9104-a72718f35156`. Selected impleme
 
 ## Planned verification and resources
 
+### Final read-only review assignment
+
+Owner `/root/brief_final_review`, review role. Inspect this coordinator workspace on codex/ai-upgrade after merging UI source 3be31e0; no edits, paid calls, delegation or Git writes. Harness uses d07a7c2 with the inherited project instructions; current contracts are contracts/brief.ts and contractor-selection.ts. Verify B1/B2 and UI confirmation/retained-results behavior in the merged front/ContractorForm.tsx, BriefEditor.tsx, RecommendationResults.tsx, publicResponses.ts and related handlers. Focus on concrete acceptance failures or missing evidence, not general refactoring. Existing 62 tests/typecheck passed at first UI merge; root owns final build/live browser/clean launch. Return decisive file/line reproduction or no material finding, plus checks/skips. Parallel root work is docs and verification; do not revert others' work.
+
 - Checks: existing `npm test`, `npm run typecheck`, `npm run build`; focused Node checks for interpretation/public contracts/matching; real browser on a dedicated local port 3127 (check free before launch), plus restart and API requests. Worker checks use their own temp/build directories and no server/paid calls unless explicitly assigned.
 - Primary scenario: default dense request plus `Нужен ненавязчивый ведущий, без принудительных конкурсов`; interpretation presents source spans, confirmation produces HK-77838 within top three, literal style evidence and an unknown/question for contests. Busy and budget exclusions still hold.
 - Baseline/empty/rare/date scenarios remain required; confirm old shape/behavior without brief. New semantic order must not reuse price-only displacement claims.

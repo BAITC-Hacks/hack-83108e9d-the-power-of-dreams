@@ -1,4 +1,4 @@
-/** Public JSON contract v1. Runtime validation belongs to the HTTP boundary. */
+/** Public JSON contract v2: optional confirmed brief and source advice. */
 import type { BriefAdvice, ConfirmedBrief } from './brief.ts';
 export type RecommendationRequest = {
   readonly city: string;

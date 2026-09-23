@@ -39,7 +39,7 @@ Use 30 fixed synthetic wishes, two models, two repeats. Reserve conservative ful
 
 ### UI and setup
 
-Reuse the current palette/type/layout; place optional wishes after additional conditions and evidence after the explanation. Clear text describes the confirmation and unsupported wishes. No new fonts or layout overhaul; broader styling belongs to the concurrent UI change. Existing Node 24/npm or Docker run methods apply. A funded OpenAI API project and internet are needed to interpret text; recommendations from a confirmed brief use bundled evidence and work without an API call. No-key users retain original catalogue selection and can use manual supported wishes if provided by the editor; any manual path is explicitly labelled.
+Reuse the current palette/type/layout; place optional wishes after additional conditions and evidence after the explanation. Clear text describes the confirmation and unsupported wishes. No new fonts or layout overhaul; broader styling belongs to the concurrent UI change. Existing Node 24/npm or Docker run methods apply. A funded OpenAI API project and internet are needed to interpret text; recommendations from a confirmed brief use bundled evidence and work without an API call. No-key users retain original catalogue selection; the editor does not provide manual trait authoring. Edits retain previous recommendations; reset clears wishes and recommendations under the existing reset contract.
 
 ## Risks / Trade-offs
 
