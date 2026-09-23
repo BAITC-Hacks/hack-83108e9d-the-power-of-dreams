@@ -1,0 +1,51 @@
+schema: spec-driven
+
+context: |
+  Write artifact prose in English; preserve structural headings and SHALL/MUST keywords.
+  Communicate with the user and return subagent handoffs in the user's language.
+  Project: The Power of Dreams, an offline hackathon project.
+  Do not invent a product track or requirements; use explicit user decisions and approved artifacts.
+  Read AGENTS.md for authoritative development, delegation, verification, and publication agreements.
+  Take competition constraints from the task brief and organizer instructions provided by the user.
+  Keep backend source in back/ and frontend source in front/; use the current package.json stack.
+  Keep active requirements, change-specific design, and task status in this repository's OpenSpec.
+  Keep project architecture documents and their index in architecture/; link change artifacts instead of duplicating them.
+  Use .brainstorming/ for approved discussion outcomes and the exact shared contract directory from AGENTS.md for backend-to-frontend handoffs.
+  Work on one active implementation change at a time; record its state and pause affected workers before an explicit switch.
+  Preserve existing user authorization and restrictions under AGENTS.md; skill defaults do not revoke approved scope.
+  The coordinator owns the full OpenSpec workflow and shared task state;
+  subagents execute scoped assignments under AGENTS.md's "Subagent context and handoff" contract.
+  Preserve other contributors' changes. Tooling/planning work does not authorize product implementation or publication.
+  Tooling: OpenSpec 1.11.0, Context7 CLI/MCP, @colbymchenry/codegraph 1.6.0.
+
+rules:
+  proposal:
+    - State the user outcome, scope, non-goals, and relevant task criteria.
+    - For product work, link the relevant approved .brainstorming/ outcome and carry forward its agreed decisions.
+  specs:
+    - Each requirement must have an observable acceptance scenario.
+    - Distinguish real functionality from fixture or demonstration behavior.
+  design:
+    - Define each affected module's purpose, public operations and input/output/error contracts, owned data, allowed dependencies, file owner, and verification method; keep boundaries proportional to current criteria.
+    - Specify material side effects, timeout/retry/cancellation behavior for applicable ports, and commit shared contracts and examples before dependent parallel implementation.
+    - Record the run method, required infrastructure/accounts, cost/network assumptions, and manual setup; explain why a simpler setup is insufficient when adding infrastructure.
+    - Reference relevant architecture/ documents; keep the change-specific design here and avoid parallel specifications.
+  tasks:
+    - Give tasks stable IDs mapped to acceptance scenarios and the smallest sufficient checks; identify dependencies and implement one verifiable end-to-end scenario before expanding scope.
+    - For delegated work, use AGENTS.md's task-card fields and harness readiness checks; record the Codex task ID, effective authorization/holds, harness revision, immutable package path/version/commit and backend SHA, allowed paths, evidence, worktree/branch/base/remote, ports/data, and checkpoints. Never invent SHAs or locations.
+    - Choose only the roles needed for independent bounded work; do not make design, review, decision, or research mandatory stages. The coordinator owns shared wiring, dependency installs, task checkboxes, and integration.
+    - For feature tasks, include coordinator verification of the combined candidate, launch and end-to-end checks, and remote main publication. Only the coordinator marks these tasks complete after the completion conditions in AGENTS.md are met; worker success or a feature-branch push is insufficient.
+    - Keep intermediate stages, evidence, remaining checks, holds, and next actions in a per-task table here. An unchecked feature task can already be implemented; resume from the first unmet step instead of repeating it. Record shared integration ownership under AGENTS.md before shared writes.
+    - Include clean-checkout verification of the affected run method using README instructions, configuration, build, launch, and primary scenario with expected results; record actual evidence and limitations through project-delivery before submission.
+
+operations:
+  apply:
+    guidance:
+      - The coordinator reads the skill's required contextFiles and current project inputs, then dispatches only assigned task IDs, relevant artifact sections, constraints, contracts, and checks. Follow AGENTS.md's history-free dispatch and compact handoff contract; workers do not rerun the full OpenSpec workflow or edit shared checkboxes.
+      - Preserve CLI-reported readiness, blocked state, tasks, and counts; these advisory instructions do not establish completion. Reconcile them with the task-stage table and actual files/SHAs before choosing work. Delivery checkboxes do not mean every unchecked task needs implementation. Pause affected work when material assumptions change.
+      - For assigned feature work, follow AGENTS.md's automatic publication protocol; record branch-pushed separately from integrated. Check tasks only after their required acceptance and integration/publication conditions are satisfied, recording evidence, skips, SHAs, blockers, and next owner in tasks.md.
+      - Reuse sufficient evidence under AGENTS.md's verification policy, including its narrow exception for incidentally discovered critical defects. Keep generated skills unchanged and preserve user authorization rather than adding redundant approval gates.
+  archive:
+    guidance:
+      - Keep archive status distinct from implementation success. Report remaining criteria, required checks not run, and unresolved publication/integration status; an archive operation must not imply these passed.
+      - Follow the archive skill's spec-sync and artifact checks; retain verification evidence and update current links in mutable handoff indexes after archiving. Preserve immutable package versions and their exact-revision links. Do not copy project context or guidance into artifacts.

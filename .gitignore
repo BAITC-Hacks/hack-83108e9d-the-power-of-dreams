@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+npm-debug.log*
+# Local coordination only; task status remains in OpenSpec.
+.shared/integration-owner.json
