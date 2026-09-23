@@ -7,8 +7,8 @@ import { select } from '../../back/domain/select.ts';
 import { loadSecrets } from '../../back/config/secrets.mjs';
 
 const root = new URL('../../', import.meta.url);
-const model = 'nvidia/llama-3.2-nv-rerankqa-1b-v2';
-const endpoint = 'https://ai.api.nvidia.com/v1/retrieval/nvidia/llama-3_2-nv-rerankqa-1b-v2/reranking';
+const model = 'nvidia/llama-nemotron-rerank-1b-v2';
+const endpoint = 'https://ai.api.nvidia.com/v1/retrieval/nvidia/llama-nemotron-rerank-1b-v2/reranking';
 const request = { city: 'Алматы', category: 'Ведущий', eventFormat: 'корпоратив', date: '2026-10-10', budgetKzt: 1500000 };
 const rubric = { 'HK-88430': 2, 'HK-29829': 0, 'HK-27222': 1, 'HK-77838': 1, 'HK-75012': 1 };
 const ordinal = (a, b) => a < b ? -1 : a > b ? 1 : 0;

@@ -5,6 +5,7 @@ The accepted application chooses the cheapest eligible contractors even when the
 ## What Changes
 
 - First measure the declared dense case against a source-evidence rubric. Failed access, inconclusive benefit or the 15-minute feasibility limit stops adoption and preserves the accepted baseline.
+- Following the user's explicit approval after the original HTTP 410, use the current hosted `nvidia/llama-nemotron-rerank-1b-v2`; retain the original failure evidence and the same rubric and implementation scope.
 - If that gate passes, generate a complete immutable NVIDIA score snapshot for category/format groups; select the top three from all eligible candidates by score, price and ID.
 - Preserve strict filters, diagnostics, request inputs and the independent OpenAI explanation adapter.
 - **BREAKING**: add explicit price/semantic ranking context and safe RANKING_UNAVAILABLE 503 behavior; semantic results and date comparisons must explain the actual policy.
