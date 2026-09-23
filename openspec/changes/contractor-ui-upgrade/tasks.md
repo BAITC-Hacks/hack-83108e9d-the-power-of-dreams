@@ -1,21 +1,21 @@
 ## 1. Frontend implementation
 
-- [ ] 1.1 Implement the compact visual system, full explanation cards and visible outcome/date reasons; verify real primary, rare, both empty and date-change scenarios.
-- [ ] 1.2 Implement optional-condition summaries, accurate pending/draft feedback and explicit mobile navigation/collapse; verify keyboard/focus, no edit-triggered calls and existing request-race/error cases.
+- [x] 1.1 Implement the compact visual system, full explanation cards and visible outcome/date reasons; verify real primary, rare, both empty and date-change scenarios.
+- [x] 1.2 Implement optional-condition summaries, accurate pending/draft feedback and explicit mobile navigation/collapse; verify keyboard/focus, no edit-triggered calls and existing request-race/error cases.
 
 ## 2. Acceptance and delivery
 
-- [ ] 2.1 Verify the combined frontend with typecheck/tests/build, 375/390/1280 screenshots, live rendered smoke or recorded limitation, and README clean-checkout installation/start/primary; align usage documentation.
-- [ ] 2.2 Review accepted scope, publish the feature branch, verify the integrated candidate under exclusive ownership, publish remote main and record exact revisions and remaining limitations.
+- [x] 2.1 Verify the combined frontend with typecheck/tests/build, 375/390/1280 screenshots, live rendered smoke or recorded limitation, and README clean-checkout installation/start/primary; align usage documentation.
+- [x] 2.2 Review accepted scope, publish the feature branch, verify the integrated candidate under exclusive ownership, publish remote main and record exact revisions and remaining limitations.
 
 ## Stage table
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implemented | Real browser primary/rare/both empty/date pairs, live UI, screenshots passed | Review and integration | None | Coordinator |
-| 1.2 | implemented | Controlled races/pending changes/focus/scroll and mobile navigation passed | Review and integration | None | Coordinator |
-| 2.1 | implementing | 48 tests/typecheck/build; real live/503 and browser checks passed | Clean committed candidate | None | Coordinator |
-| 2.2 | planned | Isolated feature worktree verified | Accepted SHA, reservation, candidate and publication | None | Coordinator |
+| 1.1 | integrated | Feature056fa67; combined/remote main d1309b7; real scenarios/live/screenshots/review passed | None | None | Complete |
+| 1.2 | integrated | Remote main d1309b7; controlled and real focus/mobile/state checks passed | None | None | Complete |
+| 2.1 | integrated | Clean d1309b7 install/typecheck/48 tests/build/production browser and races passed | None | None | Complete |
+| 2.2 | integrated | Local fast-forward and normal remote main push d1309b7 confirmed | None; archive is separate | None | Complete |
 
 ## Assignment and readiness
 
@@ -42,3 +42,17 @@ Local implementation: existing npm test 48/48 passed, no skips; typecheck passed
 Production checks completed after the date repair: typecheck/build passed; real browser suite including year10000 validation passed. Isolated real catalogue503/retained results/options error passed at port3127 (test-results/p06-service-UGOxhB). Exactly one real live production submission at port3126 returned openai_evidence and expected IDs; all three full rendered explanations matched the response, screenshot inspected (test-results/p06-live-1kq23N). Secret read only by existing loader from authorized private primary .env; no secret or provider payload logged. P07 historical source-quality/three-sample timing evidence remains source-matched for unchanged backend/data; this UI smoke is not a new timing series. No mandatory local acceptance skip. All service processes stopped.
 
 Main reconciliation: origin/main advanced to0ace55088e47e2b95376df17d821e06d08b4dc44 (remove nvidia). Primary and old integration tracked status are clean. Preserve that accepted change when forming the candidate; it changes documentation/env template/secrets readiness script, not the frontend/backend v1 implementation. Main frontend specification synchronized with two added requirements and updated pending-state scenario; all eight current specs and this delta pass strict validation.
+
+### Frozen candidate and independent review
+
+Feature056fa67 committed scoped UI/specs/docs/checks only. Merge with accepted main0ace550 produced d1309b7237cd5b91a384d92f6a348b29dc4fe057 without conflicts; affected app, backend/data/contracts and dependency manifests are identical to the locally verified feature. Read-only reviewer /root/ui_acceptance_review supported tasks1.1/1.2 and local2.1 at d1309b7, no acceptance or incidental critical defects. Reused actual recorded real/control/live evidence without redundant paid calls.
+
+Clean candidate: D:/Alem/hack-83108e9d-the-power-of-dreams-wt-ui-checks, codex/ui-upgrade-checks, exact d1309b7, tracked clean and .env/node_modules/.next absent before install; harness inputs present. npm ci installed497 locked packages; typecheck passed; npm test48/48, zero skips/failures; build passed, BUILD_ID R2sYvPLoeEZoZp8o5Y0X5. README npm start -- --port3125 became ready in239ms with explicit empty OPENAI_API_KEY, .env absent and fresh browser context. Both scripts/frontend/browser.mjs and races.mjs passed on the production candidate, including all agreed scenarios and mobile375/390/desktop1280 checks. Evidence remains in that checkout test-results/ui-upgrade-clean. Tracked tree stayed clean. Candidate server stopped. No acceptance skip; existing nonfatal ESLint deprecation and module-type notices did not affect results.
+
+Feature branch normally pushed, remote codex/ui-upgrade confirmed d1309b7. Coordinator01a0ce17-fcfe-7e13-9aa8-238a516ab0a0 acquired primary .shared/integration-owner.json by exclusive CreateNew at2026-09-23T12:16:09.8223850Z, reserving integration-worktree and main-publication. Same owner/task card as this assignment; publication remains pending until confirmed below.
+
+### Publication
+
+After clean acceptance/review, remote main and clean primary main were rechecked at0ace550. Under the recorded own reservation the integration checkout fast-forwarded to exact verified d1309b7237cd5b91a384d92f6a348b29dc4fe057. The clean primary main then fast-forwarded to that candidate; normal origin main push succeeded and ls-remote confirmed d1309b7. No force push, discarded edits, new contract package or remote configuration change. No mandatory acceptance skips.
+
+Status: **MERGED AND PUBLISHED**. Feature implementation056fa67, tested integrated source and confirmed published main d1309b7. This subsequent task-card-only report does not change executable behavior or require repeat product tests. The report is published under the same reservation, then the coordinator releases its own marker after shared operations stop. User preview may run only in the separate UI worktree. Worktrees and evidence retained. OpenSpec has4/4 delivered tasks and synchronized main specs; archive and organizer submission are separate and not performed.
