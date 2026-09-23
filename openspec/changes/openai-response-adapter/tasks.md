@@ -20,8 +20,40 @@ preparation snapshot. It does not assert product implementation or acceptance.
   affected OpenSpec artifacts, verify focused local checks from the committed
   source snapshot, then confirm the remote main SHA. No paid/live probe or GPU
   operation is needed for this publication; existing live evidence is retained.
-- Current publication step: preparing the snapshot; record the resulting SHA
-  and actual checks after that commit exists. Product P00 remains the next task.
+- Published source baseline: `7d611a971e48b89c26776e6f10dbb4f5bfba7ee2` on
+  local `main` and `origin/main`; ordinary explicit push succeeded and
+  `git ls-remote origin refs/heads/main` confirmed that exact SHA on 2026-09-23.
+  This record is a subsequent documentation-only update; it contains no claim
+  about its own not-yet-known commit. Product P00 remains the next task.
+
+### Publication evidence
+
+| Scope | Actual stage | Evidence | Remaining work / next owner |
+| --- | --- | --- | --- |
+| Repository preparation baseline | branch-pushed | Exact source SHA above is on remote main; 55 explicitly scoped files committed | Coordinator starts P00; this is not contractor-selection acceptance |
+| Standalone secrets / OpenAI modules in that snapshot | branch-pushed | Clean committed checkout: 4/4 secrets and 6/6 transport checks passed | Retain historical live evidence; product domain probe and integrated application checks are still future work |
+
+- Isolated local clone checked out exact source SHA at
+  `C:/Users/Ramazan/AppData/Local/Temp/dreams-published-check-OEjBEM`.
+  No `.env` or `node_modules` was present. The checkout remained clean after
+  `node --test scripts/secrets/secrets.test.mjs scripts/openai/contract.test.mjs`:
+  10 passed, 0 failed/skipped. Tests use synthetic configuration and controlled
+  transports/local HTTP only. This closes the previously missing committed-source
+  check for these modules, not the future application's README scenario.
+- `node --check scripts/brev/run.mjs` passed in that clone; Brev/GPU execution
+  was not repeated. Its previous live evidence remains historical.
+- Required base files were present in the clone: AGENTS, Codex configuration and
+  apply role, OpenSpec propose skill/config, P00 proposal and supplied dataset.
+  This is file-presence evidence, not a live subagent or full P00 readiness check.
+- All three existing changes passed strict OpenSpec validation. Package/lockfile
+  declarations matched; the explicit candidate set passed a common-secret-pattern
+  scan, `.env.example` values were empty, and `.env`/reservation were excluded.
+- 57 relevant documentation links/anchors resolved. Staged whitespace warnings
+  were confined to unchanged supplied `raw/metadata.md` Markdown hard breaks and
+  a trailing blank line in `raw/proposal.md`; source formatting was preserved.
+- Skips: application build/start/browser acceptance (not implemented), dependency
+  reinstall, new live AI/GPU calls, MVP completion and organizer submission.
+  Source publication does not mark the future product tasks complete.
 
 The implementation history below records the original verification session.
 Its former publication hold is superseded by the authorization above; unchecked
