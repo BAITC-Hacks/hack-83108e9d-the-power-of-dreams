@@ -1,17 +1,17 @@
 ## 1. Contracts and first scenario
 
-- [ ] 1.1 Commit public brief vocabulary/types and success/error examples; validate OpenSpec, typecheck and both live model access probes (B1/B4).
-- [ ] 1.2 Implement and source-check the evidence index and pure matching; verify HK-77838 promotion, unknown avoidances and hard-filter/restart preservation (B2/B3).
-- [ ] 1.3 Connect interpretation, safe errors and recommendation composition; verify the real discreet-host scenario plus provider/cancellation/invalid input cases (B1/B2).
+- [x] 1.1 Commit public brief vocabulary/types and success/error examples; validate OpenSpec, typecheck and both live model access probes (B1/B4).
+- [x] 1.2 Implement and source-check the evidence index and pure matching; verify HK-77838 promotion, unknown avoidances and hard-filter/restart preservation (B2/B3).
+- [x] 1.3 Connect interpretation, safe errors and recommendation composition; verify the real discreet-host scenario plus provider/cancellation/invalid input cases (B1/B2).
 
 ## 2. Experience and comparison
 
-- [ ] 2.1 Add reviewable wishes and advice to the existing screen; verify real flow, keyboard/mobile/desktop, reset/edit/stale races and truthful date comparisons.
-- [ ] 2.2 Run the fixed 30-brief, two-model, two-repeat comparison under USD 5 total; record quality, unknowns, latency, failures, usage and justified model selection (B4).
+- [x] 2.1 Add reviewable wishes and advice to the existing screen; verify real flow, keyboard/mobile/desktop, reset/edit/stale races and truthful date comparisons.
+- [x] 2.2 Run the fixed 30-brief, two-model, two-repeat comparison under USD 5 total; record quality, unknowns, latency, failures, usage and justified model selection (B4).
 
 ## 3. Delivery
 
-- [ ] 3.1 Update run/provenance/architecture documentation, verify focused regressions, build and clean-checkout launch, publish a backend contract package, integrate the accepted candidate and confirm remote main.
+- [x] 3.1 Update run/provenance/architecture documentation, verify focused regressions, build and clean-checkout launch, publish a backend contract package, integrate the accepted candidate and confirm remote main.
 
 ## Stage table
 
@@ -19,12 +19,12 @@ Coordinator: Codex task `01a0ce1a-086f-7772-9104-a72718f35156`. Selected impleme
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 |---|---|---|---|---|---|
-| 1.1 | ready-to-merge | e81e0cd contracts/probes; strict validation; final 62/62/typecheck | remote main publication | none | coordinator |
-| 1.2 | ready-to-merge | worker 665e458; full assertion review; a4c82b6 hard-filter/restart/source checks | remote main publication | none | coordinator |
-| 1.3 | ready-to-merge | a4c82b6 live interpretation, HTTP validation/failures, no-key/restart | remote main publication | none | coordinator |
-| 2.1 | ready-to-merge | a4c82b6 merged live browser; clean baseline/races/services; inspected 375/1280px | remote main publication | none | coordinator |
-| 2.2 | ready-to-merge | 120-call comparison + 44-call targeted repair; source/prompt hashes retained | remote main publication | limited synthetic sample recorded | coordinator |
-| 3.1 | ready-to-merge | a4c82b6 clean README launch; ce79615 v2 package/feature published | canonical package/main publication | own shared reservation acquired | coordinator |
+| 1.1 | integrated | e81e0cd contracts/probes; strict validation; final 62/62/typecheck | none | none | complete |
+| 1.2 | integrated | worker 665e458; full assertion review; a4c82b6 hard-filter/restart/source checks | none | none | complete |
+| 1.3 | integrated | a4c82b6 live interpretation, HTTP validation/failures, no-key/restart | none | none | complete |
+| 2.1 | integrated | a4c82b6 merged live browser; clean baseline/races/services; inspected 375/1280px | none | none | complete |
+| 2.2 | integrated | 120-call comparison + 44-call targeted repair; source/prompt hashes retained | none | limited synthetic sample recorded | complete |
+| 3.1 | integrated | a4c82b6 clean README launch; ce79615 v2 package/feature published | none | none | complete |
 
 ## Assignment and authorization
 
@@ -84,3 +84,10 @@ Owner `/root/brief_clean_check`, bounded execution role, no source edits/commits
 - Existing frontend browser checks passed real dense/rare/empty/date/optional/400 cases, keyboard and 375/390/1280px widths. Controlled stale/duplicate/abort/error races passed separately. Service checks exercised real missing catalogue/options 503 and retained cards. Confirmed-brief HTTP returned HK-77838/HK-88430/HK-29829, literal discreet evidence and unknown compulsory contests question; no-key interpreter returned safe 503. Actual process restart preserved IDs. Evidence remains under worker-local ignored test-results.
 - Backend contract version v2 package commit `ce796157e84f66ab8eebd47e1aec0559418feeee`, pinned backend `a4c82b68f7b1d82bae8d51b3e26406ef70cb4d91`, canonical destination `D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/specs/contractor-selection/versions/v2`. Package DTO snapshots and every captured public response passed consumer validation. Origin/codex/ai-upgrade confirmed ce79615. No separate frontend consumer assignment.
 - a4c82b6 to ce79615 changes only package/task documentation; executable source is unchanged. Docker rebuild was not repeated for this feature; final clean-launch evidence is the documented Node route. No organizer submission or public internet deployment was performed.
+
+## Integration and publication
+
+- Final executable evidence remains pinned to `a4c82b68f7b1d82bae8d51b3e26406ef70cb4d91`. Accepted candidate `cdf888f1f481866ba38a503dd3e9f980fb4dd263` includes package/report-only descendants and preserves the separately published `8824f49` README technology tags. The transient staged README initially prevented promotion; its owner published it, and coordinator merged its committed contents without changing or discarding local work.
+- Under the coordinator reservation, integration worktree and clean primary main were fast-forwarded to cdf888f. A path comparison confirmed no executable differences from the clean-tested source; package v2 is byte-identical to its pinned commit ce79615. Canonical package now exists at the reserved absolute root, with no frontend repinning implied.
+- Ordinary origin main push succeeded; remote head confirmed `cdf888f1f481866ba38a503dd3e9f980fb4dd263`. All six feature tasks are integrated; checkboxes now record actual publication. This final task report is a separate documentation-only follow-up; no unchanged product tests were repeated.
+- Delivery: MERGED AND PUBLISHED. No remaining acceptance blocker. Keep branch/worktrees; no destructive cleanup. Own shared reservation is released after publishing this report; local preview on 3127 is outside shared resources.
