@@ -13,8 +13,8 @@
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
 | 1.1 | implemented | f9ed31f; existing slice 8/8 passed; relevant product/data matches 8aaad189 | Publication | None | Coordinator |
-| 1.2 | planned | Read-only projection defect reproduced; other focused probes pass | Repair/regression/typecheck | Planning commit before dispatch | Apply role |
-| 1.3 | planned | Historical dense pass at 8aaad189 | Rare live and equivalence | None | Coordinator |
+| 1.2 | branch-pushed | bee7be9bd81b9a9cb537a2bdc2d3c35258da171b remote-confirmed; 12/12 focused+slice, typecheck passed | Combined acceptance/publication | None | Coordinator |
+| 1.3 | implemented | Rare live pass; dense/rare exact payload equivalence; historical dense reused | Publication | None | Coordinator |
 | 2.1 | planned | Public v1 unchanged | Combined acceptance/publication | Shared integration owned by catalog-module | Coordinator |
 
 Checkboxes measure final delivery. After acceptance/publication, sync contractor-evidence, archive, validate and publish the report-only update under the user's all-stages authorization.
@@ -31,7 +31,7 @@ Checkboxes measure final delivery. After acceptance/publication, sync contractor
 
 ## Apply assignment: P04 1.2
 
-- Owner: apply role /root/evidence_apply (record returned task ID after dispatch). Worktree/branch/remote as coordinator card; committed planning base supplied at dispatch.
+- Owner: apply role /root/evidence_apply (runtime returned task ID). Worktree/branch/remote as coordinator card; committed planning base 815bb34b0b4c37775b7dc13f6431794baaa062e2.
 - Allowed: back/ai/evidence/select.ts and back/ai/evidence/evidence.test.mjs only. No contracts/transport/config/renderer/HTTP/UI/package/task-state writes. You are not alone; preserve other contributors' edits.
 - Context: this card, design Decisions, contractor-evidence delta, approved P04; existing select.ts, recommend ports and relevant frozen examples/slice checks. Coordinator completed required OpenSpec context/readiness.
 - Work: replace spread with explicit six-field projection. Preserve canonical JSON property order and literalSentenceChoices/instructions/schema. Add focused observable checks for runtime extras omission, no-call defensive inputs/pre-abort, unexpected-error identity, safe arbitrary IDs and input immutability. Reuse existing reversed provider-order renderer case rather than duplicate it. Document sentence heuristic limitations in handoff only.
@@ -46,3 +46,13 @@ Read-only /root/evidence_review at f9ed31f reproduced extra runtime profile fiel
 ## Integration ownership
 
 Initial inspection: canonical marker owned by catalog-module task 01a0cdd6-ca4a-70e2-bdb2-59f05144f2dd, active. P04 has not acquired it and does not modify its workspace. Acquire by exclusive creation after owner releases; never infer expiry.
+
+Owner subsequently released. P04 acquired the canonical marker through exclusive CreateNew at 2026-09-23T10:43:55.7793578Z, owner 01a0cdd8-848b-7f13-a5e8-a675d62eaadf, reserving integration worktree and main promotion. Both shared checkouts were clean; fetched main 400101e includes accepted P02. Release only after P04 shared processes/writes stop.
+
+## Live and reuse evidence
+
+2026-09-23 coordinator review: one live rare request at 10:43:36Z, with baseline evidence executable loaded directly from Git f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 while the apply worker owned its working file. Other runtime/data files were unchanged at that base. Existing server loader read the existing primary .env in process only; no copied credentials or new account. Model returned gpt-4.1-mini-2025-04-14; dataset sha256:a197e65ae503f807e9592313b0dd47d56c038b4e2d0497af9a201e3c501dc856. Normalized request: city Алматы, category Флорист, eventFormat свадьба, date 2026-10-10, budgetKzt 500000; language/duration absent. One call, 3010 ms, usage 547 input/39 output tokens. HK-39372: source pass by own-description normalized substring validator; relevance pass by coordinator for author-designed floral decoration/event floristry. Accepted excerpt: «Мы специализируемся на авторском цветочном оформлении и флористике для мероприятий в Алматы». Overall openai_evidence; one rare card, no pairwise criterion. No failed P04 live attempts. This is not the P07 timing series or final rendering gate.
+
+After the projection repair, coordinator compared captured provider arguments through real createRecommend/CSV selection against accepted P01 8aaad189 for both dense and rare canonical requests. Input JSON strings, instructions, schema and token budget matched exactly; both had one call. Validator, cancellation and transport behavior remained byte-identical; model and dataset match. This establishes semantic reuse despite the explicit projection repair to runtime-extra inputs.
+
+Dense P01 source/relevance/distinctiveness evidence is reused from archived first-working-slice/tasks.md at 8aaad189: normalized request city Алматы/category Ведущий/eventFormat корпоратив/date 2026-10-10/budgetKzt 1500000, optional fields absent; same model/dataset as above. HK-88430 pass/pass (intelligent humour and organization); HK-29829 pass/pass (entertainment and dancing); HK-27222 pass/pass (European presentation and respect for traditions). Names-hidden substantive distinctiveness passed historical coordinator review on 2026-09-23; no new dense paid request claimed. Frozen inputs/prompt/body equivalence checked freshly by P04 coordinator.

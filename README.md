@@ -45,8 +45,8 @@ npm run typecheck
 npm test
 ```
 
-Expected: shared types and labelled synthetic examples compile; three fixture
-consistency checks, ten existing secrets/transport checks and eight P01 contract checks pass.
+Expected: shared types and labelled synthetic examples compile; fixture,
+secrets/transport, P01 contract and focused evidence-boundary checks pass.
 No `.env`, provider account, browser installation or billable calls are needed
 for these foundation checks. `csv-parse` loads the real catalogue.
 
@@ -96,9 +96,11 @@ requires manual source/relevance/distinctiveness review. A fallback is not a liv
 quality pass. Domain checks, browser evidence and delivery status are recorded in
 [the P01 task card](openspec/changes/archive/2026-09-23-first-working-slice/tasks.md).
 
+P04 verifies the evidence adapter's selected-only data boundary and the rare
+florist live sample; see [P04 evidence](openspec/changes/validated-ai-evidence/tasks.md).
 Scope limits: no language/duration controls, date-change comparison narrative,
-booking, persistence or AI quality ranking. Rare/final live samples and the final
-three-request timing series belong to later stages. This is not a final submission
+booking, persistence or AI quality ranking. Final rendered-text acceptance and
+the three-request timing series remain P07 work. This is not a final submission
 readiness claim.
 
 ## Secrets setup for organizers
