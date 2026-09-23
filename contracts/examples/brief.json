@@ -1,0 +1,21 @@
+{
+  "interpretRequest": { "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов" },
+  "interpretResponse": {
+    "requestId": "example-brief-success",
+    "brief": {
+      "vocabularyVersion": "brief-v1",
+      "text": "Нужен ненавязчивый ведущий, без принудительных конкурсов",
+      "conditions": [
+        { "trait": "discreet", "intent": "prefer", "text": "ненавязчивый ведущий" },
+        { "trait": null, "intent": "avoid", "text": "без принудительных конкурсов" }
+      ]
+    }
+  },
+  "advice": {
+    "evidence": [{ "condition": { "trait": "discreet", "intent": "prefer", "text": "ненавязчивый ведущий" }, "relation": "match", "quote": "Профессиональный ведущий с интеллигентной, располагающей и ненавязчивой подачей." }],
+    "unknownConditions": [{ "trait": null, "intent": "avoid", "text": "без принудительных конкурсов" }],
+    "question": "Сможете ли вы учесть пожелание «без принудительных конкурсов»?"
+  },
+  "providerError": { "error": { "code": "BRIEF_UNAVAILABLE", "message": "Не удалось разобрать пожелания. Повторите попытку или очистите необязательное поле.", "requestId": "example-brief-error" } },
+  "indexError": { "error": { "code": "BRIEF_INDEX_UNAVAILABLE", "message": "Сопоставление пожеланий с каталогом временно недоступно.", "requestId": "example-index-error" } }
+}
