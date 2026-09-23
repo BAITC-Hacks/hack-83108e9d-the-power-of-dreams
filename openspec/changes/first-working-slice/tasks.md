@@ -27,7 +27,7 @@ Checkboxes measure final integration/publication, not local implementation. Curr
 - Context/harness: committed AGENTS.md, .codex/config.toml, .codex/agents/review.toml and apply.toml, .agents/skills and openspec/config.yaml at base. Local scope edits are authorized input and are preserved in the scoped planning commit. No delegated frontend package; P01 is coordinator-owned, P05 handoff remains later.
 - Authorization: user requests new change and all stages, role subagents, simple implementation; normal scoped commit/push/main integration authorized. User explicitly supersedes historical time/deadline/reserve requirements and controls schedule. No schedule questions remain.
 - Checks: npm run typecheck; npm test; focused Node checks; npm run build; npm start -- --port 3101; real browser dense submission => 10/5 and HK-88430/HK-29829/HK-27222; record measured submit-to-visible duration; controlled failure preserves IDs/order and shows fallback; clean candidate uses README. Live gate stays unmet on failure.
-- Dependencies: accepted P00 ancestor verified; back/contracts unchanged. No active worker writes. Existing other changes not selected or modified. Shared ownership not yet acquired; acquire before integration/main/package writes.
+- Dependencies: accepted P00 ancestor verified; back/contracts unchanged. Existing other changes not selected or modified. Exclusive shared ownership acquired by 01a0cdbe-5faa-7441-b909-b902328c4d37 for the integration worktree and main, through CreateNew at the canonical marker; same owner as this card. Release after shared writes/processes stop.
 - Run storage: worktree-local node_modules/.next/temp; supplied read-only CSV; no persistent application storage.
 
 ## Read-only scope review
@@ -46,6 +46,8 @@ Role review, task /root/scope_review, existing P01 checkout, base above. Allowed
 - Dependencies: coordinator observed real production browser live slice (3208 ms), strict dense live passed after narrow prompt repair. No extra feature scope/infrastructure. Return defects before out-of-scope repairs. Main integration remains coordinator-owned.
 
 ### Preliminary observations
+
+Apply worker published only scripts/slice/contracts.test.mjs at 196b901bc7bf72e87a42e2b3090cf200633621a7, remote exact match, clean worktree. Coordinator inspected and cherry-picked as bae573b. Eight controlled checks pass and typecheck passes; actual provider requests were not made by worker. npm test now includes these checks alongside existing 13. Clean combined-candidate checks and final publication remain below.
 
 Product snapshot 37553c2a96189305281f9975974b45b8add70546 includes the tested implementation and a syntax-only InputError constructor change for native Node TypeScript execution. Read-only review at that revision supported cancellation, retained load, public projection, stale/error state and server/client separation; no critical incidental finding. Apply checks report 8/8 plus typecheck (publication revision to follow). Browser observed desktop two-column layout; 390x844 mobile stacked form/cards with no horizontal overflow, visible blue keyboard focus; budget 1 no-match, budget 0 native validation; server stopped produced safe connection error and removed old results. Restart without an API key preserved real dense IDs and displayed catalogue-only label. Client bundle scan found no OPENAI_API_KEY, provider URL, node:fs, loadSecrets, literalSentenceChoices or busy_dates markers.
 

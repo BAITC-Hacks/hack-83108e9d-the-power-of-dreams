@@ -46,7 +46,7 @@ npm test
 ```
 
 Expected: shared types and labelled synthetic examples compile; three fixture
-consistency checks and ten existing controlled secrets/transport checks pass.
+consistency checks, ten existing secrets/transport checks and eight P01 contract checks pass.
 No `.env`, provider account, browser installation or billable calls are needed
 for these foundation checks. `csv-parse` loads the real catalogue.
 
