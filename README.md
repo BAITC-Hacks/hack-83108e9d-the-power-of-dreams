@@ -173,10 +173,10 @@ Run from the repository root:
 
 ```powershell
 npm run build
-npm start -- --port 3101
+npm start -- --port 3000
 ```
 
-Keep the terminal running and open [the application](http://127.0.0.1:3101).
+Keep the terminal running and open [the application](http://127.0.0.1:3000).
 Stop the server with `Ctrl+C`. Both start scripts bind to `127.0.0.1` for local
 access. Retain `raw/` and `back/` alongside the application: the server loads
 the CSV and the existing OpenAI transport from these directories at runtime.
@@ -216,6 +216,20 @@ the explanations depend on whether validated source quotes are available.
 Change the budget to **1** and submit again: the app should display a normal
 empty result. Changing fields alone does not make an AI request. To check a
 different date, change the date and press **Подобрать** again.
+
+For a short demonstration, continue with these inputs (leave optional fields blank):
+
+| Case | Change from the primary scenario | Expected result |
+| --- | --- | --- |
+| Rare category | Category Флорист, format свадьба, budget 500000 | One card: HK-39372; explanation of the incomplete three-card set |
+| No category in city | Rare inputs, city Зарубежье | Explicit category-absent outcome |
+| Busy-date change | Primary inputs, date 2026-10-11 | HK-44923, HK-27222, HK-44733; date comparison explains busy marks |
+| Price-order date change | Primary inputs, submit October 1 then October 6 | HK-75012 is replaced by HK-29829 through starting-price order, not a new busy mark |
+
+Reset restores the primary defaults. Explain that filtering and price/ID order
+select the cards; optional AI supplies source quotes only. Starting prices and
+calendar marks never guarantee booking. Dataset and software provenance is in
+[THIRD_PARTY.md](THIRD_PARTY.md).
 
 Previous results keep their original conditions while you edit or wait for a
 new selection, and survive a failed request. Date-only submissions explain
@@ -350,8 +364,21 @@ quality pass.
 - Catalogue/configuration changes require a server restart.
 
 Recorded acceptance belongs to the linked revisions and scopes, not to every
-future checkout. Final rendered-text acceptance and the three-request timing
-series remain P07 work; this README is not a final submission-readiness claim.
+future checkout. Final live rendered-text decisions, three-request timings,
+clean-checkout evidence and exact publication status are in the
+[P07 delivery task card](openspec/changes/integration-and-delivery/tasks.md).
+Repository publication is separate from submission to the organizer; no
+organizer submission is performed by the run instructions.
+
+To reproduce the final live timing series after the production build, stop any
+server on port 3107 and run `node scripts/delivery/live.mjs` with local OpenAI
+configuration. It starts and stops its own production server and makes exactly
+three application submissions (dense, rare, dense); normal provider retry policy
+still applies. It requires the Playwright tooling already pinned in the lockfile
+and Microsoft Edge installed locally. Results and public screenshots are written
+under ignored `test-results/p07-live`. It fails on live fallback; per-card semantic
+quality still needs review against the source. This optional acceptance tooling
+is not required to use the application and incurs paid API usage.
 
 | Area | Requirements and recorded evidence |
 | --- | --- |

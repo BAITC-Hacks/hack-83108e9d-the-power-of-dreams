@@ -14,10 +14,10 @@ Checkboxes measure final integrated/published delivery; archive is a distinct fo
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | planned | Base 878ed7898c34723f77965d78fe0d75c2eef8c13a | Provenance and final README | None for independent work | Coordinator / provenance apply |
-| 1.2 | planned | P06 live connection evidence available | Three timings and final quality | None | Coordinator |
+| 1.1 | implementing | Planning 50a6d1776e082e93853375a2e82b74e979050970; Docker main 1705e225a7fd02decebdbadea02138b03c125196 merged | Provenance and final README | None | Coordinator / provenance apply |
+| 1.2 | implementing | Small live runner added; syntax checked | Three timings and final quality | None | Coordinator |
 | 2.1 | planned | P05/P06 historical real/controlled evidence | Frozen revision / clean final README | Integration owned by Docker task | Coordinator |
-| 2.2 | planned | No publication yet | Review/promotion/push/sync/archive | Shared owner 01a0cdfc-2125-7b53-8376-63811a66bc61 | Coordinator after release |
+| 2.2 | planned | No P07 publication yet | Review/promotion/push/sync/archive | None; own reservation acquired | Coordinator |
 
 ## Assignment and readiness
 
@@ -46,3 +46,7 @@ Clean committed checkout: sibling isolated worktree; confirm tracked clean and n
 2026-09-23 read-only review at base 878ed78: application/data/tests match accepted P06 0157721; only documentation differs. P05 combined evidence covers 26 real production HTTP requests/six starts, repeat/restart, busy venue HK-64395 and date/empty cases. P06 covers real/controlled UI and 48 tests plus build/typecheck. Existing scripts/slice/contracts.test.mjs cover empty -> zero evidence calls and controlled mixed/local; scripts/backend/configuration.test.mjs covers unavailable config -> zero transport calls; transport/evidence tests cover controlled failures/timeouts. These are historical observations to reuse only while relevant source remains unchanged. Final quality/timing remains unrun.
 
 Context7 official Playwright v1.63.0 documentation consulted for web-first rendered assertions; no dependency added. Primary private .env exists; values were not printed. Docker owner contacted under coordination protocol and is finishing its independent accepted candidate.
+
+Dispatch: provenance worktree/branch/base/remote verified at planning SHA 50a6d1776e082e93853375a2e82b74e979050970; required harness files present and working tree clean. Worker /root/provenance_apply assigned only THIRD_PARTY.md. Read-only review /root/delivery_evidence_review completed coverage assessment. Both role instructions are loaded by actual role tools, not inferred from TOML parsing.
+
+Shared ownership: Docker task explicitly confirmed publication at 1705e225a7fd02decebdbadea02138b03c125196, clean shared worktrees and stopped processes, then removed its own marker. Coordinator 01a0ce09-4086-7533-88a3-0810cb6ecab7 acquired integration-owner.json through exclusive CreateNew for integration-worktree/main-publication. Docker main merged into P07 at ebce2be3684fabd2e727d22879ca174876907eda. Git diff against accepted P06 0157721 is empty for back/, front/, src/, contracts/, raw/, package.json and package-lock.json, supporting historical real/controlled evidence reuse. Canonical v1 is already tracked; no untracked package migration is needed if primary remains clean.
