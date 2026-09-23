@@ -24,7 +24,7 @@ Checkboxes mean final integration/publication, not local implementation.
 - Owner: Codex task 01a0cdd7-6e36-7290-a940-38b8c8b2e9c1, role coordinator. Task card: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-03/openspec/changes/selection-domain/tasks.md`.
 - Scope: `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-cs-03`, branch `codex/cs-03-domain`, base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766, origin `https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git`, target main.
 - User authorizes all OpenSpec stages, role subagents, minimal implementation and normal publication. No no-commit/no-push hold. Other contributors' work is preserved. No paid/live calls are required or planned for P03.
-- Shared reservation: acquisition with FileMode.CreateNew correctly refused because catalog-module owner 01a0cdd6-ca4a-70e2-bdb2-59f05144f2dd holds the canonical marker. No P03 shared writes performed; coordinator will inspect owner progress and wait while independent feature work continues.
+- Shared reservation: initial acquisition refused while P02 held it. P02 released after publishing 400101ef1b210c2c45a871c4952f5580ba76faa7; the next exclusive attempt refused because P04 owner 01a0cdd8-848b-7f13-a5e8-a675d62eaadf acquired it first. Both owners were contacted; no P03 shared writes performed. Continue independent verification preparation, then acquire exclusively after P04 releases.
 - Existing unrelated changes are not selected; their historic stages/holds remain intact. This session has no workers on those changes.
 
 ## Apply assignment 1.1
@@ -60,3 +60,9 @@ Coordinator integrated worker SHA into b0bf2c925da461f3a2168044c3730d5a2374a33e 
 Read-only `/root/domain_review` returned supported for S1-S5 at b0bf2c925da461f3a2168044c3730d5a2374a33e, using scoped inspection and supplied 25/25 evidence without redundant reruns. No acceptance failure or critical incidental defect found. Existing slice optional test supplies S2 and busy-person evidence; focused suite supplies the remaining cases. Review does not establish main integration.
 
 Fetched current specs instructions, synchronized all five additive requirements into `openspec/specs/contractor-selection-domain/spec.md` with Purpose and Requirements headings, preserving existing specs. Strict validation passed all three current specifications. Archive and final report await confirmed combined main publication.
+
+### Concurrent integration reconciliation
+
+Published P02 main 400101ef1b210c2c45a871c4952f5580ba76faa7 was merged into the independent P03 branch as b1892d74f0be5df8bb105dd24b1c65b7e8f33ddd. The sole conflict was npm test registration; resolved by retaining both catalogue and domain suites. P02 runtime and shared date helper are unchanged. No writes to primary main or another owner's integration worktree occurred.
+
+Created independent sibling `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-p03-verification`, branch `codex/p03-verification`, at b1892d74f0be5df8bb105dd24b1c65b7e8f33ddd for clean-checkout installation, with its own node_modules/build output and planned port 3103. This is not the shared integration worktree. Final candidate will include published P04 before acceptance; P04 owns evidence-module changes and its own acceptance. No hidden local configuration is copied.
