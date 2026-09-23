@@ -101,6 +101,13 @@ booking, persistence or AI quality ranking. Rare/final live samples and the fina
 three-request timing series belong to later stages. This is not a final submission
 readiness claim.
 
+P03's focused selection checks run as part of `npm test`, or separately with
+`node --test back/domain/select.test.mjs`. They cover candidate/busy scope,
+stable result limits and input preservation using labelled controlled profiles;
+the existing slice checks exercise the real catalogue and HTTP boundary.
+See the [selection task card](openspec/changes/selection-domain/tasks.md) for
+the current acceptance and publication status.
+
 ## Secrets setup for organizers
 
 Requires Node.js 24.4.1 or compatible Node.js 24. These commands need no
