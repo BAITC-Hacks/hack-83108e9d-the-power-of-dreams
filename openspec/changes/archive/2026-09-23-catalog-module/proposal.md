@@ -1,6 +1,6 @@
 ## Why
 
-Complete P02 catalogue acceptance using the existing accepted P01 loader. The [approved design](../../../.brainstorming/2026-09-23-catalog-module-design.md) identifies missing focused evidence, not a need to rebuild the module.
+Complete P02 catalogue acceptance using the existing accepted P01 loader. The [approved design](../../../../.brainstorming/2026-09-23-catalog-module-design.md) identifies missing focused evidence, not a need to rebuild the module.
 
 ## What Changes
 

@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md) and the approved P02 outcome. Base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 includes accepted P01 product 8aaad189393be78a21f1793afd2014c55794f7cd plus later documentation. Existing loader behavior is reused. [System architecture](../../../architecture/system.md) governs the surrounding application.
+See [proposal](proposal.md) and the approved P02 outcome. Base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 includes accepted P01 product 8aaad189393be78a21f1793afd2014c55794f7cd plus later documentation. Existing loader behavior is reused. [System architecture](../../../../architecture/system.md) governs the surrounding application.
 
 ## Goals / Non-Goals
 

@@ -125,5 +125,4 @@ Consulted on 2026-09-23. Context7 resolved official Next.js and Node CSV reposit
 
 ## Shared calendar boundary
 
-P02 publishes the existing pure isCalendarDate operation in back/domain/date.ts as coordinator-owned shared backend code, pinned at f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766. Catalogue and request validation may consume it; P02/P03 owners may not independently edit it. See [catalogue design](../openspec/changes/catalog-module/design.md) for its contract and verification.
-
+P02 publishes the existing pure isCalendarDate operation in back/domain/date.ts as coordinator-owned shared backend code, pinned at f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766. Catalogue and request validation may consume it; P02/P03 owners may not independently edit it. See [catalogue design](../openspec/changes/archive/2026-09-23-catalog-module/design.md) for its contract and verification.

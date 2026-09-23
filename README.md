@@ -48,7 +48,7 @@ npm test
 Expected: shared types and labelled synthetic examples compile; fixture,
 secrets/transport, P01 slice and P02 catalogue acceptance checks pass.
 The P02 checks cover complete CSV decoding, safe failure, global options,
-immutable snapshots and exact source identity. See the [catalogue task card](openspec/changes/catalog-module/tasks.md).
+immutable snapshots and exact source identity. See the [catalogue task card](openspec/changes/archive/2026-09-23-catalog-module/tasks.md).
 No `.env`, provider account, browser installation or billable calls are needed
 for these foundation checks. `csv-parse` loads the real catalogue.
 
