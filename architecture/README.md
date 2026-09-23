@@ -1,0 +1,25 @@
+# Architecture
+
+Architecture for task #79-lite: explainable event-contractor selection from the supplied catalogue. The user agreed the **OpenAI-first MVP direction** on 2026-09-23, with a reported **four-hour implementation and demo budget** and available **OpenAI and NVIDIA API keys**. Key availability is user-reported; account/model access has not been tested.
+
+**MVP baseline:** one local Next.js application; CSV loaded into memory; deterministic eligibility and price ordering; one bounded OpenAI call to select profile-specific evidence for up to three explanations. No database, vector index, additional backend service, or additional cloud account.
+
+NVIDIA is an available contingency, not a second provider called on every request. A semantic-ranking experiment is optional only after the required MVP works and sufficient time remains for delivery. See [NVIDIA's role](system.md#nvidia-api-key-assessment) and the [experiment checkpoint](implementation-and-verification.md#optional-nvidia-checkpoint).
+
+## Read in order
+
+| Document | Purpose |
+| --- | --- |
+| [System architecture](system.md) | Alternatives, components, ownership, dependencies, public boundaries and local execution |
+| [Selection and explanations](selection-and-explanations.md) | Proposed business decisions, stable ranking, grounded AI use, failure behaviour and date changes |
+| [Implementation and verification](implementation-and-verification.md) | Four-hour sequence, first feasibility check, acceptance evidence and deliberate omissions |
+
+## Status and authority
+
+- OpenAI transport access was verified on 2026-09-23 with the pinned model. The server adapter and its scope, live evidence and publication hold are recorded in [openai-response-adapter](../openspec/changes/openai-response-adapter/tasks.md). This updates the earlier untested-access statement above; domain/application integration remains separate.
+
+- The accepted direction and provider sequence are preserved in the [approved brainstorming outcome](../.brainstorming/2026-09-23-contractor-selection-architecture-design.md). Architecture agreement is not evidence of a working application, live integration or completed implementation planning.
+- Source requirements and data facts remain in [domain/README.md](../domain/README.md). Policy choices that were absent from the brief are explicitly identified in [the proposed selection policy](selection-and-explanations.md#proposed-policy-decisions).
+- Before product implementation, create a linked product change in [OpenSpec](../openspec/) using the approved outcome. Its specs, design, contracts and task stages become authoritative for implementation. Detailed policy proposals below must be captured there; do not restart discussion of the agreed provider strategy or maintain competing specifications here.
+- The existing [local-secrets change](../openspec/changes/unified-local-secrets/design.md) supplies the configuration boundary. Its [task card](../openspec/changes/unified-local-secrets/tasks.md) records local evidence and a publication hold; this architecture does not change that status.
+- This update changes architecture documents and records the approved discussion outcome. It neither implements the application nor commits, publishes, changes the dataset, or inspects credentials.

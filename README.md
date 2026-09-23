@@ -1,6 +1,19 @@
 # hack-83108e9d-the-power-of-dreams
 Hackathon team repository for «The Power of Dreams»
 
+## Development starting point
+
+The selected task is explainable event-contractor selection from the supplied
+catalogue (#79-lite). The agreed MVP is one local Next.js application with
+in-memory CSV data, deterministic selection and an OpenAI evidence adapter.
+See [architecture](architecture/README.md) and the [module proposal sequence](.proposals/README.md).
+
+Start with [P00: foundation and contracts](.proposals/00-foundation-and-contracts.md)
+in its assigned worktree, then P01's first working scenario. Only after its
+verified commit should P02/P03/P04 run independently from that same base.
+P00 must still create the product OpenSpec change and freeze the contracts;
+publishing this preparation snapshot does not complete P00 or the MVP.
+
 ## Environment setup
 
 Install the prepared web-stack dependencies from the repository root.
@@ -26,8 +39,8 @@ npm ls --depth=0
 ```
 
 The application, application check configurations, and build/run commands have not been
-created yet. Python libraries, data storage, and an external AI SDK will be
-added after the challenge is selected.
+created yet. The selected MVP needs no database, GPU service or external AI SDK.
+The separate Brev tools below are optional infrastructure, not application prerequisites.
 
 ## Secrets setup for organizers
 
@@ -47,8 +60,9 @@ This creates one root `.env` from [.env.example](.env.example). An existing
 | `NVIDIA_API_KEY` | NVIDIA API credential | A server operation uses NVIDIA |
 | `DATABASE_URL` | Database connection URI, including credentials if needed | A server operation uses a database |
 
-No database engine or product scenario is selected yet. Use the URI format
-required by the eventual database driver. Quote values containing `#` or
+The selected contractor-selection MVP does not use a database. The reserved
+`DATABASE_URL` setting is only for a future explicitly scoped integration.
+Quote values containing `#` or
 whitespace. Values are literal; references such as `${OTHER_VARIABLE}` are
 not expanded. Add future secrets to the same file and document their empty
 entries in the template.
@@ -105,3 +119,108 @@ node --test scripts/secrets/secrets.test.mjs
 
 Current requirements and verification status:
 [OpenSpec tasks](openspec/changes/unified-local-secrets/tasks.md).
+
+## OpenAI server adapter
+
+Requires Node.js 24 and a funded OpenAI API project with model access. No SDK,
+GPU or additional npm installation is required for this module. Run the secrets
+setup above and fill `OPENAI_API_KEY` privately. `OPENAI_MODEL` is optional;
+absent or blank selects `gpt-4.1-mini-2025-04-14`.
+
+```powershell
+node scripts/openai/check.mjs
+node --test scripts/openai/contract.test.mjs
+```
+
+The first command makes one billable live request with a fixed benign prompt.
+Expected: JSON with `ok: true`, `mode: live`, the model, token usage and duration.
+It prints neither the key nor provider response contents. The second command
+uses synthetic credentials and a local test server; it incurs no provider cost.
+
+From a server module at the repository root:
+
+```javascript
+import { createOpenAIFromEnv } from './back/ai/openai.mjs';
+
+const openai = createOpenAIFromEnv();
+const result = await openai.generate({
+  input: 'Summarize the supplied text.',
+  instructions: 'Use only facts from the input.',
+  maxOutputTokens: 450,
+  // signal: callerAbortSignal,
+});
+// Use result.text; do not log private inputs or secrets.
+```
+
+`generate` also accepts developer-controlled `format: { name, schema }` for
+strict JSON-schema output. The caller must parse and validate domain data.
+Results include `text`, `provider`, `mode`, `model`, `responseId`, `requestId`
+and optional `usage` with input/output/total token counts. Errors have a safe
+`message`, stable `code` and `requestId`. Codes distinguish configuration/input,
+authorization, rate/quota limits, rejected requests, provider unavailability,
+invalid/incomplete/refused responses, network failures, timeout and cancellation.
+The live check exits nonzero and prints the code on failure.
+
+Calls use Responses with `store: false`, a six-second deadline including body
+consumption, caller cancellation, zero retries and no fallback. Local cancellation
+does not guarantee cancellation of provider billing. Never import this Node-only
+module into browser components. This verifies transport access; application
+routes, contractor selection and UI integration are not implemented here.
+See [adapter requirements and evidence](openspec/changes/openai-response-adapter/tasks.md).
+
+## Brev GPU access
+
+The existing `dreams-gpu` environment is infrastructure for a future specialized
+GPU workload. These commands verify access and CUDA computation; they do not
+provide a product inference API or an OpenAI adapter.
+
+On Windows, install Ubuntu if absent:
+
+```powershell
+wsl --install -d Ubuntu-22.04 --no-launch
+```
+
+Install the official Brev CLI in that distribution (observed version v0.6.335):
+
+```powershell
+wsl -d Ubuntu-22.04 -u root -- bash -lc 'curl -fsSL https://raw.githubusercontent.com/brevdev/brev-cli/main/bin/install-latest.sh -o /tmp/brev-install.sh && BREV_INSTALL_DIR=/usr/local/bin bash /tmp/brev-install.sh'
+```
+
+Create the local `.env` with the secrets setup command above and privately add
+`BREV_API_KEY`. This is a Brev organization key, distinct from NVIDIA hosted-model
+and NGC credentials. The operator wrapper passes it via process environment;
+it does not require putting the key in command history. In this Windows setup,
+Brev configuration belongs to root inside Ubuntu-22.04. On Linux, install Brev
+for the current user; the wrapper invokes it directly (Linux route not verified).
+
+From the repository root:
+
+```powershell
+node scripts/brev/run.mjs status
+node scripts/brev/run.mjs refresh
+node scripts/brev/run.mjs gpu
+node scripts/brev/run.mjs setup
+node scripts/brev/run.mjs smoke
+```
+
+Expected: the environment is `RUNNING`/`HEALTHY`, the GPU command reports L40S,
+and smoke returns JSON with `status: passed`, `mode: live`, and `result_value: 256`.
+Setup explicitly installs PyTorch 2.13.0 with CUDA 12.6 and NumPy 2.2.6 in
+`/data/dreams-gpu/.venv`; it records resolved packages in
+`/data/dreams-gpu/installed-requirements.txt`. It requires an Ubuntu GPU VM,
+noninteractive sudo and an existing `/data` disk. The active VM is already set up.
+Both SSH and outbound access to official package sources must be available.
+
+Use another existing environment with `--instance NAME` before the operation.
+Trusted operator commands can be run with
+`node scripts/brev/run.mjs exec "python3 --version"`.
+The wrapper exits nonzero on failures and times out after 120 seconds (setup:
+600 seconds); timeout does not guarantee cancellation on the remote machine.
+Never expose this operator command through the application or run commands that
+print credentials. First-time SSH access can require `brev login` if the account
+does not support the API-key/certificate flow verified here.
+
+The selected portal rate was $1.77/hour: $1.74 compute plus $0.03 storage.
+Use Stop in the Brev portal after use; storage continues billing while stopped.
+No instance is created, stopped, deleted, or publicly exposed by these scripts.
+See [verification and outstanding product work](openspec/changes/brev-gpu-access/tasks.md).
