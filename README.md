@@ -11,7 +11,93 @@ city, starting price, explanation and data-provenance labels. The catalogue
 contains anonymized and synthetic profiles; this is a demonstration of selection,
 not a booking service or a source of confirmed contractor availability.
 
-## Quick start
+## Quick start with Docker (recommended for judges)
+
+Install and start [Docker Desktop](https://docs.docker.com/desktop/) with
+Linux containers on Windows/macOS, or Docker Engine with the
+[Compose plugin](https://docs.docker.com/compose/install/linux/) on Linux.
+Use Compose **2.20 or later** (Compose 5 is also supported) and a modern browser.
+The first build needs internet access to download the base image, OS build tools
+and npm packages; allow several minutes. Node.js and npm run inside Docker.
+No database, GPU, provider account or `.env` is required for catalogue-only use.
+
+Clone the repository, or download and extract its ZIP. From its root:
+
+```powershell
+git clone https://github.com/BAITC-Hacks/hack-83108e9d-the-power-of-dreams.git
+cd hack-83108e9d-the-power-of-dreams
+docker compose up --build --wait --wait-timeout 120
+```
+
+If you already have the project, run only the last command in its root. Open
+[the application](http://localhost:3101) and follow the
+[primary scenario](#try-the-primary-scenario) below. The command leaves the
+application running in the background and waits for a successful catalogue API
+healthcheck. The 120-second readiness limit starts after the build; it does not
+limit initial downloads. The image includes the supplied CSV and all runtime
+files, uses a non-root user, and exposes the application only on this computer.
+
+Check status and run the supplied HTTP smoke check without installing host Node.js:
+
+```powershell
+docker compose ps
+docker compose exec -T app node scripts/docker/smoke.mjs
+```
+
+Expected: service `app` is `healthy`; the smoke check reports seven passing
+selection/validation cases and `Container HTTP smoke passed`. On a fresh checkout,
+the modes are `catalog_fallback, not_needed`. This uses the real catalogue and
+HTTP API; it does not evaluate live AI explanation quality. **If you configure
+OpenAI, the smoke check can make four billable provider requests.**
+
+To inspect startup problems or stop and remove this project's containers/network:
+
+```powershell
+docker compose logs --tail 100 app
+docker compose down
+```
+
+If port 3101 is occupied, set `APP_PORT=3111` in a root `.env` (create it if absent,
+or edit that one setting without replacing existing values), run the launch
+command again and open [the alternate address](http://localhost:3111).
+Restart after configuration changes with
+`docker compose up --wait --wait-timeout 120`; rebuild with `--build` after source
+changes. `docker compose down` preserves repository files and your local `.env`.
+
+### Optional AI explanations in Docker
+
+Create a root `.env` by copying `.env.example` with your file manager, then fill
+only `OPENAI_API_KEY`; `OPENAI_MODEL` is optional. Preserve an existing `.env`.
+Run `docker compose up --wait --wait-timeout 120` to recreate the service with the
+new settings. No image rebuild is needed. A funded OpenAI project, model access
+and outbound internet are required; each non-empty selection can make one
+billable request. Missing/failed/rejected AI evidence retains the existing
+labelled catalogue or mixed explanations.
+
+Compose reads `.env` for substitution and forwards only `OPENAI_API_KEY` and
+`OPENAI_MODEL` to the app. Existing shell variables take precedence, including
+an explicitly empty value. A configured key enables live calls automatically.
+To use catalogue-only mode, remove/blank the key in `.env` and unset any shell
+override before recreating the service. In Compose `.env`, use single quotes
+around literal values containing `$` or `#`; unlike the direct Node.js loader,
+Compose expands variable references in unquoted/double-quoted values.
+
+Credentials are supplied at runtime; `.env` files are excluded from the build
+context and image. Keep them private and out of Git. Avoid sharing expanded
+`docker compose config` or container environment output, which can contain keys.
+
+| Docker symptom | Action |
+| --- | --- |
+| Cannot connect to the Docker daemon / missing Docker Desktop pipe | Start Docker Desktop, enable Linux containers and wait for its engine; `docker info` must succeed. |
+| Unknown `--wait` option | Update Compose to 2.20 or later. |
+| Build cannot download images or packages | Check internet/proxy access to Docker Hub, Debian and npm registries, then repeat the build. |
+| Port is already allocated | Set a free `APP_PORT` as described above. |
+| Service is unhealthy or readiness times out | Read `docker compose logs --tail 100 app`; after repairing the cause, repeat `docker compose up --build --wait --wait-timeout 120`. |
+
+Container verification and its exact revisions/limitations are recorded in the
+[Docker delivery task card](openspec/changes/docker-compose-delivery/tasks.md).
+
+## Alternative quick start with Node.js
 
 ### 1. Install the prerequisites
 
@@ -33,7 +119,7 @@ npm --version
 ```
 
 No database, Docker, Python, WSL, GPU, NVIDIA account or separate backend service
-is required to run the application. OpenAI access is optional for catalogue-only
+is required for this Node.js route. OpenAI access is optional for catalogue-only
 operation. The Brev instructions at the end are separate operator tooling.
 
 ### 2. Get the project and install dependencies

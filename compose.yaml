@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      target: runtime
+    init: true
+    ports:
+      - "127.0.0.1:${APP_PORT:-3101}:3000"
+    environment:
+      OPENAI_API_KEY: "${OPENAI_API_KEY-}"
+      OPENAI_MODEL: "${OPENAI_MODEL-}"
