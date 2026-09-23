@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md), the approved [P00 basis](../../../.brainstorming/2026-09-23-foundation-and-contracts-design.md), [system](../../../architecture/system.md), [selection](../../../architecture/selection-and-explanations.md) and [verification](../../../architecture/implementation-and-verification.md). Starting revision is fd432c682d46e2a46cb003ddbeb5d4537d19438c, including published preparation 7d611a971e48b89c26776e6f10dbb4f5bfba7ee2. The existing untracked MVP draft was inspected as reference and is not an active implementation change or a publication input.
+See [proposal](proposal.md), the approved [P00 basis](../../../../.brainstorming/2026-09-23-foundation-and-contracts-design.md), [system](../../../../architecture/system.md), [selection](../../../../architecture/selection-and-explanations.md) and [verification](../../../../architecture/implementation-and-verification.md). Starting revision is fd432c682d46e2a46cb003ddbeb5d4537d19438c, including published preparation 7d611a971e48b89c26776e6f10dbb4f5bfba7ee2. The existing untracked MVP draft was inspected as reference and is not an active implementation change or a publication input.
 
 ## Goals / Non-Goals
 

@@ -210,4 +210,4 @@ were consulted; installed Next 16.3.6 accepted dev/build/start help commands.
 OpenSpec strict validation and doctor passed in the P00 workspace. Node reports a
 non-failing module-type inference warning for the typed fixtures. No product
 build, launch or live provider check is claimed. Exact clean-candidate and
-publication evidence belongs in the [P00 task card](../openspec/changes/foundation-and-contracts/tasks.md).
+publication evidence belongs in the [P00 task card](../openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md).

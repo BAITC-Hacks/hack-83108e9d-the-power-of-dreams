@@ -24,4 +24,4 @@ NVIDIA is an available contingency, not a second provider called on every reques
 - The existing [local-secrets change](../openspec/changes/unified-local-secrets/design.md) supplies the configuration boundary. Its [task card](../openspec/changes/unified-local-secrets/tasks.md) records local evidence and a publication hold; this architecture does not change that status.
 - This update changes architecture documents and records the approved discussion outcome. It neither implements the application nor commits, publishes, changes the dataset, or inspects credentials.
 
-- P00 implementation and frozen contract decisions: [foundation-and-contracts](../openspec/changes/foundation-and-contracts/design.md). This is the fresh change requested for the approved P00 basis; downstream application work remains planned.
+- P00 implementation and frozen contract decisions: [foundation-and-contracts](../openspec/changes/archive/2026-09-23-foundation-and-contracts/design.md). This is the fresh change requested for the approved P00 basis; downstream application work remains planned.
