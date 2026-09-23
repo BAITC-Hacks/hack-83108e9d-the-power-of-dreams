@@ -1,0 +1,43 @@
+{
+  "ownerTaskId": "01a0cde9-4e29-7011-8517-34b2d191d5a9",
+  "packageCommit": "e424a13fec851d7f9f0f4e076f70649e716336f7",
+  "backendCommit": "4ade2fa4022d633e9d96b50188be4cee4fb99539",
+  "canonicalRoot": "D:/Alem/hack-83108e9d-the-power-of-dreams",
+  "files": [
+    {
+      "path": ".shared/specs/contractor-selection/README.md",
+      "sha256": "e62f48d20edd4eb45126eed474b76c7c49ffe75ae30902ccf99d1bf871f1b44f",
+      "previouslyAbsent": true
+    },
+    {
+      "path": ".shared/specs/contractor-selection/versions/v1/README.md",
+      "sha256": "0c098926dff8672f348de033f715414c67fb47402f47b4e76051ee7472db85cd",
+      "previouslyAbsent": true
+    },
+    {
+      "path": ".shared/specs/contractor-selection/versions/v1/contractor-selection.ts",
+      "sha256": "7f7030d79665a82f6a540671637533cca402d3b60c2cf49f9bdf33d20cc053db",
+      "previouslyAbsent": true
+    },
+    {
+      "path": ".shared/specs/contractor-selection/versions/v1/examples/README.md",
+      "sha256": "3f1bc0fcadd375e0d88a334cbabb8005abe9d27d71c41009b964acc7bf07d814",
+      "previouslyAbsent": true
+    },
+    {
+      "path": ".shared/specs/contractor-selection/versions/v1/examples/controlled.json",
+      "sha256": "c488f9e543f5c1972e2d841bdf0a3e16b44490155570a7235bd5cc6e4fa69452",
+      "previouslyAbsent": true
+    },
+    {
+      "path": ".shared/specs/contractor-selection/versions/v1/examples/real-http.json",
+      "sha256": "f728572f67463f70f5ab4d2e28b165a877d60c6687c110669f60591ced7fd833",
+      "previouslyAbsent": true
+    },
+    {
+      "path": ".shared/specs/contractor-selection/versions/v1/examples/request.json",
+      "sha256": "792a2bb9e7ce4b50204603cfb15b414845903dcc48a4616e2878351f0ca5d5b2",
+      "previouslyAbsent": true
+    }
+  ]
+}

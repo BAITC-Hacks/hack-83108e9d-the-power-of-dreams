@@ -17,13 +17,13 @@ Checkboxes mean integrated and published, not merely locally implemented.
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implementing | clean e5cffc7683885764eaa1648ba9fac2f77d4efc6d; remote main equal | dense/evidence mapping | none | coordinator |
-| 1.2 | planned | existing narrow configuration catch | synthetic connected matrix | none | coordinator seam + apply checks |
-| 1.3 | planned | approved expected CSV cases | production observations | none | coordinator |
-| 1.4 | planned | historical P03 combined acceptance | fresh candidate checks + equivalence | none | coordinator |
-| 2.1 | planned | public v1 DTO baseline | package + review | backend acceptance | coordinator/review |
-| 2.2 | planned | canonical version absence to verify | reservation + manifest + pin | package commit | coordinator |
-| 2.3 | planned | accepted modules already on main | candidate acceptance/publication/archive | preceding tasks | coordinator |
+| 1.1 | branch-pushed | dense passed; reviewer supported exact live chain; e424a13 | publication | none | coordinator |
+| 1.2 | branch-pushed | e6cf0ae; 8/8 focused, 44/44 combined | publication | none | coordinator |
+| 1.3 | branch-pushed | 4ade2fa; 26 HTTP requests / six starts | publication | none | coordinator |
+| 1.4 | branch-pushed | clean integration 4ade2fa: npm ci/typecheck/test/build/start + primary pass | publication | none | coordinator |
+| 2.1 | branch-pushed | package e424a13; DTO/JSON verified | read-only package verdict | none | review/coordinator |
+| 2.2 | implementing | absent-path manifest recorded | materialize and compare | package review | coordinator |
+| 2.3 | planned | clean main e5cffc7, shared reservation held | promotion, sync/archive | preceding tasks | coordinator |
 
 ## Ownership and authorization
 
@@ -48,7 +48,12 @@ Execution pending. P06 owns UI completion/date-change narrative. P07 owns final 
 
 ## P06 handoff card
 
-Blocked pending accepted backend and package. Required pins: public version, absolute immutable path, package commit, backend branch/SHA, candidate base, full path/checksum materialization manifest, and exact snapshot comparison before every start/resume. No P06 implementation is assigned by this change.
+Contract version: v1. Immutable path: `D:/Alem/hack-83108e9d-the-power-of-dreams/.shared/specs/contractor-selection/versions/v1`.
+Package commit: `e424a13fec851d7f9f0f4e076f70649e716336f7` (confirmed remote feature head at publication).
+Backend branch/SHA: `codex/cs-05-backend` / `4ade2fa4022d633e9d96b50188be4cee4fb99539`.
+Consumer candidate base: `e424a13fec851d7f9f0f4e076f70649e716336f7`, contains backend and package.
+Ownership/path/checksum manifest: [materialization.json](materialization.json); coordinator task ID above owns all seven recorded previously absent paths, including the index.
+Read-only reviewer checks package content before canonical publication. P06 is not started; do not assign/resume it until full immutable directory path/byte equality against package commit is verified. Missing/extra/changed content blocks work; mutable index cannot repin. No P06 implementation is assigned by this change.
 
 ## Dispatch checkpoint
 
@@ -68,3 +73,12 @@ Shared reservation acquired exclusively by coordinator 01a0cde9-4e29-7011-8517-3
 - 1.4 initial locked install, typecheck, build and 36 baseline checks passed. Fresh combined-candidate verification remains before acceptance. Non-failing Node module-type and npm ESLint deprecation warnings retained; no unrelated dependency changes.
 
 Current stages: 1.1–1.3 implemented (awaiting combined acceptance/publication); 1.4 implementing; 2.1–2.3 planned. No criteria waived. Full stage table will be reconciled at candidate acceptance.
+
+
+## Combined candidate and reproducibility evidence
+
+Using project-delivery for scoped README run reproducibility, not final submission. Clean tracked integration checkout `D:/Alem/hack-83108e9d-the-power-of-dreams-wt-integration`, branch `codex/p05-integration`, exact SHA `4ade2fa4022d633e9d96b50188be4cee4fb99539`: npm ci installed 497 locked packages; npm run typecheck passed; npm test passed 44/44 with zero skips; npm run build passed; node scripts/backend/production.mjs passed 26 HTTP requests across six actual starts. Local evidence output is test-results/p05-DvMS6Q/observations.json. Build/temp outputs belong to this checkout, no tracked edits, no hidden .env or personal session used. AI was disabled with empty process OPENAI_API_KEY.
+
+Additionally the exact README `npm start -- --port 3105` command was launched from this checkout. Real POST of package request returned matched/catalog_fallback, eligibleCount 5, ordered HK-88430/HK-29829/HK-27222. Owned listener PID 44888 was stopped after verification. No backend process remains from this check. This fulfills affected run reproducibility, not final browser/submission quality.
+
+Feature/package remote head confirmed e424a13fec851d7f9f0f4e076f70649e716336f7. Package files alone change after tested backend SHA. Materialization is pending review and the recorded full-path manifest; no unknown future SHA is embedded in immutable version content.
