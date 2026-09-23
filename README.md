@@ -13,7 +13,7 @@ in its assigned worktree, then P01's first working scenario. Only after its
 verified commit should P02/P03/P04 run independently from that same base.
 P00 contracts are in `contracts/`, with immutable domain types and evidence ports
 under `back/`. See the [foundation change](openspec/changes/archive/2026-09-23-foundation-and-contracts/tasks.md)
-for verification and delivery status. The product application remains P01 onward.
+for verification and delivery status. P01 now implements the first working browser slice; see the active OpenSpec evidence below.
 
 ## Environment setup
 
@@ -23,7 +23,6 @@ Exact package versions are pinned in `package.json` and `package-lock.json`.
 
 ```powershell
 npm ci
-npx playwright install
 ```
 
 The stack includes Next.js, React, TypeScript, Tailwind CSS with PostCSS, Zod,
@@ -49,14 +48,58 @@ npm test
 Expected: shared types and labelled synthetic examples compile; three fixture
 consistency checks and ten existing controlled secrets/transport checks pass.
 No `.env`, provider account, browser installation or billable calls are needed
-for these foundation checks. `csv-parse` is pinned for the future catalogue loader.
+for these foundation checks. `csv-parse` loads the real catalogue.
 
-`npm run dev`, `npm run build`, and `npm start` are configured for the future
-Next.js application. Dev/start bind to `127.0.0.1:3000` (override with `-- --port 3001`).
-P00 contains no routes/screens, so product build/start/demo are not yet available
-or verified. Do not treat foundation checks as application acceptance.
-The selected MVP needs no database, GPU service or external AI SDK.
-The separate Brev tools below are optional infrastructure, not application prerequisites.
+## Run the first working slice
+
+The app reads `raw/dataset.csv` once per process and exposes a five-field Russian
+form at `/`. Selection uses city/category, calendar, budget and format, ordered
+by starting price then catalogue ID. One bounded OpenAI request selects source
+excerpts; local code verifies them and renders the explanation.
+
+```powershell
+npm ci
+npm run typecheck
+npm test
+npm run build
+npm start -- --port 3101
+```
+
+Open http://127.0.0.1:3101. The general dev/start default is port 3000; P01 uses
+3101. Run from the repository root and retain `raw/` and `back/`: the unchanged
+server transport is loaded at runtime to keep the private `.env` out of bundled
+assets. No database, GPU, external font, account session or extra service is needed.
+`npx playwright install` is optional browser-test tooling, not an app prerequisite.
+
+Primary scenario: Алматы / Ведущий / корпоратив / 2026-10-10 / 1500000 KZT.
+Expected: 10 candidates, 5 eligible, and Куррапика (HK-88430), Аня Форджер
+(HK-29829), Сон Гоку (HK-27222), in that order. Budget 1 gives a normal empty
+result. Changing form fields does not call AI until Подобрать is pressed.
+Prices are starting prices; absence of a busy mark is not a confirmed booking.
+The interface labels synthetic/anonymized profiles and imputed city/price values.
+
+For live excerpts, configure `OPENAI_API_KEY` through the existing setup below;
+`OPENAI_MODEL` defaults to `gpt-4.1-mini-2025-04-14`. A funded project, model access
+and outbound network are needed; each submission can incur a small API charge.
+Without configuration, or on AI failure, selection still uses the real CSV and
+shows the truthful catalogue-only or mixed explanation label. This is real-data
+fallback, not a fixture mode. Restart after changing configuration or correcting
+an unavailable catalogue: loading failures are retained until restart.
+
+```powershell
+node scripts/slice/live.mjs
+```
+
+This optional command makes one billable dense-domain request and prints only
+public output and sanitized evidence metadata. Full acceptance additionally
+requires manual source/relevance/distinctiveness review. A fallback is not a live
+quality pass. Domain checks, browser evidence and delivery status are recorded in
+[the P01 task card](openspec/changes/first-working-slice/tasks.md).
+
+Scope limits: no language/duration controls, date-change comparison narrative,
+booking, persistence or AI quality ranking. Rare/final live samples and the final
+three-request timing series belong to later stages. This is not a final submission
+readiness claim.
 
 ## Secrets setup for organizers
 
@@ -109,8 +152,8 @@ Only the empty template belongs in the repository.
 
 ### Server integration
 
-The application does not exist yet. Its future server entry point must call
-the reader before external operations and pass only the required values to
+The server composition calls
+the reader before external operations and passes only the required values to
 the corresponding adapters:
 
 ```javascript
@@ -124,8 +167,7 @@ The import above is relative to a server entry point in the repository root.
 The reader returns a frozen object containing only the requested names; it
 does not mutate `process.env`. Errors have a stable `code`, a safe `message`,
 and a `requestId`. Browser modules must not import `back/config/`; names
-starting with `NEXT_PUBLIC_` are rejected. No application startup or live
-service integration is claimed by this change.
+starting with `NEXT_PUBLIC_` are rejected. The P01 task card records application integration separately from the original secrets checks.
 
 Run the focused checks with synthetic temporary credentials:
 
@@ -181,7 +223,7 @@ Calls use Responses with `store: false`, a six-second deadline including body
 consumption, caller cancellation, zero retries and no fallback. Local cancellation
 does not guarantee cancellation of provider billing. Never import this Node-only
 module into browser components. This verifies transport access; application
-routes, contractor selection and UI integration are not implemented here.
+routes, contractor selection and UI integration are recorded separately in the P01 task card.
 See [adapter requirements and evidence](openspec/changes/openai-response-adapter/tasks.md).
 
 ## Brev GPU access

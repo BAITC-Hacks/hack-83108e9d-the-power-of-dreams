@@ -203,6 +203,14 @@ Sources: [Responses text generation](https://developers.openai.com/api/docs/guid
 
 ## P00 foundation checks (2026-09-23)
 
+P01 uses the same locked stack. Context7 documentation was retrieved for Next.js
+Node route handlers and runtime-only imports (`webpackIgnore`), and csv-parse's
+sync/header/BOM parsing. Runtime-only import keeps the existing secrets reader's
+relative `.env` URL out of bundled assets without changing the reader/transport.
+Next's generated TypeScript settings are retained; `next-env.d.ts` is generated
+and ignored. P01 product execution and clean-candidate evidence are in
+[first-working-slice](../openspec/changes/first-working-slice/tasks.md).
+
 Foundation setup retains Node 24.4.1/npm 11.4.2 and the existing pins, adding only
 csv-parse 7.0.2. Context7 official Next.js CLI and TypeScript configuration docs
 were consulted; installed Next 16.3.6 accepted dev/build/start help commands.
