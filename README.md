@@ -99,7 +99,7 @@ quality pass. Domain checks, browser evidence and delivery status are recorded i
 [the P01 task card](openspec/changes/archive/2026-09-23-first-working-slice/tasks.md).
 
 P04 verifies the evidence adapter's selected-only data boundary and the rare
-florist live sample; see [P04 evidence](openspec/changes/validated-ai-evidence/tasks.md).
+florist live sample; see [P04 evidence](openspec/changes/archive/2026-09-23-validated-ai-evidence/tasks.md).
 Scope limits: no language/duration controls, date-change comparison narrative,
 booking, persistence or AI quality ranking. Final rendered-text acceptance and
 the three-request timing series remain P07 work. This is not a final submission

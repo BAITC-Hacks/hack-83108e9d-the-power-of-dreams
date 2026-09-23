@@ -16,7 +16,7 @@ NVIDIA is an available contingency, not a second provider called on every reques
 
 ## Status and authority
 
-- P04 evidence module boundaries, narrow projection repair and acceptance: [validated-ai-evidence](../openspec/changes/validated-ai-evidence/design.md). Frozen public ports, prompt, transport and selection remain unchanged.
+- P04 evidence module boundaries, narrow projection repair and acceptance: [validated-ai-evidence](../openspec/changes/archive/2026-09-23-validated-ai-evidence/design.md). Frozen public ports, prompt, transport and selection remain unchanged.
 
 - Accepted P01 implementation: [first-working-slice](../openspec/changes/archive/2026-09-23-first-working-slice/design.md). On 2026-09-23 the user took control of the schedule and removed agent-enforced deadline reconciliation, four-hour limit and 60-minute reserve; historical estimates below and in linked documents are not implementation gates. Required acceptance checks remain.
 

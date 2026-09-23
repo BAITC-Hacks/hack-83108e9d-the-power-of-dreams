@@ -1,6 +1,6 @@
 ## Why
 
-Selected contractors need trustworthy, profile-specific evidence or explicit fallback facts. Complete P04 using the existing P01 extractor and the [approved evidence design](../../../.brainstorming/2026-09-23-evidence-module-design.md), closing narrow boundary and rare live-quality evidence gaps.
+Selected contractors need trustworthy, profile-specific evidence or explicit fallback facts. Complete P04 using the existing P01 extractor and the [approved evidence design](../../../../.brainstorming/2026-09-23-evidence-module-design.md), closing narrow boundary and rare live-quality evidence gaps.
 
 ## What Changes
 

@@ -1,21 +1,21 @@
 ## 1. Evidence acceptance
 
-- [ ] 1.1 Reconcile P01 pins and verify the existing real dense catalogue-to-HTTP scenario using scripts/slice/contracts.test.mjs before additional implementation.
-- [ ] 1.2 Repair selected-profile projection and close narrow defensive-input/fault/arbitrary-ID evidence gaps with colocated checks; preserve canonical payload/prompt equivalence and pass typecheck and existing slice checks.
-- [ ] 1.3 Verify rare live HK-39372 source/relevance and reconcile dense historical quality at matching model/data/payload; record per-card verdicts and all failures/skips.
+- [x] 1.1 Reconcile P01 pins and verify the existing real dense catalogue-to-HTTP scenario using scripts/slice/contracts.test.mjs before additional implementation.
+- [x] 1.2 Repair selected-profile projection and close narrow defensive-input/fault/arbitrary-ID evidence gaps with colocated checks; preserve canonical payload/prompt equivalence and pass typecheck and existing slice checks.
+- [x] 1.3 Verify rare live HK-39372 source/relevance and reconcile dense historical quality at matching model/data/payload; record per-card verdicts and all failures/skips.
 
 ## 2. Delivery
 
-- [ ] 2.1 Register focused checks, verify combined committed candidate with npm test/typecheck/build and README production launch/real dense HTTP scenario, then publish and confirm remote main.
+- [x] 2.1 Register focused checks, verify combined committed candidate with npm test/typecheck/build and README production launch/real dense HTTP scenario, then publish and confirm remote main.
 
 ## Stage table
 
 | Task | Stage | Evidence/revision | Remaining checks | Hold/blocker | Next action/owner |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | implemented | f9ed31f; existing slice 8/8 passed; relevant product/data matches 8aaad189 | Publication | None | Coordinator |
-| 1.2 | branch-pushed | bee7be9bd81b9a9cb537a2bdc2d3c35258da171b remote-confirmed; 12/12 focused+slice, typecheck passed | Combined acceptance/publication | None | Coordinator |
-| 1.3 | implemented | Rare live pass; dense/rare exact payload equivalence; historical dense reused | Publication | None | Coordinator |
-| 2.1 | planned | Public v1 unchanged | Combined acceptance/publication | Shared integration owned by catalog-module | Coordinator |
+| 1.1 | integrated | 8f2c400 published main; dense controlled checks passed | None | None | Downstream owners |
+| 1.2 | integrated | bee7be9 accepted in 8f2c400; projection review supported; 32/32 combined | None | None | Downstream owners |
+| 1.3 | integrated | Rare live pass and dense historical reuse verified; provider payload equivalence | None for P04 | P07 final rendering/timing separate | P07 owner |
+| 2.1 | integrated | 8f2c400 exact remote main; clean install/typecheck/tests/build/launch passed | None | None | Coordinator sync/archive report |
 
 Checkboxes measure final delivery. After acceptance/publication, sync contractor-evidence, archive, validate and publish the report-only update under the user's all-stages authorization.
 
@@ -56,3 +56,17 @@ Owner subsequently released. P04 acquired the canonical marker through exclusive
 After the projection repair, coordinator compared captured provider arguments through real createRecommend/CSV selection against accepted P01 8aaad189 for both dense and rare canonical requests. Input JSON strings, instructions, schema and token budget matched exactly; both had one call. Validator, cancellation and transport behavior remained byte-identical; model and dataset match. This establishes semantic reuse despite the explicit projection repair to runtime-extra inputs.
 
 Dense P01 source/relevance/distinctiveness evidence is reused from archived first-working-slice/tasks.md at 8aaad189: normalized request city Алматы/category Ведущий/eventFormat корпоратив/date 2026-10-10/budgetKzt 1500000, optional fields absent; same model/dataset as above. HK-88430 pass/pass (intelligent humour and organization); HK-29829 pass/pass (entertainment and dancing); HK-27222 pass/pass (European presentation and respect for traditions). Names-hidden substantive distinctiveness passed historical coordinator review on 2026-09-23; no new dense paid request claimed. Frozen inputs/prompt/body equivalence checked freshly by P04 coordinator.
+
+## Accepted combined candidate and publication
+
+2026-09-23: candidate 8f2c400e91995e4b3bb65c77e215afa7207e8334 combines P04 with published P02 main 400101ef1b210c2c45a871c4952f5580ba76faa7. README/package conflicts were resolved by preserving both modules and test registrations; no semantic runtime conflict. Review role /root/evidence_review supported the projection repair and focused evidence at this exact candidate, with no unresolved acceptance findings.
+
+Project-delivery verification ran from clean tracked integration checkout D:/Alem/hack-83108e9d-the-power-of-dreams-wt-integration, codex/p04-integration: npm ci --no-audit --no-fund passed; npm test passed 32/32 with no skipped tests; npm run typecheck and npm run build passed. npm start -- --port 3104 followed the README run method using a distinct free port. No local .env or personal session; OPENAI_API_KEY was explicitly blank for controlled configuration fallback. Production page/options returned 200; real dense POST returned 200, candidates 10, eligible 5, ordered HK-88430/HK-29829/HK-27222, exact normalized request and catalog_fallback. Dataset hash matches live evidence. Server stopped and port released; tracked checkout stayed clean.
+
+Feature origin codex/cs-04-evidence was independently confirmed at 8f2c400. Primary main was clean at 400101e, fast-forwarded to the verified candidate, and normal push succeeded. Independent ls-remote confirmed origin/main exactly 8f2c400e91995e4b3bb65c77e215afa7207e8334. All four delivery tasks integrated; CLI checkboxes 4/4. Status MERGED AND PUBLISHED.
+
+Limits: no new browser visual pass because UI is unchanged; accepted P01 browser evidence retained. Required P04 rare live executed once; dense live reused with demonstrated equivalence. P07 final rendering/three-request timing and P05 contract package remain outside P04. Existing Node module-type/experimental strip-types and ESLint deprecation notices did not fail checks. No new dependency or service. Archive/report changes do not invalidate unchanged executable acceptance.
+
+## Archive
+
+All four tasks reached integrated and origin/main was confirmed at accepted 8f2c400 before archival. OpenSpec apply reported all_done 4/4. Five requirements and every scenario were synchronized to openspec/specs/contractor-evidence/spec.md and compared exactly with the delta; all four current specs passed strict validation. The change was archived on 2026-09-23, with README/architecture and archive-relative links updated. This report-only follow-up preserves P05/P07 limitations above. No immutable frontend package exists for P04 to update.

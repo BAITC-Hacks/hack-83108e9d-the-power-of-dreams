@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal](proposal.md), [approved outcome](../../../.brainstorming/2026-09-23-evidence-module-design.md) and [validation architecture](../../../architecture/selection-and-explanations.md#ai-response-validation-boundary). Base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 retains identical back/contracts/slice/transport/data/package content to accepted P01 8aaad189393be78a21f1793afd2014c55794f7cd. P01 transferred evidence ownership. Other active changes remain independently owned.
+See [proposal](proposal.md), [approved outcome](../../../../.brainstorming/2026-09-23-evidence-module-design.md) and [validation architecture](../../../../architecture/selection-and-explanations.md#ai-response-validation-boundary). Base f9ed31fb5b4c99d42c1051d3cd43cc9f5af59766 retains identical back/contracts/slice/transport/data/package content to accepted P01 8aaad189393be78a21f1793afd2014c55794f7cd. P01 transferred evidence ownership. Other active changes remain independently owned.
 
 ## Goals / Non-Goals
 
@@ -15,7 +15,7 @@ See [proposal](proposal.md), [approved outcome](../../../.brainstorming/2026-09-
 | Evidence, apply role; back/ai/evidence/ | selectEvidence(NormalizedRequest, readonly EvidenceProfile[], AbortSignal): Promise<EvidenceResult>; validateEvidence(text, profiles) | No persistent data; public evidence types and injected transport only | Existing slice checks plus colocated missing boundary checks |
 | Coordinator | Shared test command, architecture index, task state, live verification, Git integration | Existing composition, transport, fixtures and CSV are consumed unchanged | Combined tests/typecheck/build/production HTTP scenario |
 
-Evidence returns validated byId values (accepted normalized quote or per-card fallback reason), unavailable with frozen reason, or rejects AbortError/unexpected faults. Its complete shape and cases are in [spec](specs/contractor-evidence/spec.md) and frozen [ports](../../../back/recommend/ports.ts). No consumer imports evidence internals for public types. No frontend package is needed: P05 owns that handoff.
+Evidence returns validated byId values (accepted normalized quote or per-card fallback reason), unavailable with frozen reason, or rejects AbortError/unexpected faults. Its complete shape and cases are in [spec](specs/contractor-evidence/spec.md) and frozen [ports](../../../../back/recommend/ports.ts). No consumer imports evidence internals for public types. No frontend package is needed: P05 owns that handoff.
 
 Retain the existing two-pass batch/quote validation and null-prototype map. Retain the existing prompt and literalSentenceChoices. A read-only probe reproduced that spreading a profile forwards additional runtime fields; explicitly project the six permitted fields, preserving their serialized order and values for existing canonical inputs. This repairs the declared boundary without changing the valid P01 provider payload. Add a regression check and prove canonical input/prompt equality with baseline; no speculative extractor rewrite or new evaluator.
 
