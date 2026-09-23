@@ -64,6 +64,28 @@ the modes are `catalog_fallback, not_needed`. This uses the real catalogue and
 HTTP API; it does not evaluate live AI explanation quality. **If you configure
 OpenAI, the smoke check can make four billable provider requests.**
 
+### What Docker installs and starts
+
+| Component | How it is supplied |
+| --- | --- |
+| Node.js 24.4.1 / npm 11.4.2 | Official Linux base image pinned by digest in `Dockerfile` |
+| Application dependencies | `npm ci` installs the committed lockfile in a clean build stage; `npm prune --omit=dev` removes development packages from the runtime stage |
+| Build and verification | The image build runs `npm run typecheck`, `npm test` and `npm run build`; a failing check stops the build |
+| Web interface and API | One Compose service, `app`, serves both through the same port |
+| Catalogue and wishes evidence | CSV is copied into the image; the validated wishes index is bundled during the application build |
+| OpenAI | Optional external API, enabled only by runtime credentials; it is not a Docker service |
+
+There is no database, Redis, queue, separate frontend container or dependency
+service to start. No source bind mount or persistent volume is needed. The
+runtime image includes production packages and compiled assets; browser-test
+tools are build/development dependencies. Do not run `npm ci` inside the running
+container: rebuild the image when dependencies change.
+
+This Compose configuration is for local evaluation: the host port binds to
+`127.0.0.1` and is not accessible from another computer. Public hosting requires
+separate network/TLS/access configuration. User results live in browser memory;
+reload clears them. Rebuilding is required after catalogue or source changes.
+
 To inspect startup problems or stop and remove this project's containers/network:
 
 ```powershell
@@ -135,7 +157,7 @@ npm --version
 
 No database, Docker, Python, WSL, GPU, NVIDIA account or separate backend service
 is required for this Node.js route. OpenAI access is optional for catalogue-only
-operation. The Brev instructions at the end are separate operator tooling.
+operation. Historical GPU experiments are not part of application deployment.
 
 ### 2. Get the project and install dependencies
 
@@ -166,8 +188,7 @@ It labels these explanations as generated from catalogue fields without AI.
 node scripts/secrets/setup.mjs
 ```
 
-Open the root `.env` locally and fill `OPENAI_API_KEY`. Leave the other service
-keys blank; they are not used by this application. `OPENAI_MODEL` is optional;
+Open the root `.env` locally and fill `OPENAI_API_KEY`. `OPENAI_MODEL` is optional;
 absent or blank uses `gpt-5.6-luna`. The setup command preserves an
 existing `.env`. Verify that the key is present without displaying it:
 
@@ -323,10 +344,15 @@ The catalogue is loaded into memory on first use and retained for the process.
 ```mermaid
 flowchart LR
     Form["Browser form"] --> API["Server: validate request"]
-    CSV["CSV catalogue in memory"] --> Rules["Eligibility rules and price ordering"]
+    Form --> Parse["Optional wishes: OpenAI interpretation"]
+    Parse --> Review["User reviews conditions"]
+    Review --> API
+    CSV["CSV catalogue in memory"] --> Rules["Hard eligibility rules"]
     API --> Rules
-    Rules --> Selected["Up to three contractors"]
-    Selected --> Evidence["Optional OpenAI source quotes"]
+    Rules --> Order["Confirmed wishes: local evidence order; otherwise price / ID"]
+    Index["Bundled validated wishes evidence"] --> Order
+    Order --> Selected["Up to three contractors"]
+    Selected --> Evidence["Without wishes: optional OpenAI source quotes"]
     Selected --> Result["Local explanation assembly"]
     Evidence --> Check["Validate quotes against source descriptions"]
     Check --> Result
@@ -495,10 +521,12 @@ This creates one root `.env` from [.env.example](.env.example). An existing
 | `OPENAI_MODEL` | Optional model override; blank uses `gpt-5.6-luna` | Only to override the default OpenAI model |
 | `APP_PORT` | Docker Compose host port; blank uses `3101` | Only to override the Compose port; ignored by `npm start` |
 
-Quote values containing `#` or
+For the direct Node.js secrets reader, quote values containing `#` or
 whitespace. Values are literal; references such as `${OTHER_VARIABLE}` are
-not expanded. Add future secrets to the same file and document their empty
-entries in the template.
+not expanded. Docker Compose uses its own interpolation rules: single-quote
+literal values containing `$` or `#`, as described in the Docker section.
+Add future secrets to the same file and document their empty entries in the
+template.
 
 For this application, check only the OpenAI key if using live quotes:
 
