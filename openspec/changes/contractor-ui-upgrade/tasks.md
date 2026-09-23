@@ -65,6 +65,10 @@ The full supplied description and tags are retained verbatim in README; UI brand
 
 | Task | Stage | Evidence / revision | Remaining checks | Hold / blocker | Next action / owner |
 | --- | --- | --- | --- | --- | --- |
-| Copy follow-up | implemented | npm run typecheck, npm run build, git diff --check passed; production3124 browser confirmed visible brand/heading, exact title/description/keywords and no horizontal overflow | Normal publication and remote SHA confirmation | None | Coordinator |
+| Copy follow-up | integrated | Source3be31e044da2f72cf30a16a078395c7169738ad6; remote main confirmed at b01b3da753806f8313fb2eca13aa8744c0f27ca5; typecheck/build/diff checks and production3124 visible brand/title/description/keywords/no overflow passed | None for this copy update | None | Complete |
 
 Verification is scoped to text and metadata; unchanged selection, API and paid-provider scenarios were not rerun. No new dependencies, tests, services or secrets were introduced. Existing broad acceptance evidence above remains historical evidence for unchanged behavior.
+
+Initial integration handoff: task01a0ce1a-086f-7772-9104-a72718f35156 requested that this coordinator leave main unchanged while it combined the accepted UI with its brief-matching feature. Exact published source3be31e0 and verification were sent. That temporary coordination hold was superseded by the user's explicit subsequent request to commit and push this copy update to main.
+
+Publication: coordinator01a0ce17-fcfe-7e13-9aa8-238a516ab0a0 notified the neighboring task and acquired integration-worktree/main-publication by exclusive CreateNew at2026-09-23T12:26:08.9870516Z. The clean integration and primary main checkouts fast-forwarded from d3fb904 to b01b3da; a normal main push succeeded and remote main SHA b01b3da753806f8313fb2eca13aa8744c0f27ca5 was confirmed. Exact checked copy source3be31e0 is included; no executable changes occurred after its checks. Status: MERGED AND PUBLISHED. This report-only update is published under the same reservation, which is released after shared operations stop. The neighboring AI task retains responsibility for its separate combined acceptance and publication.
